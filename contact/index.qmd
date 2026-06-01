@@ -1,0 +1,40 @@
+---
+title: "Contact"
+description: "Contact ISA RC42 Social Psychology."
+---
+
+## Contact RC42 Social Psychology
+
+### General Inquiries
+
+For questions, suggestions, or collaboration proposals, please contact the RC42 board:
+
+**Email:** [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org)
+
+### Specific Contacts
+
+| Role | Name | Contact |
+|:---|:---|:---|
+| **President** | Juan Carlos Castillo | Via RC42 email |
+| **Secretary / Treasurer** | Lisa Slattery Walker | Via RC42 email |
+
+::: {.callout-note appearance="minimal"}
+For official ISA matters (membership, fees, general ISA information), please contact the ISA Secretariat directly through the [ISA website](https://www.isa-sociology.org/).
+:::
+
+### Submit Content
+
+To share news, events, or opportunities with the community:
+
+- [Submit a contribution](../participate/submit-contribution.qmd)
+
+### Quick Links
+
+- [ISA Official Website](https://www.isa-sociology.org/)
+- [ISA RC42 Official Page](https://www.isa-sociology.org/en/research-networks/research-committees/rc42-social-psychology/)
+
+---
+
+**About This Portal:** This website is maintained as a complementary digital portal for RC42 Social Psychology. It is not an official ISA platform. Content is reviewed and approved by the RC42 board before publication. 
+
+For technical issues with this website, please contact the [Online Communication Manager](../people/index.qmd) or the RC42 board via email.

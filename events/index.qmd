@@ -1,0 +1,41 @@
+---
+title: "Events"
+description: "Conferences, workshops, and sessions organized or endorsed by ISA RC42 Social Psychology."
+---
+
+## RC42 Events
+
+Conferences, workshops, panels, and sessions organized by or relevant to RC42 Social Psychology.
+
+### Upcoming Events
+
+::: {.event-card}
+::: {.card-tag}
+Congress
+:::
+::: {.card-title}
+XXI ISA World Congress of Sociology 2027
+:::
+::: {.card-text}
+The XXI ISA World Congress of Sociology is a major upcoming event. RC42 Social Psychology will participate with sessions organized by the Program Coordinator, Juan Carlos Castillo. Detailed session information will be published as it becomes available.
+:::
+::: {.card-date}
+📅 Dates to be confirmed · 📍 Location to be confirmed
+:::
+:::
+
+::: {.placeholder-notice}
+Additional events will be listed as they are submitted and approved. To submit an event, use the [contribution form](../participate/submit-contribution.qmd).
+:::
+
+### Past Events
+
+::: {.placeholder-notice}
+A listing of past RC42 events (conference sessions, workshops, etc.) will be added as information becomes available. If you have records of past RC42 events, please [contact the board](../contact/index.qmd).
+:::
+
+---
+
+### Submit an Event
+
+If you know of an event relevant to the RC42 community, please submit it through the [contribution form](../participate/submit-contribution.qmd).

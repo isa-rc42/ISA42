@@ -1,0 +1,45 @@
+---
+title: "Update Profile"
+description: "Request an update to an existing member profile on the RC42 portal."
+---
+
+## Update Your Profile
+
+::: {.info-box}
+Profile updates are handled manually in this initial version of the portal. A self-service update form will be available in a future phase.
+:::
+
+### How to Request a Profile Update
+
+To update your existing member profile on the RC42 portal, please:
+
+1. **Send an email** to [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org) with:
+   - Your full name (as it appears on your profile)
+   - The specific information you want to update
+   - The new content to replace the existing information
+
+2. **Or open a GitHub Issue** (if you have a GitHub account):
+   - Visit the [RC42 repository](https://github.com/) *(link to be updated)*
+   - Open a new issue using the "Update Profile" template
+   - Fill in the requested information
+
+### What Can Be Updated?
+
+You can request updates to any of the following:
+
+- Affiliation and position
+- Biography
+- Research interests
+- Selected publications
+- Academic links (ORCID, Google Scholar, LinkedIn, website)
+- Photo
+- Contact information
+- Country/city
+
+### Processing Time
+
+Profile updates are processed by the RC42 board or designated editor. Please allow a few days for the update to be reflected on the portal.
+
+::: {.placeholder-notice}
+In a future version of this portal, a self-service profile update form will be available, allowing members to submit updates directly through the website.
+:::

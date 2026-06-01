@@ -1,0 +1,55 @@
+---
+title: "Participate"
+description: "Discover how you can engage with the RC42 Social Psychology community."
+---
+
+::: {.section-header}
+## Participate in RC42
+We rely on the active involvement of our global community.
+:::
+
+There are multiple ways to get involved with RC42, whether you are formally joining the committee, increasing your visibility in our directory, or sharing resources with peers.
+
+::: {.card-grid}
+
+::: {.card-rc42 .border-navy}
+::: {.card-title}
+Join RC42
+:::
+::: {.card-text}
+Learn about the formal process of becoming an official member of the Research Committee via the ISA website.
+:::
+[Membership information →](../membership/index.qmd){.card-link}
+:::
+
+::: {.card-rc42 .border-blue}
+::: {.card-title}
+Submit a Contribution
+:::
+::: {.card-text}
+Have news, an event, or an academic opportunity to share? Submit it for publication on our portal.
+:::
+[Submit content →](submit-contribution.qmd){.card-link}
+:::
+
+::: {.card-rc42 .border-navy}
+::: {.card-title}
+Update Your Profile
+:::
+::: {.card-text}
+Need to refresh your bio, affiliation, or research interests? Request an update to your existing profile.
+:::
+[Update profile →](update-profile.qmd){.card-link}
+:::
+
+::: {.card-rc42 .border-teal}
+::: {.card-title}
+Discussions
+:::
+::: {.card-text}
+Join virtual roundtables and asynchronous discussions around core themes in social psychology.
+:::
+[View discussions →](../discussions/index.qmd){.card-link}
+:::
+
+:::

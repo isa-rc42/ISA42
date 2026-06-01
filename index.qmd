@@ -1,0 +1,552 @@
+---
+pagetitle: "ISA RC42 Social Psychology — Home"
+toc: false
+page-layout: custom
+---
+
+::: {.hero-fullbleed}
+::: {.hero-overlay}
+:::
+::: {.hero-inner}
+::: {.hero-kicker}
+Research Committee 42 · Established in 1988
+:::
+<h1 class="hero-title">RC42 Social Psychology</h1>
+::: {.hero-subtitle}
+International Sociological Association
+:::
+::: {.hero-body}
+A global research committee connecting scholars interested in identities, interaction, culture, inequality, collective life and the sociological study of social psychology.
+:::
+::: {.hero-actions}
+[Join RC42](membership/index.qmd){.btn-rc42-primary .btn-sm}
+:::
+:::
+:::
+
+<!-- ================================================================ -->
+<!-- What RC42 Does (Editorial Split Layout) -->
+<!-- ================================================================ -->
+
+::: {.home-section .section-white .home-mission}
+::: {.section-inner .section-wide}
+
+::: {.editorial-layout}
+::: {.editorial-intro}
+::: {.section-kicker}
+Mission
+:::
+<h2>What RC42 Does</h2>
+<p class="editorial-intro-text">
+RC42 fosters international research, debate, and collaboration in sociological social psychology. Our network bridges regions and research traditions to deepen our understanding of the relationship between social structures and individual experience.
+</p>
+[About our history](about/index.qmd#history){.btn-rc42-secondary}
+:::
+
+::: {.editorial-list}
+::: {.editorial-list-item}
+::: {.item-number}
+01
+:::
+::: {.item-content}
+<h3>International Research Network</h3>
+<p>Connecting scholars across regions to study identities, interaction, emotions, attitudes, and collective life.</p>
+[Membership Directory →](members/index.qmd)
+:::
+:::
+
+::: {.editorial-list-item}
+::: {.item-number}
+02
+:::
+::: {.item-content}
+<h3>Scientific Exchange</h3>
+<p>Supporting comparative research, theoretical development, and methodological discussion within the discipline.</p>
+[View objectives →](about/index.qmd#objectives)
+:::
+:::
+
+::: {.editorial-list-item}
+::: {.item-number}
+03
+:::
+::: {.item-content}
+<h3>Events & Congresses</h3>
+<p>Organizing sessions and academic exchanges around the ISA World Congress, ISA Forum, and other global spaces.</p>
+[Upcoming events →](activities/index.qmd)
+:::
+:::
+
+::: {.editorial-list-item}
+::: {.item-number}
+04
+:::
+::: {.item-content}
+<h3>Newsletters & Resources</h3>
+<p>Circulating newsletters, calls, publications, teaching materials, and resources relevant to our members.</p>
+[Read the newsletter →](newsletter/index.qmd)
+:::
+:::
+:::
+:::
+
+:::
+:::
+
+<!-- ================================================================ -->
+<!-- Latest Updates (News Carousel) -->
+<!-- ================================================================ -->
+```{=html}
+<style>
+.home-updates-section {
+  padding: 48px 24px 56px; /* Reducido para integrar mejor con el ritmo editorial */
+  background: #fcfdfe; /* Gris extremadamente claro para separarlo sutilmente del blanco puro pero sin caja dura */
+  border-top: 1px solid rgba(8, 21, 43, 0.05);
+  border-bottom: 1px solid rgba(8, 21, 43, 0.05);
+  overflow: hidden;
+}
+
+.home-updates-shell {
+  width: min(100%, 1280px); /* Mismo ancho editorial maximo */
+  margin: 0 auto;
+}
+
+.home-updates-header {
+  max-width: 860px;
+  margin: 0 0 32px;
+}
+
+.home-updates-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #00a99d;
+  margin-bottom: 12px;
+}
+
+.home-updates-kicker::after {
+  content: "";
+  display: block;
+  width: 84px;
+  height: 2px;
+  background: #00a99d;
+  margin-top: 10px;
+}
+
+.home-updates-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem); /* Titulo mas contenido y sobrio */
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+  color: #08152b;
+}
+
+.home-updates-header p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #506487;
+  margin: 0;
+  max-width: 820px; /* Ancho de lectura comodo */
+}
+
+.updates-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.updates-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 24px; /* Margen para la sombra en el hover */
+}
+
+.updates-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.updates-card {
+  flex: 0 0 calc(33.333% - 14px);
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 1px solid rgba(8, 21, 43, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.updates-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(8, 21, 43, 0.08);
+  border-color: rgba(0, 169, 157, 0.25);
+}
+
+.updates-card-media {
+  height: 160px; /* Mas compacto (150-180px) */
+  background: #dfe7f2;
+  overflow: hidden;
+}
+
+.updates-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease, filter 500ms ease;
+  filter: saturate(0.9);
+}
+
+.updates-card:hover .updates-card-media img {
+  transform: scale(1.03);
+  filter: saturate(1);
+}
+
+.updates-card-body {
+  padding: 16px 18px 20px; /* Reducido para compactar */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.updates-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.updates-card-category {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #00a99d;
+}
+
+/* Color especial si es destacado ISA 2027 */
+.updates-card-category--special {
+  color: #003b7a;
+}
+
+.updates-card-date {
+  font-size: 0.75rem;
+  color: #7b8ea8;
+  font-weight: 500;
+}
+
+.updates-card-title {
+  font-size: 1.15rem; /* Menos gigante */
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  color: #08152b;
+  font-weight: 700;
+}
+
+.updates-card-excerpt {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #506487;
+  margin: 0 0 16px;
+  flex-grow: 1;
+}
+
+.updates-card-cta {
+  font-size: 0.8rem;
+  font-weight: 850;
+  color: #003b7a;
+  display: inline-flex;
+  align-items: center;
+}
+
+.updates-card:hover .updates-card-cta {
+  color: #00a99d;
+}
+
+.updates-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.updates-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(8, 21, 43, 0.12);
+  background: transparent;
+  color: #08152b;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-size: 1.1rem;
+}
+
+.updates-nav-btn:hover {
+  background: #08152b;
+  color: #ffffff;
+  border-color: #08152b;
+}
+
+@media (max-width: 1024px) {
+  .updates-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-updates-section {
+    padding: 40px 16px 40px;
+  }
+  .updates-card {
+    flex: 0 0 85%;
+  }
+  .updates-nav {
+    display: none;
+  }
+  .home-updates-header h2 {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+}
+</style>
+
+<section class="home-updates-section">
+  <div class="home-updates-shell">
+    <header class="home-updates-header">
+      <span class="home-updates-kicker">Updates</span>
+      <h2>Latest from RC42</h2>
+      <p>Official announcements, upcoming events, calls for papers, and recent publications from the committee and our members.</p>
+    </header>
+
+    <div class="updates-carousel-wrapper">
+      <div class="updates-carousel" id="updatesCarousel">
+        
+        <!-- Card 1 -->
+        <a href="activities/index.html" class="updates-card">
+          <div class="updates-card-media">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="RC42 Digital Portal">
+          </div>
+          <div class="updates-card-body">
+            <div class="updates-card-meta">
+              <span class="updates-card-category">News</span>
+              <span class="updates-card-date">May 2026</span>
+            </div>
+            <h3 class="updates-card-title">Welcome to the RC42 Digital Portal</h3>
+            <p class="updates-card-excerpt">We are launching a new complementary digital portal to strengthen communication, visibility, and collaboration among members worldwide.</p>
+            <span class="updates-card-cta">Read more &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="activities/index.html" class="updates-card" style="border-top: 3px solid #003b7a;">
+          <div class="updates-card-media">
+            <img src="https://www.isa-sociology.org/uploads/imgen/2568-wcs27-poster.jpg" alt="XXI ISA World Congress of Sociology">
+          </div>
+          <div class="updates-card-body">
+            <div class="updates-card-meta">
+              <span class="updates-card-category updates-card-category--special">Event</span>
+              <span class="updates-card-date">July 2027</span>
+            </div>
+            <h3 class="updates-card-title">XXI ISA World Congress of Sociology</h3>
+            <p class="updates-card-excerpt">RC42 will participate in the XXI ISA World Congress of Sociology in Gwangju under the theme &ldquo;Global Sociology in Turbulent Times.&rdquo;</p>
+            <span class="updates-card-cta">View event &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="newsletter/index.html" class="updates-card">
+          <div class="updates-card-media">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="RC42 Newsletter">
+          </div>
+          <div class="updates-card-body">
+            <div class="updates-card-meta">
+              <span class="updates-card-category">Newsletter</span>
+              <span class="updates-card-date">June 2025</span>
+            </div>
+            <h3 class="updates-card-title">New RC42 Newsletter Available</h3>
+            <p class="updates-card-excerpt">Read the latest newsletter featuring announcements, committee updates, and contributions from the RC42 network.</p>
+            <span class="updates-card-cta">Read newsletter &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="activities/index.html" class="updates-card">
+          <div class="updates-card-media">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80" alt="Recent Publications">
+          </div>
+          <div class="updates-card-body">
+            <div class="updates-card-meta">
+              <span class="updates-card-category">Publication</span>
+              <span class="updates-card-date">April 2026</span>
+            </div>
+            <h3 class="updates-card-title">Recent Member Publications Spotlight</h3>
+            <p class="updates-card-excerpt">Discover selected recent publications by RC42 members on identity, emotions, inequality, collective action, and social interaction.</p>
+            <span class="updates-card-cta">Explore publication &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="members/index.html" class="updates-card">
+          <div class="updates-card-media">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Members Directory">
+          </div>
+          <div class="updates-card-body">
+            <div class="updates-card-meta">
+              <span class="updates-card-category">Community</span>
+              <span class="updates-card-date">May 2026</span>
+            </div>
+            <h3 class="updates-card-title">Members Directory Now Available</h3>
+            <p class="updates-card-excerpt">The new public RC42 directory improves visibility across countries, institutions, and research interests within the committee.</p>
+            <span class="updates-card-cta">Browse directory &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="participate/index.html" class="updates-card">
+          <div class="updates-card-media">
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Call for Contributions">
+          </div>
+          <div class="updates-card-body">
+            <div class="updates-card-meta">
+              <span class="updates-card-category">Opportunity</span>
+              <span class="updates-card-date">June 2026</span>
+            </div>
+            <h3 class="updates-card-title">Call for Newsletter Contributions</h3>
+            <p class="updates-card-excerpt">Members are invited to submit short updates, announcements, and publication news for the next RC42 newsletter issue.</p>
+            <span class="updates-card-cta">Explore call &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="updates-nav">
+        <button class="updates-nav-btn" id="updatesPrev" aria-label="Previous updates">&larr;</button>
+        <button class="updates-nav-btn" id="updatesNext" aria-label="Next updates">&rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.getElementById('updatesCarousel');
+  const prevBtn = document.getElementById('updatesPrev');
+  const nextBtn = document.getElementById('updatesNext');
+
+  if (!carousel || !prevBtn || !nextBtn) return;
+
+  const scrollAmount = () => {
+    const card = carousel.querySelector('.updates-card');
+    return card ? card.offsetWidth + 20 : 400;
+  };
+
+  const scrollNext = () => {
+    // Si estamos al final, volvemos al inicio
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+      carousel.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      carousel.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    }
+  };
+
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', scrollNext);
+
+  // Autoplay
+  let autoPlayInterval;
+  
+  const startAutoPlay = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    stopAutoPlay(); // Prevents multiple intervals
+    autoPlayInterval = setInterval(scrollNext, 2200); // Movimiento más rápido (2.2s)
+  };
+  
+  const stopAutoPlay = () => {
+    if (autoPlayInterval) clearInterval(autoPlayInterval);
+  };
+  
+  carousel.addEventListener('mouseenter', stopAutoPlay);
+  carousel.addEventListener('mouseleave', startAutoPlay);
+  carousel.addEventListener('touchstart', stopAutoPlay);
+  carousel.addEventListener('touchend', startAutoPlay);
+  
+  // Start initially
+  startAutoPlay();
+});
+</script>
+```
+
+<!-- ================================================================ -->
+<!-- Member Directory CTA -->
+<!-- ================================================================ -->
+
+::: {.member-network-cta .member-network-video-section}
+
+```{=html}
+<video class="member-network-video-bg" autoplay muted loop playsinline>
+  <source src="images/backgrounds/member-network.mp4" type="video/mp4">
+</video>
+<div class="member-network-video-overlay"></div>
+```
+
+::: {.section-inner .member-network-content}
+::: {.section-kicker}
+MEMBERSHIP NETWORK
+:::
+<h2>Explore the RC42 international member network</h2>
+<p>
+  Discover scholars working across regions, institutions, and research traditions
+  in sociological social psychology.
+</p>
+::: {.cta-buttons}
+[Browse members](members/index.qmd){.btn-rc42-primary .btn-sm}
+[Board Directory](people/index.qmd){.btn-rc42-secondary .btn-sm}
+:::
+:::
+
+:::
+
+<!-- ================================================================ -->
+<!-- Participate (Action List) -->
+<!-- ================================================================ -->
+
+::: {.home-participate .compact-participate}
+::: {.section-inner .participate-compact-layout}
+
+::: {.participate-heading}
+::: {.section-kicker}
+Engage
+:::
+<h2>Participate in RC42</h2>
+<p>Share profiles, news, events, calls, and resources with the RC42 community.</p>
+:::
+
+::: {.participate-actions}
+<article>
+  <h3>Submit a Contribution</h3>
+  <p>Send news, events, calls, publications, or resources for editorial review.</p>
+  <a href="participate/submit-contribution.qmd">Submit content &rarr;</a>
+</article>
+
+<article>
+  <h3>Discussion Spaces</h3>
+  <p>Future discussion spaces may open if sustained participation emerges.</p>
+  <a href="discussions/index.qmd">Learn more &rarr;</a>
+</article>
+:::
+
+:::
+:::

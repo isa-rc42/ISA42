@@ -1,0 +1,169 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - "data/rc42_members_clean.json"
+
+website:
+  title: "ISA RC42 Social Psychology"
+  description: "Research Committee 42 of the International Sociological Association — Advancing international sociological social psychology since 1988."
+  site-url: "https://rc42-socialpsychology.netlify.app"
+  favicon: "images/favicon.png"
+
+  search:
+    location: navbar
+    type: overlay
+
+  navbar:
+    background: "rgba(15, 23, 42, 0.98)"
+    foreground: "#ffffff"
+    logo: "images/logos/rc42.png"
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about/index.qmd
+        menu:
+          - text: "About RC42"
+            href: about/index.qmd
+          - text: "Objectives"
+            href: about/index.qmd#objectives
+          - text: "History"
+            href: about/index.qmd#history
+          - text: "Statutes"
+            href: about/index.qmd#statutes
+          - text: "Relation with ISA"
+            href: about/index.qmd#relation-isa
+      - text: "People"
+        href: people/index.qmd
+        menu:
+          - text: "Leadership Board"
+            href: people/index.qmd
+          - text: "Past Boards"
+            href: past-boards/index.qmd
+          - text: "Members Directory"
+            href: members/index.qmd
+      - text: "Activities"
+        href: activities/index.qmd
+        menu:
+          - text: "News"
+            href: news/index.qmd
+          - text: "Events"
+            href: events/index.qmd
+          - text: "Opportunities"
+            href: opportunities/index.qmd
+          - text: "ISA World Congress 2027"
+            href: activities/world-congress-2027.qmd
+          - text: "Newsletter"
+            href: newsletter/index.qmd
+      - text: "Resources"
+        href: resources/index.qmd
+        menu:
+          - text: "Resources & Publications"
+            href: resources/index.qmd
+          - text: "Blog / Posts"
+            href: blog/index.qmd
+      - text: "Participate"
+        href: participate/index.qmd
+        menu:
+          - text: "Join RC42"
+            href: membership/index.qmd
+          - text: "Create member profile"
+            href: participate/create-profile.qmd
+          - text: "Update profile"
+            href: participate/update-profile.qmd
+          - text: "Submit contribution"
+            href: participate/submit-contribution.qmd
+          - text: "Discussions"
+            href: discussions/index.qmd
+      - text: "Contact"
+        href: contact/index.qmd
+    right:
+      - text: "Join RC42"
+        href: membership/index.qmd
+
+  page-footer:
+    background: "#0f172a"
+    left: |
+      ::: {.footer-inner}
+      
+      ::: {.footer-top}
+      
+      ::: {.footer-content}
+      
+      ::: {.footer-brand-block}
+      
+      [ISA RC42]{.footer-kicker}
+      
+      ## RC42 Social Psychology
+      
+      A Research Committee of the [International Sociological Association](https://www.isa-sociology.org/).
+      
+      Contact: [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org)
+      
+      :::
+      
+      ::: {.footer-links-grid}
+      
+      ::: {.footer-column}
+      
+      ### About
+      - [Objectives](/about/#objectives)
+      - [Board](/people/index.qmd)
+      - [Membership](/membership/index.qmd)
+      - [Newsletter](/newsletter/index.qmd)
+      
+      :::
+      
+      ::: {.footer-column}
+      
+      ### Participate
+      - [Create profile](/participate/create-profile.qmd)
+      - [Submit contribution](/participate/submit-contribution.qmd)
+      - [Members](/members/index.qmd)
+      - [Discussions](/discussions/index.qmd)
+      
+      :::
+      
+      ::: {.footer-column}
+      
+      ### Institutional
+      - [International Sociological Association](https://www.isa-sociology.org/)
+      - [Statutes](/about/#statutes)
+      - [Past Boards](/past-boards/index.qmd)
+      - [Contact](/contact/index.qmd)
+      
+      :::
+      
+      :::
+      
+      :::
+      
+      ::: {.footer-logo-panel}
+      <img src="/images/logos/ISA_RC42.png" alt="ISA RC42 Social Psychology">
+      :::
+      
+      :::
+      
+      ::: {.footer-divider}
+      :::
+      
+      ::: {.footer-bottom}
+      Official ISA membership is managed through the International Sociological Association.
+      
+      &copy; 2025 ISA RC42 Social Psychology
+      :::
+      
+      :::
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    css: []
+    toc: true
+    toc-depth: 3
+    link-external-newwindow: false
+    code-copy: true
+

@@ -1,0 +1,106 @@
+---
+pagetitle: "RC42 Members Directory"
+description: "Public directory of ISA RC42 Social Psychology members."
+toc: false
+page-layout: custom
+title-block-style: none
+---
+
+::: {.members-directory-page}
+
+::: {.members-directory-hero}
+```{=html}
+<canvas class="members-network-canvas" id="networkCanvas"></canvas>
+```
+::: {.section-inner}
+
+::: {.header-content}
+[MEMBERSHIP NETWORK]{.hero-kicker}
+
+# RC42 Members Directory
+
+[Explore the international network of scholars affiliated with ISA RC42 Social Psychology.]{.hero-description}
+:::
+
+::: {.directory-stats}
+::: {.directory-stat}
+[--]{#stat-total .stat-value}
+[Members]{.stat-label}
+:::
+
+::: {.directory-stat}
+[--]{#stat-countries .stat-value}
+[Countries]{.stat-label}
+:::
+
+::: {.directory-stat}
+[--]{#stat-institutions .stat-value}
+[Institutions]{.stat-label}
+:::
+
+::: {.directory-stat}
+[--]{#stat-updated .stat-value}
+[Last updated]{.stat-label}
+:::
+:::
+
+:::
+:::
+
+::: {.section-inner}
+
+::: {.members-toolbar}
+```{=html}
+<div class="toolbar-search">
+  <label for="member-search" class="visually-hidden">Search members</label>
+  <input type="text" id="member-search" placeholder="Search by name, institution, or country..." />
+</div>
+<div class="toolbar-filters">
+  <label for="country-filter" class="visually-hidden">Filter by country</label>
+  <select id="country-filter">
+    <option value="">All Countries</option>
+  </select>
+
+  <label for="link-filter" class="visually-hidden">Filter by links</label>
+  <select id="link-filter">
+    <option value="">Any Links</option>
+    <option value="orcid">Has ORCID</option>
+    <option value="website">Has Website</option>
+    <option value="linkedin">Has LinkedIn</option>
+    <option value="twitter">Has X/Twitter</option>
+  </select>
+
+  <button id="clear-filters" class="btn-clear-filters">Clear filters</button>
+</div>
+```
+:::
+
+```{=html}
+<div class="members-results-info">
+  Showing <span id="results-count">--</span> of <span id="total-count">--</span> members
+</div>
+
+<div id="no-results" class="members-empty-state" style="display: none;">
+  No members match the current filters.
+</div>
+
+<div id="members-grid" class="members-grid">
+  <!-- JavaScript will inject member rows here -->
+</div>
+```
+
+::: {.members-privacy-note}
+::: {.privacy-actions}
+[Submit a correction](../participate/update-profile.qmd){.btn-rc42-primary .btn-small}
+:::
+:::
+
+:::
+
+:::
+
+```{=html}
+<script src="../assets/js/members-data.js"></script>
+<script src="../assets/js/members-directory.js"></script>
+<script src="../assets/js/members-network-bg.js"></script>
+```

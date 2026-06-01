@@ -1,0 +1,71 @@
+# =============================================================================
+# ISA RC42 Board 2023–2027
+# Source: Official ISA RC42 information
+# =============================================================================
+
+term: "2023–2027"
+
+members:
+  - name: "Juan Carlos Castillo"
+    role: "President"
+    affiliation: "Universidad de Chile"
+    country: "Chile"
+    email: ""  # To be confirmed
+    photo: ""  # To be added
+    orcid: ""  # To be added
+    website: "https://jc-castillo.com/"
+    bio: "Program Coordinator for the XXI ISA World Congress of Sociology 2027."
+
+  - name: "Lisa Slattery Walker"
+    role: "Secretary/Treasurer"
+    affiliation: "University of North Carolina at Charlotte"
+    country: "USA"
+    email: ""  # To be confirmed
+    photo: ""  # To be added
+    orcid: ""  # To be added
+    website: ""  # To be added
+    bio: "Content to be confirmed by the RC42 board."
+
+  - name: "t.b.a."
+    role: "Online Communication Manager"
+    affiliation: ""
+    country: ""
+    email: ""
+    photo: ""
+    orcid: ""
+    website: ""
+    bio: "Position to be announced."
+
+  - name: "Charles Puttergill"
+    role: "Board Member"
+    affiliation: "University of Pretoria"
+    country: "South Africa"
+    email: ""
+    photo: ""
+    orcid: ""
+    website: ""
+    bio: "Content to be confirmed by the RC42 board."
+
+  - name: "Karla Henríquez Ojeda"
+    role: "Board Member"
+    affiliation: "Université catholique de Louvain"
+    country: "Belgium"
+    email: ""
+    photo: ""
+    orcid: ""
+    website: ""
+    bio: "Content to be confirmed by the RC42 board."
+
+  - name: "Deepak Kumar Verma"
+    role: "Board Member"
+    affiliation: "Dr. B. R. Ambedkar University of Social Sciences"
+    country: "India"
+    email: ""
+    photo: ""
+    orcid: ""
+    website: ""
+    bio: "Content to be confirmed by the RC42 board."
+
+program_coordinators:
+  - congress: "XXI ISA World Congress of Sociology 2027"
+    name: "Juan Carlos Castillo"

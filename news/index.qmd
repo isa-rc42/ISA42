@@ -1,0 +1,18 @@
+---
+title: "News"
+description: "News and announcements from ISA RC42 Social Psychology."
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: false
+  feed: true
+---
+
+## RC42 News
+
+Latest news, announcements, and updates from RC42 Social Psychology.
+
+::: {.info-box}
+To submit a news item, use the [contribution form](../participate/submit-contribution.qmd). All submissions are reviewed by the RC42 board before publication.
+:::

@@ -1,0 +1,64 @@
+name: "Submit News"
+description: "Submit a news item for the RC42 portal."
+title: "[News] "
+labels: ["content", "news"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## News Submission
+        Submit a news item for the RC42 Social Psychology portal.
+
+  - type: input
+    id: contributor-name
+    attributes:
+      label: "Your Name *"
+      placeholder: "First name Last name"
+    validations:
+      required: true
+
+  - type: input
+    id: contributor-email
+    attributes:
+      label: "Your Email *"
+      placeholder: "your.email@institution.edu"
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: "News Title *"
+      placeholder: "Title of the news item"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Short Description *"
+      placeholder: "A brief summary (1–3 sentences)."
+    validations:
+      required: true
+
+  - type: textarea
+    id: main-text
+    attributes:
+      label: "Main Text *"
+      placeholder: "Full text of the news item (100–300 words recommended)."
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: "Related URL (optional)"
+      placeholder: "https://example.com/related-page"
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Consent *"
+      options:
+        - label: "I consent to having this news item published on the RC42 portal after review."
+          required: true

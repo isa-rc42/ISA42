@@ -1,0 +1,78 @@
+name: "Submit Event"
+description: "Submit an event for the RC42 portal."
+title: "[Event] "
+labels: ["content", "event"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Event Submission
+        Submit an event relevant to the RC42 Social Psychology community.
+
+  - type: input
+    id: contributor-name
+    attributes:
+      label: "Your Name *"
+      placeholder: "First name Last name"
+    validations:
+      required: true
+
+  - type: input
+    id: contributor-email
+    attributes:
+      label: "Your Email *"
+      placeholder: "your.email@institution.edu"
+    validations:
+      required: true
+
+  - type: input
+    id: event-title
+    attributes:
+      label: "Event Title *"
+      placeholder: "Name of the event"
+    validations:
+      required: true
+
+  - type: input
+    id: event-date
+    attributes:
+      label: "Event Date(s) *"
+      placeholder: "YYYY-MM-DD or date range"
+    validations:
+      required: true
+
+  - type: input
+    id: event-location
+    attributes:
+      label: "Location *"
+      placeholder: "City, Country or Online"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description *"
+      placeholder: "Brief description of the event."
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: "Event URL (optional)"
+      placeholder: "https://example.com/event-page"
+
+  - type: input
+    id: deadline
+    attributes:
+      label: "Submission Deadline (optional)"
+      placeholder: "YYYY-MM-DD"
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Consent *"
+      options:
+        - label: "I consent to having this event published on the RC42 portal after review."
+          required: true

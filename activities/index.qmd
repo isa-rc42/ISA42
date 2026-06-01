@@ -1,0 +1,383 @@
+---
+toc: false
+title-block-style: none
+page-layout: full
+---
+
+```{=html}
+<style>
+/* Neutralizar margen superior extra de Quarto */
+#quarto-content,
+main.content,
+.page-layout-full {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.rc42-activities-v1,
+.rc42-activities-v1 * {
+  box-sizing: border-box;
+}
+
+.rc42-activities-v1 {
+  width: 100%;
+  background: #ffffff;
+  color: #08152b;
+  overflow-x: clip;
+}
+
+.rc42-activities-v1__shell {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 24px 24px 96px; /* Reducido el top padding a 24px (~1.5rem) asumiendo que ya hay espacio inherente, para que comience arriba */
+}
+
+.rc42-activities-v1__intro {
+  max-width: 760px;
+  margin: 0 0 42px;
+}
+
+.rc42-activities-v1__kicker,
+.rc42-activities-v1__eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #00a99d;
+}
+
+.rc42-activities-v1__kicker {
+  margin-bottom: 16px;
+}
+
+.rc42-activities-v1__kicker::after {
+  content: "";
+  display: block;
+  width: 84px;
+  height: 2px;
+  background: #00a99d;
+  margin-top: 12px;
+}
+
+.rc42-activities-v1__intro h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+  margin: 0 0 18px;
+  color: #08152b;
+}
+
+.rc42-activities-v1__intro p {
+  max-width: 640px;
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #506487;
+}
+
+.rc42-activities-v1__lead {
+  margin-top: 8px !important;
+  color: #2f3b52 !important;
+}
+
+.rc42-activities-v1__featured {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+  gap: 0;
+  background: #f3f6fa;
+  border: 1px solid rgba(8, 21, 43, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(8, 21, 43, 0.06);
+  margin-bottom: 24px; /* Reducido para acercar la grilla */
+  animation: rc42-activities-v1-rise 520ms ease both;
+}
+
+.rc42-activities-v1__featured-media {
+  min-height: 340px;
+  background: #dfe7f2;
+}
+
+.rc42-activities-v1__featured-media img,
+.rc42-activities-v1__card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.88) contrast(0.96);
+  transition: transform 420ms ease, filter 420ms ease;
+}
+
+.rc42-activities-v1__featured-content {
+  padding: clamp(32px, 5vw, 58px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.rc42-activities-v1__featured-content h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  margin: 14px 0 10px;
+  color: #08152b;
+}
+
+.rc42-activities-v1__featured-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: #2b364a;
+  margin: 0 0 16px;
+}
+
+.rc42-activities-v1__featured-content p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #506487;
+  margin: 0 0 24px;
+}
+
+.rc42-activities-v1__featured-content a.rc42-activities-v1__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #00a99d;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rc42-activities-v1__featured-content a.rc42-activities-v1__button:hover {
+  background: #008f88;
+}
+
+.rc42-activities-v1__card-body a {
+  color: #003b7a !important;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.rc42-activities-v1__featured:hover img {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1);
+}
+
+.rc42-activities-v1__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.rc42-activities-v1__card {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid rgba(8, 21, 43, 0.10);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 44px rgba(8, 21, 43, 0.05);
+  transition:
+    transform 190ms ease,
+    box-shadow 190ms ease,
+    border-color 190ms ease;
+  animation: rc42-activities-v1-rise 560ms ease both;
+}
+
+.rc42-activities-v1__card:nth-child(1) {
+  animation-delay: 80ms;
+}
+
+.rc42-activities-v1__card:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.rc42-activities-v1__card:nth-child(3) {
+  animation-delay: 220ms;
+}
+
+.rc42-activities-v1__card:nth-child(4) {
+  animation-delay: 290ms;
+}
+
+.rc42-activities-v1__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 64px rgba(8, 21, 43, 0.11);
+  border-color: rgba(0, 169, 157, 0.32);
+}
+
+.rc42-activities-v1__card:hover img {
+  transform: scale(1.045);
+  filter: saturate(1) contrast(1);
+}
+
+.rc42-activities-v1__card-media {
+  height: 168px;
+  background: #dfe7f2;
+  overflow: hidden;
+}
+
+.rc42-activities-v1__card-body {
+  padding: 22px 22px 24px;
+}
+
+.rc42-activities-v1__card-body h3 {
+  font-size: 1.22rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 12px 0 12px;
+  color: #08152b;
+}
+
+.rc42-activities-v1__card-body p {
+  min-height: 96px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #506487;
+  margin: 0 0 18px;
+}
+
+@keyframes rc42-activities-v1-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc42-activities-v1__featured,
+  .rc42-activities-v1__card {
+    animation: none;
+  }
+
+  .rc42-activities-v1__featured-media img,
+  .rc42-activities-v1__card-media img,
+  .rc42-activities-v1__card {
+    transition: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .rc42-activities-v1__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rc42-activities-v1__featured {
+    grid-template-columns: 1fr;
+  }
+
+  .rc42-activities-v1__featured-media {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 680px) {
+  .rc42-activities-v1__shell {
+    padding: 16px 16px 76px;
+  }
+
+  .rc42-activities-v1__intro h1 {
+    font-size: clamp(2.6rem, 16vw, 4rem);
+  }
+
+  .rc42-activities-v1__featured-content {
+    padding: 28px 22px 32px;
+  }
+
+  .rc42-activities-v1__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rc42-activities-v1__card-body p {
+    min-height: auto;
+  }
+}
+</style>
+
+<div class="rc42-activities-v1">
+  <div class="rc42-activities-v1__shell">
+
+    <header class="rc42-activities-v1__intro">
+      <span class="rc42-activities-v1__kicker">RC42 Activities</span>
+      <h1>Activities</h1>
+    </header>
+
+    <section class="rc42-activities-v1__featured" id="world-congress-2027">
+      <div class="rc42-activities-v1__featured-media">
+        <img src="https://www.isa-sociology.org/uploads/imgen/2568-wcs27-poster.jpg" alt="ISA World Congress of Sociology 2027 Poster">
+      </div>
+
+      <div class="rc42-activities-v1__featured-content">
+        <span class="rc42-activities-v1__eyebrow">July 4–10, 2027 &bull; Gwangju, South Korea</span>
+        <h2>XXI ISA World Congress of Sociology 2027</h2>
+        <h3 class="rc42-activities-v1__featured-subtitle">Global Sociology in Turbulent Times</h3>
+        <p>The XXI ISA World Congress of Sociology will take place in Gwangju, South Korea, from July 4 to 10, 2027, under the theme &ldquo;Global Sociology in Turbulent Times.&rdquo; The congress visual identity draws on Hangul and the cultural heritage of Gwangju, emphasizing inclusivity, connection, dialogue, diversity, and the coming together of global sociological voices.</p>
+        <a href="https://www.isa-sociology.org/en/conferences/world-congress/gwangju-2027" class="rc42-activities-v1__button" target="_blank" rel="noopener">Read more &rarr;</a>
+      </div>
+    </section>
+
+    <section class="rc42-activities-v1__grid" aria-label="RC42 activity areas">
+
+      <article class="rc42-activities-v1__card" id="news">
+        <div class="rc42-activities-v1__card-media">
+          <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=900&q=80" alt="News and announcements">
+        </div>
+        <div class="rc42-activities-v1__card-body">
+          <span class="rc42-activities-v1__eyebrow">News</span>
+          <h3>Latest announcements</h3>
+          <p>Board updates, community news, and recent developments from RC42 Social Psychology.</p>
+          <a href="#news">Read news &rarr;</a>
+        </div>
+      </article>
+
+      <article class="rc42-activities-v1__card" id="events">
+        <div class="rc42-activities-v1__card-media">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80" alt="Conference audience">
+        </div>
+        <div class="rc42-activities-v1__card-body">
+          <span class="rc42-activities-v1__eyebrow">Events</span>
+          <h3>Conferences and seminars</h3>
+          <p>Upcoming conferences, seminars, workshops, and RC42-endorsed academic gatherings.</p>
+          <a href="#events">View events &rarr;</a>
+        </div>
+      </article>
+
+      <article class="rc42-activities-v1__card" id="opportunities">
+        <div class="rc42-activities-v1__card-media">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="Academic collaboration">
+        </div>
+        <div class="rc42-activities-v1__card-body">
+          <span class="rc42-activities-v1__eyebrow">Opportunities</span>
+          <h3>Calls and opportunities</h3>
+          <p>Calls for papers, academic positions, fellowships, and professional opportunities for the community.</p>
+          <a href="#opportunities">Explore opportunities &rarr;</a>
+        </div>
+      </article>
+
+      <article class="rc42-activities-v1__card" id="newsletter">
+        <div class="rc42-activities-v1__card-media">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80" alt="Newsletter and writing">
+        </div>
+        <div class="rc42-activities-v1__card-body">
+          <span class="rc42-activities-v1__eyebrow">Newsletter</span>
+          <h3>Newsletter archive</h3>
+          <p>Browse past newsletters containing reports, articles, announcements, and community updates.</p>
+          <a href="#newsletter">Browse newsletter archive &rarr;</a>
+        </div>
+      </article>
+
+    </section>
+
+  </div>
+</div>
+```

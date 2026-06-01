@@ -1,0 +1,733 @@
+---
+pagetitle: "RC42 Resources"
+description: "Academic materials, publications, datasets, teaching resources, and tools shared by the RC42 community."
+toc: false
+page-layout: full
+title-block-style: none
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{css, echo=FALSE}
+/* FIX FOR QUARTO STICKY ISSUE */
+.resources-page,
+.resources-inner,
+.resources-layout,
+.resources-toc-col,
+.resources-main,
+#quarto-content,
+.page-columns,
+.page-layout-full,
+.page-full,
+main.content {
+  overflow: visible !important;
+  transform: none !important;
+  contain: none !important;
+}
+
+/* Base Layout */
+.resources-page {
+  font-family: var(--bs-body-font-family, system-ui, -apple-system, sans-serif);
+  color: #334155;
+  width: 100%;
+}
+
+.resources-inner {
+  width: min(100% - 48px, 1440px);
+  margin-inline: auto;
+}
+
+/* Compact Header */
+.resources-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+}
+.header-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0d9488;
+  margin-bottom: 0.25rem;
+}
+.resources-header h1 {
+  font-size: 2.25rem;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+.resources-header .subtitle {
+  font-size: 1.15rem;
+  color: #334155;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.resources-header p {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 0 1rem 0;
+}
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  background: #0d9488;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+.btn-submit:hover {
+  background: #0f766e;
+  color: white;
+}
+
+/* Two-column Layout */
+.resources-layout {
+  display: grid;
+  grid-template-columns: minmax(760px, 1fr) 300px;
+  gap: 56px;
+  align-items: start;
+  padding-bottom: 4rem;
+}
+
+.resources-main {
+  min-width: 0;
+  width: 100%;
+}
+
+.resources-toc-col {
+  width: 300px;
+  min-width: 300px;
+}
+
+/* Sidebar TOC */
+.resources-toc {
+  position: sticky;
+  top: 96px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background: #f8fafc;
+  border: 1px solid #dbe3ef;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+.resources-toc h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.toc-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.toc-section-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.toc-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  color: #475569;
+  text-decoration: none !important;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.toc-link:hover {
+  background: #f1f5f9;
+  color: #0d9488;
+}
+
+.toc-count {
+  font-size: 0.75rem;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 0.1rem 0.4rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.toc-section-item.is-active .toc-link {
+  background: #eef6f6;
+  color: #00897b;
+  border-left: 3px solid #0aa79d;
+  font-weight: 600;
+}
+
+.toc-section-item.is-active .toc-count {
+  background: #ccfbf1;
+  color: #00796b;
+}
+
+.toc-preview {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding-left: 14px;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #64748b;
+  border-left: 2px solid #e2e8f0;
+  margin-left: 0.75rem;
+}
+
+.toc-preview li {
+  margin-bottom: 0.4rem;
+}
+
+.toc-preview a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.toc-preview a:hover {
+  color: #0d9488;
+}
+
+@media (max-width: 1100px) {
+  .resources-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .resources-toc-col {
+    width: 100%;
+    min-width: 0;
+    order: -1;
+  }
+  .resources-toc {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    box-shadow: none;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .toc-preview {
+    display: none !important;
+  }
+}
+
+/* Metrics Row */
+.resources-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.metric-item {
+  display: flex;
+  flex-direction: column;
+}
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.metric-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Search */
+.resources-search-container {
+  margin-bottom: 2rem;
+  position: relative;
+}
+.search-bar {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #334155;
+  transition: all 0.2s;
+}
+.search-bar:focus {
+  outline: none;
+  border-color: #0d9488;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+/* Directory Sections */
+.resources-section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 110px;
+}
+.resources-section h2 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+.resources-section > p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Directory Listing (Compact Row) */
+.resource-directory {
+  display: flex;
+  flex-direction: column;
+}
+.resource-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid #e2e8f0;
+  scroll-margin-top: 110px;
+}
+@media (max-width: 768px) {
+  .resource-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+.resource-item:last-child {
+  border-bottom: none;
+}
+
+.resource-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.resource-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #183a8a;
+  text-decoration: none !important;
+  line-height: 1.3;
+}
+.resource-title:hover {
+  text-decoration: underline !important;
+  color: #1e40af;
+}
+
+.resource-author-type {
+  font-size: 0.9rem;
+  color: #475569;
+  font-weight: 500;
+}
+.resource-author-type .type-dot {
+  margin: 0 0.4rem;
+  color: #cbd5e1;
+}
+
+.resource-description {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0.25rem 0;
+}
+
+.resource-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.resource-badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.badge-verified {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+
+.resource-tags {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.resource-chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.1rem 0.5rem;
+  border-radius: 12px;
+  color: #64748b;
+}
+
+.resource-action {
+  white-space: nowrap;
+  font-weight: 700;
+}
+.resource-link-btn {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #00897b;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+}
+.resource-link-btn:hover {
+  color: #00695c;
+  text-decoration: underline !important;
+}
+```
+
+<section class="resources-page">
+<div class="resources-inner">
+
+<header class="resources-header">
+<div class="header-eyebrow">RC42 Resources</div>
+<h1>Resources</h1>
+<p>Academic materials, publications, datasets, teaching resources, and tools shared by the RC42 community.</p>
+<a href="../participate/submit-contribution.qmd" class="btn-submit">Submit Contribution &rarr;</a>
+</header>
+
+```{r, results="asis"}
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(dplyr))
+
+html_escape <- function(text) {
+  if (is.na(text)) return(NA_character_)
+  text <- gsub("&", "&amp;", text)
+  text <- gsub("<", "&lt;", text)
+  text <- gsub(">", "&gt;", text)
+  text <- gsub('"', "&quot;", text)
+  text <- gsub("'", "&#39;", text)
+  text
+}
+
+get_col <- function(data, col) {
+  if (col %in% names(data)) data[[col]] else rep(NA_character_, nrow(data))
+}
+
+csv_path <- "rc42_resources_workflow.csv"
+
+if (!file.exists(csv_path)) {
+  cat("<div class='resources-layout'><div style='text-align: center; color: #475569; padding: 2rem;'>Resources are currently unavailable. Please try again later.</div></div>\n")
+} else {
+  # Safe block execution to prevent page breakage
+  tryCatch({
+    res_data <- read_csv(csv_path, show_col_types = FALSE)
+    
+    placement <- get_col(res_data, "Suggested placement")
+    category_orig <- get_col(res_data, "Category")
+    
+    res_data$final_category <- ifelse(!is.na(placement) & trimws(placement) != "", 
+                                     trimws(placement), 
+                                     trimws(category_orig))
+    
+    res_data$Title <- get_col(res_data, "Title")
+    res_data$Author_Institution <- get_col(res_data, "Author / Institution")
+    res_data$Resource_type <- get_col(res_data, "Resource type")
+    res_data$Description <- get_col(res_data, "Description")
+    res_data$Tags <- get_col(res_data, "Tags")
+    res_data$Access_type <- get_col(res_data, "Access type")
+    res_data$Language <- get_col(res_data, "Language")
+    res_data$Region_scope <- get_col(res_data, "Region scope")
+    res_data$Verification_status <- get_col(res_data, "Verification status")
+    res_data$URL <- get_col(res_data, "URL")
+    
+    res_data$rank_num <- suppressWarnings(as.numeric(get_col(res_data, "Priority rank")))
+    res_data$rank_num[is.na(res_data$rank_num) | res_data$rank_num == 0] <- 999999
+    
+    # Sort
+    res_data <- res_data %>% arrange(rank_num, Title)
+    
+    # Generate stable IDs
+    res_data$stable_id <- paste0("resource-", seq_len(nrow(res_data)))
+    
+    total_res <- nrow(res_data)
+    pubs <- sum(res_data$final_category == "Publications", na.rm = TRUE)
+    teach <- sum(res_data$final_category == "Teaching Resources", na.rm = TRUE)
+    data_tools <- sum(res_data$final_category == "Datasets & Tools", na.rm = TRUE)
+    blogs <- sum(res_data$final_category == "Blog / Posts", na.rm = TRUE)
+    
+    cats_info <- list(
+      "Publications" = list(
+        id = "publications",
+        desc = "Recent books, special journal issues, journals, and significant articles relevant to sociological social psychology.",
+        count = pubs
+      ),
+      "Teaching Resources" = list(
+        id = "teaching-resources",
+        desc = "Syllabi, course outlines, assignments, and pedagogical materials for teaching social psychology.",
+        count = teach
+      ),
+      "Datasets & Tools" = list(
+        id = "datasets-tools",
+        desc = "Open datasets, methodological tools, and resources useful for comparative sociological research.",
+        count = data_tools
+      ),
+      "Blog / Posts" = list(
+        id = "blog-posts",
+        desc = "Short essays, reflections, calls, field notes, and member contributions.",
+        count = blogs
+      )
+    )
+
+    cat('<div class="resources-layout">\n')
+    
+    # --- Main Content Area ---
+    cat('<main class="resources-main">\n')
+    
+    # Overview Metrics
+    cat('<div id="overview" class="resources-section js-section" data-resource-section="overview" style="margin-bottom: 0;">\n')
+    cat('<div class="resources-metrics">\n')
+    cat(sprintf('<div class="metric-item"><span class="metric-value">%d</span><span class="metric-label">Total Resources</span></div>\n', total_res))
+    cat(sprintf('<div class="metric-item"><span class="metric-value">%d</span><span class="metric-label">Publications</span></div>\n', pubs))
+    cat(sprintf('<div class="metric-item"><span class="metric-value">%d</span><span class="metric-label">Teaching</span></div>\n', teach))
+    cat(sprintf('<div class="metric-item"><span class="metric-value">%d</span><span class="metric-label">Datasets</span></div>\n', data_tools))
+    cat('</div>\n')
+    cat('</div>\n')
+    
+    # Search
+    cat('<div class="resources-search-container">\n')
+    cat('<label for="resources-search" class="visually-hidden">Search resources</label>\n')
+    cat('<input type="text" id="resources-search" class="search-bar" placeholder="Search by title, author, description, or tags..." />\n')
+    cat('</div>\n')
+    
+    # Directory Sections
+    for (cname in names(cats_info)) {
+      cinfo <- cats_info[[cname]]
+      cat_items <- res_data %>% filter(final_category == cname)
+      
+      if (nrow(cat_items) == 0) next
+      
+      cat(sprintf('<section class="resources-section js-section" id="%s" data-resource-section="%s">\n', cinfo$id, cinfo$id))
+      cat(sprintf('<h2>%s</h2>\n<p>%s</p>\n', html_escape(cname), html_escape(cinfo$desc)))
+      
+      cat('<div class="resource-directory">\n')
+      
+      for (i in seq_len(nrow(cat_items))) {
+        row <- cat_items[i, ]
+        
+        title_escaped <- html_escape(ifelse(is.na(row$Title), "Untitled", row$Title))
+        url_escaped <- html_escape(ifelse(is.na(row$URL), "#", row$URL))
+        author <- ifelse(is.na(row$Author_Institution), "", html_escape(row$Author_Institution))
+        res_type <- ifelse(is.na(row$Resource_type), "", html_escape(row$Resource_type))
+        desc <- ifelse(is.na(row$Description), "", html_escape(row$Description))
+        stable_id <- row$stable_id
+        
+        # Badges / Meta
+        meta_parts <- c()
+        if (!is.na(row$Language)) meta_parts <- c(meta_parts, paste("Language:", html_escape(row$Language)))
+        if (!is.na(row$Access_type)) meta_parts <- c(meta_parts, paste("Access:", html_escape(row$Access_type)))
+        if (!is.na(row$Verification_status) && grepl("verified", tolower(row$Verification_status))) {
+          meta_parts <- c(meta_parts, '<span class="resource-badge badge-verified">Verified</span>')
+        } else if (!is.na(row$Verification_status)) {
+          meta_parts <- c(meta_parts, paste("Status:", html_escape(row$Verification_status)))
+        }
+        
+        meta_html <- ""
+        if (length(meta_parts) > 0) {
+          meta_html <- sprintf('<div class="resource-meta">%s</div>', paste(meta_parts, collapse=' <span style="color:#cbd5e1;">&middot;</span> '))
+        }
+        
+        # Tags
+        tags_html <- ""
+        if (!is.na(row$Tags)) {
+          tag_list <- trimws(unlist(strsplit(row$Tags, ";")))
+          tag_list <- tag_list[tag_list != ""]
+          if (length(tag_list) > 0) {
+            tags_html <- sprintf('<div class="resource-tags">%s</div>', 
+                                 paste(sprintf('<span class="resource-chip">%s</span>', sapply(tag_list, html_escape)), collapse=" "))
+          }
+        }
+        
+        # Combine Author & Type
+        author_type_html <- ""
+        if (author != "" && res_type != "") {
+          author_type_html <- sprintf('<div class="resource-author-type">%s <span class="type-dot">&middot;</span> %s</div>', author, res_type)
+        } else if (author != "") {
+          author_type_html <- sprintf('<div class="resource-author-type">%s</div>', author)
+        } else if (res_type != "") {
+          author_type_html <- sprintf('<div class="resource-author-type">%s</div>', res_type)
+        }
+        
+        # Search data string
+        search_data <- html_escape(tolower(paste(
+          ifelse(is.na(row$Title), "", row$Title), 
+          ifelse(is.na(row$Author_Institution), "", row$Author_Institution), 
+          ifelse(is.na(row$Description), "", row$Description), 
+          ifelse(is.na(row$Tags), "", row$Tags), 
+          ifelse(is.na(row$Resource_type), "", row$Resource_type), 
+          sep=" "
+        )))
+        
+        cat(sprintf('<article class="resource-item js-item" id="%s" data-search="%s">\n', stable_id, search_data))
+        cat('<div class="resource-main-content">\n')
+        cat(sprintf('<a href="%s" target="_blank" rel="noopener noreferrer" class="resource-title">%s</a>\n', url_escaped, title_escaped))
+        if (author_type_html != "") cat(author_type_html, "\n")
+        if (desc != "") cat(sprintf('<div class="resource-description">%s</div>\n', desc))
+        if (meta_html != "") cat(meta_html, "\n")
+        if (tags_html != "") cat(tags_html, "\n")
+        cat('</div>\n')
+        
+        cat('<div class="resource-action">\n')
+        if (url_escaped != "#") {
+          cat(sprintf('<a href="%s" target="_blank" rel="noopener noreferrer" class="resource-link-btn">Open resource &rarr;</a>\n', url_escaped))
+        }
+        cat('</div>\n')
+        
+        cat('</article>\n') # resource-item
+      }
+      
+      cat('</div>\n') # resource-directory
+      cat('</section>\n') # resources-section
+    }
+    
+    cat('</main>\n') # resources-main
+    
+    # --- Sidebar TOC Area ---
+    cat('<aside class="resources-toc-col">\n')
+    cat('<nav class="resources-toc" aria-label="Resources navigation">\n')
+    cat('<h3>On this page</h3>\n')
+    cat('<ul class="toc-nav">\n')
+    cat(sprintf('<li class="toc-section-item" data-target="overview"><a href="#overview" class="toc-link"><span>Overview</span> <span class="toc-count">%d</span></a></li>\n', total_res))
+    
+    for (cname in names(cats_info)) {
+      cinfo <- cats_info[[cname]]
+      if (cinfo$count > 0) {
+        cat(sprintf('<li class="toc-section-item" data-target="%s">\n', cinfo$id))
+        cat(sprintf('<a href="#%s" class="toc-link"><span>%s</span> <span class="toc-count">%d</span></a>\n', cinfo$id, html_escape(cname), cinfo$count))
+        
+        # Sublist for active TOC expansion
+        cat_items <- res_data %>% filter(final_category == cname)
+        top_items <- head(cat_items, 3) # Max 3 items as requested
+        
+        cat('<ul class="toc-preview" hidden>\n')
+        for (i in seq_len(nrow(top_items))) {
+          short_title <- top_items$Title[i]
+          if (is.na(short_title)) short_title <- "Untitled"
+          if (nchar(short_title) > 40) short_title <- paste0(substr(short_title, 1, 37), "...")
+          cat(sprintf('<li><a href="#%s">%s</a></li>\n', top_items$stable_id[i], html_escape(short_title)))
+        }
+        cat('</ul>\n')
+        cat('</li>\n')
+      }
+    }
+    cat('</ul>\n')
+    cat('</nav>\n')
+    cat('</aside>\n')
+    
+    cat('</div>\n') # resources-layout
+    
+  }, error = function(e) {
+    cat("<div class='resources-layout'><div style='text-align: center; color: #475569; padding: 2rem;'>Resources are currently unavailable. Please try again later.</div></div>\n")
+  })
+}
+```
+
+</div>
+</section>
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("[data-resource-section]");
+  const tocItems = document.querySelectorAll(".toc-section-item");
+
+  function setActive(id) {
+    tocItems.forEach(item => {
+      const active = item.dataset.target === id;
+      item.classList.toggle("is-active", active);
+
+      const preview = item.querySelector(".toc-preview");
+      if (preview) preview.hidden = !active;
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible) {
+      setActive(visible.target.dataset.resourceSection);
+    }
+  }, {
+    root: null,
+    rootMargin: "-120px 0px -55% 0px",
+    threshold: [0.15, 0.3, 0.6]
+  });
+
+  sections.forEach(section => observer.observe(section));
+
+  // Search logic
+  const searchInput = document.getElementById("resources-search");
+  const items = document.querySelectorAll(".js-item");
+  const allSections = document.querySelectorAll(".js-section");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function(e) {
+      const query = e.target.value.toLowerCase().trim();
+
+      items.forEach(item => {
+        const searchData = item.getAttribute("data-search") || "";
+        if (query === "" || searchData.includes(query)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      allSections.forEach(section => {
+        if (section.id === "overview") return; 
+        const visibleItems = section.querySelectorAll(".js-item[style*='display: none']").length < section.querySelectorAll(".js-item").length;
+        if (!visibleItems && query !== "") {
+          section.style.display = "none";
+        } else {
+          section.style.display = "block";
+        }
+      });
+    });
+  }
+});
+</script>
+```

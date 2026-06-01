@@ -1,0 +1,58 @@
+---
+title: "Board 2023–2027 — Detailed"
+description: "Detailed information about the RC42 Board for the 2023–2027 term."
+---
+
+## Board 2023–2027 — Detailed
+
+This page provides detailed information about each member of the RC42 Social Psychology board for the 2023–2027 term.
+
+For a summary view, see [Board 2023–2027](index.qmd).
+
+---
+
+### President: Juan Carlos Castillo
+
+- **Affiliation**: Universidad de Chile, Chile
+- **Biography**: Content to be confirmed by the RC42 board.
+- **Also serving as**: Program Coordinator for the XXI ISA World Congress of Sociology 2027.
+
+---
+
+### Secretary/Treasurer: Lisa Slattery Walker
+
+- **Affiliation**: University of North Carolina at Charlotte, USA
+- **Biography**: Content to be confirmed by the RC42 board.
+
+---
+
+### Online Communication Manager
+
+- **Status**: To be announced.
+
+---
+
+### Board Member: Charles Puttergill
+
+- **Affiliation**: University of Pretoria, South Africa
+- **Biography**: Content to be confirmed by the RC42 board.
+
+---
+
+### Board Member: Karla Henríquez Ojeda
+
+- **Affiliation**: Université catholique de Louvain, Belgium
+- **Biography**: Content to be confirmed by the RC42 board.
+
+---
+
+### Board Member: Deepak Kumar Verma
+
+- **Affiliation**: Dr. B. R. Ambedkar University of Social Sciences, India
+- **Biography**: Content to be confirmed by the RC42 board.
+
+---
+
+::: {.info-box}
+Board members are elected at the ISA World Congress of Sociology. For information on previous boards, see [Past Boards](../past-boards/index.qmd).
+:::

@@ -1,0 +1,46 @@
+name: "Update Member Profile"
+description: "Request an update to an existing member profile on the RC42 portal."
+title: "[Profile Update] "
+labels: ["profile", "update"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Profile Update Request
+        Use this form to request changes to your existing profile on the RC42 portal.
+
+  - type: input
+    id: full-name
+    attributes:
+      label: "Full Name (as it appears on your current profile) *"
+      placeholder: "First name Last name"
+    validations:
+      required: true
+
+  - type: input
+    id: email
+    attributes:
+      label: "Email (for verification) *"
+      placeholder: "your.email@institution.edu"
+    validations:
+      required: true
+
+  - type: textarea
+    id: updates
+    attributes:
+      label: "What would you like to update? *"
+      placeholder: |
+        Please describe the changes you'd like to make. For example:
+        - New affiliation: University of Example
+        - Updated biography: [new text]
+        - Add ORCID: https://orcid.org/...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Consent *"
+      options:
+        - label: "I confirm that I am the person whose profile is being updated."
+          required: true

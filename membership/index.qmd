@@ -1,0 +1,51 @@
+---
+title: "Membership"
+description: "How to become a member of ISA RC42 Social Psychology."
+---
+
+## Membership in RC42 Social Psychology
+
+RC42 Social Psychology welcomes scholars and researchers from around the world who are interested in sociological social psychology.
+
+### How to Join RC42
+
+Membership in RC42 is managed through the International Sociological Association (ISA). To become a member of RC42, you need to:
+
+1. **Be an ISA member** — Join the International Sociological Association through the [ISA website](https://www.isa-sociology.org/).
+2. **Select RC42** — When registering or renewing your ISA membership, select RC42 Social Psychology as one of your Research Committees.
+
+::: {.info-box}
+ISA membership includes the option to join up to five Research Committees at no additional cost. Visit the [ISA membership page](https://www.isa-sociology.org/) for current fees and membership categories.
+:::
+
+### Who Can Join?
+
+RC42 membership is open to:
+
+- Faculty members and researchers in sociology and related disciplines
+- Graduate students and early-career researchers
+- Independent scholars and practitioners with an interest in sociological social psychology
+- Researchers from any country or region
+
+### Benefits of RC42 Membership
+
+- Participate in RC42 sessions at ISA World Congresses
+- Connect with an international network of scholars in sociological social psychology
+- Receive the RC42 newsletter
+- Be listed in the RC42 members directory (optional)
+- Submit and vote on proposals for RC42 activities
+- Stand for election to the RC42 board
+
+### Create a Profile on This Portal
+
+In addition to your ISA membership, you can create a member profile on this portal to increase your visibility within the RC42 community.
+
+[Create a member profile →](../participate/create-profile.qmd){.btn-rc42-dark}
+
+::: {.placeholder-notice}
+Creating a profile on this portal is separate from ISA membership registration. This portal is a complementary resource and does not replace the ISA membership system.
+:::
+
+### Contact
+
+For questions about RC42 membership, contact: [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org)

@@ -1,0 +1,57 @@
+# =============================================================================
+# Create Profile PR — PLACEHOLDER workflow
+# Future integration: when a "create-profile" issue is submitted,
+# this workflow will generate a member profile .qmd and open a PR.
+#
+# IMPORTANT: This workflow is NOT active. It requires:
+# - The script scripts/create_profile_from_json.py to be fully implemented
+# - Human approval of the PR before merge
+# =============================================================================
+name: Create Profile PR (Placeholder)
+
+# This workflow is currently disabled. Uncomment the 'on' block to activate.
+# on:
+#   issues:
+#     types: [opened]
+
+on:
+  workflow_dispatch:  # Manual trigger only for now
+
+jobs:
+  create-profile:
+    # Only run for issues with the "profile" and "new" labels
+    # if: contains(github.event.issue.labels.*.name, 'profile') && contains(github.event.issue.labels.*.name, 'new')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Parse issue and create profile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "👤 Create Profile PR workflow — PLACEHOLDER"
+          echo "This workflow will:"
+          echo "  1. Parse the issue body for profile data"
+          echo "  2. Generate a member profile .qmd file"
+          echo "  3. Update data/members.yml"
+          echo "  4. Create a PR for human review"
+          echo ""
+          echo "To activate, implement scripts/create_profile_from_json.py"
+          # python scripts/create_profile_from_json.py --issue-number ${{ github.event.issue.number }}
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v6
+      #   with:
+      #     title: "[Profile] New member profile from issue #${{ github.event.issue.number }}"
+      #     body: "Auto-generated profile from issue #${{ github.event.issue.number }}. Please review before merging."
+      #     branch: "profile/issue-${{ github.event.issue.number }}"
+      #     labels: "profile,auto-generated"

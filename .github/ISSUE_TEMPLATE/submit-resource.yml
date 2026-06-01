@@ -1,0 +1,81 @@
+name: "Submit Resource"
+description: "Submit a publication, teaching resource, dataset, or reading list."
+title: "[Resource] "
+labels: ["content", "resource"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Resource Submission
+        Share a resource with the RC42 Social Psychology community.
+
+  - type: input
+    id: contributor-name
+    attributes:
+      label: "Your Name *"
+      placeholder: "First name Last name"
+    validations:
+      required: true
+
+  - type: input
+    id: contributor-email
+    attributes:
+      label: "Your Email *"
+      placeholder: "your.email@institution.edu"
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: "Resource Title *"
+      placeholder: "Title of the resource"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: "Resource Type *"
+      options:
+        - Publication (article, book, chapter)
+        - Teaching resource (syllabus, materials)
+        - Dataset or tool
+        - Reading list
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description *"
+      placeholder: "Brief description of the resource."
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: "URL / DOI (optional)"
+      placeholder: "https://doi.org/... or URL"
+
+  - type: input
+    id: authors
+    attributes:
+      label: "Author(s) (optional)"
+      placeholder: "Author names"
+
+  - type: input
+    id: year
+    attributes:
+      label: "Year (optional)"
+      placeholder: "YYYY"
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Consent *"
+      options:
+        - label: "I consent to having this resource listed on the RC42 portal after review."
+          required: true

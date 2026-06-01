@@ -1,0 +1,47 @@
+---
+title: "Welcome to the RC42 Digital Portal"
+description: "RC42 Social Psychology launches a complementary digital portal."
+author: "RC42 Board"
+date: "2025-06-01"
+categories: [announcement]
+---
+
+## Welcome to the RC42 Social Psychology Digital Portal
+
+RC42 Social Psychology is pleased to announce the launch of this complementary digital portal, designed to enhance communication, visibility, and collaboration among members worldwide.
+
+### What Is This Portal?
+
+This website serves as an extension of the [official ISA RC42 page](https://www.isa-sociology.org/en/research-networks/research-committees/rc42-social-psychology/). It provides:
+
+- **Members directory**: A voluntary listing of RC42 members with their research profiles.
+- **News and events**: Announcements and upcoming activities relevant to the RC42 community.
+- **Opportunities**: Calls for papers, positions, fellowships, and other professional opportunities.
+- **Newsletter archive**: Past editions of the RC42 newsletter.
+- **Resources**: Publications, teaching materials, and research tools shared by members.
+- **Participation pathways**: Easy ways to contribute content and engage with the community.
+
+### How to Participate
+
+We invite all RC42 members to:
+
+1. **Create a member profile** — Share your research interests and connect with colleagues. [Create profile →](../../../participate/create-profile.qmd)
+2. **Submit contributions** — Share news, events, opportunities, or resources. [Submit →](../../../participate/submit-contribution.qmd)
+3. **Provide feedback** — Help us improve this portal. [Contact us →](../../../contact/index.qmd)
+
+### What's Next?
+
+This portal will grow with contributions from the RC42 community. Upcoming developments may include:
+
+- Full member profiles for all board members
+- Event listings for the XXI ISA World Congress of Sociology 2027
+- An expanded newsletter archive
+- Shared resources and reading lists
+
+::: {.info-box}
+All content on this portal is reviewed and approved by the RC42 board before publication. Nothing is published automatically without human review.
+:::
+
+We look forward to building this resource together with the RC42 community.
+
+— **The RC42 Board 2023–2027**

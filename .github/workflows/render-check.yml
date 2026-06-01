@@ -1,0 +1,35 @@
+# =============================================================================
+# Render Check — validates that the Quarto site renders without errors
+# Runs on every pull request to the main branch.
+# =============================================================================
+name: Render Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.4"  # Adjust as needed
+
+      - name: Render site
+        run: quarto render
+
+      - name: Check output
+        run: |
+          if [ -d "_site" ]; then
+            echo "✅ Site rendered successfully."
+            echo "Files generated:"
+            find _site -type f | head -20
+          else
+            echo "❌ Site output directory not found."
+            exit 1
+          fi

@@ -1,0 +1,18 @@
+# =============================================================================
+# ISA RC42 Events
+# =============================================================================
+
+events:
+  - title: "XXI ISA World Congress of Sociology 2027"
+    date: "2027-07-01"  # Exact dates to be confirmed
+    end_date: ""  # To be confirmed
+    location: "To be confirmed"
+    type: "congress"
+    description: >
+      The XXI ISA World Congress of Sociology is a major upcoming event. 
+      RC42 Social Psychology will participate with sessions organized by the 
+      Program Coordinator, Juan Carlos Castillo. Detailed session information 
+      will be published as it becomes available.
+    url: ""  # To be added when available
+    status: "upcoming"
+    note: "Dates, location, and session details to be updated by the RC42 board."

@@ -1,0 +1,81 @@
+# =============================================================================
+# ISA RC42 Members Directory
+# Note: Profiles must be confirmed by each member before publication.
+# This file contains initial entries for board members only.
+# =============================================================================
+
+members:
+  - id: "juan-carlos-castillo"
+    name: "Juan Carlos Castillo"
+    affiliation: "Universidad de Chile"
+    country: "Chile"
+    role: "President, RC42 Board 2023–2027"
+    bio: "Content to be confirmed."
+    research_interests: []  # To be confirmed
+    orcid: ""  # To be added
+    google_scholar: ""  # To be added
+    linkedin: ""  # To be added
+    website: ""  # To be added
+    photo: ""  # To be added
+    profile_confirmed: false
+    last_updated: ""
+
+  - id: "lisa-slattery-walker"
+    name: "Lisa Slattery Walker"
+    affiliation: "University of North Carolina at Charlotte"
+    country: "USA"
+    role: "Secretary/Treasurer, RC42 Board 2023–2027"
+    bio: "Content to be confirmed."
+    research_interests: []
+    orcid: ""
+    google_scholar: ""
+    linkedin: ""
+    website: ""
+    photo: ""
+    profile_confirmed: false
+    last_updated: ""
+
+  - id: "charles-puttergill"
+    name: "Charles Puttergill"
+    affiliation: "University of Pretoria"
+    country: "South Africa"
+    role: "Board Member, RC42 Board 2023–2027"
+    bio: "Content to be confirmed."
+    research_interests: []
+    orcid: ""
+    google_scholar: ""
+    linkedin: ""
+    website: ""
+    photo: ""
+    profile_confirmed: false
+    last_updated: ""
+
+  - id: "karla-henriquez-ojeda"
+    name: "Karla Henríquez Ojeda"
+    affiliation: "Université catholique de Louvain"
+    country: "Belgium"
+    role: "Board Member, RC42 Board 2023–2027"
+    bio: "Content to be confirmed."
+    research_interests: []
+    orcid: ""
+    google_scholar: ""
+    linkedin: ""
+    website: ""
+    photo: ""
+    profile_confirmed: false
+    last_updated: ""
+
+  - id: "deepak-kumar-verma"
+    name: "Deepak Kumar Verma"
+    affiliation: "Dr. B. R. Ambedkar University of Social Sciences"
+    country: "India"
+    role: "Board Member, RC42 Board 2023–2027"
+    bio: "Content to be confirmed."
+    research_interests: []
+    orcid: ""
+    google_scholar: ""
+    linkedin: ""
+    website: ""
+    photo: ""
+    profile_confirmed: false
+    last_updated: ""

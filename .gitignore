@@ -1,0 +1,35 @@
+# Quarto output
+/_site/
+/.quarto/
+
+# R / Python
+.Rproj.user
+.Rhistory
+.RData
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+
+# Netlify
+.netlify/
+
+# Misc
+*.log
+*.tmp
+
+**/*.quarto_ipynb

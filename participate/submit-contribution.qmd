@@ -1,0 +1,73 @@
+---
+title: "Submit Contribution"
+description: "Submit news, events, opportunities, or resources to the RC42 portal."
+toc: false
+---
+
+::: {.content-block style="max-width: 800px; padding: 3rem 0;"}
+::: {.section-header .text-center}
+::: {.section-tag}
+Contribute
+:::
+<h2>Share with the Community</h2>
+<p>Submit your news, events, calls for papers, or academic resources. All submissions undergo editorial review by the board prior to publication.</p>
+:::
+
+<form name="submit-contribution" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-rc42" action="/participate/index.html">
+
+  <!-- Honeypot field for spam prevention -->
+  <p style="display:none;">
+    <label>Don't fill this out: <input name="bot-field"></label>
+  </p>
+
+  <div class="form-section-title">Contributor Information</div>
+
+  <label for="contributor-name">Your Name <span class="required-mark">*</span></label>
+  <input type="text" id="contributor-name" name="contributor-name" required placeholder="First name Last name">
+
+  <label for="contributor-email">Your Email <span class="required-mark">*</span></label>
+  <input type="email" id="contributor-email" name="contributor-email" required placeholder="your.email@institution.edu">
+  <div class="form-help">Used only for communication regarding this submission.</div>
+
+  <div class="form-section-title">Contribution Details</div>
+
+  <label for="contribution-type">Type of Contribution <span class="required-mark">*</span></label>
+  <select id="contribution-type" name="contribution-type" required>
+    <option value="">-- Select type --</option>
+    <option value="news">News / Announcement</option>
+    <option value="event">Event / Conference</option>
+    <option value="opportunity">Opportunity / Call for Papers</option>
+    <option value="resource">Resource / Publication / Dataset</option>
+    <option value="blog">Blog Post / Reflection</option>
+    <option value="other">Other</option>
+  </select>
+
+  <label for="title">Title <span class="required-mark">*</span></label>
+  <input type="text" id="title" name="title" required placeholder="Title of your contribution">
+
+  <label for="description">Short Description <span class="required-mark">*</span></label>
+  <textarea id="description" name="description" required placeholder="A brief summary (50–100 words) to appear in listings." style="min-height: 80px;"></textarea>
+
+  <label for="main-text">Main Text / Details <span class="required-mark">*</span></label>
+  <textarea id="main-text" name="main-text" required placeholder="Provide the full text of your announcement, event details, or blog post." style="min-height: 200px;"></textarea>
+
+  <div class="form-section-title">Additional Links (Optional)</div>
+
+  <label for="url">Primary Link</label>
+  <input type="url" id="url" name="url" placeholder="https://...">
+  <div class="form-help">Link to the official event page, full paper, or application form.</div>
+
+  <div class="form-section-title">Consent & Submission</div>
+
+  <div class="consent-group">
+    <div>
+      <input type="checkbox" id="consent-review" name="consent-review" required>
+      <label for="consent-review">I understand that this submission will be reviewed by the RC42 board and may be edited for clarity before publication. <span class="required-mark">*</span></label>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn-rc42-primary">Submit for Review</button>
+  </div>
+</form>
+:::

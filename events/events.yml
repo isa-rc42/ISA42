@@ -1,0 +1,14 @@
+# =============================================================================
+# Events data — also stored at data/events.yml
+# This file is kept in the events/ directory for convenience
+# =============================================================================
+
+events:
+  - title: "XXI ISA World Congress of Sociology 2027"
+    date: "2027-07-01"
+    location: "To be confirmed"
+    type: "congress"
+    description: "RC42 sessions coordinated by Juan Carlos Castillo."
+    url: ""
+    status: "upcoming"
+    note: "Details to be updated."

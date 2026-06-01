@@ -1,0 +1,57 @@
+# =============================================================================
+# Create Post PR — PLACEHOLDER workflow
+# Future integration: when a content issue is submitted (news, event, etc.),
+# this workflow will generate a .qmd post and open a PR.
+#
+# IMPORTANT: This workflow is NOT active. It requires:
+# - The script scripts/create_post_from_json.py to be fully implemented
+# - Human approval of the PR before merge
+# =============================================================================
+name: Create Post PR (Placeholder)
+
+# This workflow is currently disabled. Uncomment the 'on' block to activate.
+# on:
+#   issues:
+#     types: [opened]
+
+on:
+  workflow_dispatch:  # Manual trigger only for now
+
+jobs:
+  create-post:
+    # Only run for issues with the "content" label
+    # if: contains(github.event.issue.labels.*.name, 'content')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Parse issue and create post
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "📝 Create Post PR workflow — PLACEHOLDER"
+          echo "This workflow will:"
+          echo "  1. Parse the issue body for content data"
+          echo "  2. Generate a .qmd post file"
+          echo "  3. Update the relevant data YAML file"
+          echo "  4. Create a PR for human review"
+          echo ""
+          echo "To activate, implement scripts/create_post_from_json.py"
+          # python scripts/create_post_from_json.py --issue-number ${{ github.event.issue.number }}
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v6
+      #   with:
+      #     title: "[Content] New post from issue #${{ github.event.issue.number }}"
+      #     body: "Auto-generated post from issue #${{ github.event.issue.number }}. Please review before merging."
+      #     branch: "content/issue-${{ github.event.issue.number }}"
+      #     labels: "content,auto-generated"

@@ -1,0 +1,79 @@
+name: "Submit Opportunity"
+description: "Submit a call for papers, position, fellowship, or other opportunity."
+title: "[Opportunity] "
+labels: ["content", "opportunity"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Opportunity Submission
+        Submit an opportunity relevant to the RC42 Social Psychology community.
+
+  - type: input
+    id: contributor-name
+    attributes:
+      label: "Your Name *"
+      placeholder: "First name Last name"
+    validations:
+      required: true
+
+  - type: input
+    id: contributor-email
+    attributes:
+      label: "Your Email *"
+      placeholder: "your.email@institution.edu"
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: "Opportunity Title *"
+      placeholder: "Title of the opportunity"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: "Opportunity Type *"
+      options:
+        - Call for papers
+        - Job / position
+        - Fellowship
+        - Grant
+        - Award
+        - Workshop / summer school
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description *"
+      placeholder: "Brief description of the opportunity."
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: "Deadline *"
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: "URL / More Information (optional)"
+      placeholder: "https://example.com/opportunity"
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Consent *"
+      options:
+        - label: "I consent to having this opportunity published on the RC42 portal after review."
+          required: true

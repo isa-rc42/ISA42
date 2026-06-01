@@ -1,0 +1,34 @@
+# =============================================================================
+# ISA RC42 Resources
+# Structure prepared for publications, teaching resources, datasets/tools,
+# and reading lists. No fabricated entries.
+# =============================================================================
+
+categories:
+  - id: "publications"
+    title: "Key Publications"
+    description: "Selected publications by RC42 members and relevant works in sociological social psychology."
+    items: []
+    # Example:
+    # - title: "Publication Title"
+    #   authors: "Author(s)"
+    #   year: 2024
+    #   journal: "Journal Name"
+    #   url: ""
+    #   doi: ""
+    #   type: "article"  # Options: article, book, chapter, report, working-paper
+
+  - id: "teaching"
+    title: "Teaching Resources"
+    description: "Course materials, syllabi, and pedagogical resources shared by RC42 members."
+    items: []
+
+  - id: "datasets-tools"
+    title: "Datasets & Tools"
+    description: "Publicly available datasets, software tools, and methodological resources relevant to sociological social psychology."
+    items: []
+
+  - id: "reading-lists"
+    title: "Reading Lists"
+    description: "Curated reading lists on core topics in sociological social psychology."
+    items: []

@@ -1,0 +1,106 @@
+name: "Create Member Profile"
+description: "Request creation of a new member profile on the RC42 portal."
+title: "[Profile] "
+labels: ["profile", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## New Member Profile Request
+        Please fill in the following information to create your profile on the RC42 Social Psychology portal.
+        All fields marked with * are required.
+
+  - type: input
+    id: full-name
+    attributes:
+      label: "Full Name *"
+      placeholder: "First name Last name"
+    validations:
+      required: true
+
+  - type: input
+    id: email
+    attributes:
+      label: "Email (for verification only, not published) *"
+      placeholder: "your.email@institution.edu"
+    validations:
+      required: true
+
+  - type: input
+    id: affiliation
+    attributes:
+      label: "Affiliation *"
+      placeholder: "University or institution name"
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: "Country *"
+      placeholder: "Country of your primary affiliation"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bio
+    attributes:
+      label: "Short Biography *"
+      placeholder: "A brief description of your academic background and current position (150–300 words)."
+    validations:
+      required: true
+
+  - type: textarea
+    id: research-interests
+    attributes:
+      label: "Research Interests *"
+      placeholder: "List your main research interests, separated by commas."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: rc42-relationship
+    attributes:
+      label: "Relationship with RC42 *"
+      options:
+        - Current ISA RC42 member
+        - Former ISA RC42 member
+        - Interested in joining RC42
+        - Collaborator / affiliated scholar
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID (optional)"
+      placeholder: "https://orcid.org/0000-0000-0000-0000"
+
+  - type: input
+    id: google-scholar
+    attributes:
+      label: "Google Scholar (optional)"
+      placeholder: "https://scholar.google.com/citations?user=..."
+
+  - type: input
+    id: website
+    attributes:
+      label: "Personal Website (optional)"
+      placeholder: "https://your-website.com"
+
+  - type: textarea
+    id: publications
+    attributes:
+      label: "Selected Publications (optional)"
+      placeholder: "List up to 5 selected publications."
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Consent *"
+      options:
+        - label: "I consent to have my profile published on the RC42 portal."
+          required: true
+        - label: "I consent to having this submission stored for editorial review."
+          required: true

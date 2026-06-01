@@ -1,0 +1,368 @@
+---
+toc: false
+title-block-style: none
+---
+
+<div class="about-page">
+
+<div class="about-hero-compact">
+  <span class="about-kicker">ABOUT RC42</span>
+  <h1>About RC42 Social Psychology</h1>
+  <p class="about-bajada">
+    A Research Committee of the International Sociological Association, established in 1988, dedicated to international research, debate, and collaboration in sociological social psychology.
+  </p>
+</div>
+
+<nav class="about-section-nav">
+  <a href="#overview" class="active">Overview</a>
+  <a href="#objectives">Objectives</a>
+  <a href="#history">History</a>
+  <a href="#relation-isa">Relation with ISA</a>
+  <a href="#statutes">Statutes</a>
+</nav>
+
+<div class="about-accordion">
+
+<details id="overview" open>
+<summary>Overview</summary>
+<div class="details-content">
+
+RC42 Social Psychology is a Research Committee of the International Sociological Association. It brings together scholars from across the globe who share an interest in the sociological approach to social psychology. The committee focuses on identities, social interaction, group processes, emotions, attitudes, collective behavior, socialization, and the relationship between social structures and individual experience.
+
+</div>
+</details>
+
+<details id="objectives">
+<summary>Objectives</summary>
+<div class="details-content">
+
+The aim of RC42 is to contribute to the development of theory and research in social psychology on an international level, uniting professional and scientific interests of its members to work together on a local, regional, and international level.
+
+To achieve these goals, the committee focuses on the following key areas:
+
+*   **International Research:** Advancing sociological social psychology internationally by promoting the development, dissemination, and exchange of theory and research across countries and regions.
+*   **Sociological Theory & Social Psychology:** Bridging diverse theoretical and methodological traditions within sociological social psychology, promoting dialogue across perspectives such as symbolic interactionism, social structure and personality, and group processes.
+*   **Scholarly Collaboration:** Fostering academic exchange, uniting the professional and scientific interests of members to work at local, regional, and international levels.
+*   **Regional & International Coordination:** Organizing academic sessions and events, planning and coordinating sessions at ISA World Congresses of Sociology and other relevant international conferences.
+*   **Active Participation:** Supporting emerging scholars and enhancing the visibility of sociological social psychology within the broader discipline of sociology and across the social sciences.
+
+</div>
+</details>
+
+<details id="history">
+<summary>History</summary>
+<div class="details-content">
+
+RC42 Social Psychology was established in **1988** as a Research Committee of the International Sociological Association (ISA).
+
+Since its founding, RC42 has served as an institutional home and forum for sociologists interested in social psychology to connect, collaborate, and advance the field at an international level. As part of the network of Research Committees of the ISA, its core function is to promote a community of research in sociological social psychology, facilitating international collaboration and the exchange of scientific knowledge.
+
+For information on previous RC42 boards and their contributions over the decades, see [Past Boards](../past-boards/index.qmd).
+
+</div>
+</details>
+
+<details id="relation-isa">
+<summary>Relation with ISA</summary>
+<div class="details-content">
+
+RC42 Social Psychology operates as a recognized **Research Committee** of the [International Sociological Association (ISA)](https://www.isa-sociology.org/).
+
+Please note the following institutional relationship:
+
+*   **Official Membership:** Official membership in RC42 is managed and administered through the ISA.
+*   **Complementary Portal:** This website operates as a complementary digital portal to improve the visibility, circulation of information, and academic collaboration among members.
+*   **Institutional Reference:** The [official ISA RC42 page](https://www.isa-sociology.org/en/research-networks/research-committees/rc42-social-psychology/) remains the primary institutional reference for official records.
+
+</div>
+</details>
+
+<details id="statutes">
+<summary>Statutes</summary>
+<div class="details-content">
+
+The statutes define the nature, aims, activities, membership rules, governing bodies, board obligations, and general conditions of RC42 Social Psychology.
+
+::: {.about-article}
+### Article I. Nature of Research Committee 42 (RC42)
+
+RC42 is a body of ISA and it supports the development of theory and empirical research in social psychology.
+
+RC42 was formed in accordance with Article XI, Paragraph 1 of the Statutes of ISA, by the decision of the Executive Committee of ISA (EC of ISA).
+
+RC42 reports its activities to the Research Council of ISA.
+
+For the realization of its activities, RC42 obtains funds of its own and spends them according to Article XI, Paragraph 7 of the Statutes of ISA.
+:::
+
+::: {.about-article}
+### Article II. Aims of Research Committee 42
+
+The aim of RC42 is to contribute to the development of theory and research in social psychology on an international level, uniting professional and scientific interests of its members to work together on a local, regional, and international level.
+:::
+
+::: {.about-article}
+### Article III. Activities of Research Committee 42
+
+For the achievement of the aims stated in Article II of the present Statutes, RC42 supports the following activities:
+
+*   Exchange of information among its members.
+*   International scientific communication.
+*   International research projects.
+*   Organizational activities and implementation of an international network of social psychologists.
+
+The exchange of information is to be accomplished by publication activities and a documentation system. An information bulletin or newsletter is published in order to inform members and the scientific communities about the ongoing activities of the Research Committee.
+
+International scientific communication about social psychological research is carried out by means of scientific conferences (including jointly sponsored conferences), symposia, colloquia, and other forms of interpersonal communication, etc. of RC42, and by participation in the activities of ISA.
+
+Initiative planning and carrying out of regional and inter-regional projects aim at:
+
+*   Theoretical research on the development of social psychological theory.
+*   Empirical research connected with key social psychological issues.
+*   Applied research relating social psychology to social policy (e.g. in domains like work, family and health, etc.).
+*   Development, evaluation, and improvement of research methodologies related to social psychology.
+
+The aims of the organizational activities are:
+
+*   Realization of effective interaction among the social psychologists united by RC42 on the basis of a network model on the international, national, and regional levels.
+*   Realization of effective coordination between RC42 and the other Research Committees of the ISA.
+*   Realization of effective coordination between RC42 and the governing bodies of ISA.
+*   Realization of effective cooperation and coordination between the relevant institutions and organizations in connection with the advancement of the field of social psychology.
+:::
+
+::: {.about-article}
+### Article IV. Membership in Research Committee 42
+
+Members of RC42 can be individuals or institutions:
+
+*   Scientists dealing with social psychology by teaching and/or by conducting research, or related scientific professions.
+*   Organizations dealing with social psychology and corresponding national associations.
+*   Other scientific international or regional-level organizations dealing with social psychology.
+
+All members of RC42 are entitled to:
+
+*   Vote as individual members in the discussions about organizational matters at the General Meetings according to the principle "one member, one vote"; that means that one institution also has one vote.
+*   Participate in the scientific activities of the Committee.
+*   Receive the Information Bulletin for Social Psychology (IBSP) or Newsletter free of charge.
+
+Members of RC42 are obliged to:
+
+*   Uphold the present statutes of RC42 and to adhere to the stipulations of the present statutes.
+*   Conscientiously fulfill the tasks entrusted to them by the General Meeting or other bodies of RC42.
+*   Pay their fee for one period (4 years) that is:
+    *   20 U.S. dollars or equivalent for individual members. If payment is not possible, exceptions can be made by the Board in accordance with ISA.
+    *   200 U.S. dollars or equivalent for institutional members.
+
+The Board of RC42 shall discuss the state of membership each year and shall make the corresponding decisions regarding active membership.
+:::
+
+::: {.about-article}
+### Article V. Bodies of Research Committee 42
+
+For the effective fulfillment of its activities, RC42 forms the following bodies:
+
+*   General Meeting
+*   Board or Executive Council
+*   Editorial Committee
+*   Advisory Board
+
+#### General Meeting of RC42
+
+The General Meeting comprises all members who have the right to vote. The General Meeting is held:
+
+*   Regularly during the congresses of ISA;
+*   At the proposal of one third of its members of the General Meeting;
+*   General Meetings have to be announced at least six months in advance.
+
+The General Meeting:
+
+*   Determines the directions of activities and accepts the plan for the work of the Committee;
+*   Set policies and elect a nominating committee to take responsibility for the election of the Board of the Committee for the following term;
+*   The decisions of the General Meeting are taken by a simple majority (50% of the participating members plus one) by open vote.
+
+#### Board of RC42
+
+The Board of RC42 consists of 8 members as follows:
+
+*   President
+*   Secretary /Treasurer
+*   Editor-in-Chief of the editions of the Newsletter of RC42
+*   Four regional representatives
+*   Ex-President of the Committee
+
+The Board or Executive Council of RC42:
+
+*   Elaborates the Plan of Activities of the Committee;
+*   Organizes the fulfillment of the Plan of Activities of the Committee (scientific activities conferences, symposia, colloquia, and other forms of interpersonal communication, publishing of the Information Bulletin, international research projects, etc.);
+*   Promotes scientific and organizational contacts with other research committees of ISA;
+*   If necessary, it creates sub-committees for the realization of the activities of the Committee (e.g. program committees);
+*   It establishes contacts with the governing bodies of ISA;
+*   It reports its activities to the General Meeting;
+*   It reports activities of the Committee to the governing bodies of ISA.
+
+#### Election of the Board
+
+All board members must be in good standing in both the RC and ISA throughout the four years of their mandate.
+
+The Board of RC42 is elected every four years for a four-year term between each World Congress of Sociology, with their term to commence at the following World Congress.
+
+At the required world congress general membership meeting, members of RC42 network, set policies and elect a nominating committee consisting of a Chair and members representative of the different regions of RC42 membership. The nominating committee issues a call and solicits nominations both at the general meeting and in the newsletter and receives nominations for all the offices listed above and proposes two candidates for each position. The list of nominees is circulated in a newsletter to all members with a call for additional nominations. The Chair of the nominations committee administers the election by mail ballot, and officers are elected from a list of nominated candidates on the basis of a simple majority of ballots received by the deadline specified on the ballot. In the case of a tie between candidates, the issue is resolved in a manner that is mindful of regional representation, and for candidates from the same region, by drawing lots.
+
+A member may be a candidate for more than one office but may only serve in one office at a time. A meeting of members from both the old and new RC42 Boards is held at the beginning of the World Congress of Sociology to help evaluate past activities, to establish planning committees and to begin to plan activities for the next four years. This meeting is open to all RC42 members. Officially the new officers begin their mandate at the business meeting after the nominating committee report. In the transition phase, all serving officers who so wish will continue their term until the balloting is finalized and the nominating committee has declared them elected at the next membership meeting. Interim positions will be filled by the Chair.
+
+No officer may serve more than two consecutive full terms in the same position.
+
+The President may not be re-elected for the following term.
+
+In the event that an officer is unable to serve, the Chair may appoint a replacement, after consultation with other appropriate officers.
+
+The Board of RC42 makes decisions at its meetings by a quorum of 50% plus one of the members and by an open vote ballot with a simple majority (50% plus one of the participants).
+
+#### Editorial Committee of RC42
+
+The Editorial Committee assists the Board in the realization of the publication activities of RC42. It promotes contacts with the publishing house of ISA (SAGE).
+
+#### Advisory Board of RC42
+
+The Advisory Board of RC42 will be formed of prominent social psychologists. The members of the Advisory Board will be invited to join by the President and the Past-president. Their membership will be approved by the Board.
+:::
+
+::: {.about-article}
+### Article VI. Obligations of the Board Members of Research Committee 42
+
+#### The President of RC42
+
+*   Presides at the General Meeting and the Meeting of the Board of RC42.
+*   Represents RC42 as a delegate to the Research Council of ISA and other organizations.
+*   Conducts the activities of the Board of RC42 in accordance with the decisions of the General Meeting.
+*   Is responsible for the activities of the Board to the General Meeting of RC42.
+*   Is responsible for the whole activity of RC42 to the governing bodies of ISA.
+
+#### The Organizational Secretary/Treasurer
+
+*   Organizes the holding of the General meetings of the Board of RC42.
+*   Represents RC42 as an alternate on the Research Council of ISA.
+*   Assists the President in organizing the work of the Board and the fulfillment of its decisions.
+*   Collects the membership fees and other incoming fees.
+*   Keeps financial reports and documentation.
+*   Prepares the financial report of the Board to be accepted by the General Meeting;
+*   Realizes the financial relations between RC42 and the ISA.
+
+#### The Editor of the Newsletter
+
+*   Gathers information for the development of social psychology (scientific activities, research projects, new publications, etc.).
+*   Organizes the publications of the RC42 Newsletter and its distribution.
+*   Ensures that at least two issues of the Newsletter appear per year.
+
+#### Regional Representatives
+
+Will take an active part within their region to:
+
+*   bring new members to RC42
+*   disseminate information on RC42 and its activities
+*   locate researchers who could organize sessions and/or otherwise participate in the ISA World Congress and other ISA related conferences
+*   identify new issues and creative lines of inquiry for further research on social psychology
+:::
+
+::: {.about-article}
+### Article VII. General Conditions
+
+These revised Statutes were proposed for review and acceptance at the Business Meeting of RC42 held in July 2006, at the General Meeting of RC42, ISA Congress in South Africa.
+
+Amendments to statutes must be proposed to the Chair in writing at least 60 days prior to scheduled RC42 business meetings (every four years at World Congresses). Amendments are discussed at the business meetings and voted by simple majority of members present or voting in case of mail ballot.
+:::
+
+</div>
+</details>
+
+</div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const detailsElements = document.querySelectorAll(".about-accordion details");
+  const navLinks = document.querySelectorAll(".about-section-nav a");
+
+  function openSectionFromHash() {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.substring(1);
+      const targetDetails = document.getElementById(targetId);
+      if (targetDetails && targetDetails.tagName === "DETAILS") {
+        // Close all details
+        detailsElements.forEach(d => {
+          if (d !== targetDetails) d.removeAttribute("open");
+        });
+        // Open target details
+        targetDetails.setAttribute("open", "");
+        
+        // Highlight active link
+        updateActiveLink(hash);
+        
+        // Scroll to it
+        setTimeout(() => {
+          targetDetails.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 150);
+      }
+    }
+  }
+
+  function updateActiveLink(hash) {
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === hash) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  // Handle nav clicks
+  navLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+      if (href.startsWith("#")) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetDetails = document.getElementById(targetId);
+        if (targetDetails) {
+          // Close others
+          detailsElements.forEach(d => {
+            if (d !== targetDetails) d.removeAttribute("open");
+          });
+          // Open target
+          targetDetails.setAttribute("open", "");
+          // Update URL hash without jumping immediately
+          history.pushState(null, null, href);
+          // Highlight link
+          updateActiveLink(href);
+          // Smooth scroll
+          targetDetails.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    });
+  });
+
+  // Handle details toggling to update active state in nav
+  detailsElements.forEach(detail => {
+    detail.addEventListener("toggle", function() {
+      if (this.hasAttribute("open")) {
+        // Close other details to keep page clean (accordion behavior)
+        detailsElements.forEach(d => {
+          if (d !== detail) d.removeAttribute("open");
+        });
+        const hash = "#" + this.id;
+        history.replaceState(null, null, hash);
+        updateActiveLink(hash);
+      }
+    });
+  });
+
+  // Run on page load
+  openSectionFromHash();
+  
+  // Listen to hash change
+  window.addEventListener("hashchange", openSectionFromHash);
+});
+</script>

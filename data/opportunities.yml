@@ -1,0 +1,16 @@
+# =============================================================================
+# ISA RC42 Opportunities
+# Structure prepared — no fabricated opportunities listed.
+# Opportunities will be added as they are submitted and approved.
+# =============================================================================
+
+opportunities: []
+  # Example structure for future entries:
+  # - title: "Call for Papers: RC42 Session at ISA World Congress 2027"
+  #   type: "call-for-papers"  # Options: call-for-papers, job, fellowship, grant, award, other
+  #   description: "Description of the opportunity."
+  #   deadline: "2027-01-15"
+  #   url: ""
+  #   contact: ""
+  #   posted: "2025-06-01"
+  #   status: "open"  # Options: open, closed, upcoming

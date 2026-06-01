@@ -1,0 +1,18 @@
+---
+title: "Blog"
+description: "Blog posts and essays by RC42 Social Psychology members."
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
+---
+
+## RC42 Blog
+
+Essays, reflections, and contributions from RC42 members on topics in sociological social psychology.
+
+::: {.placeholder-notice}
+The RC42 blog is open for contributions from members. To submit a blog post, use the [contribution form](../participate/submit-contribution.qmd) and select "Blog post" as the contribution type.
+:::

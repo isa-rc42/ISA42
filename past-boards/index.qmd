@@ -1,0 +1,25 @@
+---
+title: "Past Boards"
+description: "Previous boards of ISA RC42 Social Psychology."
+---
+
+## Past Boards of RC42 Social Psychology
+
+This page will list the composition of previous RC42 boards.
+
+::: {.placeholder-notice}
+Information about past RC42 boards is being compiled. If you have served on a previous board or have records of past board compositions, please [contact the current board](../contact/index.qmd).
+:::
+
+### Known Past Terms
+
+The following board terms are known to have existed. Details will be added as they are confirmed:
+
+- Board 2018–2023
+- Board 2014–2018
+- Board 2010–2014
+- Earlier terms (since establishment in 1988)
+
+::: {.info-box}
+RC42 boards are elected at each ISA World Congress of Sociology, which takes place every four years.
+:::

@@ -1,0 +1,101 @@
+---
+title: "Board 2023–2027"
+description: "Current executive board members of ISA RC42 Social Psychology."
+---
+
+::: {.section-header}
+## RC42 Executive Board
+Serving for the 2023–2027 term.
+:::
+
+The current executive board of RC42 Social Psychology was elected to lead the committee's initiatives and representation internationally.
+
+### Executive Officers
+
+::: {.board-highlight}
+::: {.card-rc42 .border-navy}
+::: {.card-role}
+President
+:::
+::: {.card-title}
+Juan Carlos Castillo
+:::
+::: {.card-text}
+Universidad de Chile, Chile<br><br>Program Coordinator for the XXI ISA World Congress of Sociology 2027.
+:::
+:::
+
+::: {.card-rc42 .border-teal}
+::: {.card-role}
+Secretary / Treasurer
+:::
+::: {.card-title}
+Lisa Slattery Walker
+:::
+::: {.card-text}
+University of North Carolina at Charlotte, USA
+:::
+:::
+:::
+
+### Board Members
+
+::: {.card-grid}
+::: {.card-rc42 .border-blue}
+::: {.card-role}
+Board Member
+:::
+::: {.card-title}
+Charles Puttergill
+:::
+::: {.card-text}
+University of Pretoria, South Africa
+:::
+:::
+
+::: {.card-rc42 .border-navy}
+::: {.card-role}
+Board Member
+:::
+::: {.card-title}
+Karla Henríquez Ojeda
+:::
+::: {.card-text}
+Université catholique de Louvain, Belgium
+:::
+:::
+
+::: {.card-rc42 .border-teal}
+::: {.card-role}
+Board Member
+:::
+::: {.card-title}
+Deepak Kumar Verma
+:::
+::: {.card-text}
+Dr. B. R. Ambedkar University of Social Sciences, India
+:::
+:::
+
+::: {.card-rc42 .border-blue}
+::: {.card-role}
+Online Communication Manager
+:::
+::: {.card-title}
+To be announced
+:::
+::: {.card-text}
+This position is currently vacant.
+:::
+:::
+:::
+
+### Program Coordination
+
+| Congress | Coordinator |
+|----------|------------|
+| XXI ISA World Congress of Sociology 2027 | Juan Carlos Castillo |
+
+::: {.info-box}
+Board members are elected at the ISA World Congress of Sociology. The next election will take place at the XXI ISA World Congress in 2027.
+:::

@@ -1,0 +1,77 @@
+---
+toc: false
+title-block-style: none
+---
+
+```{=html}
+<div class="newsletter-archive">
+
+  <div class="newsletter-hero">
+    <span class="newsletter-kicker">PUBLICATIONS</span>
+    <h1>RC42 Newsletter Archive</h1>
+    <p class="newsletter-bajada">
+      Past editions of the RC42 Social Psychology newsletter, distributed to ISA members and the broader academic community.
+    </p>
+  </div>
+
+  <div class="newsletter-year-list">
+
+    <div class="newsletter-year-row">
+      <div class="newsletter-year-label">2025</div>
+      <div class="newsletter-year-issues">
+        <div class="newsletter-issue">
+          <div class="newsletter-issue-meta">
+            <span class="newsletter-issue-title">RC42 Newsletter — June 2025</span>
+            <span class="newsletter-issue-date">June 2025</span>
+          </div>
+          <a href="https://www.isa-sociology.org/uploads/imgen/2238-rc42newsletter-june-2025.pdf"
+             target="_blank" rel="noopener noreferrer" class="newsletter-read-link">
+            Read newsletter
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="newsletter-year-row">
+      <div class="newsletter-year-label">2024</div>
+      <div class="newsletter-year-issues">
+        <div class="newsletter-issue">
+          <div class="newsletter-issue-meta">
+            <span class="newsletter-issue-title">RC42 Newsletter — November 2024</span>
+            <span class="newsletter-issue-date">November 2024</span>
+          </div>
+          <a href="https://www.isa-sociology.org/uploads/imgen/2040-rc42newsletter-november-2024.pdf"
+             target="_blank" rel="noopener noreferrer" class="newsletter-read-link">
+            Read newsletter
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="newsletter-year-row">
+      <div class="newsletter-year-label">2023</div>
+      <div class="newsletter-year-issues">
+        <div class="newsletter-issue">
+          <div class="newsletter-issue-meta">
+            <span class="newsletter-issue-title">RC42 Newsletter — May 2023</span>
+            <span class="newsletter-issue-date">May 2023</span>
+          </div>
+          <a href="https://www.isa-sociology.org/uploads/imgen/1519-rc42newsletter-may-2023.pdf"
+             target="_blank" rel="noopener noreferrer" class="newsletter-read-link">
+            Read newsletter
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="newsletter-footer-note">
+    RC42 newsletters are distributed to ISA RC42 members. To receive future editions,
+    <a href="/membership/index.html">join RC42 through ISA</a>.
+    To submit content for the next newsletter,
+    <a href="/participate/submit-contribution.html">use the contribution form</a>.
+  </div>
+
+</div>
+```
