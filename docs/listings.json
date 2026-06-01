@@ -1,0 +1,12 @@
+[
+  {
+    "listing": "/news/index.html",
+    "items": [
+      "/news/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": []
+  }
+]
