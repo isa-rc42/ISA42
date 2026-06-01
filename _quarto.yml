@@ -3,6 +3,8 @@ project:
   output-dir: docs
   resources:
     - "data/rc42_members_clean.json"
+    - "images/"
+    - "assets/"
 
 website:
   title: "ISA RC42 Social Psychology"

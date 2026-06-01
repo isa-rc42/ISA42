@@ -4,6 +4,10 @@
 # =============================================================================
 name: Render Check
 
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   pull_request:
     branches: [main]
@@ -33,3 +37,4 @@ jobs:
             echo "❌ Site output directory not found."
             exit 1
           fi
+

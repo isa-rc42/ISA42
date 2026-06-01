@@ -15,6 +15,10 @@ name: LLM Review (Placeholder)
 #   issues:
 #     types: [labeled]
 
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   workflow_dispatch:  # Manual trigger only for now
 
@@ -53,3 +57,4 @@ jobs:
           echo ""
           echo "To activate, configure OPENAI_API_KEY and implement scripts/llm_review_submission.py"
           # python scripts/llm_review_submission.py --issue-number ${{ github.event.issue.number }}
+
