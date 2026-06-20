@@ -33,3 +33,6 @@ node_modules/
 *.tmp
 
 **/*.quarto_ipynb
+
+# Generated docs
+/docs/
