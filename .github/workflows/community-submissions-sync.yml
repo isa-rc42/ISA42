@@ -49,19 +49,24 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Create branch and commit
+      - name: Create pull request branch
         if: steps.git-check.outputs.has_changes == 'true'
+        shell: bash
         run: |
+          set -euo pipefail
+
+          BRANCH_NAME="community-submissions-sync/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          BRANCH_NAME="community-submissions-sync/${{ github.run_id }}-${{ github.run_attempt }}"
-          git checkout -b $BRANCH_NAME
-          
-          git commit -m "sync: update community submissions from Google Sheets"
-          git push origin $BRANCH_NAME
-          
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH_NAME"
+
+          git add -- data/community_submissions.yml
+          git commit -m "Update community submissions data"
+          git push origin "$BRANCH_NAME"
+
+          echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_ENV"
 
       - name: Open Pull Request
         if: steps.git-check.outputs.has_changes == 'true'
