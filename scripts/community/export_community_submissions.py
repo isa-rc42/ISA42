@@ -3,7 +3,7 @@ import sys
 import json
 import re
 import yaml
-from datetime import datetime
+from datetime import datetime, timedelta
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -61,11 +61,37 @@ def is_exportable(row):
     except AttributeError:
         return False
 
-def validate_date(date_str):
+def parse_date(date_str):
     if not date_str:
-        return False
-    # Validate YYYY-MM-DD
-    return bool(re.match(r"^\d{4}-\d{2}-\d{2}$", date_str.strip()))
+        return None
+    date_str = str(date_str).strip()
+    
+    # Check if it is already in YYYY-MM-DD
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
+        try:
+            datetime.strptime(date_str, "%Y-%m-%d")
+            return date_str
+        except ValueError:
+            return None
+            
+    # Check if it is an Excel/Sheets serial date
+    if date_str.isdigit():
+        try:
+            serial = int(date_str)
+            # Google Sheets epoch is usually Dec 30, 1899
+            base_date = datetime(1899, 12, 30)
+            return (base_date + timedelta(days=serial)).strftime("%Y-%m-%d")
+        except Exception:
+            pass
+            
+    # Try explicit string formats
+    for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y/%m/%d"]:
+        try:
+            return datetime.strptime(date_str, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            pass
+            
+    return None
 
 def parse_tags(tags_str):
     if not tags_str:
@@ -159,10 +185,11 @@ def main():
             
         # 11. Date Published
         date_pub = str(row.get("date_published", "")).strip()
-        if not validate_date(date_pub):
-            print(f"ERROR (Row {i}): date_published must be YYYY-MM-DD. Found: '{date_pub}'")
+        parsed_date = parse_date(date_pub)
+        if not parsed_date:
+            print(f"ERROR (Row {i}): date_published could not be parsed to YYYY-MM-DD. Found: '{date_pub}'")
             sys.exit(1)
-        record["date_published"] = date_pub
+        record["date_published"] = parsed_date
         
         # 12. Tags
         record["tags"] = parse_tags(str(row.get("suggested_tags", "")))
