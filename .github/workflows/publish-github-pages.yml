@@ -1,20 +1,30 @@
 # =============================================================================
-# Render Check — validates that the Quarto site renders without errors
-# Runs on every pull request to the main branch.
+# Publish to GitHub Pages
+# Renders the Quarto site and uploads it as a GitHub Pages artifact
 # =============================================================================
-name: Render Check
-
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+name: Publish to GitHub Pages
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  render:
+  build-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -52,13 +62,11 @@ jobs:
       - name: Render site
         run: quarto render
 
-      - name: Check output
-        run: |
-          if [ -d "docs" ]; then
-            echo "✅ Site rendered successfully."
-            echo "Files generated:"
-            find docs -type f | head -20
-          else
-            echo "❌ Site output directory not found."
-            exit 1
-          fi
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
