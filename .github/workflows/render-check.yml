@@ -29,12 +29,14 @@ jobs:
             any::knitr
             any::rmarkdown
             any::yaml
+            any::readr
 
       - name: Verify R dependencies
         run: |
           Rscript -e 'stopifnot(requireNamespace("knitr", quietly = TRUE))'
           Rscript -e 'stopifnot(requireNamespace("rmarkdown", quietly = TRUE))'
           Rscript -e 'stopifnot(requireNamespace("yaml", quietly = TRUE))'
+          Rscript -e 'stopifnot(requireNamespace("readr", quietly = TRUE))'
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
