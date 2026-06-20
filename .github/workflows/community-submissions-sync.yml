@@ -1,0 +1,87 @@
+name: Community Submissions Sync
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements-community.txt
+
+      - name: Run export script
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        run: python scripts/community/export_community_submissions.py
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          # Verify no other files were modified
+          OTHER_FILES=$(git status --porcelain | grep -v "data/community_submissions.yml" || true)
+          if [ -n "$OTHER_FILES" ]; then
+            echo "ERROR: The script modified unauthorized files. Workflow can only modify data/community_submissions.yml"
+            echo "$OTHER_FILES"
+            exit 1
+          fi
+          
+          if [ -z "$(git status --porcelain -- data/community_submissions.yml)" ]; then
+            echo "No changes detected in data/community_submissions.yml."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changes detected in data/community_submissions.yml."
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create branch and commit
+        if: steps.git-check.outputs.has_changes == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          BRANCH_NAME="community-submissions-sync/${{ github.run_id }}-${{ github.run_attempt }}"
+          git checkout -b $BRANCH_NAME
+          
+          git commit -m "sync: update community submissions from Google Sheets"
+          git push origin $BRANCH_NAME
+          
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Open Pull Request
+        if: steps.git-check.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat << 'EOF' > pr_body.txt
+          This PR updates data/community_submissions.yml from approved community submissions in Google Sheets.
+
+          Validation performed:
+          - Only approved/export-ready rows exported.
+          - Private/internal fields excluded.
+          - Dates validated as YYYY-MM-DD.
+          - Duplicate IDs checked.
+          - YAML generated successfully.
+
+          This PR does not publish directly. It requires human review and manual merge.
+          EOF
+          
+          gh pr create \
+            --title "Update community submissions from Google Sheets" \
+            --body-file pr_body.txt \
+            --head ${{ env.BRANCH_NAME }} \
+            --base main
