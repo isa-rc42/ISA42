@@ -3,9 +3,15 @@ import sys
 import json
 import re
 import yaml
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
+from zoneinfo import ZoneInfo
 import gspread
 from google.oauth2.service_account import Credentials
+
+SANTIAGO_TZ = ZoneInfo("America/Santiago")
+
+def today_santiago_iso():
+    return datetime.now(SANTIAGO_TZ).date().isoformat()
 
 # --- Configuration ---
 PRIVATE_FIELDS = [
@@ -61,37 +67,80 @@ def is_exportable(row):
     except AttributeError:
         return False
 
-def parse_date(date_str):
-    if not date_str:
-        return None
-    date_str = str(date_str).strip()
-    
-    # Check if it is already in YYYY-MM-DD
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
+def parse_flexible_date(value, row_number=None, field_name="date", required=False):
+    """
+    Parse common date formats from Google Sheets and return YYYY-MM-DD.
+
+    If required=True and the value is empty or invalid, return today's date
+    in America/Santiago and print a warning.
+
+    If required=False and the value is empty or invalid, return an empty string
+    and print a warning only for invalid non-empty values.
+    """
+    today = today_santiago_iso()
+
+    if value is None:
+        if required:
+            print(f"WARNING (Row {row_number}): {field_name} is empty. Using today's date: {today}")
+            return today
+        return ""
+
+    if isinstance(value, datetime):
+        return value.date().isoformat()
+
+    if isinstance(value, date):
+        return value.isoformat()
+
+    raw = str(value).strip()
+
+    if raw == "":
+        if required:
+            print(f"WARNING (Row {row_number}): {field_name} is empty. Using today's date: {today}")
+            return today
+        return ""
+
+    # Google Sheets / Excel serial date support
+    if re.fullmatch(r"\d+(\.\d+)?", raw):
         try:
-            datetime.strptime(date_str, "%Y-%m-%d")
-            return date_str
-        except ValueError:
-            return None
-            
-    # Check if it is an Excel/Sheets serial date
-    if date_str.isdigit():
-        try:
-            serial = int(date_str)
-            # Google Sheets epoch is usually Dec 30, 1899
-            base_date = datetime(1899, 12, 30)
-            return (base_date + timedelta(days=serial)).strftime("%Y-%m-%d")
+            serial = float(raw)
+            # Excel/Google Sheets date origin. Handles common serial dates.
+            parsed = date(1899, 12, 30) + timedelta(days=int(serial))
+            if 1900 <= parsed.year <= 2100:
+                return parsed.isoformat()
         except Exception:
             pass
-            
-    # Try explicit string formats
-    for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y/%m/%d"]:
+
+    formats = [
+        "%Y-%m-%d",
+        "%d/%m/%Y",
+        "%d-%m-%Y",
+        "%d.%m.%Y",
+        "%B %d, %Y",
+        "%b %d, %Y",
+        "%d %B %Y",
+        "%d %b %Y",
+        "%m/%d/%Y",
+        "%Y/%m/%d"
+    ]
+
+    for fmt in formats:
         try:
-            return datetime.strptime(date_str, fmt).strftime("%Y-%m-%d")
+            return datetime.strptime(raw, fmt).date().isoformat()
         except ValueError:
-            pass
-            
-    return None
+            continue
+
+    if required:
+        print(
+            f"WARNING (Row {row_number}): {field_name} could not be parsed: {raw!r}. "
+            f"Using today's date: {today}"
+        )
+        return today
+
+    print(
+        f"WARNING (Row {row_number}): {field_name} could not be parsed: {raw!r}. "
+        "Leaving it empty."
+    )
+    return ""
 
 def parse_tags(tags_str):
     if not tags_str:
@@ -184,12 +233,22 @@ def main():
             record["member_display_name"] = ""
             
         # 11. Date Published
-        date_pub = str(row.get("date_published", "")).strip()
-        parsed_date = parse_date(date_pub)
-        if not parsed_date:
-            print(f"ERROR (Row {i}): date_published could not be parsed to YYYY-MM-DD. Found: '{date_pub}'")
-            sys.exit(1)
-        record["date_published"] = parsed_date
+        record["date_published"] = parse_flexible_date(
+            row.get("date_published", ""),
+            row_number=i,
+            field_name="date_published",
+            required=True,
+        )
+        
+        # 11b. Optional dates
+        for opt_date_field in ["relevant_date", "deadline", "event_date", "date_event", "publication_date"]:
+            if opt_date_field in row:
+                record[opt_date_field] = parse_flexible_date(
+                    row.get(opt_date_field, ""),
+                    row_number=i,
+                    field_name=opt_date_field,
+                    required=False
+                )
         
         # 12. Tags
         record["tags"] = parse_tags(str(row.get("suggested_tags", "")))
