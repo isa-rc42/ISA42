@@ -39,14 +39,23 @@ jobs:
             any::knitr
             any::rmarkdown
             any::yaml
-            any::readr
+            any::tidyverse
+            any::jsonlite
+            any::glue
+            any::htmltools
+            any::scales
+            any::here
+            any::fs
 
       - name: Verify R dependencies
         run: |
           Rscript -e 'stopifnot(requireNamespace("knitr", quietly = TRUE))'
           Rscript -e 'stopifnot(requireNamespace("rmarkdown", quietly = TRUE))'
           Rscript -e 'stopifnot(requireNamespace("yaml", quietly = TRUE))'
+          Rscript -e 'stopifnot(requireNamespace("dplyr", quietly = TRUE))'
           Rscript -e 'stopifnot(requireNamespace("readr", quietly = TRUE))'
+          Rscript -e 'stopifnot(requireNamespace("ggplot2", quietly = TRUE))'
+          Rscript -e 'stopifnot(requireNamespace("jsonlite", quietly = TRUE))'
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
