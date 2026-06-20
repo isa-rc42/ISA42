@@ -222,10 +222,21 @@ def main():
         with open(output_path, 'w', encoding='utf-8') as f:
             yaml.dump(export_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
         print(f"Data successfully written to {output_path}")
-        print(f"Exported IDs: {[r['id'] for r in export_data]}")
     except Exception as e:
-        print(f"ERROR: Failed to write output file: {e}")
+        print(f"ERROR: Failed to write YAML output file: {e}")
         sys.exit(1)
+
+    # Write JSON
+    json_output_path = output_path.rsplit(".", 1)[0] + ".json"
+    try:
+        with open(json_output_path, 'w', encoding='utf-8') as f:
+            json.dump(export_data, f, ensure_ascii=False, indent=2)
+        print(f"Data successfully written to {json_output_path}")
+    except Exception as e:
+        print(f"ERROR: Failed to write JSON output file: {e}")
+        sys.exit(1)
+
+    print(f"Exported IDs: {[r['id'] for r in export_data]}")
 
 if __name__ == "__main__":
     main()

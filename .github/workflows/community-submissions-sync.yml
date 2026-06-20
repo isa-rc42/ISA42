@@ -34,18 +34,18 @@ jobs:
         id: git-check
         run: |
           # Verify no other files were modified
-          OTHER_FILES=$(git status --porcelain | grep -v "data/community_submissions.yml" || true)
+          OTHER_FILES=$(git status --porcelain | grep -E -v "data/community_submissions\.(yml|json)" || true)
           if [ -n "$OTHER_FILES" ]; then
-            echo "ERROR: The script modified unauthorized files. Workflow can only modify data/community_submissions.yml"
+            echo "ERROR: The script modified unauthorized files. Workflow can only modify data/community_submissions.{yml,json}"
             echo "$OTHER_FILES"
             exit 1
           fi
           
-          if [ -z "$(git status --porcelain -- data/community_submissions.yml)" ]; then
-            echo "No changes detected in data/community_submissions.yml."
+          if [ -z "$(git status --porcelain -- data/community_submissions.yml data/community_submissions.json)" ]; then
+            echo "No changes detected in data/community_submissions data."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
-            echo "Changes detected in data/community_submissions.yml."
+            echo "Changes detected in data/community_submissions data."
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -62,7 +62,7 @@ jobs:
 
           git checkout -b "$BRANCH_NAME"
 
-          git add -- data/community_submissions.yml
+          git add -- data/community_submissions.yml data/community_submissions.json
           git commit -m "Update community submissions data"
           git push origin "$BRANCH_NAME"
 
@@ -74,7 +74,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cat << 'EOF' > pr_body.txt
-          This PR updates data/community_submissions.yml from approved community submissions in Google Sheets.
+          This PR updates data/community_submissions.yml and .json from approved community submissions in Google Sheets.
 
           Validation performed:
           - Only approved/export-ready rows exported.

@@ -15,4 +15,6 @@ Latest news, announcements, and updates from RC42 Social Psychology.
 
 ::: {.info-box}
 To submit a news item, use the [contribution form](../participate/submit-contribution.qmd). All submissions are reviewed by the RC42 board before publication.
+
+You can also explore community-submitted content on the [Community Contributions](community-contributions.qmd) page.
 :::

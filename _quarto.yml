@@ -3,6 +3,7 @@ project:
   output-dir: docs
   resources:
     - "data/rc42_members_clean.json"
+    - "data/community_submissions.json"
     - "images/"
     - "assets/"
 
@@ -45,11 +46,13 @@ website:
             href: past-boards/index.qmd
           - text: "Members Directory"
             href: members/index.qmd
-      - text: "Activities"
-        href: activities/index.qmd
+      - text: "News"
+        href: news/index.qmd
         menu:
-          - text: "News"
+          - text: "News & Updates"
             href: news/index.qmd
+          - text: "Community Contributions"
+            href: news/community-contributions.qmd
           - text: "Events"
             href: events/index.qmd
           - text: "Opportunities"

@@ -1,0 +1,193 @@
+---
+title: "Community Contributions"
+description: "Community contributions submitted to ISA RC42."
+toc: false
+---
+
+This page presents community contributions submitted to ISA RC42 and reviewed by the editorial team before publication. Please note that publication is not automatic; all submissions pass through editorial review.
+
+::: {#filters-container .mb-4 style="display: flex; gap: 1rem; flex-wrap: wrap;"}
+<select id="filter-type" class="form-select form-select-sm" style="width: auto;">
+  <option value="">All Types</option>
+</select>
+<select id="filter-category" class="form-select form-select-sm" style="width: auto;">
+  <option value="">All Categories</option>
+</select>
+<select id="filter-language" class="form-select form-select-sm" style="width: auto;">
+  <option value="">All Languages</option>
+</select>
+:::
+
+::: {#contributions-container}
+<div class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+:::
+
+<script>
+document.addEventListener("DOMContentLoaded", async function() {
+  const container = document.getElementById('contributions-container');
+  const typeFilter = document.getElementById('filter-type');
+  const categoryFilter = document.getElementById('filter-category');
+  const languageFilter = document.getElementById('filter-language');
+  
+  let allData = [];
+
+  try {
+    const response = await fetch('/data/community_submissions.json');
+    if (!response.ok) {
+      throw new Error("Data not found");
+    }
+    allData = await response.json();
+    
+    // Sort descending by date_published
+    allData.sort((a, b) => new Date(b.date_published) - new Date(a.date_published));
+    
+    if (allData.length === 0) {
+      container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+      document.getElementById('filters-container').style.display = 'none';
+      return;
+    }
+    
+    // Populate filter options
+    const types = [...new Set(allData.map(d => d.type).filter(Boolean))].sort();
+    const categories = [...new Set(allData.map(d => d.category).filter(Boolean))].sort();
+    const languages = [...new Set(allData.map(d => d.language).filter(Boolean))].sort();
+    
+    types.forEach(t => typeFilter.add(new Option(t, t)));
+    categories.forEach(c => categoryFilter.add(new Option(c, c)));
+    languages.forEach(l => languageFilter.add(new Option(l, l)));
+    
+    renderCards(allData);
+    
+    typeFilter.addEventListener('change', filterData);
+    categoryFilter.addEventListener('change', filterData);
+    languageFilter.addEventListener('change', filterData);
+
+  } catch (error) {
+    container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+    document.getElementById('filters-container').style.display = 'none';
+  }
+
+  function filterData() {
+    const tVal = typeFilter.value;
+    const cVal = categoryFilter.value;
+    const lVal = languageFilter.value;
+    
+    const filtered = allData.filter(d => {
+      return (!tVal || d.type === tVal) &&
+             (!cVal || d.category === cVal) &&
+             (!lVal || d.language === lVal);
+    });
+    
+    renderCards(filtered);
+  }
+
+  function normalizeType(t) {
+    if (!t) return 'other';
+    const l = t.toLowerCase();
+    if (l.includes('news')) return 'news';
+    if (l.includes('event')) return 'event';
+    if (l.includes('resource')) return 'resource';
+    if (l.includes('call') || l.includes('opportunity')) return 'call';
+    if (l.includes('publication')) return 'publication';
+    if (l.includes('experience')) return 'experience';
+    return 'other';
+  }
+  
+  function getTypeImage(type) {
+    const normalized = normalizeType(type);
+    const imageMap = {
+      news: "/images/community-types/news.svg",
+      event: "/images/community-types/event.svg",
+      resource: "/images/community-types/resource.svg",
+      call: "/images/community-types/call.svg",
+      publication: "/images/community-types/publication.svg",
+      experience: "/images/community-types/experience.svg",
+      other: "/images/community-types/other.svg"
+    };
+    return imageMap[normalized] || imageMap.other;
+  }
+  
+  function getTypeAltText(type) {
+    const normalized = normalizeType(type);
+    const altMap = {
+      news: "Illustration representing a news contribution",
+      event: "Illustration representing an event contribution",
+      resource: "Illustration representing a resource contribution",
+      call: "Illustration representing a call or opportunity",
+      publication: "Illustration representing a publication",
+      experience: "Illustration representing a community experience",
+      other: "Illustration representing another type of contribution"
+    };
+    return altMap[normalized] || altMap.other;
+  }
+
+  function renderCards(data) {
+    if (data.length === 0) {
+      container.innerHTML = '<p class="text-muted">No matches found for the selected filters.</p>';
+      return;
+    }
+    
+    let html = '<div class="row g-4">';
+    data.forEach(item => {
+      // Escape HTML to prevent injection
+      const title = escapeHtml(item.title);
+      const desc = escapeHtml(item.description);
+      const type = escapeHtml(item.type);
+      const cat = escapeHtml(item.category);
+      const date = escapeHtml(item.date_published);
+      const url = escapeHtml(item.url || '');
+      const org = escapeHtml(item.organization || item.territory || '');
+      const member = escapeHtml(item.member_display_name || '');
+      
+      const tags = (item.tags || []).map(t => `<span class="badge bg-secondary me-1 mb-1">${escapeHtml(t)}</span>`).join('');
+      
+      const cardTitle = url ? `<a href="${url}" target="_blank" class="text-decoration-none">${title}</a>` : title;
+      const subtitle = [type || 'Other', cat].filter(Boolean).join(' • ');
+      
+      const imgSrc = getTypeImage(item.type);
+      const imgAlt = getTypeAltText(item.type);
+      
+      html += `
+        <div class="col-12">
+          <div class="card shadow-sm border-0 bg-light overflow-hidden">
+            <div class="row g-0 h-100">
+              <div class="col-md-3 d-flex align-items-center justify-content-center p-4 bg-white border-end">
+                <img src="${imgSrc}" class="img-fluid" style="max-height: 140px; width: auto; opacity: 0.85;" alt="${imgAlt}">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body d-flex flex-column h-100">
+                  <div class="text-muted small mb-2 text-uppercase fw-semibold" style="letter-spacing: 0.5px;">${subtitle}</div>
+                  <h5 class="card-title fw-bold mb-3">${cardTitle}</h5>
+                  <p class="card-text flex-grow-1">${desc}</p>
+                  
+                  <div class="mt-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <small class="text-muted"><i class="bi bi-calendar3"></i> ${date}</small>
+                      ${org ? `<small class="text-muted"><i class="bi bi-geo-alt"></i> ${org}</small>` : ''}
+                    </div>
+                    ${member ? `<div class="mb-2"><small class="text-muted">By ${member}</small></div>` : ''}
+                    ${tags ? `<div>${tags}</div>` : ''}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  function escapeHtml(unsafe) {
+    return (unsafe || "").toString()
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+  }
+});
+</script>
