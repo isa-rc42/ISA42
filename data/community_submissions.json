@@ -10,7 +10,7 @@
     "url": "https://spsp.org/events/annual-convention/submissions",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-20",
+    "date_published": "2026-06-21",
     "relevant_date": "2026-09-15",
     "tags": [
       "research",
@@ -19,6 +19,46 @@
       "early career",
       "conference",
       "network",
+      "global"
+    ]
+  },
+  {
+    "id": "sub-20260620-215028",
+    "title": "Submission title: Call for Papers: Special Issue on Social Status",
+    "description": "Social Psychology Quarterly invites submissions for a special issue on social status. The call welcomes empirical and theoretical articles or research notes on how status is determined, how it affects individuals, groups, and society, and how it relates to inequality, power, emotions, identity, conflict, decision-making, workplaces, classrooms, and methodological advances in the study of status.",
+    "type": "call",
+    "category": "social_psychology",
+    "territory": "Global",
+    "organization": "Social Psychology Quarterly / American Sociological Association",
+    "url": "https://journals.sagepub.com/page/spq/call-for-papers",
+    "language": "English",
+    "member_display_name": "",
+    "date_published": "2026-06-21",
+    "relevant_date": "2026-12-15",
+    "tags": [
+      "research",
+      "publication",
+      "call",
+      "early career"
+    ]
+  },
+  {
+    "id": "sub-20260620-233219",
+    "title": "Call for Papers: The Social Psychology of Third Parties in Intergroup Conflicts",
+    "description": "The journal Social Psychology invites submissions for a special issue on the role of third parties in intergroup conflicts. The issue welcomes theoretical and empirical contributions on how actors not directly involved in conflicts may shape conflict dynamics through mediation, commentary, allyship, sanctioning, bystander involvement, reconciliation, collective memory, and social justice.",
+    "type": "call",
+    "category": "social_psychology",
+    "territory": "Global",
+    "organization": "Social Psychology / European Association of Social Psychology",
+    "url": "https://www.easp.eu/news/itm/call_for_papers_the_social_psych-2177.html",
+    "language": "English",
+    "member_display_name": "",
+    "date_published": "2026-06-21",
+    "relevant_date": "2026-08-31",
+    "tags": [
+      "research",
+      "call",
+      "conference",
       "global"
     ]
   }
