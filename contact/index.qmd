@@ -1,5 +1,5 @@
 ---
-title: "Contact and Community Contributions"
+title: "Contact and Contributions"
 description: "Contact ISA RC42 Social Psychology, share community contributions, or update member information."
 toc: false
 title-block-style: none
@@ -8,14 +8,6 @@ title-block-style: none
 ::: {.contact-hub}
 
 ::: {.contact-hero}
-::: {.section-kicker}
-Contact
-:::
-<p class="contact-hero-text">
-Contact ISA RC42 Social Psychology, share community contributions, or update member information.
-</p>
-:::
-
 ::: {.contact-layout}
 ::: {.contact-main-card}
 ## General Inquiries {#general-inquiries}
@@ -55,10 +47,10 @@ If you need to update your member profile, affiliation, country, research intere
 :::
 :::
 
-::: {.contact-portal-wide}
+::: {.contact-card .contact-portal-note}
 ## About This Portal
 
-This website is maintained as a complementary digital portal for RC42 Social Psychology. It is not an official ISA platform. For technical issues with this website, please contact the Online Communication Manager or the RC42 board via email.
+This website is maintained as a complementary digital portal for RC42 Social Psychology. It is not an official ISA platform. For technical issues with this website, please contact the [Online Communication Manager](../people/index.qmd) or the RC42 board via email.
 :::
 
 :::

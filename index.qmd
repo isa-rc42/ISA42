@@ -114,8 +114,12 @@ RC42 fosters international research, debate, and collaboration in sociological s
       </div>
 
       <div class="updates-nav" id="updatesNav">
-        <button class="updates-nav-btn" id="updatesPrev" aria-label="Previous updates">&larr;</button>
-        <button class="updates-nav-btn" id="updatesNext" aria-label="Next updates">&rarr;</button>
+        <button class="updates-nav-btn" id="updatesPrev" aria-label="Previous updates">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="updates-nav-btn" id="updatesNext" aria-label="Next updates">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
     
@@ -159,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const latestItems = data
         .filter(item => item.title && isPublished(item))
         .sort((a, b) => new Date(b.date_published || 0) - new Date(a.date_published || 0))
-        .slice(0, 3);
+        .slice(0, 6);
         
       if (latestItems.length === 0) {
         carousel.innerHTML = `
@@ -180,28 +184,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const typeStr = formatLabel(item.type);
         const catStr = formatLabel(item.category);
         const metaStr = [typeStr, catStr].filter(Boolean).join(' &middot; ');
-        
-        let tagsHtml = '';
-        if (item.tags && Array.isArray(item.tags)) {
-           tagsHtml = `<div class="updates-card-tags">` + 
-             item.tags.slice(0, 3).map(t => `<span>${formatLabel(t)}</span>`).join('') + 
-             `</div>`;
-        }
 
         html += `
-          <a href="${url}" ${target} class="updates-card">
-            <div class="updates-card-body">
-              <div class="updates-card-meta">
-                <span class="updates-card-category">${metaStr}</span>
-                <span class="updates-card-date">${item.date_published || ''}</span>
-              </div>
-              <h3 class="updates-card-title">${item.title}</h3>
-              <p class="updates-card-excerpt">${item.description || item.excerpt || ''}</p>
-              ${item.organization ? `<div class="updates-card-source">${item.organization}</div>` : ''}
-              ${tagsHtml}
-              <span class="updates-card-cta">View contribution &rarr;</span>
+          <article class="community-carousel-card">
+            <div class="community-carousel-topline">
+              <span class="community-carousel-kicker">${metaStr}</span>
+              <span class="community-carousel-date">${item.date_published || ''}</span>
             </div>
-          </a>
+            <h3 class="community-carousel-title">${item.title}</h3>
+            <p class="community-carousel-excerpt">${item.description || item.excerpt || ''}</p>
+            ${item.organization ? `<div class="community-carousel-source">${item.organization}</div>` : ''}
+            <a class="community-carousel-link" href="${url}" ${target}>
+              View contribution &rarr;
+            </a>
+          </article>
         `;
       });
       
@@ -223,8 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!prevBtn || !nextBtn) return;
     
     const scrollAmount = () => {
-      const card = carousel.querySelector('.updates-card');
-      return card ? card.offsetWidth + 20 : 400;
+      const card = carousel.querySelector('.community-carousel-card');
+      return card ? card.offsetWidth + 20 : 400; // 20px is the gap
     };
 
     const scrollNext = () => {
@@ -246,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startAutoPlay = () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       stopAutoPlay();
-      autoPlayInterval = setInterval(scrollNext, 4000);
+      autoPlayInterval = setInterval(scrollNext, 4500);
     };
     
     const stopAutoPlay = () => {
@@ -263,7 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 ```
-
 
 
 <!-- Member Directory CTA -->
