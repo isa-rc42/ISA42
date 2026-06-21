@@ -3052,3 +3052,410 @@ body .community-filter-bar .filter-controls select.form-select {
     padding-left: 1rem;
   }
 }
+
+
+/* News Header Action */
+.news-action-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -1rem;
+  margin-bottom: 1.25rem;
+}
+
+.news-header-action {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #173b7a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.news-header-action:hover {
+  border-color: #0d9488;
+  color: #0d9488;
+  transform: translateY(-1px);
+}
+
+/* Community Filter Bar Sort Updates */
+.community-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5eaf0;
+  border-radius: 0.85rem;
+  background: #f8fafc;
+}
+
+.community-filter-bar .filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.community-filter-bar .filter-label,
+.community-filter-bar .sort-label {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0b1628;
+  margin: 0;
+}
+
+.community-filter-bar .form-select,
+.community-filter-bar select {
+  display: inline-block;
+  width: auto;
+  min-width: 150px;
+  max-width: 190px;
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+#sort-mode {
+  min-width: 170px;
+}
+
+@media (max-width: 700px) {
+  .news-action-bar {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+
+  .community-filter-bar {
+    align-items: flex-start;
+  }
+
+  .community-filter-bar .filter-controls {
+    width: 100%;
+  }
+
+  .community-filter-bar .form-select,
+  .community-filter-bar select {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Mission ISA Logo Fixes
+   ========================================================================== */
+
+.home-mission .mission-isa-mark {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* Ensure it stays in normal flow */
+  position: static;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.home-mission .mission-isa-mark img {
+  width: 180px !important;
+  max-width: 180px !important;
+  height: 180px !important;
+  max-height: 180px !important;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+  filter: drop-shadow(0 14px 28px rgba(15, 23, 42, 0.12));
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .home-mission .mission-isa-mark {
+    margin-top: 1.5rem;
+  }
+
+  .home-mission .mission-isa-mark img {
+    width: 130px !important;
+    max-width: 130px !important;
+    height: 130px !important;
+    max-height: 130px !important;
+  }
+}
+
+/* ==========================================================================
+   Latest Community Contributions Carousel (Home)
+   ========================================================================== */
+.home-updates-section {
+  padding: 48px 24px 56px;
+  background: #fcfdfe;
+  border-top: 1px solid rgba(8, 21, 43, 0.05);
+  border-bottom: 1px solid rgba(8, 21, 43, 0.05);
+  overflow: hidden;
+}
+
+.home-updates-shell {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+}
+
+.home-updates-header {
+  max-width: 860px;
+  margin: 0 0 32px;
+}
+
+.home-updates-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #00a99d;
+  margin-bottom: 12px;
+}
+
+.home-updates-kicker::after {
+  content: "";
+  display: block;
+  width: 84px;
+  height: 2px;
+  background: #00a99d;
+  margin-top: 10px;
+}
+
+.home-updates-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+  color: #08152b;
+}
+
+.home-updates-header p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #506487;
+  margin: 0;
+  max-width: 820px;
+}
+
+.updates-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.updates-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 24px;
+}
+
+.updates-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Updated Card Styles */
+.updates-card {
+  flex: 0 0 calc(33.333% - 14px);
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 1px solid rgba(8, 21, 43, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  text-decoration: none !important;
+  color: inherit !important;
+  min-height: 260px;
+}
+
+.updates-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(8, 21, 43, 0.08);
+  border-color: rgba(0, 169, 157, 0.25);
+}
+
+.updates-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.updates-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.updates-card-category {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #00a99d;
+}
+
+.updates-card-date {
+  font-size: 0.75rem;
+  color: #7b8ea8;
+  font-weight: 500;
+}
+
+.updates-card-title {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  color: #08152b;
+  font-weight: 700;
+}
+
+.updates-card-excerpt {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #506487;
+  margin: 0 0 16px;
+  flex-grow: 1;
+}
+
+.updates-card-source {
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.updates-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.75rem 0;
+}
+
+.updates-card-tags span {
+  padding: 0.16rem 0.38rem;
+  border-radius: 0.25rem;
+  background: #e6fffb;
+  border: 1px solid #b6f0ea;
+  color: #0f766e;
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.updates-card-cta {
+  font-size: 0.8rem;
+  font-weight: 850;
+  color: #003b7a;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.updates-card:hover .updates-card-cta {
+  color: #00a99d;
+}
+
+.updates-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.updates-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(8, 21, 43, 0.12);
+  background: transparent;
+  color: #08152b;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-size: 1.1rem;
+}
+
+.updates-nav-btn:hover {
+  background: #08152b;
+  color: #ffffff;
+  border-color: #08152b;
+}
+
+.home-updates-footer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-view-all-updates {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #003b7a;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(8, 21, 43, 0.12);
+  transition: all 0.2s ease;
+}
+
+.btn-view-all-updates:hover {
+  background: #08152b;
+  color: #ffffff;
+  border-color: #08152b;
+}
+
+.updates-fallback {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+.updates-fallback p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .updates-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-updates-section {
+    padding: 40px 16px 40px;
+  }
+  .updates-card {
+    flex: 0 0 85%;
+  }
+  .updates-nav {
+    display: none;
+  }
+  .home-updates-header h2 {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+}

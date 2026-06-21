@@ -6,6 +6,10 @@ toc: false
 
 ::: {.community-page}
 
+::: {.news-action-bar}
+[Submit a contribution &rarr;](../contact/index.qmd#community-contributions){.news-header-action}
+:::
+
 ```{=html}
 <div class="community-filter-bar">
   <span class="filter-label">Filter by:</span>
@@ -26,6 +30,13 @@ toc: false
     
     <select id="languageFilter" class="form-select form-select-sm" aria-label="Filter by Language">
       <option value="all">All Languages</option>
+    </select>
+
+    <span class="sort-label">Sort by:</span>
+
+    <select id="sort-mode" class="form-select form-select-sm" aria-label="Sort by">
+      <option value="date_desc">Contribution date</option>
+      <option value="deadline_asc">Deadline</option>
     </select>
   </div>
 </div>
@@ -69,6 +80,51 @@ document.addEventListener("DOMContentLoaded", async function() {
   } catch (error) {
     console.error("Failed to load community submissions:", error);
     container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+  }
+
+  
+  function parseDate(value) {
+    if (!value) return null;
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? null : date;
+  }
+
+  function getDeadline(item) {
+    return item.relevant_date || item.deadline || "";
+  }
+
+  function sortData(data) {
+    const sortMode = document.getElementById('sort-mode');
+    const mode = sortMode ? sortMode.value : "date_desc";
+    const sorted = [...data];
+
+    if (mode === "deadline_asc") {
+      sorted.sort((a, b) => {
+        const da = parseDate(getDeadline(a));
+        const db = parseDate(getDeadline(b));
+
+        if (da && db) return da - db;
+        if (da && !db) return -1;
+        if (!da && db) return 1;
+
+        const pa = parseDate(a.date_published);
+        const pb = parseDate(b.date_published);
+        if (pa && pb) return pb - pa;
+        return 0;
+      });
+    } else {
+      sorted.sort((a, b) => {
+        const da = parseDate(a.date_published);
+        const db = parseDate(b.date_published);
+
+        if (da && db) return db - da;
+        if (da && !db) return -1;
+        if (!da && db) return 1;
+        return 0;
+      });
+    }
+
+    return sorted;
   }
 
   function populateFilters(data) {
@@ -178,12 +234,12 @@ document.addEventListener("DOMContentLoaded", async function() {
     const catVal = categoryFilter.value;
     const langVal = languageFilter.value;
     
-    const filtered = data.filter(item => {
+    let filtered = sortData(data.filter(item => {
       const tMatch = typeVal === 'all' || normalizeType(item.type) === typeVal;
       const cMatch = catVal === 'all' || (item.category && item.category.toLowerCase() === catVal);
       const lMatch = langVal === 'all' || (item.language && item.language.toLowerCase() === langVal);
       return tMatch && cMatch && lMatch;
-    });
+    }));
 
     if (filtered.length === 0) {
       container.innerHTML = '<p class="text-muted">No contributions match the selected filters.</p>';
