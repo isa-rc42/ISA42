@@ -3271,8 +3271,9 @@ body .community-filter-bar .filter-controls select.form-select {
    -------------------------------------------------------- */
 .community-carousel-card {
   flex: 0 0 calc(33.333% - 14px);
+  max-width: 470px;
   scroll-snap-align: start;
-  min-height: 320px;
+  min-height: 290px;
   border: 1px solid #e5eaf0;
   border-radius: 1.1rem;
   background: #ffffff;
@@ -3290,7 +3291,7 @@ body .community-filter-bar .filter-controls select.form-select {
 }
 
 .community-card-accent {
-  padding: 1rem 1.15rem 0.85rem;
+  padding: 0.9rem 1rem 0.75rem;
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
@@ -3298,37 +3299,37 @@ body .community-filter-bar .filter-controls select.form-select {
 
 .community-card-accent--call {
   background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%);
-  border-bottom: 1px solid #ccfbf1;
+  border-bottom: 1px solid rgba(45, 212, 191, 0.22);
 }
 
 .community-card-accent--event {
   background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
-  border-bottom: 1px solid #dbeafe;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
 }
 
 .community-card-accent--publication {
   background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 100%);
-  border-bottom: 1px solid #e9d5ff;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
 }
 
 .community-card-accent--resource {
   background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
-  border-bottom: 1px solid #bbf7d0;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
 }
 
 .community-card-accent--news {
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 .community-card-accent--other {
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 .community-card-icon {
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3339,8 +3340,8 @@ body .community-filter-bar .filter-controls select.form-select {
 }
 
 .community-card-icon img {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.15rem;
+  height: 1.15rem;
   object-fit: contain;
 }
 
@@ -3354,42 +3355,48 @@ body .community-filter-bar .filter-controls select.form-select {
 }
 
 .community-carousel-kicker {
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: #0d9488;
   line-height: 1.3;
 }
 
 .community-carousel-date {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: #94a3b8;
   white-space: nowrap;
 }
 
 .community-card-body {
-  padding: 1rem 1.15rem 1.2rem;
+  padding: 0.95rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .community-carousel-title {
-  margin: 0 0 0.75rem;
-  font-size: 1.1rem;
-  line-height: 1.28;
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  font-size: 1rem;
+  line-height: 1.25;
   color: #0b1628;
   font-weight: 700;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .community-carousel-excerpt {
-  margin: 0 0 1rem;
-  font-size: 0.92rem;
-  line-height: 1.55;
+  margin-bottom: 1rem;
+  font-size: 0.94rem;
+  line-height: 1.5;
   color: #475569;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -3397,7 +3404,7 @@ body .community-filter-bar .filter-controls select.form-select {
 .community-carousel-source {
   margin-top: auto;
   margin-bottom: 1rem;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   line-height: 1.45;
   color: #64748b;
   display: -webkit-box;
@@ -3407,16 +3414,17 @@ body .community-filter-bar .filter-controls select.form-select {
 }
 
 .community-carousel-link {
+  margin-top: 0.1rem;
   font-size: 0.92rem;
   font-weight: 700;
-  color: #173b7a;
+  color: #0f3d8a;
   text-decoration: none;
   display: inline-block;
-  transition: color 0.2s ease;
 }
 
 .community-carousel-link:hover {
-  color: #0d9488;
+  text-decoration: underline;
+  color: #0f3d8a;
 }
 
 /* --------------------------------------------------------

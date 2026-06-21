@@ -326,58 +326,7 @@ main.content,
       </div>
     </section>
 
-    <section class="rc42-activities-v1__grid" aria-label="RC42 activity areas">
-
-      <article class="rc42-activities-v1__card" id="news">
-        <div class="rc42-activities-v1__card-media">
-          <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=900&q=80" alt="News and announcements">
-        </div>
-        <div class="rc42-activities-v1__card-body">
-          <span class="rc42-activities-v1__eyebrow">News</span>
-          <h3>Latest announcements</h3>
-          <p>Board updates, community news, and recent developments from RC42 Social Psychology.</p>
-          <a href="#news">Read news &rarr;</a>
-        </div>
-      </article>
-
-      <article class="rc42-activities-v1__card" id="events">
-        <div class="rc42-activities-v1__card-media">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80" alt="Conference audience">
-        </div>
-        <div class="rc42-activities-v1__card-body">
-          <span class="rc42-activities-v1__eyebrow">Events</span>
-          <h3>Conferences and seminars</h3>
-          <p>Upcoming conferences, seminars, workshops, and RC42-endorsed academic gatherings.</p>
-          <a href="#events">View events &rarr;</a>
-        </div>
-      </article>
-
-      <article class="rc42-activities-v1__card" id="opportunities">
-        <div class="rc42-activities-v1__card-media">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="Academic collaboration">
-        </div>
-        <div class="rc42-activities-v1__card-body">
-          <span class="rc42-activities-v1__eyebrow">Opportunities</span>
-          <h3>Calls and opportunities</h3>
-          <p>Calls for papers, academic positions, fellowships, and professional opportunities for the community.</p>
-          <a href="#opportunities">Explore opportunities &rarr;</a>
-        </div>
-      </article>
-
-      <article class="rc42-activities-v1__card" id="newsletter">
-        <div class="rc42-activities-v1__card-media">
-          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80" alt="Newsletter and writing">
-        </div>
-        <div class="rc42-activities-v1__card-body">
-          <span class="rc42-activities-v1__eyebrow">Newsletter</span>
-          <h3>Newsletter archive</h3>
-          <p>Browse past newsletters containing reports, articles, announcements, and community updates.</p>
-          <a href="#newsletter">Browse newsletter archive &rarr;</a>
-        </div>
-      </article>
-
-    </section>
-
+  
   </div>
 </div>
 ```
