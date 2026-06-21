@@ -18,7 +18,7 @@ PRIVATE_FIELDS = [
     "submitter_email", "Email Address", "submitter_name", "editorial_comments",
     "editorial_notes", "rejection_reason", "reviewing_member", "publishing_member",
     "editor_responsible", "privacy_checked", "ready_for_export", "duplicate_flag",
-    "timestamp"
+    "timestamp", "review_status", "publish_on_site", "url_checked"
 ]
 
 REQUIRED_YAML_FIELDS = [
@@ -42,30 +42,38 @@ def load_credentials():
 
 def is_exportable(row):
     try:
-        if row.get("review_status", "").strip().lower() != "approved":
+        review_status = row.get("review_status", "").strip().lower()
+        publish_on_site = row.get("publish_on_site", "").strip().lower()
+
+        if review_status != "approved":
             return False
-        if row.get("publish_on_site", "").strip().lower() != "yes":
+
+        if publish_on_site != "yes":
             return False
-        if row.get("privacy_checked", "").strip().lower() != "yes":
-            return False
-        if row.get("duplicate_flag", "").strip().lower() != "no":
-            return False
-        if row.get("ready_for_export", "").strip().lower() != "yes":
-            return False
-            
-        url_checked = row.get("url_checked", "").strip().lower()
-        if url_checked not in ["yes", "not_applicable"]:
-            return False
-            
-        has_url = bool(row.get("public_url", "").strip())
-        if has_url and url_checked != "yes":
-            return False
-        if not has_url and url_checked != "not_applicable":
-            return False
-            
+
         return True
+
     except AttributeError:
         return False
+
+def warn_optional_review_fields(row, row_number):
+    privacy_checked = row.get("privacy_checked", "").strip().lower()
+    duplicate_flag = row.get("duplicate_flag", "").strip().lower()
+    ready_for_export = row.get("ready_for_export", "").strip().lower()
+    url_checked = row.get("url_checked", "").strip().lower()
+
+    if privacy_checked and privacy_checked != "yes":
+        print(f"WARNING (Row {row_number}): privacy_checked is not yes, but export continues because review_status=approved and publish_on_site=yes.")
+
+    if duplicate_flag and duplicate_flag != "no":
+        print(f"WARNING (Row {row_number}): duplicate_flag is not no, but export continues.")
+
+    if ready_for_export and ready_for_export != "yes":
+        print(f"WARNING (Row {row_number}): ready_for_export is not yes, but export continues.")
+
+    if url_checked and url_checked not in ["yes", "not_applicable"]:
+        print(f"WARNING (Row {row_number}): url_checked has an unexpected value, but export continues.")
+
 
 def parse_flexible_date(value, row_number=None, field_name="date", required=False):
     """
@@ -180,6 +188,8 @@ def main():
         # Only process exportable rows
         if not is_exportable(row):
             continue
+            
+        warn_optional_review_fields(row, i)
             
         # Build public record from scratch
         record = {}
