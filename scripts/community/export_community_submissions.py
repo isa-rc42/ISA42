@@ -240,15 +240,13 @@ def main():
             required=True,
         )
         
-        # 11b. Optional dates
-        for opt_date_field in ["relevant_date", "deadline", "event_date", "date_event", "publication_date"]:
-            if opt_date_field in row:
-                record[opt_date_field] = parse_flexible_date(
-                    row.get(opt_date_field, ""),
-                    row_number=i,
-                    field_name=opt_date_field,
-                    required=False
-                )
+        # 11b. Relevant Date
+        record["relevant_date"] = parse_flexible_date(
+            row.get("relevant_date", ""),
+            row_number=i,
+            field_name="relevant_date",
+            required=False
+        )
         
         # 12. Tags
         record["tags"] = parse_tags(str(row.get("suggested_tags", "")))
