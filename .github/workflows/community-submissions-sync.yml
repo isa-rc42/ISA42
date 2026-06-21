@@ -33,15 +33,20 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          # Verify no other files were modified
-          OTHER_FILES=$(git status --porcelain | grep -E -v "(data/community_submissions\.(yml|json)|feeds/community-contributions\.xml)" || true)
-          if [ -n "$OTHER_FILES" ]; then
-            echo "ERROR: The script modified unauthorized files. Workflow can only modify data/community_submissions.{yml,json} and feeds/community-contributions.xml"
-            echo "$OTHER_FILES"
-            exit 1
-          fi
-          
-          if [ -z "$(git status --porcelain -- data/community_submissions.yml data/community_submissions.json feeds/community-contributions.xml)" ]; then
+          CHANGED_FILES=$(git status --porcelain --untracked-files=all | sed 's/^...//')
+
+          for file in $CHANGED_FILES; do
+            if [[ "$file" != "data/community_submissions.json" && \
+                  "$file" != "data/community_submissions.yml" && \
+                  "$file" != "feeds/community-contributions.xml" ]]; then
+              echo "ERROR: The script modified unauthorized files."
+              echo "Unauthorized file: $file"
+              git status --porcelain --untracked-files=all
+              exit 1
+            fi
+          done
+
+          if [ -z "$CHANGED_FILES" ]; then
             echo "No changes detected in data/community_submissions data."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
