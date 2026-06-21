@@ -74,6 +74,11 @@ document.addEventListener("DOMContentLoaded", async function() {
     typeFilter.addEventListener('change', () => renderCards(allData));
     categoryFilter.addEventListener('change', () => renderCards(allData));
     languageFilter.addEventListener('change', () => renderCards(allData));
+    
+    const sortMode = document.getElementById('sort-mode');
+    if (sortMode) {
+      sortMode.addEventListener('change', () => renderCards(allData));
+    }
 
     renderCards(allData);
   } catch (error) {
@@ -89,7 +94,16 @@ document.addEventListener("DOMContentLoaded", async function() {
   }
 
   function getDeadline(item) {
-    return item.relevant_date || item.deadline || "";
+    return (
+      item.deadline ||
+      item.date_deadline ||
+      item.submission_deadline ||
+      item.closing_date ||
+      item.due_date ||
+      item.date_due ||
+      item.relevant_date ||
+      ""
+    );
   }
 
   function sortData(data) {
@@ -275,9 +289,11 @@ document.addEventListener("DOMContentLoaded", async function() {
       
       let datesHtml = '';
       if (date) datesHtml += `<span>Posted: ${formatDate(date)}</span>`;
-      if (relevantDate) {
+      const deadlineRaw = getDeadline(item);
+      const deadlineVal = escapeHtml(deadlineRaw);
+      if (deadlineVal) {
         const label = getRelevantDateLabel(item.type);
-        datesHtml += `<span>${label}: ${formatDate(relevantDate)}</span>`;
+        datesHtml += `<span>${label}: ${formatDate(deadlineVal)}</span>`;
       }
       
       let combinedMeta = '';

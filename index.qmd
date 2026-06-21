@@ -105,7 +105,6 @@ RC42 fosters international research, debate, and collaboration in sociological s
     <header class="home-updates-header">
       <span class="home-updates-kicker">Community</span>
       <h2>Latest Community Contributions</h2>
-      <p>Recent calls, events, resources, publications, and opportunities shared with the RC42 community.</p>
     </header>
 
     <div class="updates-carousel-wrapper">
@@ -185,18 +184,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const catStr = formatLabel(item.category);
         const metaStr = [typeStr, catStr].filter(Boolean).join(' &middot; ');
 
+        let typeVal = (item.type || 'other').toString().toLowerCase().trim();
+        let iconName = 'other';
+        let accentClass = 'community-card-accent--other';
+        
+        if (typeVal.includes('call')) { iconName = 'call'; accentClass = 'community-card-accent--call'; }
+        else if (typeVal.includes('event')) { iconName = 'event'; accentClass = 'community-card-accent--event'; }
+        else if (typeVal.includes('publication') || typeVal.includes('article') || typeVal.includes('book')) { iconName = 'publication'; accentClass = 'community-card-accent--publication'; }
+        else if (typeVal.includes('resource') || typeVal.includes('data')) { iconName = 'resource'; accentClass = 'community-card-accent--resource'; }
+        else if (typeVal.includes('news')) { iconName = 'news'; accentClass = 'community-card-accent--news'; }
+        else if (typeVal.includes('opportunity') || typeVal.includes('job') || typeVal.includes('position')) { iconName = 'news'; accentClass = 'community-card-accent--news'; }
+
         html += `
           <article class="community-carousel-card">
-            <div class="community-carousel-topline">
-              <span class="community-carousel-kicker">${metaStr}</span>
-              <span class="community-carousel-date">${item.date_published || ''}</span>
+            <div class="community-card-accent ${accentClass}">
+              <div class="community-card-icon">
+                <img src="images/community-types/${iconName}.svg" alt="" aria-hidden="true">
+              </div>
+              <div class="community-card-meta-top">
+                <span class="community-carousel-kicker">${metaStr}</span>
+                <span class="community-carousel-date">${item.date_published || ''}</span>
+              </div>
             </div>
-            <h3 class="community-carousel-title">${item.title}</h3>
-            <p class="community-carousel-excerpt">${item.description || item.excerpt || ''}</p>
-            ${item.organization ? `<div class="community-carousel-source">${item.organization}</div>` : ''}
-            <a class="community-carousel-link" href="${url}" ${target}>
-              View contribution &rarr;
-            </a>
+          
+            <div class="community-card-body">
+              <h3 class="community-carousel-title">${item.title}</h3>
+              <p class="community-carousel-excerpt">${item.description || item.excerpt || ''}</p>
+              ${item.organization ? `<div class="community-carousel-source">${item.organization}</div>` : ''}
+              <a class="community-carousel-link" href="${url}" ${target}>
+                View contribution &rarr;
+              </a>
+            </div>
           </article>
         `;
       });

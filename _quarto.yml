@@ -61,6 +61,8 @@ website:
             href: activities/world-congress-2027.qmd
           - text: "Newsletter"
             href: newsletter/index.qmd
+      - text: "Activities"
+        href: activities/index.qmd
       - text: "Resources"
         href: resources/index.qmd
         menu:
