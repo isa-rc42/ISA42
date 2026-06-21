@@ -3,6 +3,7 @@ import sys
 import json
 import re
 import yaml
+import html
 from datetime import datetime, date, timedelta
 from zoneinfo import ZoneInfo
 import gspread
@@ -155,6 +156,90 @@ def parse_tags(tags_str):
         return []
     return [tag.strip() for tag in tags_str.split(",") if tag.strip()]
 
+def generate_rss(export_data):
+    rss_path = "feeds/community-contributions.xml"
+    os.makedirs(os.path.dirname(rss_path), exist_ok=True)
+    
+    valid_items = []
+    for item in export_data:
+        date_str = item.get("date_published")
+        if not date_str:
+            print(f"WARNING: Skipping item {item.get('id')} in RSS due to missing date_published.")
+            continue
+        try:
+            # Check if it parses
+            dt = datetime.strptime(date_str, "%Y-%m-%d")
+            valid_items.append((dt, item))
+        except ValueError:
+            print(f"WARNING: Skipping item {item.get('id')} in RSS due to invalid date_published: {date_str}")
+            continue
+
+    # Sort descending by date
+    valid_items.sort(key=lambda x: x[0], reverse=True)
+    
+    # Limit to 30 items
+    top_items = valid_items[:30]
+    
+    # Build RSS XML
+    xml_parts = []
+    xml_parts.append('<?xml version="1.0" encoding="UTF-8"?>')
+    xml_parts.append('<rss version="2.0">')
+    xml_parts.append('  <channel>')
+    xml_parts.append('    <title>RC42 Community Contributions</title>')
+    xml_parts.append('    <link>https://karavena.github.io/ISA42/news/community-contributions.html</link>')
+    xml_parts.append('    <description>Latest community contributions reviewed and published by ISA RC42 Social Psychology.</description>')
+    
+    for dt, item in top_items:
+        # RFC-822 format: e.g. Fri, 20 Jun 2026 09:00:00 +0000
+        pub_date = dt.strftime("%a, %d %b %Y 09:00:00 +0000")
+        
+        title = html.escape(item.get("title", ""))
+        item_id = html.escape(item.get("id", ""))
+        
+        url = item.get("url", "").strip()
+        if not url:
+            url = "https://karavena.github.io/ISA42/news/community-contributions.html"
+        link = html.escape(url)
+        
+        # Build description
+        desc_text = item.get("description", "")
+        org = item.get("organization", "").strip()
+        member = item.get("member_display_name", "").strip()
+        
+        if org or member:
+            meta = " | ".join(filter(None, [org, member]))
+            desc_text += f"\n\nSource: {meta}"
+            
+        description = html.escape(desc_text)
+        
+        # Build category (type, category, tags)
+        categories = []
+        if item.get("type"): categories.append(item.get("type"))
+        if item.get("category"): categories.append(item.get("category"))
+        if item.get("tags"): categories.extend(item.get("tags"))
+        
+        xml_parts.append('    <item>')
+        xml_parts.append(f'      <title>{title}</title>')
+        xml_parts.append(f'      <link>{link}</link>')
+        xml_parts.append(f'      <description>{description}</description>')
+        xml_parts.append(f'      <guid isPermaLink="false">{item_id}</guid>')
+        xml_parts.append(f'      <pubDate>{pub_date}</pubDate>')
+        for cat in set(categories):
+            if cat.strip():
+                xml_parts.append(f'      <category>{html.escape(cat.strip())}</category>')
+        xml_parts.append('    </item>')
+        
+    xml_parts.append('  </channel>')
+    xml_parts.append('</rss>')
+    
+    try:
+        with open(rss_path, 'w', encoding='utf-8') as f:
+            f.write("\n".join(xml_parts))
+        print(f"RSS feed successfully written to {rss_path}")
+    except Exception as e:
+        print(f"ERROR: Failed to write RSS output file: {e}")
+        sys.exit(1)
+
 def main():
     sheet_id = os.environ.get("GOOGLE_SHEET_ID")
     if not sheet_id:
@@ -304,6 +389,9 @@ def main():
         sys.exit(1)
 
     print(f"Exported IDs: {[r['id'] for r in export_data]}")
+    
+    # Generate RSS 2.0 Feed
+    generate_rss(export_data)
 
 if __name__ == "__main__":
     main()
