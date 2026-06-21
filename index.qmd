@@ -311,30 +311,41 @@ MEMBERSHIP NETWORK
 
 :::
 
+```{=html}
 <!-- ================================================================ -->
-<!-- Community Engagement -->
+<!-- RC42 Community Contributions Weekly Updates -->
 <!-- ================================================================ -->
 
-::: {.home-participate .compact-participate}
-::: {.section-inner .participate-compact-layout}
+<section class="home-newsletter community-updates">
+  <div class="section-inner newsletter-layout">
 
-::: {.participate-heading}
-::: {.section-kicker}
-Engage
-:::
-<h2>Community Engagement</h2>
-<p>Share profiles, news, events, calls, and resources with the RC42 community.</p>
-:::
+    <div class="newsletter-copy">
+      <p class="section-kicker">Weekly Updates</p>
+      <h2>Stay connected with RC42</h2>
+      <p>
+        Receive a weekly email every Friday with the latest community contributions
+        reviewed and published by ISA RC42, including news, calls, events,
+        publications, and resources.
+      </p>
+      <p class="newsletter-note">You can unsubscribe at any time.</p>
+    </div>
 
-::: {.participate-actions}
-<article>
-  <h3>Submit a Contribution</h3>
-  <p>Send news, events, calls, publications, or resources for editorial review.</p>
-  <a href="contact/index.qmd">Submit content &rarr;</a>
-</article>
+    <div class="newsletter-form-panel">
+      <!-- Brevo subscription form embed -->
+      <div class="brevo-embed">
+        <iframe
+          title="RC42 Weekly Updates subscription form"
+          width="540"
+          height="430"
+          src="https://da19a52c.sibforms.com/v2/serve/MUIFADxW2bBzHZiVbhlyk3fYK8W_n7Dr2a0gkYzMPx6uvBYeIuuE_cYLsIyg_QU0aVT3FCGQ4zMtIivq7cBtYcapiwF33XOp8C7MQQEDaDXVsv1UZNGm2Bq8jquBqW5vFYUMGalaOWkCpvjiwp5fwpyMgGGUFfwGqZXtc9_TuZ4zHgXhnqnst5jGz_TJroC5wrVQCQCsuDcMC-jo5w=="
+          frameborder="0"
+          scrolling="no"
+          allowfullscreen
+          style="display:block;width:100%;max-width:100%;">
+        </iframe>
+      </div>
+    </div>
 
-
-:::
-
-:::
-:::
+  </div>
+</section>
+```

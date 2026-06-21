@@ -4110,3 +4110,137 @@ body:has(.contact-hub) .content {
   text-decoration: underline;
   color: #0d3d7a;
 }
+
+
+// =============================================================================
+// Home Newsletter (Phase 3A Placeholder & Phase 4.1 Embed)
+// =============================================================================
+
+.home-newsletter {
+  padding: clamp(4rem, 6vw, 5.5rem) 0;
+  background: #f8fafc;
+  border-bottom: 3px solid $rc42-teal;
+}
+
+.newsletter-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 420px);
+  gap: clamp(3rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.newsletter-copy {
+  max-width: 620px;
+}
+
+.newsletter-copy .section-kicker {
+  color: $rc42-teal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1.1rem;
+  display: inline-block;
+  border-bottom: 2px solid $rc42-teal;
+  padding-bottom: 0.55rem;
+}
+
+.newsletter-copy h2 {
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  color: $rc42-navy;
+  margin-bottom: 1.35rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba($rc42-navy, 0.12);
+}
+
+.newsletter-copy p {
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.65;
+  color: rgba($rc42-navy, 0.76);
+  margin-bottom: 1.25rem;
+}
+
+.newsletter-note {
+  font-size: 0.98rem;
+  font-style: italic;
+  color: rgba($rc42-navy, 0.55);
+}
+
+/* Important: remove heavy card appearance */
+.newsletter-form-panel {
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  backdrop-filter: none;
+}
+
+/* Iframe should feel like part of the page, not like a framed window */
+.brevo-embed {
+  width: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.brevo-embed iframe {
+  width: 100%;
+  max-width: 420px;
+  height: 430px;
+  min-height: 430px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .newsletter-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .newsletter-copy {
+    max-width: 680px;
+  }
+
+  .newsletter-form-panel {
+    justify-self: start;
+    max-width: 460px;
+  }
+
+  .brevo-embed iframe {
+    max-width: 460px;
+    height: 460px;
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-newsletter {
+    padding: 3.25rem 0;
+  }
+
+  .newsletter-copy h2 {
+    font-size: clamp(2.1rem, 12vw, 3rem);
+  }
+
+  .newsletter-form-panel {
+    max-width: 100%;
+  }
+
+  .brevo-embed iframe {
+    max-width: 100%;
+    height: 500px;
+    min-height: 500px;
+  }
+}
