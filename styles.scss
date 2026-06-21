@@ -3844,3 +3844,139 @@ body:has(.contact-hub) .content {
     padding: 1.15rem;
   }
 }
+
+
+/* ==========================================================================
+   Membership Page Styles
+   ========================================================================== */
+.membership-page {
+  max-width: 1120px;
+  width: min(1120px, calc(100vw - 3rem));
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+
+.membership-intro {
+  max-width: 980px;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.membership-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 340px);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.membership-main-card,
+.membership-fees-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 1rem;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.membership-main-card h2,
+.membership-fees-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  font-size: 1.35rem;
+  color: #0b1628;
+}
+
+.membership-main-card ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.2rem;
+}
+
+.membership-main-card li {
+  margin-bottom: 0.45rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.membership-main-card .btn-rc42-primary {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.membership-fees-card p {
+  margin-top: 0;
+  color: #64748b;
+  font-size: 0.92rem;
+}
+
+.membership-fees-card table {
+  width: 100%;
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.membership-fees-card th {
+  color: #0b1628;
+  font-weight: 700;
+  text-align: left;
+}
+
+.membership-fees-card td,
+.membership-fees-card th {
+  padding: 0.55rem 0.45rem;
+  border-bottom: 1px solid #e2e8f0;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.membership-fees-card tr:last-child td {
+  border-bottom: none;
+}
+
+.membership-note {
+  margin-top: 1.75rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid #0d9488;
+  background: #f8fafc;
+  border-radius: 0.75rem;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.membership-contact {
+  margin-top: 1.25rem;
+  color: #475569;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .membership-page {
+    width: min(100%, calc(100vw - 2rem));
+  }
+
+  .membership-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .membership-main-card,
+  .membership-fees-card {
+    padding: 1.15rem;
+    width: 100%;
+  }
+}

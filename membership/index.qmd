@@ -1,41 +1,51 @@
 ---
 title: "Membership"
-description: "How to become a member of ISA RC42 Social Psychology."
+toc: false
+page-layout: full
 ---
 
-## Membership in RC42 Social Psychology
+::: {.membership-page}
 
-RC42 Social Psychology welcomes scholars and researchers from around the world who are interested in sociological social psychology.
+::: {.membership-intro}
+RC42 Social Psychology welcomes scholars, students, and researchers interested in sociological social psychology.
 
-### How to Join RC42
-
-Membership in RC42 is managed through the International Sociological Association (ISA). To become a member of RC42, you need to:
-
-1. **Be an ISA member** — Join the International Sociological Association through the [ISA website](https://www.isa-sociology.org/).
-2. **Select RC42** — When registering or renewing your ISA membership, select RC42 Social Psychology as one of your Research Committees.
-
-::: {.info-box}
-ISA membership includes the option to join up to five Research Committees at no additional cost. Visit the [ISA membership page](https://www.isa-sociology.org/) for current fees and membership categories.
+Membership in RC42 is managed through the International Sociological Association (ISA). To join RC42, register or renew your ISA membership and select **RC42 Social Psychology** as one of your Research Committees.
 :::
 
-### Who Can Join?
+::: {.membership-layout}
 
-RC42 membership is open to:
+::: {.membership-main-card}
 
-- Faculty members and researchers in sociology and related disciplines
-- Graduate students and early-career researchers
-- Independent scholars and practitioners with an interest in sociological social psychology
-- Researchers from any country or region
+## How to join
 
-### Benefits of RC42 Membership
+1. Become or renew as an ISA member.
+2. Select **RC42 Social Psychology** as a Research Committee.
+3. Complete your membership through the ISA members portal.
 
-- Participate in RC42 sessions at ISA World Congresses
-- Connect with an international network of scholars in sociological social psychology
-- Receive the RC42 newsletter
-- Be listed in the RC42 members directory (optional)
-- Submit and vote on proposals for RC42 activities
-- Stand for election to the RC42 board
+<a href="https://members.isa-sociology.org/login" target="_blank" rel="noopener" class="btn-rc42-primary">
+  Start your membership &rarr;
+</a>
 
-### Contact
+:::
 
-For questions about RC42 membership, contact: [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org)
+::: {.membership-fees-card}
+
+## Membership dues
+
+Dues for a 4 year period.
+
+| Economies | Regular | Students |
+|:---|:---:|:---:|
+| Category A | US 25 | US 10 |
+| Category B | US 25 | US 10 |
+| Category C | US 15 | US 10 |
+
+:::
+
+:::
+
+::: {.membership-contact}
+ISA membership includes the option to join Research Committees. For official ISA membership information, fees, and account support, please use the ISA members portal. For questions about RC42 membership, contact [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org).
+:::
+
+:::
