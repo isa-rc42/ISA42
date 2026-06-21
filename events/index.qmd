@@ -25,7 +25,7 @@ The XXI ISA World Congress of Sociology is a major upcoming event. RC42 Social P
 :::
 
 ::: {.placeholder-notice}
-Additional events will be listed as they are submitted and approved. To submit an event, use the [contribution form](../participate/submit-contribution.qmd).
+Additional events will be listed as they are submitted and approved. To submit an event, use the [contribution form](#).
 :::
 
 ### Past Events
@@ -38,4 +38,4 @@ A listing of past RC42 events (conference sessions, workshops, etc.) will be add
 
 ### Submit an Event
 
-If you know of an event relevant to the RC42 community, please submit it through the [contribution form](../participate/submit-contribution.qmd).
+If you know of an event relevant to the RC42 community, please submit it through the [contribution form](#).

@@ -1,40 +1,64 @@
 ---
-title: "Contact"
-description: "Contact ISA RC42 Social Psychology."
+title: "Contact and Community Contributions"
+description: "Contact ISA RC42 Social Psychology, share community contributions, or update member information."
+toc: false
+title-block-style: none
 ---
 
-## Contact RC42 Social Psychology
+::: {.contact-hub}
 
-### General Inquiries
+::: {.contact-hero}
+::: {.section-kicker}
+Contact
+:::
+<p class="contact-hero-text">
+Contact ISA RC42 Social Psychology, share community contributions, or update member information.
+</p>
+:::
 
-For questions, suggestions, or collaboration proposals, please contact the RC42 board:
+::: {.contact-layout}
+::: {.contact-main-card}
+## General Inquiries {#general-inquiries}
+
+For general questions about RC42 Social Psychology, the website, newsletters, or community resources, please contact us at:
 
 **Email:** [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org)
-
-### Specific Contacts
 
 | Role | Name | Contact |
 |:---|:---|:---|
 | **President** | Juan Carlos Castillo | Via RC42 email |
 | **Secretary / Treasurer** | Lisa Slattery Walker | Via RC42 email |
 
-::: {.callout-note appearance="minimal"}
-For official ISA matters (membership, fees, general ISA information), please contact the ISA Secretariat directly through the [ISA website](https://www.isa-sociology.org/).
+::: {.contact-note}
+For official ISA matters, including membership, fees, and general ISA information, please contact the ISA Secretariat directly through the [ISA website](https://www.isa-sociology.org/).
+:::
 :::
 
-### Submit Content
+::: {.contact-side-stack}
 
-To share news, events, or opportunities with the community:
+::: {.contact-card #community-contributions}
+## Community Contributions
 
-- [Submit a contribution](../participate/submit-contribution.qmd)
+Members and colleagues are invited to share calls for papers, events, publications, resources, opportunities, and announcements relevant to sociological social psychology.
 
-### Quick Links
+All submissions are reviewed by the RC42 editorial team before publication.
 
-- [ISA Official Website](https://www.isa-sociology.org/)
-- [ISA RC42 Official Page](https://www.isa-sociology.org/en/research-networks/research-committees/rc42-social-psychology/)
+[Submit a Community Contribution](#){.btn-rc42-primary .btn-sm}
+:::
 
----
+::: {.contact-card #member-profile-updates}
+## Member Profile Updates
 
-**About This Portal:** This website is maintained as a complementary digital portal for RC42 Social Psychology. It is not an official ISA platform. Content is reviewed and approved by the RC42 board before publication. 
+If you need to update your member profile, affiliation, country, research interests, or public directory information, please contact the RC42 team at [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org).
+:::
 
-For technical issues with this website, please contact the [Online Communication Manager](../people/index.qmd) or the RC42 board via email.
+:::
+:::
+
+::: {.contact-portal-wide}
+## About This Portal
+
+This website is maintained as a complementary digital portal for RC42 Social Psychology. It is not an official ISA platform. For technical issues with this website, please contact the Online Communication Manager or the RC42 board via email.
+:::
+
+:::

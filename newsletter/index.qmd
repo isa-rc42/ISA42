@@ -70,7 +70,7 @@ title-block-style: none
     RC42 newsletters are distributed to ISA RC42 members. To receive future editions,
     <a href="/membership/index.html">join RC42 through ISA</a>.
     To submit content for the next newsletter,
-    <a href="/participate/submit-contribution.html">use the contribution form</a>.
+    <a href="#">use the contribution form</a>.
   </div>
 
 </div>

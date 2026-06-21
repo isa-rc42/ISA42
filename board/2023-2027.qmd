@@ -54,5 +54,5 @@ For a summary view, see [Board 2023–2027](index.qmd).
 ---
 
 ::: {.info-box}
-Board members are elected at the ISA World Congress of Sociology. For information on previous boards, see [Past Boards](../past-boards/index.qmd).
+Board members are elected at the ISA World Congress of Sociology. For information on previous boards, see [Past Boards](../people/past-boards/index.qmd).
 :::

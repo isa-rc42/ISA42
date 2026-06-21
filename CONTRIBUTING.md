@@ -8,11 +8,10 @@ Thank you for your interest in contributing to the RC42 Social Psychology digita
 
 ### 1. Submit Content via the Website
 
-The easiest way to contribute is through the forms on the portal:
+The easiest way to contribute is by visiting the Contact page:
 
-- **[Create a member profile](participate/create-profile.qmd)** — Add your profile to the members directory.
-- **[Submit a contribution](participate/submit-contribution.qmd)** — Share news, events, opportunities, resources, or blog posts.
-- **[Request a profile update](participate/update-profile.qmd)** — Update an existing profile.
+- **[Submit a contribution](#)** — Share news, events, opportunities, resources, or blog posts using the temporary link on the Contact page.
+- **Request a profile update** — Contact the RC42 team via email to update your profile information.
 
 ### 2. Submit Content via Email
 

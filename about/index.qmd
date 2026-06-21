@@ -57,7 +57,7 @@ RC42 Social Psychology was established in **1988** as a Research Committee of th
 
 Since its founding, RC42 has served as an institutional home and forum for sociologists interested in social psychology to connect, collaborate, and advance the field at an international level. As part of the network of Research Committees of the ISA, its core function is to promote a community of research in sociological social psychology, facilitating international collaboration and the exchange of scientific knowledge.
 
-For information on previous RC42 boards and their contributions over the decades, see [Past Boards](../past-boards/index.qmd).
+For information on previous RC42 boards and their contributions over the decades, see [Past Boards](../people/past-boards/index.qmd).
 
 </div>
 </details>

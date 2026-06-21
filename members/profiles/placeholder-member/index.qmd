@@ -63,6 +63,4 @@ This is a template profile page. Actual member profiles will replace this conten
 
 *Last updated: —*
 
-[Request profile update →](../../../participate/update-profile.qmd){.btn-rc42-dark}
-
 :::

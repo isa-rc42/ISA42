@@ -40,7 +40,9 @@ Mission
 <p class="editorial-intro-text">
 RC42 fosters international research, debate, and collaboration in sociological social psychology. Our network bridges regions and research traditions to deepen our understanding of the relationship between social structures and individual experience.
 </p>
-[About our history](about/index.qmd#history){.btn-rc42-secondary}
+::: {.mission-isa-mark}
+<img src="images/logos/ISA.png" alt="International Sociological Association logo">
+:::
 :::
 
 ::: {.editorial-list}
@@ -332,7 +334,7 @@ RC42 fosters international research, debate, and collaboration in sociological s
       <div class="updates-carousel" id="updatesCarousel">
         
         <!-- Card 1 -->
-        <a href="activities/index.html" class="updates-card">
+        <a href="news/index.html" class="updates-card">
           <div class="updates-card-media">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="RC42 Digital Portal">
           </div>
@@ -348,7 +350,7 @@ RC42 fosters international research, debate, and collaboration in sociological s
         </a>
 
         <!-- Card 2 -->
-        <a href="activities/index.html" class="updates-card" style="border-top: 3px solid #003b7a;">
+        <a href="https://www.isa-sociology.org/en/conferences/world-congress/gwangju-2027" target="_blank" rel="noopener" class="updates-card" style="border-top: 3px solid #003b7a;">
           <div class="updates-card-media">
             <img src="https://www.isa-sociology.org/uploads/imgen/2568-wcs27-poster.jpg" alt="XXI ISA World Congress of Sociology">
           </div>
@@ -380,7 +382,7 @@ RC42 fosters international research, debate, and collaboration in sociological s
         </a>
 
         <!-- Card 4 -->
-        <a href="activities/index.html" class="updates-card">
+        <a href="news/community-contributions.html" class="updates-card">
           <div class="updates-card-media">
             <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80" alt="Recent Publications">
           </div>
@@ -412,7 +414,7 @@ RC42 fosters international research, debate, and collaboration in sociological s
         </a>
 
         <!-- Card 6 -->
-        <a href="participate/index.html" class="updates-card">
+        <a href="contact/index.html" class="updates-card">
           <div class="updates-card-media">
             <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Call for Contributions">
           </div>
@@ -520,7 +522,7 @@ MEMBERSHIP NETWORK
 :::
 
 <!-- ================================================================ -->
-<!-- Participate (Action List) -->
+<!-- Community Engagement -->
 <!-- ================================================================ -->
 
 ::: {.home-participate .compact-participate}
@@ -530,7 +532,7 @@ MEMBERSHIP NETWORK
 ::: {.section-kicker}
 Engage
 :::
-<h2>Participate in RC42</h2>
+<h2>Community Engagement</h2>
 <p>Share profiles, news, events, calls, and resources with the RC42 community.</p>
 :::
 
@@ -538,14 +540,10 @@ Engage
 <article>
   <h3>Submit a Contribution</h3>
   <p>Send news, events, calls, publications, or resources for editorial review.</p>
-  <a href="participate/submit-contribution.qmd">Submit content &rarr;</a>
+  <a href="contact/index.qmd">Submit content &rarr;</a>
 </article>
 
-<article>
-  <h3>Discussion Spaces</h3>
-  <p>Future discussion spaces may open if sustained participation emerges.</p>
-  <a href="discussions/index.qmd">Learn more &rarr;</a>
-</article>
+
 :::
 
 :::

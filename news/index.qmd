@@ -1,20 +1,190 @@
 ---
-title: "News"
-description: "News and announcements from ISA RC42 Social Psychology."
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: false
-  feed: true
+title: "News & Community Hub"
+description: "News, announcements, activities, and community contributions from ISA RC42."
+toc: false
+page-layout: full
 ---
 
-## RC42 News
+::: {.news-hub}
 
-Latest news, announcements, and updates from RC42 Social Psychology.
+::: {.section-inner .section-wide style="margin-top: 2rem;"}
 
-::: {.info-box}
-To submit a news item, use the [contribution form](../participate/submit-contribution.qmd). All submissions are reviewed by the RC42 board before publication.
+::: {.news-main-grid}
 
-You can also explore community-submitted content on the [Community Contributions](community-contributions.qmd) page.
+<!-- Left Column: Featured Activity -->
+::: {#world-congress-2027 .featured-activity}
+::: {.featured-activity-media}
+![ISA World Congress of Sociology 2027 Poster](https://www.isa-sociology.org/uploads/imgen/2568-wcs27-poster.jpg)
 :::
+
+::: {.featured-activity-content}
+[Featured Activity &bull; July 4–10, 2027]{.section-kicker style="margin-bottom: 0.75rem;"}
+
+## XXI ISA World Congress {style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.6rem;"}
+
+[Global Sociology in Turbulent Times]{style="font-size: 1rem; color: #2b364a; font-weight: 500; margin-bottom: 0.75rem; display: block;"}
+
+[Join us in Gwangju, South Korea. The event emphasizes inclusivity, connection, dialogue, diversity, and global sociological voices.]{style="color: #475569; font-size: 0.95rem; display: block; margin-bottom: 1rem;"}
+
+[Explore activities &rarr;](../activities/index.qmd){.btn .btn-rc42-primary .btn-sm style="align-self: flex-start;"}
+:::
+:::
+
+<!-- Right Column: Latest Community Contributions -->
+::: {.community-carousel-section}
+::: {.d-flex .justify-content-between .align-items-end .mb-3}
+::: {}
+[Community]{.section-kicker}
+
+## Latest Contributions {style="margin-top: 0; margin-bottom: 0; font-size: 1.6rem;"}
+:::
+
+[View all](community-contributions.qmd){.btn .btn-rc42-secondary .btn-sm .d-none .d-md-inline-flex}
+:::
+
+```{=html}
+<div id="latest-contributions-container">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+```
+
+::: {.mt-3 .text-center .d-block .d-md-none}
+[View all](community-contributions.qmd){.btn .btn-rc42-secondary .w-100 .btn-sm}
+:::
+:::
+
+:::
+
+
+:::
+:::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", async function() {
+  const container = document.getElementById('latest-contributions-container');
+  
+  try {
+    const response = await fetch("../data/community_submissions.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    let allData = await response.json();
+    
+    // Sort descending by date_published and take top 4
+    allData.sort((a, b) => new Date(b.date_published) - new Date(a.date_published));
+    const topData = allData.slice(0, 4);
+    
+    if (topData.length === 0) {
+      container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+      return;
+    }
+    
+    renderCards(topData);
+  } catch (error) {
+    console.error("Failed to load community submissions:", error);
+    container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+  }
+
+  function normalizeType(t) {
+    if (!t) return 'other';
+    const l = t.toLowerCase();
+    if (l.includes('news')) return 'news';
+    if (l.includes('event')) return 'event';
+    if (l.includes('resource')) return 'resource';
+    if (l.includes('call') || l.includes('opportunity')) return 'call';
+    if (l.includes('publication')) return 'publication';
+    if (l.includes('experience')) return 'experience';
+    return 'other';
+  }
+  
+  function getTypeImage(type) {
+    const normalized = normalizeType(type);
+    const imageMap = {
+      news: "../images/community-types/news.svg",
+      event: "../images/community-types/event.svg",
+      resource: "../images/community-types/resource.svg",
+      call: "../images/community-types/call.svg",
+      publication: "../images/community-types/publication.svg",
+      experience: "../images/community-types/experience.svg",
+      other: "../images/community-types/other.svg"
+    };
+    return imageMap[normalized] || imageMap.other;
+  }
+  
+  function getTypeAltText(type) {
+    const normalized = normalizeType(type);
+    const altMap = {
+      news: "News icon",
+      event: "Event icon",
+      resource: "Resource icon",
+      call: "Call icon",
+      publication: "Publication icon",
+      experience: "Experience icon",
+      other: "Other icon"
+    };
+    return altMap[normalized] || altMap.other;
+  }
+
+  function escapeHtml(unsafe) {
+    return (unsafe || "").toString()
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+  }
+
+  function renderCards(data) {
+    let html = '<div class="community-carousel-track">';
+    data.forEach(item => {
+      const title = escapeHtml(item.title);
+      const desc = escapeHtml(item.description);
+      const type = escapeHtml(item.type);
+      const cat = escapeHtml(item.category);
+      const date = escapeHtml(item.date_published);
+      const url = escapeHtml(item.url || '');
+      const org = escapeHtml(item.organization || item.territory || '');
+      const lang = escapeHtml(item.language || '');
+      const member = escapeHtml(item.member_display_name || '');
+      
+      const tags = (item.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('');
+      const cardTitle = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
+      
+      const subtitleArray = [type || 'Other'];
+      if (cat) subtitleArray.push(cat);
+      const subtitle = subtitleArray.join(' &middot; ');
+      
+      const imgSrc = getTypeImage(item.type);
+      const imgAlt = getTypeAltText(item.type);
+      
+      html += `
+        <article class="community-carousel-card">
+          <div class="community-icon-panel">
+            <img src="${imgSrc}" alt="${imgAlt}">
+          </div>
+          <div class="community-card-content">
+            <div class="meta-chips">${subtitle}</div>
+            <h3 class="card-title">${cardTitle}</h3>
+            <p class="card-desc">${desc}</p>
+            
+            <div class="card-footer-meta">
+              <span class="meta-item"><i class="bi bi-calendar3"></i> ${date}</span>
+              ${org ? `<span class="meta-item"><i class="bi bi-geo-alt"></i> ${org}</span>` : ''}
+              ${lang ? `<span class="meta-item"><i class="bi bi-translate"></i> ${lang}</span>` : ''}
+              ${member ? `<span class="meta-item"><i class="bi bi-person"></i> By ${member}</span>` : ''}
+            </div>
+            
+            ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+          </div>
+        </article>
+      `;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  }
+});
+</script>
+```

@@ -425,7 +425,7 @@ main.content {
 <div class="header-eyebrow">RC42 Resources</div>
 <h1>Resources</h1>
 <p>Academic materials, publications, datasets, teaching resources, and tools shared by the RC42 community.</p>
-<a href="../participate/submit-contribution.qmd" class="btn-submit">Submit Contribution &rarr;</a>
+<a href="#" class="btn-submit">Submit Contribution &rarr;</a>
 </header>
 
 ```{r, results="asis"}

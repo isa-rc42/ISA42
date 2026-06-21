@@ -36,16 +36,6 @@ RC42 membership is open to:
 - Submit and vote on proposals for RC42 activities
 - Stand for election to the RC42 board
 
-### Create a Profile on This Portal
-
-In addition to your ISA membership, you can create a member profile on this portal to increase your visibility within the RC42 community.
-
-[Create a member profile →](../participate/create-profile.qmd){.btn-rc42-dark}
-
-::: {.placeholder-notice}
-Creating a profile on this portal is separate from ISA membership registration. This portal is a complementary resource and does not replace the ISA membership system.
-:::
-
 ### Contact
 
 For questions about RC42 membership, contact: [isa-rc42@isa-sociology.org](mailto:isa-rc42@isa-sociology.org)

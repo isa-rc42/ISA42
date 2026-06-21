@@ -11,7 +11,7 @@ website:
   title: "ISA RC42 Social Psychology"
   description: "Research Committee 42 of the International Sociological Association — Advancing international sociological social psychology since 1988."
   site-url: "https://rc42-socialpsychology.netlify.app"
-  favicon: "images/favicon.png"
+  favicon: "images/favicon-v2.png"
 
   search:
     location: navbar
@@ -43,7 +43,7 @@ website:
           - text: "Leadership Board"
             href: people/index.qmd
           - text: "Past Boards"
-            href: past-boards/index.qmd
+            href: people/past-boards/index.qmd
           - text: "Members Directory"
             href: members/index.qmd
       - text: "News"
@@ -68,19 +68,7 @@ website:
             href: resources/index.qmd
           - text: "Blog / Posts"
             href: blog/index.qmd
-      - text: "Participate"
-        href: participate/index.qmd
-        menu:
-          - text: "Join RC42"
-            href: membership/index.qmd
-          - text: "Create member profile"
-            href: participate/create-profile.qmd
-          - text: "Update profile"
-            href: participate/update-profile.qmd
-          - text: "Submit contribution"
-            href: participate/submit-contribution.qmd
-          - text: "Discussions"
-            href: discussions/index.qmd
+
       - text: "Contact"
         href: contact/index.qmd
     right:
@@ -122,11 +110,9 @@ website:
       
       ::: {.footer-column}
       
-      ### Participate
-      - [Create profile](/participate/create-profile.qmd)
-      - [Submit contribution](/participate/submit-contribution.qmd)
+      ### Contact & Community
+      - [Submit contribution](#)
       - [Members](/members/index.qmd)
-      - [Discussions](/discussions/index.qmd)
       
       :::
       
@@ -135,7 +121,7 @@ website:
       ### Institutional
       - [International Sociological Association](https://www.isa-sociology.org/)
       - [Statutes](/about/#statutes)
-      - [Past Boards](/past-boards/index.qmd)
+      - [Past Boards](/people/past-boards/index.qmd)
       - [Contact](/contact/index.qmd)
       
       :::

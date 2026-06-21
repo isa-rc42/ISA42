@@ -91,7 +91,6 @@ title-block-style: none
 
 ::: {.members-privacy-note}
 ::: {.privacy-actions}
-[Submit a correction](../participate/update-profile.qmd){.btn-rc42-primary .btn-small}
 :::
 :::
 

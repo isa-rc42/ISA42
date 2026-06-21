@@ -1,0 +1,418 @@
+---
+title: "Past Boards"
+page-layout: article
+---
+
+::: {.past-boards-page}
+
+::: {.past-boards-intro}
+RC42 Social Psychology was first established as a Working Group in 1986 and was recognized as an ISA Research Committee in 1988. This page presents the historical boards of RC42 since its recognition.
+
+<span class="past-boards-source">Source: International Sociological Association, RC42 Social Psychology Past Boards.</span>
+:::
+
+::: {.past-boards-layout}
+
+::: {.past-boards-main}
+
+<details class="past-board-card" id="board-2018-2022" open>
+<summary class="past-board-summary">Board 2018–2022, extended to 2023</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+President
+:::
+::: {.past-board-names}
+Alison BIANCHI, Iowa University, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary-Treasurer
+:::
+::: {.past-board-names}
+Alison BIANCHI, Iowa University, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Regional Representatives
+:::
+::: {.past-board-names}
+- South America: Juan Carlos CASTILLO, Universidad Católica de Chile, Chile
+- Europe: Juha KLEMELÄ, Finland
+- Africa: Charles PUTTERGILL, South Africa
+- Oceania: Lawrence SAHA, Australia
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Program Coordinator (2023)
+:::
+::: {.past-board-names}
+Alison BIANCHI
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-2014-2018">
+<summary class="past-board-summary">Board 2014–2018</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+President
+:::
+::: {.past-board-names}
+Clara SABBAGH, University of Haifa, Israel
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary-Treasurer
+:::
+::: {.past-board-names}
+Alison BIANCHI, Iowa University, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Newsletter Editor
+:::
+::: {.past-board-names}
+Charles PUTTERGILL, University of Pretoria, South Africa
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Board Members
+:::
+::: {.past-board-names}
+- South America: Juan Carlos CASTILLO, Universidad Católica de Chile, Chile
+- Europe: Juha KLEMELÄ, Finland
+- Africa: Charles PUTTERGILL, South Africa
+- Oceania: Lawrence SAHA, Australia
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-2010-2014">
+<summary class="past-board-summary">Board 2010–2014</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+President
+:::
+::: {.past-board-names}
+Guillermina JASSO, New York University, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary-Treasurer
+:::
+::: {.past-board-names}
+Alison BIANCHI, Iowa University, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Newsletter Editor
+:::
+::: {.past-board-names}
+Charles PUTTERGILL, University of Pretoria, South Africa
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Board Members
+:::
+::: {.past-board-names}
+- Europe: Juha KLEMELÄ, Finland
+- Latin America: Francisco Antar MARTINEZ GUZMAN, Mexico
+- Middle East: Dahlia MOORE, Israel
+- Asia: Deepak VERMA, India
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-2006-2010">
+<summary class="past-board-summary">Board 2006–2010</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+President
+:::
+::: {.past-board-names}
+Cecilia RIDGEWAY, Stanford University, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary-Treasurer
+:::
+::: {.past-board-names}
+Robert SHELLY, Ohio University, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Board Members
+:::
+::: {.past-board-names}
+- Charles Bernard KINGHOMBE, Université de Kinshasa, Congo
+- Dahlia MOORE, College of Management, Israel
+- Indrek TART, Tallinn University, Estonia
+- Deepak Kumar VERMA, India
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Newsletter Editor
+:::
+::: {.past-board-names}
+Charles PUTTERGILL, University of Pretoria, South Africa
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-2002-2006">
+<summary class="past-board-summary">Board 2002–2006</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+President
+:::
+::: {.past-board-names}
+Tina UYS, South Africa
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary/Treasurer
+:::
+::: {.past-board-names}
+Robert SHELLY, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Board Members
+:::
+::: {.past-board-names}
+- James COTE, Canada
+- Jeylan MORTIMER, USA
+- Toshio YAMAGISHI, Japan
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Newsletter Editor
+:::
+::: {.past-board-names}
+Kinga WYSIENSKA, Poland
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-1998-2002">
+<summary class="past-board-summary">Board 1998–2002</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+Chair
+:::
+::: {.past-board-names}
+Edward LAWLER, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary
+:::
+::: {.past-board-names}
+Murray WEBSTER, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Members
+:::
+::: {.past-board-names}
+- Phyllis MOEN, USA
+- Linda MOLM, USA
+- Tadeusz SOZANSKI, Poland
+- Toshio YAMAGISHI, Japan
+- Vladimir A. YADOV, Russia
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Newsletter Editor
+:::
+::: {.past-board-names}
+Tina UYS, South Africa
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-1994-1998">
+<summary class="past-board-summary">Board 1994–1998</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+Chair
+:::
+::: {.past-board-names}
+Karen COOK, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary
+:::
+::: {.past-board-names}
+Jeylan MORTIMER, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Treasurer
+:::
+::: {.past-board-names}
+Dagmar KUTSAR, Estonia
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Board Members
+:::
+::: {.past-board-names}
+- A. JASINSKA-KANIA, Poland
+- Linda MOLM, USA
+- Tadeusz SOZANSKI, Poland
+- Heinz-Gunter VESTER, Germany
+- Toshio YAMAGISHI, Japan
+- Vladimir A. YADOV, Russia
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Newsletter Editor
+:::
+::: {.past-board-names}
+Tina UYS, South Africa
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-1990-1994">
+<summary class="past-board-summary">Board 1990–1994</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+Chairman
+:::
+::: {.past-board-names}
+Mincho DRAGANOV, Bulgaria
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Secretary-Treasurer
+:::
+::: {.past-board-names}
+Karen COOK, USA
+:::
+:::
+
+::: {.past-board-members}
+::: {.past-board-role}
+Members
+:::
+::: {.past-board-names}
+- Carl BACKMAN, USA
+- A. JASINSKA-KANIA, Poland
+- Vladimir MAGUN, USSR
+:::
+:::
+</div>
+</details>
+
+<details class="past-board-card" id="board-1988-1990">
+<summary class="past-board-summary">Board 1988–1990</summary>
+<div class="past-board-content">
+::: {.past-board-members}
+::: {.past-board-role}
+Chairman
+:::
+::: {.past-board-names}
+Mincho DRAGANOV, Bulgaria
+:::
+:::
+</div>
+</details>
+
+:::
+
+::: {.past-boards-toc}
+<div class="past-boards-toc-title">Boards</div>
+<ul>
+  <li><a href="#board-2018-2022">2018–2022</a></li>
+  <li><a href="#board-2014-2018">2014–2018</a></li>
+  <li><a href="#board-2010-2014">2010–2014</a></li>
+  <li><a href="#board-2006-2010">2006–2010</a></li>
+  <li><a href="#board-2002-2006">2002–2006</a></li>
+  <li><a href="#board-1998-2002">1998–2002</a></li>
+  <li><a href="#board-1994-1998">1994–1998</a></li>
+  <li><a href="#board-1990-1994">1990–1994</a></li>
+  <li><a href="#board-1988-1990">1988–1990</a></li>
+</ul>
+:::
+
+:::
+
+:::
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.past-boards-toc a').forEach((link) => {
+    link.addEventListener('click', () => {
+      const id = link.getAttribute('href')?.replace('#', '');
+      const target = document.getElementById(id);
+      if (target && target.tagName.toLowerCase() === 'details') {
+        target.open = true;
+      }
+    });
+  });
+});
+</script>

@@ -432,7 +432,7 @@ main.content,
 
         <div class="rc42-roster-v16__actions">
           <a class="rc42-roster-v16__button" href="/members/index.html">Browse members directory</a>
-          <a class="rc42-roster-v16__textlink" href="/about/index.html#past-boards">View past boards since 1988 &rarr;</a>
+          <a class="rc42-roster-v16__textlink" href="past-boards/index.qmd">View past boards since 1988 &rarr;</a>
         </div>
       </div>
 

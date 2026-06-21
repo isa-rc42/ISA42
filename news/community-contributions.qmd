@@ -6,24 +6,30 @@ toc: false
 
 This page presents community contributions submitted to ISA RC42 and reviewed by the editorial team before publication. Please note that publication is not automatic; all submissions pass through editorial review.
 
-::: {#filters-container .mb-4 style="display: flex; gap: 1rem; flex-wrap: wrap;"}
-<select id="filter-type" class="form-select form-select-sm" style="width: auto;">
+::: {#filters-container .community-filter-bar}
+```{=html}
+<span class="filter-label">Filter contributions:</span>
+<select id="filter-type" class="form-select form-select-sm">
   <option value="">All Types</option>
 </select>
-<select id="filter-category" class="form-select form-select-sm" style="width: auto;">
+<select id="filter-category" class="form-select form-select-sm">
   <option value="">All Categories</option>
 </select>
-<select id="filter-language" class="form-select form-select-sm" style="width: auto;">
+<select id="filter-language" class="form-select form-select-sm">
   <option value="">All Languages</option>
 </select>
+```
 :::
 
 ::: {#contributions-container}
+```{=html}
 <div class="spinner-border text-primary" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
+```
 :::
 
+```{=html}
 <script>
 document.addEventListener("DOMContentLoaded", async function() {
   const container = document.getElementById('contributions-container');
@@ -34,10 +40,9 @@ document.addEventListener("DOMContentLoaded", async function() {
   let allData = [];
 
   try {
-    const dataUrl = new URL("../data/community_submissions.json", window.location.href);
-    const response = await fetch(dataUrl);
+    const response = await fetch("../data/community_submissions.json");
     if (!response.ok) {
-      throw new Error("Data not found");
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
     allData = await response.json();
     
@@ -66,6 +71,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     languageFilter.addEventListener('change', filterData);
 
   } catch (error) {
+    console.error("Failed to load community submissions:", error);
     container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
     document.getElementById('filters-container').style.display = 'none';
   }
@@ -130,9 +136,8 @@ document.addEventListener("DOMContentLoaded", async function() {
       return;
     }
     
-    let html = '<div class="row g-4">';
+    let html = '<div class="community-preview-track">';
     data.forEach(item => {
-      // Escape HTML to prevent injection
       const title = escapeHtml(item.title);
       const desc = escapeHtml(item.description);
       const type = escapeHtml(item.type);
@@ -140,42 +145,39 @@ document.addEventListener("DOMContentLoaded", async function() {
       const date = escapeHtml(item.date_published);
       const url = escapeHtml(item.url || '');
       const org = escapeHtml(item.organization || item.territory || '');
+      const lang = escapeHtml(item.language || '');
       const member = escapeHtml(item.member_display_name || '');
       
-      const tags = (item.tags || []).map(t => `<span class="badge bg-secondary me-1 mb-1">${escapeHtml(t)}</span>`).join('');
+      const tags = (item.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('');
+      const cardTitle = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
       
-      const cardTitle = url ? `<a href="${url}" target="_blank" class="text-decoration-none">${title}</a>` : title;
-      const subtitle = [type || 'Other', cat].filter(Boolean).join(' • ');
+      const subtitleArray = [type || 'Other'];
+      if (cat) subtitleArray.push(cat);
+      const subtitle = subtitleArray.join(' &middot; ');
       
       const imgSrc = getTypeImage(item.type);
       const imgAlt = getTypeAltText(item.type);
       
       html += `
-        <div class="col-12">
-          <div class="card shadow-sm border-0 bg-light overflow-hidden">
-            <div class="row g-0 h-100">
-              <div class="col-md-3 d-flex align-items-center justify-content-center p-4 bg-white border-end">
-                <img src="${imgSrc}" class="img-fluid" style="max-height: 140px; width: auto; opacity: 0.85;" alt="${imgAlt}">
-              </div>
-              <div class="col-md-9">
-                <div class="card-body d-flex flex-column h-100">
-                  <div class="text-muted small mb-2 text-uppercase fw-semibold" style="letter-spacing: 0.5px;">${subtitle}</div>
-                  <h5 class="card-title fw-bold mb-3">${cardTitle}</h5>
-                  <p class="card-text flex-grow-1">${desc}</p>
-                  
-                  <div class="mt-3">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <small class="text-muted"><i class="bi bi-calendar3"></i> ${date}</small>
-                      ${org ? `<small class="text-muted"><i class="bi bi-geo-alt"></i> ${org}</small>` : ''}
-                    </div>
-                    ${member ? `<div class="mb-2"><small class="text-muted">By ${member}</small></div>` : ''}
-                    ${tags ? `<div>${tags}</div>` : ''}
-                  </div>
-                </div>
-              </div>
-            </div>
+        <article class="community-card-horizontal">
+          <div class="community-icon-panel">
+            <img src="${imgSrc}" alt="${imgAlt}">
           </div>
-        </div>
+          <div class="community-card-content">
+            <div class="meta-chips">${subtitle}</div>
+            <h3 class="card-title">${cardTitle}</h3>
+            <p class="card-desc">${desc}</p>
+            
+            <div class="card-footer-meta">
+              <span class="meta-item"><i class="bi bi-calendar3"></i> ${date}</span>
+              ${org ? `<span class="meta-item"><i class="bi bi-geo-alt"></i> ${org}</span>` : ''}
+              ${lang ? `<span class="meta-item"><i class="bi bi-translate"></i> ${lang}</span>` : ''}
+              ${member ? `<span class="meta-item"><i class="bi bi-person"></i> By ${member}</span>` : ''}
+            </div>
+            
+            ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+          </div>
+        </article>
       `;
     });
     html += '</div>';
@@ -192,3 +194,4 @@ document.addEventListener("DOMContentLoaded", async function() {
   }
 });
 </script>
+```
