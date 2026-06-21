@@ -3980,3 +3980,133 @@ body:has(.contact-hub) .content {
     width: 100%;
   }
 }
+
+/* =============================================================================
+   Home Community Cards (Editorial Redesign)
+   ============================================================================= */
+
+.home-community-card {
+  flex: 0 0 calc(33.333% - 14px);
+  max-width: 470px;
+  min-width: 300px;
+  scroll-snap-align: start;
+  border: 1px solid #dbe7e5;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-community-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+
+.home-community-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  background: linear-gradient(180deg, #eef8f6 0%, #f7fbfa 100%);
+  border-bottom: 1px solid #d9ece8;
+}
+
+.home-community-card-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #d9ece8;
+  flex-shrink: 0;
+}
+
+.home-community-card-icon img {
+  width: 1.35rem;
+  height: 1.35rem;
+  object-fit: contain;
+}
+
+.home-community-card-kicker {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0f8b8d;
+}
+
+.home-community-card-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.home-community-card-body {
+  padding: 1.5rem 1.25rem 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-community-card-title {
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-community-card-excerpt {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #475569;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-community-card-org {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #64748b;
+  margin-top: auto;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-community-card-footer {
+  padding: 0 1.25rem 1.5rem;
+  margin-top: 0;
+}
+
+.home-community-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #0f4c9a;
+  text-decoration: none;
+}
+
+.home-community-card-link:hover {
+  text-decoration: underline;
+  color: #0d3d7a;
+}

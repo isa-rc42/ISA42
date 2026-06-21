@@ -196,22 +196,25 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (typeVal.includes('opportunity') || typeVal.includes('job') || typeVal.includes('position')) { iconName = 'news'; accentClass = 'community-card-accent--news'; }
 
         html += `
-          <article class="community-carousel-card">
-            <div class="community-card-accent ${accentClass}">
-              <div class="community-card-icon">
-                <img src="images/community-types/${iconName}.svg" alt="" aria-hidden="true">
+          <article class="home-community-card">
+            <div class="home-community-card-top">
+              <div style="display:flex; align-items:center; gap:0.6rem;">
+                <div class="home-community-card-icon">
+                  <img src="images/community-types/${iconName}.svg" alt="" aria-hidden="true">
+                </div>
+                <span class="home-community-card-kicker">${metaStr}</span>
               </div>
-              <div class="community-card-meta-top">
-                <span class="community-carousel-kicker">${metaStr}</span>
-                <span class="community-carousel-date">${item.date_published || ''}</span>
-              </div>
+              <span class="home-community-card-date">${item.date_published || ''}</span>
             </div>
           
-            <div class="community-card-body">
-              <h3 class="community-carousel-title">${item.title}</h3>
-              <p class="community-carousel-excerpt">${item.description || item.excerpt || ''}</p>
-              ${item.organization ? `<div class="community-carousel-source">${item.organization}</div>` : ''}
-              <a class="community-carousel-link" href="${url}" ${target}>
+            <div class="home-community-card-body">
+              <h3 class="home-community-card-title">${item.title}</h3>
+              <p class="home-community-card-excerpt">${item.description || item.excerpt || ''}</p>
+              ${item.organization ? `<div class="home-community-card-org">${item.organization}</div>` : ''}
+            </div>
+            
+            <div class="home-community-card-footer">
+              <a class="home-community-card-link" href="${url}" ${target}>
                 View contribution &rarr;
               </a>
             </div>
@@ -237,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!prevBtn || !nextBtn) return;
     
     const scrollAmount = () => {
-      const card = carousel.querySelector('.community-carousel-card');
+      const card = carousel.querySelector('.home-community-card');
       return card ? card.offsetWidth + 20 : 400; // 20px is the gap
     };
 
