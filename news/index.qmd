@@ -1,32 +1,35 @@
 ---
 title: "News & Community Hub"
-description: "Community contributions, calls, events, resources, and announcements from ISA RC42."
+description: "Calls, events, resources, and community contributions from ISA RC42."
 toc: false
 ---
 
 ::: {.community-page}
 
-::: {.community-intro}
-This page presents community contributions submitted to ISA RC42 and reviewed by the editorial team before publication. Submissions may include calls for papers, events, publications, resources, opportunities, and announcements.
-:::
-
-::: {.community-filter-bar}
-<span class="filter-label">Filter by:</span>
-<select id="typeFilter" class="form-select form-select-sm" aria-label="Filter by Type">
-  <option value="all">All Types</option>
-  <option value="news">News</option>
-  <option value="event">Event</option>
-  <option value="call">Opportunity/Call</option>
-  <option value="publication">Publication</option>
-  <option value="resource">Resource</option>
-</select>
-<select id="categoryFilter" class="form-select form-select-sm" aria-label="Filter by Category">
-  <option value="all">All Categories</option>
-</select>
-<select id="languageFilter" class="form-select form-select-sm" aria-label="Filter by Language">
-  <option value="all">All Languages</option>
-</select>
-:::
+```{=html}
+<div class="community-filter-bar">
+  <span class="filter-label">Filter by:</span>
+  
+  <div class="filter-controls">
+    <select id="typeFilter" class="form-select form-select-sm" aria-label="Filter by Type">
+      <option value="all">All Types</option>
+      <option value="news">News</option>
+      <option value="event">Event</option>
+      <option value="call">Opportunity/Call</option>
+      <option value="publication">Publication</option>
+      <option value="resource">Resource</option>
+    </select>
+    
+    <select id="categoryFilter" class="form-select form-select-sm" aria-label="Filter by Category">
+      <option value="all">All Categories</option>
+    </select>
+    
+    <select id="languageFilter" class="form-select form-select-sm" aria-label="Filter by Language">
+      <option value="all">All Languages</option>
+    </select>
+  </div>
+</div>
+```
 
 ```{=html}
 <div id="latest-contributions-container">
@@ -89,6 +92,16 @@ document.addEventListener("DOMContentLoaded", async function() {
       opt.textContent = l;
       languageFilter.appendChild(opt);
     });
+  }
+
+  function formatLabel(value) {
+    if (!value) return "";
+    return value
+      .toString()
+      .replace(/_/g, " ")
+      .replace(/-/g, " ")
+      .toLowerCase()
+      .replace(/\b\w/g, c => c.toUpperCase());
   }
 
   function normalizeType(t) {
@@ -172,9 +185,10 @@ document.addEventListener("DOMContentLoaded", async function() {
       const tags = (item.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('');
       const cardTitle = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
       
-      const subtitleArray = [type || 'Other'];
-      if (cat) subtitleArray.push(cat);
-      const subtitle = subtitleArray.join(' &middot; ').toUpperCase();
+      const kickerParts = [];
+      if (item.type) kickerParts.push(formatLabel(item.type));
+      if (item.category) kickerParts.push(formatLabel(item.category));
+      const kicker = kickerParts.join(" &middot; ").replace(/&middot;/g, "·");
       
       const imgSrc = getTypeImage(item.type);
       const imgAlt = getTypeAltText(item.type);
@@ -192,12 +206,16 @@ document.addEventListener("DOMContentLoaded", async function() {
             </div>
 
             <div class="contribution-summary-main">
-              <div class="contribution-kicker">${subtitle}</div>
+              <div class="contribution-kicker">${kicker}</div>
               <h3 class="contribution-title">${cardTitle}</h3>
+              <p class="contribution-preview">${desc}</p>
               ${metaHtml ? `<div class="contribution-meta">${metaHtml}</div>` : ''}
             </div>
 
-            ${tags ? `<div class="contribution-summary-tags">${tags}</div>` : ''}
+            <div class="contribution-summary-side">
+              ${tags ? `<div class="contribution-summary-tags">${tags}</div>` : ''}
+              <div class="contribution-toggle-indicator" aria-hidden="true">+</div>
+            </div>
           </summary>
 
           <div class="contribution-details">
