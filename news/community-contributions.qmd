@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", async function() {
   let allData = [];
 
   try {
-    const response = await fetch('/data/community_submissions.json');
+    const dataUrl = new URL("../data/community_submissions.json", window.location.href);
+    const response = await fetch(dataUrl);
     if (!response.ok) {
       throw new Error("Data not found");
     }
@@ -98,13 +99,13 @@ document.addEventListener("DOMContentLoaded", async function() {
   function getTypeImage(type) {
     const normalized = normalizeType(type);
     const imageMap = {
-      news: "/images/community-types/news.svg",
-      event: "/images/community-types/event.svg",
-      resource: "/images/community-types/resource.svg",
-      call: "/images/community-types/call.svg",
-      publication: "/images/community-types/publication.svg",
-      experience: "/images/community-types/experience.svg",
-      other: "/images/community-types/other.svg"
+      news: new URL("../images/community-types/news.svg", window.location.href).href,
+      event: new URL("../images/community-types/event.svg", window.location.href).href,
+      resource: new URL("../images/community-types/resource.svg", window.location.href).href,
+      call: new URL("../images/community-types/call.svg", window.location.href).href,
+      publication: new URL("../images/community-types/publication.svg", window.location.href).href,
+      experience: new URL("../images/community-types/experience.svg", window.location.href).href,
+      other: new URL("../images/community-types/other.svg", window.location.href).href
     };
     return imageMap[normalized] || imageMap.other;
   }
