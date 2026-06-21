@@ -157,8 +157,9 @@ document.addEventListener("DOMContentLoaded", async function() {
       return;
     }
 
-    let html = '<div class="community-grid">';
-    filtered.forEach(item => {
+    let html = '<div class="contributions-list">';
+    filtered.forEach((item, index) => {
+      const isFirst = index === 0 ? 'open' : '';
       const title = escapeHtml(item.title);
       const desc = escapeHtml(item.description);
       const type = escapeHtml(item.type);
@@ -173,29 +174,37 @@ document.addEventListener("DOMContentLoaded", async function() {
       
       const subtitleArray = [type || 'Other'];
       if (cat) subtitleArray.push(cat);
-      const subtitle = subtitleArray.join(' &middot; ');
+      const subtitle = subtitleArray.join(' &middot; ').toUpperCase();
       
       const imgSrc = getTypeImage(item.type);
       const imgAlt = getTypeAltText(item.type);
       
       let metaHtml = '';
       if (date) metaHtml += `<span>${date}</span>`;
-      if (org) metaHtml += (metaHtml ? ' &middot; ' : '') + `<span>${org}</span>`;
-      if (lang) metaHtml += (metaHtml ? ' &middot; ' : '') + `<span>${lang}</span>`;
+      if (org) metaHtml += `<span>${org}</span>`;
+      if (lang) metaHtml += `<span>${lang}</span>`;
       
       html += `
-        <article class="community-card-compact">
-          <div class="community-card-icon">
-            <img src="${imgSrc}" alt="${imgAlt}">
+        <details class="contribution-item" ${isFirst}>
+          <summary class="contribution-summary">
+            <div class="contribution-icon">
+              <img src="${imgSrc}" alt="${imgAlt}">
+            </div>
+
+            <div class="contribution-summary-main">
+              <div class="contribution-kicker">${subtitle}</div>
+              <h3 class="contribution-title">${cardTitle}</h3>
+              ${metaHtml ? `<div class="contribution-meta">${metaHtml}</div>` : ''}
+            </div>
+
+            ${tags ? `<div class="contribution-summary-tags">${tags}</div>` : ''}
+          </summary>
+
+          <div class="contribution-details">
+            <p class="contribution-desc">${desc}</p>
+            ${url ? `<a href="${url}" target="_blank" rel="noopener" class="contribution-link">Open contribution &rarr;</a>` : ''}
           </div>
-          <div class="community-card-body">
-            <div class="community-card-kicker">${subtitle}</div>
-            <h3 class="community-card-title">${cardTitle}</h3>
-            <p class="community-card-desc">${desc}</p>
-            ${metaHtml ? `<div class="community-card-meta">${metaHtml}</div>` : ''}
-            ${tags ? `<div class="community-card-tags">${tags}</div>` : ''}
-          </div>
-        </article>
+        </details>
       `;
     });
     html += '</div>';
@@ -205,4 +214,3 @@ document.addEventListener("DOMContentLoaded", async function() {
 </script>
 ```
 :::
-
