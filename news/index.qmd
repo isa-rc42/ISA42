@@ -1,45 +1,31 @@
 ---
 title: "News & Community Hub"
-description: "News, announcements, activities, and community contributions from ISA RC42."
+description: "Community contributions, calls, events, resources, and announcements from ISA RC42."
 toc: false
-page-layout: full
 ---
 
-::: {.news-hub}
+::: {.community-page}
 
-::: {.section-inner .section-wide style="margin-top: 2rem;"}
-
-::: {.news-main-grid}
-
-<!-- Left Column: Featured Activity -->
-::: {#world-congress-2027 .featured-activity}
-::: {.featured-activity-media}
-![ISA World Congress of Sociology 2027 Poster](https://www.isa-sociology.org/uploads/imgen/2568-wcs27-poster.jpg)
+::: {.community-intro}
+This page presents community contributions submitted to ISA RC42 and reviewed by the editorial team before publication. Submissions may include calls for papers, events, publications, resources, opportunities, and announcements.
 :::
 
-::: {.featured-activity-content}
-[Featured Activity &bull; July 4–10, 2027]{.section-kicker style="margin-bottom: 0.75rem;"}
-
-## XXI ISA World Congress {style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.6rem;"}
-
-[Global Sociology in Turbulent Times]{style="font-size: 1rem; color: #2b364a; font-weight: 500; margin-bottom: 0.75rem; display: block;"}
-
-[Join us in Gwangju, South Korea. The event emphasizes inclusivity, connection, dialogue, diversity, and global sociological voices.]{style="color: #475569; font-size: 0.95rem; display: block; margin-bottom: 1rem;"}
-
-[Explore activities &rarr;](../activities/index.qmd){.btn .btn-rc42-primary .btn-sm style="align-self: flex-start;"}
-:::
-:::
-
-<!-- Right Column: Latest Community Contributions -->
-::: {.community-carousel-section}
-::: {.d-flex .justify-content-between .align-items-end .mb-3}
-::: {}
-[Community]{.section-kicker}
-
-## Latest Contributions {style="margin-top: 0; margin-bottom: 0; font-size: 1.6rem;"}
-:::
-
-[View all](community-contributions.qmd){.btn .btn-rc42-secondary .btn-sm .d-none .d-md-inline-flex}
+::: {.community-filter-bar}
+<span class="filter-label">Filter by:</span>
+<select id="typeFilter" class="form-select form-select-sm" aria-label="Filter by Type">
+  <option value="all">All Types</option>
+  <option value="news">News</option>
+  <option value="event">Event</option>
+  <option value="call">Opportunity/Call</option>
+  <option value="publication">Publication</option>
+  <option value="resource">Resource</option>
+</select>
+<select id="categoryFilter" class="form-select form-select-sm" aria-label="Filter by Category">
+  <option value="all">All Categories</option>
+</select>
+<select id="languageFilter" class="form-select form-select-sm" aria-label="Filter by Language">
+  <option value="all">All Languages</option>
+</select>
 :::
 
 ```{=html}
@@ -48,44 +34,61 @@ page-layout: full
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-```
 
-::: {.mt-3 .text-center .d-block .d-md-none}
-[View all](community-contributions.qmd){.btn .btn-rc42-secondary .w-100 .btn-sm}
-:::
-:::
-
-:::
-
-
-:::
-:::
-
-```{=html}
 <script>
 document.addEventListener("DOMContentLoaded", async function() {
   const container = document.getElementById('latest-contributions-container');
-  
+  const typeFilter = document.getElementById('typeFilter');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const languageFilter = document.getElementById('languageFilter');
+  let allData = [];
+
   try {
     const response = await fetch("../data/community_submissions.json");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    let allData = await response.json();
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    allData = await response.json();
     
-    // Sort descending by date_published and take top 4
+    // Sort descending
     allData.sort((a, b) => new Date(b.date_published) - new Date(a.date_published));
-    const topData = allData.slice(0, 4);
     
-    if (topData.length === 0) {
+    if (allData.length === 0) {
       container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
       return;
     }
     
-    renderCards(topData);
+    populateFilters(allData);
+    
+    typeFilter.addEventListener('change', () => renderCards(allData));
+    categoryFilter.addEventListener('change', () => renderCards(allData));
+    languageFilter.addEventListener('change', () => renderCards(allData));
+
+    renderCards(allData);
   } catch (error) {
     console.error("Failed to load community submissions:", error);
     container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+  }
+
+  function populateFilters(data) {
+    const categories = new Set();
+    const languages = new Set();
+    data.forEach(item => {
+      if (item.category) categories.add(item.category);
+      if (item.language) languages.add(item.language);
+    });
+    
+    Array.from(categories).sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.toLowerCase();
+      opt.textContent = c;
+      categoryFilter.appendChild(opt);
+    });
+    
+    Array.from(languages).sort().forEach(l => {
+      const opt = document.createElement('option');
+      opt.value = l.toLowerCase();
+      opt.textContent = l;
+      languageFilter.appendChild(opt);
+    });
   }
 
   function normalizeType(t) {
@@ -138,8 +141,24 @@ document.addEventListener("DOMContentLoaded", async function() {
   }
 
   function renderCards(data) {
-    let html = '<div class="community-carousel-track">';
-    data.forEach(item => {
+    const typeVal = typeFilter.value;
+    const catVal = categoryFilter.value;
+    const langVal = languageFilter.value;
+    
+    const filtered = data.filter(item => {
+      const tMatch = typeVal === 'all' || normalizeType(item.type) === typeVal;
+      const cMatch = catVal === 'all' || (item.category && item.category.toLowerCase() === catVal);
+      const lMatch = langVal === 'all' || (item.language && item.language.toLowerCase() === langVal);
+      return tMatch && cMatch && lMatch;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = '<p class="text-muted">No contributions match the selected filters.</p>';
+      return;
+    }
+
+    let html = '<div class="community-grid">';
+    filtered.forEach(item => {
       const title = escapeHtml(item.title);
       const desc = escapeHtml(item.description);
       const type = escapeHtml(item.type);
@@ -148,7 +167,6 @@ document.addEventListener("DOMContentLoaded", async function() {
       const url = escapeHtml(item.url || '');
       const org = escapeHtml(item.organization || item.territory || '');
       const lang = escapeHtml(item.language || '');
-      const member = escapeHtml(item.member_display_name || '');
       
       const tags = (item.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('');
       const cardTitle = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
@@ -160,24 +178,22 @@ document.addEventListener("DOMContentLoaded", async function() {
       const imgSrc = getTypeImage(item.type);
       const imgAlt = getTypeAltText(item.type);
       
+      let metaHtml = '';
+      if (date) metaHtml += `<span>${date}</span>`;
+      if (org) metaHtml += (metaHtml ? ' &middot; ' : '') + `<span>${org}</span>`;
+      if (lang) metaHtml += (metaHtml ? ' &middot; ' : '') + `<span>${lang}</span>`;
+      
       html += `
-        <article class="community-carousel-card">
-          <div class="community-icon-panel">
+        <article class="community-card-compact">
+          <div class="community-card-icon">
             <img src="${imgSrc}" alt="${imgAlt}">
           </div>
-          <div class="community-card-content">
-            <div class="meta-chips">${subtitle}</div>
-            <h3 class="card-title">${cardTitle}</h3>
-            <p class="card-desc">${desc}</p>
-            
-            <div class="card-footer-meta">
-              <span class="meta-item"><i class="bi bi-calendar3"></i> ${date}</span>
-              ${org ? `<span class="meta-item"><i class="bi bi-geo-alt"></i> ${org}</span>` : ''}
-              ${lang ? `<span class="meta-item"><i class="bi bi-translate"></i> ${lang}</span>` : ''}
-              ${member ? `<span class="meta-item"><i class="bi bi-person"></i> By ${member}</span>` : ''}
-            </div>
-            
-            ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+          <div class="community-card-body">
+            <div class="community-card-kicker">${subtitle}</div>
+            <h3 class="community-card-title">${cardTitle}</h3>
+            <p class="community-card-desc">${desc}</p>
+            ${metaHtml ? `<div class="community-card-meta">${metaHtml}</div>` : ''}
+            ${tags ? `<div class="community-card-tags">${tags}</div>` : ''}
           </div>
         </article>
       `;
@@ -188,3 +204,5 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 </script>
 ```
+:::
+

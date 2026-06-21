@@ -1,93 +1,94 @@
 ---
 title: "Community Contributions"
-description: "Community contributions submitted to ISA RC42."
+description: "Community contributions, calls, events, resources, and announcements from ISA RC42."
 toc: false
 ---
 
-This page presents community contributions submitted to ISA RC42 and reviewed by the editorial team before publication. Please note that publication is not automatic; all submissions pass through editorial review.
+::: {.community-page}
 
-::: {#filters-container .community-filter-bar}
-```{=html}
-<span class="filter-label">Filter contributions:</span>
-<select id="filter-type" class="form-select form-select-sm">
-  <option value="">All Types</option>
-</select>
-<select id="filter-category" class="form-select form-select-sm">
-  <option value="">All Categories</option>
-</select>
-<select id="filter-language" class="form-select form-select-sm">
-  <option value="">All Languages</option>
-</select>
-```
+::: {.community-intro}
+This page presents community contributions submitted to ISA RC42 and reviewed by the editorial team before publication. Submissions may include calls for papers, events, publications, resources, opportunities, and announcements.
 :::
 
-::: {#contributions-container}
+::: {.community-filter-bar}
+<span class="filter-label">Filter by:</span>
+<select id="typeFilter" class="form-select form-select-sm" aria-label="Filter by Type">
+  <option value="all">All Types</option>
+  <option value="news">News</option>
+  <option value="event">Event</option>
+  <option value="call">Opportunity/Call</option>
+  <option value="publication">Publication</option>
+  <option value="resource">Resource</option>
+</select>
+<select id="categoryFilter" class="form-select form-select-sm" aria-label="Filter by Category">
+  <option value="all">All Categories</option>
+</select>
+<select id="languageFilter" class="form-select form-select-sm" aria-label="Filter by Language">
+  <option value="all">All Languages</option>
+</select>
+:::
+
 ```{=html}
-<div class="spinner-border text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
+<div id="latest-contributions-container">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 </div>
-```
-:::
 
-```{=html}
 <script>
 document.addEventListener("DOMContentLoaded", async function() {
-  const container = document.getElementById('contributions-container');
-  const typeFilter = document.getElementById('filter-type');
-  const categoryFilter = document.getElementById('filter-category');
-  const languageFilter = document.getElementById('filter-language');
-  
+  const container = document.getElementById('latest-contributions-container');
+  const typeFilter = document.getElementById('typeFilter');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const languageFilter = document.getElementById('languageFilter');
   let allData = [];
 
   try {
     const response = await fetch("../data/community_submissions.json");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     allData = await response.json();
     
-    // Sort descending by date_published
+    // Sort descending
     allData.sort((a, b) => new Date(b.date_published) - new Date(a.date_published));
     
     if (allData.length === 0) {
       container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
-      document.getElementById('filters-container').style.display = 'none';
       return;
     }
     
-    // Populate filter options
-    const types = [...new Set(allData.map(d => d.type).filter(Boolean))].sort();
-    const categories = [...new Set(allData.map(d => d.category).filter(Boolean))].sort();
-    const languages = [...new Set(allData.map(d => d.language).filter(Boolean))].sort();
+    populateFilters(allData);
     
-    types.forEach(t => typeFilter.add(new Option(t, t)));
-    categories.forEach(c => categoryFilter.add(new Option(c, c)));
-    languages.forEach(l => languageFilter.add(new Option(l, l)));
-    
-    renderCards(allData);
-    
-    typeFilter.addEventListener('change', filterData);
-    categoryFilter.addEventListener('change', filterData);
-    languageFilter.addEventListener('change', filterData);
+    typeFilter.addEventListener('change', () => renderCards(allData));
+    categoryFilter.addEventListener('change', () => renderCards(allData));
+    languageFilter.addEventListener('change', () => renderCards(allData));
 
+    renderCards(allData);
   } catch (error) {
     console.error("Failed to load community submissions:", error);
     container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
-    document.getElementById('filters-container').style.display = 'none';
   }
 
-  function filterData() {
-    const tVal = typeFilter.value;
-    const cVal = categoryFilter.value;
-    const lVal = languageFilter.value;
-    
-    const filtered = allData.filter(d => {
-      return (!tVal || d.type === tVal) &&
-             (!cVal || d.category === cVal) &&
-             (!lVal || d.language === lVal);
+  function populateFilters(data) {
+    const categories = new Set();
+    const languages = new Set();
+    data.forEach(item => {
+      if (item.category) categories.add(item.category);
+      if (item.language) languages.add(item.language);
     });
     
-    renderCards(filtered);
+    Array.from(categories).sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.toLowerCase();
+      opt.textContent = c;
+      categoryFilter.appendChild(opt);
+    });
+    
+    Array.from(languages).sort().forEach(l => {
+      const opt = document.createElement('option');
+      opt.value = l.toLowerCase();
+      opt.textContent = l;
+      languageFilter.appendChild(opt);
+    });
   }
 
   function normalizeType(t) {
@@ -105,13 +106,13 @@ document.addEventListener("DOMContentLoaded", async function() {
   function getTypeImage(type) {
     const normalized = normalizeType(type);
     const imageMap = {
-      news: new URL("../images/community-types/news.svg", window.location.href).href,
-      event: new URL("../images/community-types/event.svg", window.location.href).href,
-      resource: new URL("../images/community-types/resource.svg", window.location.href).href,
-      call: new URL("../images/community-types/call.svg", window.location.href).href,
-      publication: new URL("../images/community-types/publication.svg", window.location.href).href,
-      experience: new URL("../images/community-types/experience.svg", window.location.href).href,
-      other: new URL("../images/community-types/other.svg", window.location.href).href
+      news: "../images/community-types/news.svg",
+      event: "../images/community-types/event.svg",
+      resource: "../images/community-types/resource.svg",
+      call: "../images/community-types/call.svg",
+      publication: "../images/community-types/publication.svg",
+      experience: "../images/community-types/experience.svg",
+      other: "../images/community-types/other.svg"
     };
     return imageMap[normalized] || imageMap.other;
   }
@@ -119,25 +120,45 @@ document.addEventListener("DOMContentLoaded", async function() {
   function getTypeAltText(type) {
     const normalized = normalizeType(type);
     const altMap = {
-      news: "Illustration representing a news contribution",
-      event: "Illustration representing an event contribution",
-      resource: "Illustration representing a resource contribution",
-      call: "Illustration representing a call or opportunity",
-      publication: "Illustration representing a publication",
-      experience: "Illustration representing a community experience",
-      other: "Illustration representing another type of contribution"
+      news: "News icon",
+      event: "Event icon",
+      resource: "Resource icon",
+      call: "Call icon",
+      publication: "Publication icon",
+      experience: "Experience icon",
+      other: "Other icon"
     };
     return altMap[normalized] || altMap.other;
   }
 
+  function escapeHtml(unsafe) {
+    return (unsafe || "").toString()
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+  }
+
   function renderCards(data) {
-    if (data.length === 0) {
-      container.innerHTML = '<p class="text-muted">No matches found for the selected filters.</p>';
+    const typeVal = typeFilter.value;
+    const catVal = categoryFilter.value;
+    const langVal = languageFilter.value;
+    
+    const filtered = data.filter(item => {
+      const tMatch = typeVal === 'all' || normalizeType(item.type) === typeVal;
+      const cMatch = catVal === 'all' || (item.category && item.category.toLowerCase() === catVal);
+      const lMatch = langVal === 'all' || (item.language && item.language.toLowerCase() === langVal);
+      return tMatch && cMatch && lMatch;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = '<p class="text-muted">No contributions match the selected filters.</p>';
       return;
     }
-    
-    let html = '<div class="community-preview-track">';
-    data.forEach(item => {
+
+    let html = '<div class="community-grid">';
+    filtered.forEach(item => {
       const title = escapeHtml(item.title);
       const desc = escapeHtml(item.description);
       const type = escapeHtml(item.type);
@@ -146,7 +167,6 @@ document.addEventListener("DOMContentLoaded", async function() {
       const url = escapeHtml(item.url || '');
       const org = escapeHtml(item.organization || item.territory || '');
       const lang = escapeHtml(item.language || '');
-      const member = escapeHtml(item.member_display_name || '');
       
       const tags = (item.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('');
       const cardTitle = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
@@ -158,24 +178,22 @@ document.addEventListener("DOMContentLoaded", async function() {
       const imgSrc = getTypeImage(item.type);
       const imgAlt = getTypeAltText(item.type);
       
+      let metaHtml = '';
+      if (date) metaHtml += `<span>${date}</span>`;
+      if (org) metaHtml += (metaHtml ? ' &middot; ' : '') + `<span>${org}</span>`;
+      if (lang) metaHtml += (metaHtml ? ' &middot; ' : '') + `<span>${lang}</span>`;
+      
       html += `
-        <article class="community-card-horizontal">
-          <div class="community-icon-panel">
+        <article class="community-card-compact">
+          <div class="community-card-icon">
             <img src="${imgSrc}" alt="${imgAlt}">
           </div>
-          <div class="community-card-content">
-            <div class="meta-chips">${subtitle}</div>
-            <h3 class="card-title">${cardTitle}</h3>
-            <p class="card-desc">${desc}</p>
-            
-            <div class="card-footer-meta">
-              <span class="meta-item"><i class="bi bi-calendar3"></i> ${date}</span>
-              ${org ? `<span class="meta-item"><i class="bi bi-geo-alt"></i> ${org}</span>` : ''}
-              ${lang ? `<span class="meta-item"><i class="bi bi-translate"></i> ${lang}</span>` : ''}
-              ${member ? `<span class="meta-item"><i class="bi bi-person"></i> By ${member}</span>` : ''}
-            </div>
-            
-            ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+          <div class="community-card-body">
+            <div class="community-card-kicker">${subtitle}</div>
+            <h3 class="community-card-title">${cardTitle}</h3>
+            <p class="community-card-desc">${desc}</p>
+            ${metaHtml ? `<div class="community-card-meta">${metaHtml}</div>` : ''}
+            ${tags ? `<div class="community-card-tags">${tags}</div>` : ''}
           </div>
         </article>
       `;
@@ -183,15 +201,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     html += '</div>';
     container.innerHTML = html;
   }
-
-  function escapeHtml(unsafe) {
-    return (unsafe || "").toString()
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
-  }
 });
 </script>
 ```
+:::
+

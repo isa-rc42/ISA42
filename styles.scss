@@ -2927,3 +2927,163 @@ body:has(.contact-hub) .content {
   color: #475569;
   line-height: 1.55;
 }
+
+/* ==========================================================================
+   Community Page Compact Grid
+   ========================================================================== */
+
+.community-page {
+  max-width: 1180px;
+  width: min(1180px, calc(100vw - 4rem));
+  margin: 0 auto;
+}
+
+.community-intro {
+  max-width: 760px;
+  margin-bottom: 1.5rem;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.community-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 1.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5eaf0;
+  border-radius: 0.85rem;
+  background: #f8fafc;
+}
+
+.community-filter-bar .filter-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0b1628;
+}
+
+.community-filter-bar select {
+  max-width: 180px;
+  font-size: 0.78rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.community-card-compact {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  min-height: 170px;
+  border: 1px solid #e5eaf0;
+  border-radius: 0.9rem;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.035);
+}
+
+.community-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-right: 1px solid #e5eaf0;
+}
+
+.community-card-icon img {
+  width: 34px;
+  height: 34px;
+  opacity: 0.8;
+}
+
+.community-card-body {
+  padding: 0.95rem 1rem;
+  min-width: 0;
+}
+
+.community-card-kicker {
+  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.community-card-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  color: #0b1628;
+}
+
+.community-card-title a {
+  color: #173b7a;
+  text-decoration: none;
+}
+
+.community-card-title a:hover {
+  color: #0d9488;
+}
+
+.community-card-desc {
+  margin: 0 0 0.65rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #475569;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.community-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.community-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.community-card-tags .badge {
+  padding: 0.16rem 0.38rem;
+  border-radius: 0.25rem;
+  background: #e6fffb;
+  border: 1px solid #b6f0ea;
+  color: #0f766e;
+  font-size: 0.66rem;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .community-page {
+    width: min(100%, calc(100vw - 2rem));
+  }
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .community-card-compact {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+  .community-card-icon img {
+    width: 28px;
+    height: 28px;
+  }
+  .community-card-body {
+    padding: 0.85rem;
+  }
+}
