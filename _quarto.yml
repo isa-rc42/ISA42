@@ -6,6 +6,7 @@ project:
     - "data/community_submissions.json"
     - "images/"
     - "assets/"
+    - "feeds/community-contributions.xml"
 
 website:
   title: "ISA RC42 Social Psychology"
