@@ -1,12 +1,42 @@
 {
-  "last_updated": "2026-06-23T21:44:47.541539",
+  "last_updated": "2026-06-23T21:58:14.960419",
   "total_rows_read": 64,
-  "active_members": 64,
-  "members_with_photo": 54,
-  "members_without_photo": 10,
+  "active_members_after_rc_filter": 64,
+  "active_members_after_isa_filter": 60,
+  "excluded_rc_not_active": 0,
+  "excluded_isa_expired": 4,
+  "excluded_missing_or_invalid_dates": 0,
+  "members_with_photo": 52,
+  "members_without_photo": 8,
   "total_countries": 31,
   "total_institutions": 36,
   "missing_member_id": 0,
   "duplicate_member_ids": 0,
-  "unmatched_photos": 0
+  "unmatched_photos": 0,
+  "excluded_by_isa_details": [
+    {
+      "member_id": "16506",
+      "full_name": "Daniel Miranda",
+      "isa_expiration_date": "31-12-2025",
+      "rc_membership_end_date": "31-12-2027"
+    },
+    {
+      "member_id": "44628",
+      "full_name": "Ugljesa Radulovic",
+      "isa_expiration_date": "31-12-2025",
+      "rc_membership_end_date": "31-12-2027"
+    },
+    {
+      "member_id": "52540",
+      "full_name": "Cecile Van De Velde",
+      "isa_expiration_date": "31-12-2021",
+      "rc_membership_end_date": "31-12-2027"
+    },
+    {
+      "member_id": "344629",
+      "full_name": "Suriya S",
+      "isa_expiration_date": "31-12-2025",
+      "rc_membership_end_date": "31-12-2027"
+    }
+  ]
 }
