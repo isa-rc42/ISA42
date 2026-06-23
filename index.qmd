@@ -153,6 +153,46 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/\b\w/g, c => c.toUpperCase());
   }
 
+  function parseDate(value) {
+    if (!value) return null;
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? null : date;
+  }
+
+  function parseSubmissionIdDate(value) {
+    if (!value) return null;
+    const str = value.toString();
+    const match = str.match(/(\d{8})[-_]?(\d{6})?/);
+    if (!match) return null;
+
+    const datePart = match[1];
+    const timePart = match[2] || "000000";
+
+    const year = datePart.slice(0, 4);
+    const month = datePart.slice(4, 6);
+    const day = datePart.slice(6, 8);
+
+    const hour = timePart.slice(0, 2);
+    const minute = timePart.slice(2, 4);
+    const second = timePart.slice(4, 6);
+
+    const parsed = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
+    return isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  function getContributionCreatedDate(item) {
+    return (
+      parseSubmissionIdDate(item.submission_id) ||
+      parseSubmissionIdDate(item.id) ||
+      parseDate(item.created_at) ||
+      parseDate(item.submitted_at) ||
+      parseDate(item.date_submitted) ||
+      parseDate(item.form_timestamp) ||
+      parseDate(item.timestamp) ||
+      null
+    );
+  }
+
   fetch("data/community_submissions.json")
     .then(response => {
       if (!response.ok) throw new Error("Could not fetch data");
@@ -160,8 +200,18 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(data => {
       const latestItems = data
+        .map((item, index) => ({ ...item, __originalIndex: index }))
         .filter(item => item.title && isPublished(item))
-        .sort((a, b) => new Date(b.date_published || 0) - new Date(a.date_published || 0))
+        .sort((a, b) => {
+          const da = getContributionCreatedDate(a);
+          const db = getContributionCreatedDate(b);
+
+          if (da && db) return db - da;
+          if (db && !da) return 1;
+          if (da && !db) return -1;
+
+          return b.__originalIndex - a.__originalIndex;
+        })
         .slice(0, 6);
         
       if (latestItems.length === 0) {

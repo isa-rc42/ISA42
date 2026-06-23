@@ -35,7 +35,7 @@ toc: false
     <span class="sort-label">Sort by:</span>
 
     <select id="sort-mode" class="form-select form-select-sm" aria-label="Sort by">
-      <option value="date_desc">Contribution date</option>
+      <option value="date_desc">Newest first</option>
       <option value="deadline_asc">Deadline</option>
     </select>
   </div>
@@ -62,8 +62,13 @@ document.addEventListener("DOMContentLoaded", async function() {
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     allData = await response.json();
     
-    // Sort descending
-    allData.sort((a, b) => new Date(b.date_published) - new Date(a.date_published));
+    // Add original index for stable fallback sorting
+    allData = allData.map((item, index) => ({
+      ...item,
+      __originalIndex: index
+    }));
+    
+    // Initial sort logic applies on load
     
     if (allData.length === 0) {
       container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
@@ -76,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     categoryFilter.addEventListener('change', () => renderCards(allData));
     languageFilter.addEventListener('change', () => renderCards(allData));
 
-    renderCards(allData);
+    renderCards(sortData(allData));
   } catch (error) {
     console.error("Failed to load community submissions:", error);
     container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
@@ -100,6 +105,55 @@ document.addEventListener("DOMContentLoaded", async function() {
       item.relevant_date ||
       ""
     );
+  }
+
+  function parseSubmissionIdDate(value) {
+    if (!value) return null;
+    const str = value.toString();
+    const match = str.match(/(\d{8})[-_]?(\d{6})?/);
+    if (!match) return null;
+
+    const datePart = match[1];
+    const timePart = match[2] || "000000";
+
+    const year = datePart.slice(0, 4);
+    const month = datePart.slice(4, 6);
+    const day = datePart.slice(6, 8);
+
+    const hour = timePart.slice(0, 2);
+    const minute = timePart.slice(2, 4);
+    const second = timePart.slice(4, 6);
+
+    const parsed = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
+    return isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  function getContributionCreatedDate(item) {
+    return (
+      parseSubmissionIdDate(item.submission_id) ||
+      parseSubmissionIdDate(item.id) ||
+      parseDate(item.created_at) ||
+      parseDate(item.submitted_at) ||
+      parseDate(item.date_submitted) ||
+      parseDate(item.form_timestamp) ||
+      parseDate(item.timestamp) ||
+      null
+    );
+  }
+
+  function sortByContributionOrderDesc(data) {
+    return [...data].sort((a, b) => {
+      const da = getContributionCreatedDate(a);
+      const db = getContributionCreatedDate(b);
+
+      if (da && db) return db - da;
+      if (db && !da) return 1;
+      if (da && !db) return -1;
+
+      const ia = typeof a.__originalIndex === "number" ? a.__originalIndex : 0;
+      const ib = typeof b.__originalIndex === "number" ? b.__originalIndex : 0;
+      return ib - ia;
+    });
   }
 
   function isDeadlinePassed(item) {
@@ -141,19 +195,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         if (pa && pb) return pb - pa;
         return 0;
       });
-    } else {
-      sorted.sort((a, b) => {
-        const da = parseDate(a.date_published);
-        const db = parseDate(b.date_published);
-
-        if (da && db) return db - da;
-        if (da && !db) return -1;
-        if (!da && db) return 1;
-        return 0;
-      });
+      return sorted;
     }
 
-    return sorted;
+    return sortByContributionOrderDesc(sorted);
   }
 
   function populateFilters(data) {
