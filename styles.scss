@@ -4116,67 +4116,63 @@ body:has(.contact-hub) .content {
 // Home Newsletter (Phase 3A Placeholder & Phase 4.1 Embed)
 // =============================================================================
 
-/* Follow.it Newsletter Block - Minimal ISA RC42 */
+/* Follow.it Newsletter Block - spacing refinement */
 
 .home-newsletter.followit-updates.followit-minimal {
   background: #F4F7F8;
-  padding: 62px 0;
+  padding: 88px 0 86px;
   border-top: 1px solid rgba(221, 229, 232, 0.8);
   border-bottom: 3px solid #009688;
 }
 
 .followit-minimal-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.8fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.8fr);
+  gap: clamp(56px, 7vw, 96px);
   align-items: center;
 }
 
 .followit-minimal-copy {
-  max-width: 620px;
+  max-width: 640px;
 }
 
 .followit-minimal-copy .section-kicker {
-  display: inline-block;
-  margin: 0 0 14px 0;
-  color: #009688;
-  font-size: 0.78rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  border-bottom: 2px solid #009688;
-  padding-bottom: 6px;
+  margin-bottom: 22px;
 }
 
 .followit-minimal-copy h2 {
-  margin: 0 0 16px 0;
-  color: #17233A;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.03;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  margin-bottom: 22px;
 }
 
 .followit-minimal-lead {
-  margin: 0 0 16px 0;
+  margin: 0 0 22px 0;
   color: #17233A;
-  font-size: 1.12rem;
-  line-height: 1.58;
+  font-size: 1.15rem;
+  line-height: 1.65;
   font-weight: 700;
+  max-width: 620px;
 }
 
 .followit-minimal-description {
   margin: 0;
   color: #64748B;
   font-size: 1rem;
-  line-height: 1.75;
-  max-width: 560px;
+  line-height: 1.85;
+  max-width: 600px;
 }
 
 .followit-minimal-form {
   width: 100%;
+  max-width: 520px;
+  justify-self: start;
+}
+
+.followit-minimal-note {
+  margin: 20px 0 0 0;
+  color: #64748B;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  max-width: 460px;
 }
 
 .followit-widget {
@@ -4188,14 +4184,7 @@ body:has(.contact-hub) .content {
   overflow: visible;
 }
 
-.followit-minimal-note {
-  margin: 14px 0 0 0;
-  color: #64748B;
-  font-size: 0.86rem;
-  line-height: 1.55;
-}
-
-/* Override Follow.it generated form so it looks native */
+/* Better spacing inside Follow.it generated form */
 
 .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
   margin-top: 0 !important;
@@ -4207,11 +4196,11 @@ body:has(.contact-hub) .content {
 }
 
 .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5 {
-  margin: 0 0 12px 0 !important;
+  margin: 0 0 18px 0 !important;
   color: #17233A !important;
   font-family: Arial, Helvetica, sans-serif !important;
   font-size: 1rem !important;
-  line-height: 1.4 !important;
+  line-height: 1.45 !important;
   font-weight: 700 !important;
   text-align: left !important;
 }
@@ -4222,97 +4211,104 @@ body:has(.contact-hub) .content {
 }
 
 .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
-  width: 100% !important;
-  height: 46px !important;
+  height: 48px !important;
   border-radius: 999px !important;
-  border: 1px solid #DDE5E8 !important;
-  background-color: #FFFFFF !important;
-  color: #17233A !important;
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 0.95rem !important;
-  font-weight: 400 !important;
+  padding: 0 20px !important;
   text-align: left !important;
-  padding: 0 18px !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
-  color: #64748B !important;
-  opacity: 1 !important;
 }
 
 .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
-  margin-top: 12px !important;
-  width: 100% !important;
+  margin-top: 16px !important;
 }
 
 .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
-  width: auto !important;
-  min-width: 165px !important;
-  height: 44px !important;
-  border: 0 !important;
+  height: 46px !important;
+  min-width: 170px !important;
+  padding: 0 28px !important;
   border-radius: 999px !important;
-  background-color: #009688 !important;
-  color: #ffffff !important;
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  padding: 0 24px !important;
-  text-align: center !important;
-  box-shadow: none !important;
-}
-
-.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
-  cursor: pointer !important;
-  background-color: #007f73 !important;
 }
 
 .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+  margin-top: 14px !important;
   justify-content: flex-start !important;
-  margin-top: 12px !important;
-  color: #94A3B8 !important;
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1.4 !important;
-  text-align: left !important;
 }
 
-.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
-  margin-left: 8px !important;
-  height: 1.05em !important;
-  max-height: 1.05em !important;
-}
-
-/* Mobile */
+/* Mobile spacing */
 
 @media (max-width: 860px) {
+  .home-newsletter.followit-updates.followit-minimal {
+    padding: 70px 0 72px;
+  }
+
   .followit-minimal-inner {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 44px;
   }
 
-  .followit-minimal-copy,
-  .followit-minimal-description {
-    max-width: none;
-  }
-
-  .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5 {
-    text-align: left !important;
+  .followit-minimal-form {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 520px) {
   .home-newsletter.followit-updates.followit-minimal {
-    padding: 46px 0;
+    padding: 56px 0 60px;
   }
 
   .followit-minimal-copy h2 {
-    font-size: 2.25rem;
+    margin-bottom: 18px;
+  }
+
+  .followit-minimal-lead {
+    margin-bottom: 18px;
   }
 
   .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
     width: 100% !important;
   }
+}
+
+/* Follow.it typography and button color fix */
+
+.followit-widget .followit--follow-form-container,
+.followit-widget .followit--follow-form-container *,
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5 {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 700 !important;
+  color: #17233A !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 400 !important;
+  color: #17233A !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: #64748B !important;
+  opacity: 1 !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button,
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  background-color: #009688 !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover,
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover * {
+  color: #ffffff !important;
+  background-color: #007f73 !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+  font-family: Arial, Helvetica, sans-serif !important;
 }
