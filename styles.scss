@@ -4312,3 +4312,33 @@ body:has(.contact-hub) .content {
 .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
   font-family: Arial, Helvetica, sans-serif !important;
 }
+
+/* Expired Community Contributions Styling */
+
+.contribution-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.16rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.contribution-status-closed {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+}
+
+.contribution-item.contribution-expired .contribution-title {
+  text-decoration: line-through;
+}
+
+.contribution-item.contribution-expired .contribution-preview,
+.contribution-item.contribution-expired .contribution-desc,
+.contribution-item.contribution-expired .contribution-meta {
+  color: #94a3b8;
+}

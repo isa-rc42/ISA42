@@ -106,6 +106,20 @@ document.addEventListener("DOMContentLoaded", async function() {
     );
   }
 
+  function isDeadlinePassed(item) {
+    const deadlineValue = getDeadline(item);
+    const deadlineDate = parseDate(deadlineValue);
+    if (!deadlineDate) return false;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const deadlineDay = new Date(deadlineDate);
+    deadlineDay.setHours(23, 59, 59, 999);
+
+    return deadlineDay < today;
+  }
+
   function sortData(data) {
     const sortMode = document.getElementById('sort-mode');
     const mode = sortMode ? sortMode.value : "date_desc";
@@ -113,6 +127,12 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     if (mode === "deadline_asc") {
       sorted.sort((a, b) => {
+        const aExpired = isDeadlinePassed(a);
+        const bExpired = isDeadlinePassed(b);
+
+        if (!aExpired && bExpired) return -1;
+        if (aExpired && !bExpired) return 1;
+
         const da = parseDate(getDeadline(a));
         const db = parseDate(getDeadline(b));
 
@@ -261,6 +281,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     let html = '<div class="contributions-list">';
     filtered.forEach((item, index) => {
+      const expired = isDeadlinePassed(item);
+      const expiredClass = expired ? " contribution-expired" : "";
       const isFirst = index === 0 ? 'open' : '';
       const title = escapeHtml(item.title);
       const desc = escapeHtml(item.description);
@@ -293,7 +315,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       const deadlineVal = escapeHtml(deadlineRaw);
       if (deadlineVal) {
         const label = getRelevantDateLabel(item.type);
-        datesHtml += `<span>${label}: ${formatDate(deadlineVal)}</span>`;
+        datesHtml += `<span>${label}: ${formatDate(deadlineVal)}${expired ? ' <span class="contribution-status contribution-status-closed">Closed</span>' : ''}</span>`;
       }
       
       let combinedMeta = '';
@@ -301,7 +323,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       if (metaHtml) combinedMeta += `<div class="contribution-meta">${metaHtml}</div>`;
       
       html += `
-        <details class="contribution-item" ${isFirst}>
+        <details class="contribution-item${expiredClass}" ${isFirst}>
           <summary class="contribution-summary">
             <div class="contribution-icon">
               <img src="${imgSrc}" alt="${imgAlt}">
