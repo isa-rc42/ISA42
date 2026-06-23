@@ -4,6 +4,8 @@ project:
   resources:
     - "data/rc42_members_clean.json"
     - "data/community_submissions.json"
+    - "data/members.json"
+    - "data/members_diagnostics.json"
     - "images/"
     - "assets/"
     - "feeds/community-contributions.xml"
