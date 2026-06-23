@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import yaml
+import shutil
 import requests
 import pandas as pd
 from datetime import datetime
@@ -29,7 +30,13 @@ def format_name(first_name, surname):
         return f"{first} {last}"
     return first or last
 
-
+def parse_member_date(value):
+    if pd.isna(value):
+        return pd.NaT
+    value = str(value).strip()
+    if value in {"", "-", "None", "nan", "NaN"}:
+        return pd.NaT
+    return pd.to_datetime(value, format="%d-%m-%Y", errors="coerce")
 
 def main():
     members_url = os.environ.get("MEMBERS_CSV_URL")
@@ -67,72 +74,74 @@ def main():
 
     # Diagnostics variables
     total_rows = len(df_members)
-    active_members_after_rc = 0
-    active_members_after_isa = 0
-    excluded_rc = 0
-    excluded_isa = 0
-    excluded_invalid = 0
-    excluded_isa_list = []
-
-    members_with_photo = 0
-    members_without_photo = 0
     missing_member_id = int(df_members['member_id'].isna().sum() + (df_members['member_id'] == "").sum())
     duplicates = int(df_members.duplicated(subset=['member_id']).sum())
-    unmatched_photos = 0
-
+    
     if df_photos is not None:
         df_photos['member_id'] = df_photos['member_id'].astype(str).str.strip()
         photo_map = dict(zip(df_photos['member_id'], df_photos['photo_url']))
         unmatched_photos = len(set(df_photos['member_id']) - set(df_members['member_id']))
     else:
         photo_map = {}
+        unmatched_photos = 0
 
-    processed_members = []
+    # Date parsing and strict filtering
+    df_members["rc_start_dt"] = df_members["RC Membership Start Date"].apply(parse_member_date)
+    df_members["rc_end_dt"] = df_members["RC Membership End Date"].apply(parse_member_date)
+    df_members["isa_expiration_dt"] = df_members["ISA Expiration Date"].apply(parse_member_date)
+
+    today = pd.Timestamp.today().normalize()
+
+    rc_active = (
+        df_members["rc_start_dt"].notna()
+        & df_members["rc_end_dt"].notna()
+        & (df_members["rc_start_dt"] <= today)
+        & (df_members["rc_end_dt"] >= today)
+    )
+
+    member_type = df_members["Member Type"].fillna("").astype(str).str.upper().str.strip()
+
+    isa_active = (
+        df_members["isa_expiration_dt"].notna()
+        & (df_members["isa_expiration_dt"] >= today)
+    )
+
+    life_member = member_type.eq("LIFE")
+
+    active_mask = rc_active & (isa_active | life_member)
+    active_members_df = df_members.loc[active_mask].copy()
+    excluded_members_df = df_members.loc[~active_mask].copy()
+
+    # Diagnostics calculations
+    invalid_dates_mask = df_members["rc_start_dt"].isna() | df_members["rc_end_dt"].isna() | df_members["isa_expiration_dt"].isna()
+    excluded_invalid = int(invalid_dates_mask.sum())
+
+    rc_expired_mask = ~invalid_dates_mask & ~rc_active
+    excluded_rc = int(rc_expired_mask.sum())
+
+    active_members_after_rc = int(rc_active.sum())
+
+    isa_expired_mask = rc_active & ~isa_active & ~life_member
+    excluded_isa = int(isa_expired_mask.sum())
+    active_members_after_isa = len(active_members_df)
+
+    excluded_isa_list = []
+    for _, row in df_members.loc[isa_expired_mask].iterrows():
+        excluded_isa_list.append({
+            "member_id": str(row.get('member_id')),
+            "full_name": format_name(row.get('Member first name'), row.get('Member surname')),
+            "isa_expiration_date": str(row.get('ISA Expiration Date')),
+            "rc_membership_end_date": str(row.get('RC Membership End Date'))
+        })
+
+    members_with_photo = 0
+    members_without_photo = 0
     institutions_set = set()
     countries_set = set()
 
-    for _, row in df_members.iterrows():
-        # Check active status
-        start_date = row.get('RC Membership Start Date')
-        end_date = row.get('RC Membership End Date')
-        isa_date = row.get('ISA Expiration Date')
-        member_type = row.get('Member Type')
-        
-        now = datetime.now()
-        
-        def parse_date(d):
-            d_str = str(d).strip()
-            if pd.isna(d) or d_str in ['', '-', 'nan', 'None']:
-                return pd.NaT
-            return pd.to_datetime(d_str, format='%d-%m-%Y', errors='coerce')
+    processed_members = []
 
-        start = parse_date(start_date)
-        end = parse_date(end_date)
-        isa = parse_date(isa_date)
-        
-        if pd.isna(start) or pd.isna(end) or pd.isna(isa):
-            excluded_invalid += 1
-            continue
-            
-        if start > now or end < now:
-            excluded_rc += 1
-            continue
-            
-        active_members_after_rc += 1
-        
-        is_life = str(member_type).strip().upper() == 'LIFE'
-        if not is_life and isa < now:
-            excluded_isa += 1
-            excluded_isa_list.append({
-                "member_id": str(row.get('member_id')),
-                "full_name": format_name(row.get('Member first name'), row.get('Member surname')),
-                "isa_expiration_date": str(isa_date),
-                "rc_membership_end_date": str(end_date)
-            })
-            continue
-            
-        active_members_after_isa += 1
-        
+    for _, row in active_members_df.iterrows():
         m_id = str(row['member_id'])
         first_name = row.get('Member first name')
         surname = row.get('Member surname')
@@ -203,13 +212,23 @@ def main():
             if "website" in o: member["website_url"] = o["website"]
             if "linkedin" in o: member["linkedin_url"] = o["linkedin"]
             if "orcid" in o: member["orcid_url"] = o["orcid"]
-            if "cv" in o: member["researchgate_url"] = o["cv"] # mapping CV to researchgate to maintain design or use generic
+            if "cv" in o: member["researchgate_url"] = o["cv"]
             if "twitter" in o: member["twitter_x_url"] = o["twitter"]
             if "display_name" in o and o["display_name"]: member["full_name"] = o["display_name"]
             if "hide_email" in o and o["hide_email"] == True: member["email_private"] = ""
 
     # Sort
     processed_members.sort(key=lambda x: (x['surname'], x['first_name']))
+
+    # Strict check before output
+    expired_ids_that_must_not_publish = {"52540", "16506", "44628", "344629"}
+    published_ids = {str(member.get("id", "")).strip() for member in processed_members}
+
+    bad_ids = expired_ids_that_must_not_publish.intersection(published_ids)
+    if bad_ids:
+        raise RuntimeError(
+            f"Expired ISA members are still being published: {sorted(bad_ids)}"
+        )
 
     # Write output
     os.makedirs('data', exist_ok=True)
@@ -220,23 +239,29 @@ def main():
     diagnostics = {
         "last_updated": datetime.now().isoformat(),
         "total_rows_read": total_rows,
+        "active_members_after_filter": active_members_after_isa,
+        "excluded_isa_expired": excluded_isa,
+        "excluded_rc_not_active": excluded_rc,
+        "excluded_missing_or_invalid_dates": excluded_invalid,
+        "expired_isa_members_excluded": excluded_isa_list,
         "active_members_after_rc_filter": active_members_after_rc,
         "active_members_after_isa_filter": active_members_after_isa,
-        "excluded_rc_not_active": excluded_rc,
-        "excluded_isa_expired": excluded_isa,
-        "excluded_missing_or_invalid_dates": excluded_invalid,
         "members_with_photo": members_with_photo,
         "members_without_photo": members_without_photo,
         "total_countries": len(countries_set),
         "total_institutions": len(institutions_set),
         "missing_member_id": missing_member_id,
         "duplicate_member_ids": duplicates,
-        "unmatched_photos": unmatched_photos,
-        "excluded_by_isa_details": excluded_isa_list
+        "unmatched_photos": unmatched_photos
     }
     
     with open('data/members_diagnostics.json', 'w', encoding='utf-8') as f:
         json.dump(diagnostics, f, ensure_ascii=False, indent=2)
+
+    # Copy to docs/data/
+    os.makedirs('docs/data', exist_ok=True)
+    shutil.copy('data/members.json', 'docs/data/members.json')
+    shutil.copy('data/members_diagnostics.json', 'docs/data/members_diagnostics.json')
 
     print("Successfully processed members.")
 
