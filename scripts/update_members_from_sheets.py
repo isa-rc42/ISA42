@@ -29,31 +29,7 @@ def format_name(first_name, surname):
         return f"{first} {last}"
     return first or last
 
-def is_active(start_date, end_date):
-    """Check if member is active based on dates.
-    If dates are empty or invalid, keep them (graceful fallback).
-    """
-    now = datetime.now()
-    
-    # Check start date
-    if pd.notna(start_date):
-        try:
-            start = pd.to_datetime(start_date)
-            if start > now:
-                return False
-        except:
-            pass # Invalid format, assume valid
-            
-    # Check end date
-    if pd.notna(end_date):
-        try:
-            end = pd.to_datetime(end_date)
-            if end < now:
-                return False
-        except:
-            pass # Invalid format, assume valid
-            
-    return True
+
 
 def main():
     members_url = os.environ.get("MEMBERS_CSV_URL")
@@ -91,7 +67,13 @@ def main():
 
     # Diagnostics variables
     total_rows = len(df_members)
-    active_members = 0
+    active_members_after_rc = 0
+    active_members_after_isa = 0
+    excluded_rc = 0
+    excluded_isa = 0
+    excluded_invalid = 0
+    excluded_isa_list = []
+
     members_with_photo = 0
     members_without_photo = 0
     missing_member_id = int(df_members['member_id'].isna().sum() + (df_members['member_id'] == "").sum())
@@ -113,10 +95,43 @@ def main():
         # Check active status
         start_date = row.get('RC Membership Start Date')
         end_date = row.get('RC Membership End Date')
-        if not is_active(start_date, end_date):
+        isa_date = row.get('ISA Expiration Date')
+        member_type = row.get('Member Type')
+        
+        now = datetime.now()
+        
+        def parse_date(d):
+            d_str = str(d).strip()
+            if pd.isna(d) or d_str in ['', '-', 'nan', 'None']:
+                return pd.NaT
+            return pd.to_datetime(d_str, format='%d-%m-%Y', errors='coerce')
+
+        start = parse_date(start_date)
+        end = parse_date(end_date)
+        isa = parse_date(isa_date)
+        
+        if pd.isna(start) or pd.isna(end) or pd.isna(isa):
+            excluded_invalid += 1
             continue
             
-        active_members += 1
+        if start > now or end < now:
+            excluded_rc += 1
+            continue
+            
+        active_members_after_rc += 1
+        
+        is_life = str(member_type).strip().upper() == 'LIFE'
+        if not is_life and isa < now:
+            excluded_isa += 1
+            excluded_isa_list.append({
+                "member_id": str(row.get('member_id')),
+                "full_name": format_name(row.get('Member first name'), row.get('Member surname')),
+                "isa_expiration_date": str(isa_date),
+                "rc_membership_end_date": str(end_date)
+            })
+            continue
+            
+        active_members_after_isa += 1
         
         m_id = str(row['member_id'])
         first_name = row.get('Member first name')
@@ -205,14 +220,19 @@ def main():
     diagnostics = {
         "last_updated": datetime.now().isoformat(),
         "total_rows_read": total_rows,
-        "active_members": active_members,
+        "active_members_after_rc_filter": active_members_after_rc,
+        "active_members_after_isa_filter": active_members_after_isa,
+        "excluded_rc_not_active": excluded_rc,
+        "excluded_isa_expired": excluded_isa,
+        "excluded_missing_or_invalid_dates": excluded_invalid,
         "members_with_photo": members_with_photo,
         "members_without_photo": members_without_photo,
         "total_countries": len(countries_set),
         "total_institutions": len(institutions_set),
         "missing_member_id": missing_member_id,
         "duplicate_member_ids": duplicates,
-        "unmatched_photos": unmatched_photos
+        "unmatched_photos": unmatched_photos,
+        "excluded_by_isa_details": excluded_isa_list
     }
     
     with open('data/members_diagnostics.json', 'w', encoding='utf-8') as f:

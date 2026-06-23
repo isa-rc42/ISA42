@@ -1,11 +1,12 @@
 name: Community Submissions Sync
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   sync:
@@ -54,45 +55,12 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Create pull request branch
+      - name: Commit and push if changed
         if: steps.git-check.outputs.has_changes == 'true'
-        shell: bash
         run: |
-          set -euo pipefail
-
-          BRANCH_NAME="community-submissions-sync/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git checkout -b "$BRANCH_NAME"
-
           git add -- data/community_submissions.yml data/community_submissions.json feeds/community-contributions.xml
           git commit -m "Update community submissions data and RSS feed"
-          git push origin "$BRANCH_NAME"
-
-          echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_ENV"
-
-      - name: Open Pull Request
-        if: steps.git-check.outputs.has_changes == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cat << 'EOF' > pr_body.txt
-          This PR updates data/community_submissions.yml, .json, and feeds/community-contributions.xml from approved community submissions in Google Sheets.
-
-          Validation performed:
-          - Only approved/export-ready rows exported.
-          - Private/internal fields excluded.
-          - Dates validated as YYYY-MM-DD.
-          - Duplicate IDs checked.
-          - YAML, JSON, and RSS generated successfully.
-
-          This PR does not publish directly. It requires human review and manual merge.
-          EOF
-          
-          gh pr create \
-            --title "Update community submissions from Google Sheets" \
-            --body-file pr_body.txt \
-            --head ${{ env.BRANCH_NAME }} \
-            --base main
+          git push
