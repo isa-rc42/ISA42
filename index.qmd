@@ -316,34 +316,123 @@ MEMBERSHIP NETWORK
 <!-- RC42 Community Contributions Weekly Updates -->
 <!-- ================================================================ -->
 
-<section class="home-newsletter community-updates">
-  <div class="section-inner newsletter-layout">
+<section class="home-newsletter followit-updates followit-minimal">
+  <div class="section-inner followit-minimal-inner">
 
-    <div class="newsletter-copy">
-      <p class="section-kicker">Weekly Updates</p>
-      <h2>Stay connected with RC42</h2>
-      <p>
-        Receive a weekly email every Friday with the latest community contributions
-        reviewed and published by ISA RC42, including news, calls, events,
-        publications, and resources.
+    <div class="followit-minimal-copy">
+      <p class="section-kicker">WEEKLY NEWSLETTER</p>
+
+      <h2>RC42 Weekly Updates</h2>
+
+      <p class="followit-minimal-lead">
+        Receive weekly community updates from ISA RC42 Social Psychology.
       </p>
-      <p class="newsletter-note">You can unsubscribe at any time.</p>
+
+      <p class="followit-minimal-description">
+        Subscribe to receive calls, events, publications, resources, and academic
+        opportunities shared through the ISA RC42 community.
+      </p>
     </div>
 
-    <div class="newsletter-form-panel">
-      <!-- Brevo subscription form embed -->
-      <div class="brevo-embed">
-        <iframe
-          title="RC42 Weekly Updates subscription form"
-          width="540"
-          height="430"
-          src="https://da19a52c.sibforms.com/v2/serve/MUIFADxW2bBzHZiVbhlyk3fYK8W_n7Dr2a0gkYzMPx6uvBYeIuuE_cYLsIyg_QU0aVT3FCGQ4zMtIivq7cBtYcapiwF33XOp8C7MQQEDaDXVsv1UZNGm2Bq8jquBqW5vFYUMGalaOWkCpvjiwp5fwpyMgGGUFfwGqZXtc9_TuZ4zHgXhnqnst5jGz_TJroC5wrVQCQCsuDcMC-jo5w=="
-          frameborder="0"
-          scrolling="no"
-          allowfullscreen
-          style="display:block;width:100%;max-width:100%;">
-        </iframe>
+    <div class="followit-minimal-form">
+      <div class="followit-widget">
+        <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  margin-top: 30px !important;
+  padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+  max-width: none !important;
+  border-radius: 6px !important;
+  box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+  box-sizing: border-box !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+  width: 100% !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+  margin-top: 20px !important;
+  width: 100% !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+  width: 100% !important;
+  height: 40px !important;
+  border-radius: 6px !important;
+  border: 2px solid #e9e8e8 !important;
+  background-color: #fff;
+  outline: none !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+  color: #000000 !important;
+  font-family: "Montserrat" !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+  color: #000000 !important;
+}
+
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+  color: #000000 !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+  margin-top: 10px !important;
+  width: 100% !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+  width: 100% !important;
+  height: 40px !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  line-height: 0px !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+  cursor: pointer !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+  color: #231f20 !important;
+  font-family: "Montserrat" !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 25px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: flex !important;
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 10px !important;
+}
+.followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+  margin-left: 10px !important;
+  height: 1.13em !important;
+  max-height: 1.13em !important;
+}
+
+        </style>
+        <div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f>
+          <form data-v-5d9bed7e="" action="https://api.follow.it/subscription-form/aVJHbzRFTTFaRDRqd25oOXFEQktBQy83WnEwQW5YKzBBdjlyaDZWWHNLV3hvZHpDZndIT0N2OTVhQ1p4aUR6Z0ZxbDBuN21oM0p3Yy9uS3V6Tm1vMEs3TEhzTG9mdm40dFFsazVVU2tNL0NkaFV3MzZ3UUx2cEhVUkJlcDhVbDd8anJVeHh3cWpSM2hsWmxMK0FJdGtad3ZQQ1VENUZwZUtKSmVDeU5FZkpYND0=/8" method="post"><div data-v-5d9bed7e="" class="form-preview" style="background-color: rgb(248, 250, 252); position: relative;"><div data-v-5d9bed7e="" class="preview-heading"><h5 data-v-5d9bed7e="" style="font-family: Arial; font-weight: bold; color: rgb(23, 35, 58); font-size: 16px; text-align: center; text-transform: none !important;">Get new posts by email:</h5></div><div data-v-5d9bed7e="" class="preview-input-field"><input data-v-5d9bed7e="" type="email" name="email" required="" placeholder="Enter your email" spellcheck="false" style="font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255); text-transform: none !important;"></div><div data-v-5d9bed7e="" class="preview-submit-button"><button data-v-5d9bed7e="" type="submit" style="font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center; background-color: rgb(0, 150, 136); text-transform: none !important;">Subscribe</button></div></div></form><a href="https://follow.it" class="powered-by-line">Powered by <img src="https://follow.it/images/colored-logo.svg" alt="follow.it" height="17px"/></a>
+        </div>
       </div>
+
+      <p class="followit-minimal-note">
+        You can unsubscribe at any time. Your subscription is managed through Follow.it.
+      </p>
     </div>
 
   </div>

@@ -4116,131 +4116,203 @@ body:has(.contact-hub) .content {
 // Home Newsletter (Phase 3A Placeholder & Phase 4.1 Embed)
 // =============================================================================
 
-.home-newsletter {
-  padding: clamp(4rem, 6vw, 5.5rem) 0;
-  background: #f8fafc;
-  border-bottom: 3px solid $rc42-teal;
+/* Follow.it Newsletter Block - Minimal ISA RC42 */
+
+.home-newsletter.followit-updates.followit-minimal {
+  background: #F4F7F8;
+  padding: 62px 0;
+  border-top: 1px solid rgba(221, 229, 232, 0.8);
+  border-bottom: 3px solid #009688;
 }
 
-.newsletter-layout {
-  max-width: 1120px;
-  margin: 0 auto;
+.followit-minimal-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 420px);
-  gap: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.8fr);
+  gap: 56px;
   align-items: center;
 }
 
-.newsletter-copy {
+.followit-minimal-copy {
   max-width: 620px;
 }
 
-.newsletter-copy .section-kicker {
-  color: $rc42-teal;
+.followit-minimal-copy .section-kicker {
+  display: inline-block;
+  margin: 0 0 14px 0;
+  color: #009688;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  border-bottom: 2px solid #009688;
+  padding-bottom: 6px;
+}
+
+.followit-minimal-copy h2 {
+  margin: 0 0 16px 0;
+  color: #17233A;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.03;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.followit-minimal-lead {
+  margin: 0 0 16px 0;
+  color: #17233A;
+  font-size: 1.12rem;
+  line-height: 1.58;
   font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 1.1rem;
-  display: inline-block;
-  border-bottom: 2px solid $rc42-teal;
-  padding-bottom: 0.55rem;
 }
 
-.newsletter-copy h2 {
-  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
-  line-height: 1.04;
-  letter-spacing: -0.045em;
-  color: $rc42-navy;
-  margin-bottom: 1.35rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba($rc42-navy, 0.12);
-}
-
-.newsletter-copy p {
-  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
-  line-height: 1.65;
-  color: rgba($rc42-navy, 0.76);
-  margin-bottom: 1.25rem;
-}
-
-.newsletter-note {
-  font-size: 0.98rem;
-  font-style: italic;
-  color: rgba($rc42-navy, 0.55);
-}
-
-/* Important: remove heavy card appearance */
-.newsletter-form-panel {
-  width: 100%;
-  max-width: 420px;
-  justify-self: end;
-  padding: 0;
+.followit-minimal-description {
   margin: 0;
+  color: #64748B;
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+.followit-minimal-form {
+  width: 100%;
+}
+
+.followit-widget {
   background: transparent;
   border: 0;
-  box-shadow: none;
   border-radius: 0;
-  backdrop-filter: none;
-}
-
-/* Iframe should feel like part of the page, not like a framed window */
-.brevo-embed {
-  width: 100%;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-}
-
-.brevo-embed iframe {
-  width: 100%;
-  max-width: 420px;
-  height: 430px;
-  min-height: 430px;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
+  padding: 0;
   box-shadow: none;
+  overflow: visible;
 }
 
-@media (max-width: 900px) {
-  .newsletter-layout {
+.followit-minimal-note {
+  margin: 14px 0 0 0;
+  color: #64748B;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+/* Override Follow.it generated form so it looks native */
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+  margin-top: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5 {
+  margin: 0 0 12px 0 !important;
+  color: #17233A !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+  margin-top: 0 !important;
+  width: 100% !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+  width: 100% !important;
+  height: 46px !important;
+  border-radius: 999px !important;
+  border: 1px solid #DDE5E8 !important;
+  background-color: #FFFFFF !important;
+  color: #17233A !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+  text-align: left !important;
+  padding: 0 18px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+  color: #64748B !important;
+  opacity: 1 !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+  margin-top: 12px !important;
+  width: 100% !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+  width: auto !important;
+  min-width: 165px !important;
+  height: 44px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background-color: #009688 !important;
+  color: #ffffff !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  padding: 0 24px !important;
+  text-align: center !important;
+  box-shadow: none !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+  cursor: pointer !important;
+  background-color: #007f73 !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+  justify-content: flex-start !important;
+  margin-top: 12px !important;
+  color: #94A3B8 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 0.75rem !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+}
+
+.followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+  margin-left: 8px !important;
+  height: 1.05em !important;
+  max-height: 1.05em !important;
+}
+
+/* Mobile */
+
+@media (max-width: 860px) {
+  .followit-minimal-inner {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 32px;
   }
 
-  .newsletter-copy {
-    max-width: 680px;
+  .followit-minimal-copy,
+  .followit-minimal-description {
+    max-width: none;
   }
 
-  .newsletter-form-panel {
-    justify-self: start;
-    max-width: 460px;
-  }
-
-  .brevo-embed iframe {
-    max-width: 460px;
-    height: 460px;
-    min-height: 460px;
+  .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5 {
+    text-align: left !important;
   }
 }
 
-@media (max-width: 560px) {
-  .home-newsletter {
-    padding: 3.25rem 0;
+@media (max-width: 520px) {
+  .home-newsletter.followit-updates.followit-minimal {
+    padding: 46px 0;
   }
 
-  .newsletter-copy h2 {
-    font-size: clamp(2.1rem, 12vw, 3rem);
+  .followit-minimal-copy h2 {
+    font-size: 2.25rem;
   }
 
-  .newsletter-form-panel {
-    max-width: 100%;
-  }
-
-  .brevo-embed iframe {
-    max-width: 100%;
-    height: 500px;
-    min-height: 500px;
+  .followit-widget .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+    width: 100% !important;
   }
 }

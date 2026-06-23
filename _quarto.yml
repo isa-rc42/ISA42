@@ -160,4 +160,6 @@ format:
     toc-depth: 3
     link-external-newwindow: false
     code-copy: true
+    include-in-header:
+      - includes/followit-verification.html
 
