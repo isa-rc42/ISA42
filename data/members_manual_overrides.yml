@@ -1,0 +1,18 @@
+# Manual overrides for members data.
+# Keys must match the 'member_id' exactly.
+# Supported fields:
+# - website
+# - cv
+# - linkedin
+# - orcid
+# - twitter
+# - display_name
+# - hide_email
+# 
+# Example:
+# "12345":
+#   website: "https://example.com"
+#   cv: "https://example.com/cv.pdf"
+#   linkedin: "https://linkedin.com/in/username"
+#   display_name: "Dr. Jane Doe"
+#   hide_email: true

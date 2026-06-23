@@ -99,7 +99,6 @@ title-block-style: none
 :::
 
 ```{=html}
-<script src="../assets/js/members-data.js"></script>
 <script src="../assets/js/members-directory.js"></script>
 <script src="../assets/js/members-network-bg.js"></script>
 ```

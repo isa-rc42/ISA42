@@ -13,14 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const statInstitutions = document.getElementById("stat-institutions");
   const statUpdated = document.getElementById("stat-updated");
 
-  let membersData = window.RC42_MEMBERS_DATA || [];
+  let membersData = [];
 
-  if (membersData.length > 0) {
-    initDirectory();
-  } else {
-    console.error("Error: window.RC42_MEMBERS_DATA is empty or undefined.");
-    membersGrid.innerHTML = "<p>Error loading directory data. Please ensure members-data.js is loaded.</p>";
-  }
+  fetch("../data/members.json")
+    .then(response => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
+    })
+    .then(data => {
+      membersData = data;
+      if (membersData.length > 0) {
+        initDirectory();
+      } else {
+        membersGrid.innerHTML = "<p>No active members found.</p>";
+      }
+    })
+    .catch(err => {
+      console.error("Error fetching members data:", err);
+      membersGrid.innerHTML = "<p>Error loading directory data. Please try again later.</p>";
+    });
 
   function initDirectory() {
     populateFilters();
