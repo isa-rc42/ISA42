@@ -1,4 +1,5 @@
 name: Community Submissions Sync
+name: Community Submissions Sync
 
 on:
   schedule:
@@ -7,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync:
@@ -64,3 +66,10 @@ jobs:
           git add -- data/community_submissions.yml data/community_submissions.json feeds/community-contributions.xml
           git commit -m "Update community submissions data and RSS feed"
           git push
+
+      - name: Trigger site render workflow
+        if: steps.git-check.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run publish-github-pages.yml --ref main

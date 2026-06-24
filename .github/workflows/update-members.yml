@@ -5,6 +5,10 @@ on:
     - cron: '0 0 * * *' # Run daily at midnight UTC
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   update-members:
     runs-on: ubuntu-latest
@@ -37,9 +41,27 @@ jobs:
           cp data/members_diagnostics.json docs/data/members_diagnostics.json
           
       - name: Commit and push if changed
+        id: commit-changes
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
           git add data/
           git add -f docs/data/members.json docs/data/members_diagnostics.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update members directory from Google Sheets" && git push)
+          
+          if git diff --cached --quiet; then
+            echo "No changes detected in members data."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Update members directory from Google Sheets"
+            git push
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+          
+      - name: Trigger site render workflow
+        if: steps.commit-changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run publish-github-pages.yml --ref main
+
