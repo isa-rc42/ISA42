@@ -1,0 +1,399 @@
+---
+title: "Community Contributions"
+description: "Calls, events, resources, and community contributions from ISA RC42."
+toc: false
+---
+
+::: {.community-page}
+
+::: {.news-action-bar}
+[Submit a contribution &rarr;](../contact/index.qmd#community-contributions){.news-header-action}
+:::
+
+```{=html}
+<div class="community-filter-bar">
+  <span class="filter-label">Filter by:</span>
+  
+  <div class="filter-controls">
+    <select id="typeFilter" class="form-select form-select-sm" aria-label="Filter by Type">
+      <option value="all">All Types</option>
+      <option value="news">News</option>
+      <option value="event">Event</option>
+      <option value="call">Opportunity/Call</option>
+      <option value="publication">Publication</option>
+      <option value="resource">Resource</option>
+    </select>
+    
+    <select id="categoryFilter" class="form-select form-select-sm" aria-label="Filter by Category">
+      <option value="all">All Categories</option>
+    </select>
+    
+    <select id="languageFilter" class="form-select form-select-sm" aria-label="Filter by Language">
+      <option value="all">All Languages</option>
+    </select>
+
+    <span class="sort-label">Sort by:</span>
+
+    <select id="sort-mode" class="form-select form-select-sm" aria-label="Sort by">
+      <option value="date_desc">Newest first</option>
+      <option value="deadline_asc">Deadline</option>
+    </select>
+  </div>
+</div>
+```
+
+```{=html}
+<div id="latest-contributions-container">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function() {
+  const container = document.getElementById('latest-contributions-container');
+  const typeFilter = document.getElementById('typeFilter');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const languageFilter = document.getElementById('languageFilter');
+  let allData = [];
+
+  try {
+    const response = await fetch("../data/community_submissions.json");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    allData = await response.json();
+    
+    // Add original index for stable fallback sorting
+    allData = allData.map((item, index) => ({
+      ...item,
+      __originalIndex: index
+    }));
+    
+    // Initial sort logic applies on load
+    
+    if (allData.length === 0) {
+      container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+      return;
+    }
+    
+    populateFilters(allData);
+    
+    typeFilter.addEventListener('change', () => renderCards(allData));
+    categoryFilter.addEventListener('change', () => renderCards(allData));
+    languageFilter.addEventListener('change', () => renderCards(allData));
+
+    renderCards(sortData(allData));
+  } catch (error) {
+    console.error("Failed to load community submissions:", error);
+    container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+  }
+
+  
+  function parseDate(value) {
+    if (!value) return null;
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? null : date;
+  }
+
+  function getDeadline(item) {
+    return (
+      item.deadline ||
+      item.date_deadline ||
+      item.submission_deadline ||
+      item.closing_date ||
+      item.due_date ||
+      item.date_due ||
+      item.relevant_date ||
+      ""
+    );
+  }
+
+  function parseSubmissionIdDate(value) {
+    if (!value) return null;
+    const str = value.toString();
+    const match = str.match(/(\d{8})[-_]?(\d{6})?/);
+    if (!match) return null;
+
+    const datePart = match[1];
+    const timePart = match[2] || "000000";
+
+    const year = datePart.slice(0, 4);
+    const month = datePart.slice(4, 6);
+    const day = datePart.slice(6, 8);
+
+    const hour = timePart.slice(0, 2);
+    const minute = timePart.slice(2, 4);
+    const second = timePart.slice(4, 6);
+
+    const parsed = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
+    return isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  function getContributionCreatedDate(item) {
+    return (
+      parseSubmissionIdDate(item.submission_id) ||
+      parseSubmissionIdDate(item.id) ||
+      parseDate(item.created_at) ||
+      parseDate(item.submitted_at) ||
+      parseDate(item.date_submitted) ||
+      parseDate(item.form_timestamp) ||
+      parseDate(item.timestamp) ||
+      null
+    );
+  }
+
+  function sortByContributionOrderDesc(data) {
+    return [...data].sort((a, b) => {
+      const da = getContributionCreatedDate(a);
+      const db = getContributionCreatedDate(b);
+
+      if (da && db) return db - da;
+      if (db && !da) return 1;
+      if (da && !db) return -1;
+
+      const ia = typeof a.__originalIndex === "number" ? a.__originalIndex : 0;
+      const ib = typeof b.__originalIndex === "number" ? b.__originalIndex : 0;
+      return ib - ia;
+    });
+  }
+
+  function isDeadlinePassed(item) {
+    const deadlineValue = getDeadline(item);
+    const deadlineDate = parseDate(deadlineValue);
+    if (!deadlineDate) return false;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const deadlineDay = new Date(deadlineDate);
+    deadlineDay.setHours(23, 59, 59, 999);
+
+    return deadlineDay < today;
+  }
+
+  function sortData(data) {
+    const sortMode = document.getElementById('sort-mode');
+    const mode = sortMode ? sortMode.value : "date_desc";
+    const sorted = [...data];
+
+    if (mode === "deadline_asc") {
+      sorted.sort((a, b) => {
+        const aExpired = isDeadlinePassed(a);
+        const bExpired = isDeadlinePassed(b);
+
+        if (!aExpired && bExpired) return -1;
+        if (aExpired && !bExpired) return 1;
+
+        const da = parseDate(getDeadline(a));
+        const db = parseDate(getDeadline(b));
+
+        if (da && db) return da - db;
+        if (da && !db) return -1;
+        if (!da && db) return 1;
+
+        const pa = parseDate(a.date_published);
+        const pb = parseDate(b.date_published);
+        if (pa && pb) return pb - pa;
+        return 0;
+      });
+      return sorted;
+    }
+
+    return sortByContributionOrderDesc(sorted);
+  }
+
+  function populateFilters(data) {
+    const categories = new Set();
+    const languages = new Set();
+    data.forEach(item => {
+      if (item.category) categories.add(item.category);
+      if (item.language) languages.add(item.language);
+    });
+    
+    Array.from(categories).sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.toLowerCase();
+      opt.textContent = c;
+      categoryFilter.appendChild(opt);
+    });
+    
+    Array.from(languages).sort().forEach(l => {
+      const opt = document.createElement('option');
+      opt.value = l.toLowerCase();
+      opt.textContent = l;
+      languageFilter.appendChild(opt);
+    });
+  }
+
+  function formatLabel(value) {
+    if (!value) return "";
+    return value
+      .toString()
+      .replace(/_/g, " ")
+      .replace(/-/g, " ")
+      .toLowerCase()
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function normalizeType(t) {
+    if (!t) return 'other';
+    const l = t.toLowerCase();
+    if (l.includes('news')) return 'news';
+    if (l.includes('event')) return 'event';
+    if (l.includes('resource')) return 'resource';
+    if (l.includes('call') || l.includes('opportunity')) return 'call';
+    if (l.includes('publication')) return 'publication';
+    if (l.includes('experience')) return 'experience';
+    return 'other';
+  }
+  
+  function getTypeImage(type) {
+    const normalized = normalizeType(type);
+    const imageMap = {
+      news: "../images/community-types/news.svg",
+      event: "../images/community-types/event.svg",
+      resource: "../images/community-types/resource.svg",
+      call: "../images/community-types/call.svg",
+      publication: "../images/community-types/publication.svg",
+      experience: "../images/community-types/experience.svg",
+      other: "../images/community-types/other.svg"
+    };
+    return imageMap[normalized] || imageMap.other;
+  }
+  
+  function getTypeAltText(type) {
+    const normalized = normalizeType(type);
+    const altMap = {
+      news: "News icon",
+      event: "Event icon",
+      resource: "Resource icon",
+      call: "Call icon",
+      publication: "Publication icon",
+      experience: "Experience icon",
+      other: "Other icon"
+    };
+    return altMap[normalized] || altMap.other;
+  }
+
+  
+  function getRelevantDateLabel(type) {
+    const normalized = normalizeType(type);
+    if (normalized === "call") return "Deadline";
+    if (normalized === "event") return "Event date";
+    if (normalized === "publication") return "Publication date";
+    return "Relevant date";
+  }
+
+  function formatDate(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString + "T00:00:00");
+    if (Number.isNaN(date.getTime())) return escapeHtml(dateString);
+    return date.toLocaleDateString("en", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+  }
+
+  function escapeHtml(unsafe) {
+    return (unsafe || "").toString()
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+  }
+
+  function renderCards(data) {
+    const typeVal = typeFilter.value;
+    const catVal = categoryFilter.value;
+    const langVal = languageFilter.value;
+    
+    let filtered = sortData(data.filter(item => {
+      const tMatch = typeVal === 'all' || normalizeType(item.type) === typeVal;
+      const cMatch = catVal === 'all' || (item.category && item.category.toLowerCase() === catVal);
+      const lMatch = langVal === 'all' || (item.language && item.language.toLowerCase() === langVal);
+      return tMatch && cMatch && lMatch;
+    }));
+
+    if (filtered.length === 0) {
+      container.innerHTML = '<p class="text-muted">No contributions match the selected filters.</p>';
+      return;
+    }
+
+    let html = '<div class="contributions-list">';
+    filtered.forEach((item, index) => {
+      const expired = isDeadlinePassed(item);
+      const expiredClass = expired ? " contribution-expired" : "";
+      const isFirst = index === 0 ? 'open' : '';
+      const title = escapeHtml(item.title);
+      const desc = escapeHtml(item.description);
+      const type = escapeHtml(item.type);
+      const cat = escapeHtml(item.category);
+      const date = escapeHtml(item.date_published);
+      const relevantDate = escapeHtml(item.relevant_date || "");
+      const url = escapeHtml(item.url || '');
+      const org = escapeHtml(item.organization || item.territory || '');
+      const lang = escapeHtml(item.language || '');
+      
+      const tags = (item.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('');
+      const cardTitle = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
+      
+      const kickerParts = [];
+      if (item.type) kickerParts.push(formatLabel(item.type));
+      if (item.category) kickerParts.push(formatLabel(item.category));
+      const kicker = kickerParts.join(" &middot; ").replace(/&middot;/g, "·");
+      
+      const imgSrc = getTypeImage(item.type);
+      const imgAlt = getTypeAltText(item.type);
+      
+      let metaHtml = '';
+      if (org) metaHtml += `<span>${org}</span>`;
+      if (lang) metaHtml += `<span>${lang}</span>`;
+      
+      let datesHtml = '';
+      if (date) datesHtml += `<span>Posted: ${formatDate(date)}</span>`;
+      const deadlineRaw = getDeadline(item);
+      const deadlineVal = escapeHtml(deadlineRaw);
+      if (deadlineVal) {
+        const label = getRelevantDateLabel(item.type);
+        datesHtml += `<span>${label}: ${formatDate(deadlineVal)}${expired ? ' <span class="contribution-status contribution-status-closed">Closed</span>' : ''}</span>`;
+      }
+      
+      let combinedMeta = '';
+      if (datesHtml) combinedMeta += `<div class="community-card-dates">${datesHtml}</div>`;
+      if (metaHtml) combinedMeta += `<div class="contribution-meta">${metaHtml}</div>`;
+      
+      html += `
+        <details class="contribution-item${expiredClass}" ${isFirst}>
+          <summary class="contribution-summary">
+            <div class="contribution-icon">
+              <img src="${imgSrc}" alt="${imgAlt}">
+            </div>
+
+            <div class="contribution-summary-main">
+              <div class="contribution-kicker">${kicker}</div>
+              <h3 class="contribution-title">${cardTitle}</h3>
+              <p class="contribution-preview">${desc}</p>
+              ${combinedMeta}
+            </div>
+
+            <div class="contribution-summary-side">
+              ${tags ? `<div class="contribution-summary-tags">${tags}</div>` : ''}
+              <div class="contribution-toggle-indicator" aria-hidden="true"><span class="toggle-closed">Read more ↓</span><span class="toggle-open">Show less ↑</span></div>
+            </div>
+          </summary>
+
+          <div class="contribution-details">
+            <p class="contribution-desc">${desc}</p>
+            ${url ? `<a href="${url}" target="_blank" rel="noopener" class="contribution-link">Open contribution &rarr;</a>` : ''}
+          </div>
+        </details>
+      `;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  }
+});
+</script>
+```
+:::

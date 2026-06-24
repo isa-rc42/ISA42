@@ -61,15 +61,6 @@ title-block-style: none
     <option value="">All Countries</option>
   </select>
 
-  <label for="link-filter" class="visually-hidden">Filter by links</label>
-  <select id="link-filter">
-    <option value="">Any Links</option>
-    <option value="orcid">Has ORCID</option>
-    <option value="website">Has Website</option>
-    <option value="linkedin">Has LinkedIn</option>
-    <option value="twitter">Has X/Twitter</option>
-  </select>
-
   <button id="clear-filters" class="btn-clear-filters">Clear filters</button>
 </div>
 ```

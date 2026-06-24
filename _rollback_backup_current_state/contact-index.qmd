@@ -35,7 +35,7 @@ Members and colleagues are invited to share calls for papers, events, publicatio
 
 All submissions are reviewed by the RC42 editorial team before publication.
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1" target="_blank" rel="noopener" class="btn-rc42-primary btn-sm">Submit a Community Contribution</a>
+[Submit a Community Contribution](https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1){.btn-rc42-primary .btn-sm target="_blank" rel="noopener"}
 :::
 
 ::: {.contact-card #member-profile-updates}

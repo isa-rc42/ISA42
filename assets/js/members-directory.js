@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const membersGrid = document.getElementById("members-grid");
   const searchInput = document.getElementById("member-search");
   const countryFilter = document.getElementById("country-filter");
-  const linkFilter = document.getElementById("link-filter");
   const clearBtn = document.getElementById("clear-filters");
   const noResultsMsg = document.getElementById("no-results");
   const resultsCount = document.getElementById("results-count");
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     searchInput.addEventListener("input", handleFilter);
     countryFilter.addEventListener("change", handleFilter);
-    linkFilter.addEventListener("change", handleFilter);
     clearBtn.addEventListener("click", clearFilters);
   }
 
@@ -78,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function clearFilters() {
     searchInput.value = "";
     countryFilter.value = "";
-    linkFilter.value = "";
     renderMembers(membersData);
   }
 
@@ -101,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleFilter() {
     const query = searchInput.value.toLowerCase();
     const country = countryFilter.value;
-    const linkType = linkFilter.value;
 
     const filtered = membersData.filter((m) => {
       // Name or Affiliation Match safely
@@ -117,14 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Country Match
       const matchesCountry = country === "" || m.country === country;
 
-      // Link Match
-      let matchesLink = true;
-      if (linkType === "website") matchesLink = !!m.website_url;
-      if (linkType === "linkedin") matchesLink = !!m.linkedin_url;
-      if (linkType === "orcid") matchesLink = !!m.orcid_url;
-      if (linkType === "twitter") matchesLink = !!m.twitter_x_url;
-
-      return matchesSearch && matchesCountry && matchesLink;
+      return matchesSearch && matchesCountry;
     });
 
     renderMembers(filtered);

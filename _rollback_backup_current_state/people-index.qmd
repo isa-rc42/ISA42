@@ -1,0 +1,559 @@
+---
+toc: false
+title-block-style: none
+page-layout: full
+---
+
+```{=html}
+<style>
+/* Neutralizar margen superior extra de Quarto */
+#quarto-content,
+main.content,
+.page-layout-custom {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ================================================================
+   RC42 Board section — Side-by-Side Layout
+   viewport-centered alignment fix
+   ================================================================ */
+
+.rc42-roster-v16 {
+  width: min(1320px, calc(100vw - 4rem)) !important;
+  max-width: 1320px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  /* Breakout for viewport centering */
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  box-sizing: border-box !important;
+  color: #08152b;
+}
+
+.rc42-roster-v16 *,
+.rc42-roster-v16 *::before,
+.rc42-roster-v16 *::after {
+  box-sizing: border-box !important;
+}
+
+.rc42-roster-v16__shell,
+.rc42-roster-v16__panel {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.rc42-roster-v16__shell {
+  padding: 12px 0 72px;
+}
+
+.rc42-roster-v16__panel {
+  display: grid !important;
+  grid-template-columns: minmax(290px, 0.33fr) minmax(0, 0.67fr) !important;
+  gap: 2.5rem !important;
+  align-items: start !important;
+  padding: 3rem 3rem !important;
+  background: #f3f6fa !important;
+  overflow: visible !important;
+}
+
+.rc42-roster-v16__intro {
+  position: sticky;
+  top: 84px;
+  align-self: start;
+}
+
+.rc42-roster-v16__intro,
+.rc42-roster-v16__roster,
+.rc42-roster-v16__group,
+.rc42-roster-v16__grid,
+.rc42-roster-v16__card {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.rc42-roster-v16__kicker {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #00a99d;
+  margin-bottom: 12px;
+}
+
+.rc42-roster-v16__kicker::after {
+  content: "";
+  display: block;
+  width: 78px;
+  height: 2px;
+  background: #00a99d;
+  margin-top: 10px;
+}
+
+.rc42-roster-v16__intro h1 {
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  margin: 0 0 16px;
+  color: #08152b;
+}
+
+.rc42-roster-v16__intro p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #506487;
+}
+
+.rc42-roster-v16__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 22px;
+}
+
+.rc42-roster-v16__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #00a99d;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rc42-roster-v16__button:hover {
+  background: #008f88;
+}
+
+.rc42-roster-v16__textlink {
+  color: #003b7a !important;
+  font-size: 0.85rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.rc42-roster-v16__textlink:hover {
+  text-decoration: underline;
+}
+
+.rc42-roster-v16__roster-head {
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 0 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(8, 21, 43, 0.12);
+}
+
+.rc42-roster-v16__roster-head .rc42-roster-v16__kicker {
+  margin-bottom: 10px;
+}
+
+.rc42-roster-v16__roster-head h2 {
+  max-width: 100%;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  margin: 0;
+  color: #08152b;
+}
+
+.rc42-roster-v16__group {
+  margin-top: 28px;
+}
+
+.rc42-roster-v16__group h3 {
+  font-size: 1.1rem;
+  font-weight: 850;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(8, 21, 43, 0.12);
+  color: #2b364a;
+}
+
+.rc42-roster-v16__grid {
+  display: grid !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  align-items: start !important;
+}
+
+.rc42-roster-v16__grid--officers {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.rc42-roster-v16__grid--members {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.rc42-roster-v16__card,
+.board-person-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding: 1.45rem 1.15rem;
+  overflow: visible;
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  height: auto !important;
+  align-self: start !important;
+}
+
+.board-person-card[open] {
+  border-color: #0d9488;
+  box-shadow: 0 14px 34px rgba(13, 148, 136, 0.1);
+}
+
+.board-person-summary {
+  min-width: 0;
+  width: 100%;
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board-person-summary::-webkit-details-marker {
+  display: none;
+}
+
+.board-person-summary h3,
+.board-person-summary p,
+.board-person-affiliation {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.board-person-summary img {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  background: #dfe7f2;
+}
+
+.board-person-role {
+  display: block;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #00a99d;
+  margin-bottom: 8px;
+}
+
+.board-person-summary h3 {
+  font-size: 1.15rem;
+  line-height: 1.15;
+  margin: 0 0 8px;
+  color: #08152b;
+}
+
+.board-person-affiliation {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #506487;
+  margin: 0;
+}
+
+.board-person-toggle {
+  margin-top: 1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d9488;
+  font-weight: 800;
+  background: #ffffff;
+  transition: background 0.2s, color 0.2s;
+}
+
+.board-person-card:hover .board-person-toggle {
+  background: #00a99d;
+  color: #ffffff;
+  border-color: #00a99d;
+}
+
+.board-person-toggle::before {
+  content: "+";
+}
+
+.board-person-card[open] .board-person-toggle::before {
+  content: "–";
+}
+
+.board-person-card[open] .board-person-toggle {
+  background: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+
+.board-person-details {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #e5eaf0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #475569;
+  text-align: left;
+}
+
+.board-person-details p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.board-person-details a {
+  color: #003b7a !important;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.board-person-details a:hover {
+  text-decoration: underline;
+}
+
+.rc42-tags-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rc42-tags-group span {
+  display: inline-flex;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: #e8eef5;
+  color: #405273;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+@media (max-width: 1100px) {
+  .rc42-roster-v16 {
+    width: min(100%, calc(100vw - 2rem)) !important;
+    max-width: 100% !important;
+    left: auto !important;
+    transform: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .rc42-roster-v16__panel {
+    grid-template-columns: 1fr !important;
+    padding: 2.5rem 1.5rem !important;
+  }
+
+  .rc42-roster-v16__intro {
+    position: static;
+  }
+
+  .rc42-roster-v16__grid--officers,
+  .rc42-roster-v16__grid--members {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .rc42-roster-v16__grid--officers,
+  .rc42-roster-v16__grid--members {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .rc42-roster-v16__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+
+
+
+
+<div class="rc42-roster-v16">
+  <div class="rc42-roster-v16__shell">
+    <section class="rc42-roster-v16__panel">
+
+      <div class="rc42-roster-v16__intro">
+        <span class="rc42-roster-v16__kicker">Leadership</span>
+        <h1>Board 2023–2027</h1>
+        <p>The current executive board coordinates RC42 initiatives, membership communication, and our active participation in International Sociological Association activities.</p>
+
+        <div class="rc42-roster-v16__actions">
+          <a class="rc42-roster-v16__button" href="/members/index.html">Browse members directory</a>
+          <a class="rc42-roster-v16__textlink" href="past-boards/index.qmd">View past boards since 1988 &rarr;</a>
+        </div>
+      </div>
+
+      <div class="rc42-roster-v16__roster">
+        <div class="rc42-roster-v16__roster-head">
+          <span class="rc42-roster-v16__kicker">Current Board</span>
+          <h2>Officers and Board Members</h2>
+        </div>
+
+        <section class="rc42-roster-v16__group rc42-roster-v16__group--officers">
+          <h3>Officers</h3>
+          <div class="rc42-roster-v16__grid rc42-roster-v16__grid--officers">
+            
+            <details class="rc42-roster-v16__card board-person-card">
+              <summary class="board-person-summary">
+                <img src="https://conferencias.coes.cl/wp-content/uploads/2017/03/Juan-Carlos-Castillo_2-e1489158179229.jpg" alt="Juan Carlos Castillo">
+                <span class="board-person-role">President</span>
+                <h3>Juan Carlos Castillo</h3>
+                <span class="board-person-affiliation">Universidad de Chile, Chile</span>
+                <span class="board-person-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="board-person-details">
+                <p>Professor at the Department of Sociology, Universidad de Chile, and Director of Research and Publications at the Faculty of Social Sciences. His work focuses on distributive justice, citizenship education, social cohesion, quantitative methods, structural equation modeling, multilevel analysis, and open science.</p>
+                <div class="rc42-tags-group">
+                  <span>Distributive justice</span>
+                  <span>Citizenship education</span>
+                  <span>Social cohesion</span>
+                  <span>Open science</span>
+                  <span>Quantitative methods</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                  <a href="https://jc-castillo.com/" target="_blank" rel="noopener">Visit website &rarr;</a>
+                </div>
+              </div>
+            </details>
+
+            <details class="rc42-roster-v16__card board-person-card">
+              <summary class="board-person-summary">
+                <img src="http://pages.charlotte.edu/lisa-walker/wp-content/uploads/sites/23/2024/11/walker_lisa_5096c.jpg" alt="Lisa Slattery Walker">
+                <span class="board-person-role">Secretary / Treasurer</span>
+                <h3>Lisa Slattery Walker</h3>
+                <span class="board-person-affiliation">University of North Carolina at Charlotte, USA</span>
+                <span class="board-person-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="board-person-details">
+                <p>Professor of Sociology at UNC Charlotte. Her research focuses on small group interaction, nonverbal behaviors, identity, emotions, gender, expectations, and status processes.</p>
+                <div class="rc42-tags-group">
+                  <span>Small group interaction</span>
+                  <span>Identity</span>
+                  <span>Emotions</span>
+                  <span>Gender</span>
+                  <span>Status processes</span>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </section>
+
+        <section class="rc42-roster-v16__group rc42-roster-v16__group--members">
+          <h3>Board Members</h3>
+          <div class="rc42-roster-v16__grid rc42-roster-v16__grid--members">
+            
+            <details class="rc42-roster-v16__card board-person-card">
+              <summary class="board-person-summary">
+                <img src="https://drupalwebprod-files.up.ac.za/Public/styles/responsive_1_1_600w/public/2026-05/Charles%20Puttergill%201%20%282%29.jpg?VersionId=5fI_xxA2nlT5xmEAUCwJm9AFBCwbGEWu&h=ec3aa346&itok=aRk2Jy25" alt="Charles Puttergill">
+                <span class="board-person-role">Board Member</span>
+                <h3>Charles Puttergill</h3>
+                <span class="board-person-affiliation">University of Pretoria, South Africa</span>
+                <span class="board-person-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="board-person-details">
+                <p>Senior Lecturer in the Department of Sociology at the University of Pretoria. His research interests include race, identity, methodology, urban sociology, demography, and research methods.</p>
+                <div class="rc42-tags-group">
+                  <span>Race and identity</span>
+                  <span>Methodology</span>
+                  <span>Urban sociology</span>
+                  <span>Demography</span>
+                  <span>Research methods</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="rc42-roster-v16__card board-person-card">
+              <summary class="board-person-summary">
+                <img src="https://i1.rgstatic.net/ii/profile.image/11431281153740428-1682528347352_Q128/Karla-Henriquez-Ojeda.jpg" alt="Karla Henríquez Ojeda">
+                <span class="board-person-role">Board Member</span>
+                <h3>Karla Henríquez Ojeda</h3>
+                <span class="board-person-affiliation">Université catholique de Louvain, Belgium</span>
+                <span class="board-person-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="board-person-details">
+                <p>Researcher with a background in sociological social psychology and American studies. Her work focuses on activism, social movements, youth, subjectivation, and emotions in Latin American contexts.</p>
+                <div class="rc42-tags-group">
+                  <span>Activism</span>
+                  <span>Social movements</span>
+                  <span>Youth</span>
+                  <span>Emotions</span>
+                  <span>Latin America</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="rc42-roster-v16__card board-person-card">
+              <summary class="board-person-summary">
+                <img src="https://isaconf.confex.com/data/image/isaconf/gmssi/Person_55816_image_987_0.jpg" alt="Deepak Kumar Verma">
+                <span class="board-person-role">Board Member</span>
+                <h3>Deepak Kumar Verma</h3>
+                <span class="board-person-affiliation">Dr. B. R. Ambedkar University of Social Sciences, India</span>
+                <span class="board-person-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="board-person-details">
+                <p>Professor at Dr. B. R. Ambedkar University of Social Sciences. His work spans social psychology, social inequality, status, development, research methodology, and social justice.</p>
+                <div class="rc42-tags-group">
+                  <span>Social inequality</span>
+                  <span>Status</span>
+                  <span>Development</span>
+                  <span>Research methodology</span>
+                  <span>Social justice</span>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".board-person-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("toggle", function () {
+      if (card.open) {
+        cards.forEach((other) => {
+          if (other !== card) other.open = false;
+        });
+      }
+    });
+  });
+});
+</script>
+```
