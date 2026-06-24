@@ -1,5 +1,4 @@
 name: Community Submissions Sync
-name: Community Submissions Sync
 
 on:
   schedule:
