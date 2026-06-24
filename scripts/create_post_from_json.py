@@ -1,5 +1,5 @@
 """
-Create Post from JSON — PLACEHOLDER
+Create Post from JSON - PLACEHOLDER
 
 Purpose:
     Generate a news, event, opportunity, or blog post .qmd file
@@ -22,9 +22,9 @@ Input JSON example (news):
     }
 
 Output:
-    - news/posts/{slug}/index.qmd  — The post file
-    - OR events/events.yml         — Updated with new event entry
-    - OR opportunities/opportunities.yml — Updated with new opportunity
+    - news/posts/{slug}/index.qmd  - The post file
+    - OR events/events.yml         - Updated with new event entry
+    - OR opportunities/opportunities.yml - Updated with new opportunity
 
 TODO:
     - Implement GitHub Issue body parsing

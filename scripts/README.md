@@ -1,4 +1,4 @@
-# RC42 Social Psychology — Automation Scripts
+# RC42 Social Psychology - Automation Scripts
 
 This directory contains placeholder scripts for future automation of the RC42 portal editorial workflow.
 

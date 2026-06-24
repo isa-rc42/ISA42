@@ -1,5 +1,5 @@
 """
-Update Member Profile from JSON — PLACEHOLDER
+Update Member Profile from JSON - PLACEHOLDER
 
 Purpose:
     Update an existing member profile .qmd file and data/members.yml

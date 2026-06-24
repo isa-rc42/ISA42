@@ -6,21 +6,21 @@
 newsletters:
   - year: 2025
     issues:
-      - title: "RC42 Newsletter — June 2025"
+      - title: "RC42 Newsletter - June 2025"
         date: "2025-06-01"
         url: "https://www.isa-sociology.org/uploads/imgen/2238-rc42newsletter-june-2025.pdf"
         description: "Official newsletter of RC42 Social Psychology - June 2025."
 
   - year: 2024
     issues:
-      - title: "RC42 Newsletter — November 2024"
+      - title: "RC42 Newsletter - November 2024"
         date: "2024-11-01"
         url: "https://www.isa-sociology.org/uploads/imgen/2040-rc42newsletter-november-2024.pdf"
         description: "Official newsletter of RC42 Social Psychology - November 2024."
 
   - year: 2023
     issues:
-      - title: "RC42 Newsletter — May 2023"
+      - title: "RC42 Newsletter - May 2023"
         date: "2023-05-01"
         url: "https://www.isa-sociology.org/uploads/imgen/1519-rc42newsletter-may-2023.pdf"
         description: "Official newsletter of RC42 Social Psychology - May 2023."

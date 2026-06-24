@@ -10,8 +10,8 @@ Thank you for your interest in contributing to the RC42 Social Psychology digita
 
 The easiest way to contribute is by visiting the Contact page:
 
-- **[Submit a contribution](#)** — Share news, events, opportunities, resources, or blog posts using the temporary link on the Contact page.
-- **Request a profile update** — Contact the RC42 team via email to update your profile information.
+- **[Submit a contribution](#)** - Share news, events, opportunities, resources, or blog posts using the temporary link on the Contact page.
+- **Request a profile update** - Contact the RC42 team via email to update your profile information.
 
 ### 2. Submit Content via Email
 
@@ -79,7 +79,7 @@ Use the provided issue templates to:
 
 - You must provide **explicit consent** to have your profile published.
 - You choose what information to share publicly.
-- Your verification email is never published — it is used only for editorial contact.
+- Your verification email is never published - it is used only for editorial contact.
 - You may request removal of your profile at any time by contacting the board.
 
 ### For Contributions
@@ -99,7 +99,7 @@ Use the provided issue templates to:
 ## Review Process
 
 1. **All submissions are reviewed** by the RC42 board or a designated editor.
-2. **Nothing is published automatically** — human review is required for every piece of content.
+2. **Nothing is published automatically** - human review is required for every piece of content.
 3. **You will be contacted** if clarification or revisions are needed.
 4. **The board reserves the right** to decline submissions that do not meet editorial standards or are not relevant to the RC42 community.
 

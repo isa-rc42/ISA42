@@ -1,6 +1,6 @@
 ---
 title: "Member Name"
-description: "RC42 member profile — placeholder template."
+description: "RC42 member profile - placeholder template."
 ---
 
 ::: {.member-profile}
@@ -61,6 +61,6 @@ This is a template profile page. Actual member profiles will replace this conten
 
 ---
 
-*Last updated: —*
+*Last updated: -*
 
 :::

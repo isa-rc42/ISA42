@@ -1,5 +1,5 @@
 """
-Create Member Profile from JSON — PLACEHOLDER
+Create Member Profile from JSON - PLACEHOLDER
 
 Purpose:
     Generate a member profile .qmd file and update data/members.yml
@@ -27,8 +27,8 @@ Input JSON example:
     }
 
 Output:
-    - members/profiles/{slug}/index.qmd  — The member profile page
-    - data/members.yml                   — Updated with new entry
+    - members/profiles/{slug}/index.qmd  - The member profile page
+    - data/members.yml                   - Updated with new entry
 
 TODO:
     - Implement GitHub Issue body parsing
@@ -161,7 +161,7 @@ def generate_profile_qmd(data: dict) -> str:
 
     qmd = f"""---
 title: "{name}"
-description: "RC42 member profile — {name}"
+description: "RC42 member profile - {name}"
 ---
 
 ::: {{.member-profile}}

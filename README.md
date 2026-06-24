@@ -1,4 +1,4 @@
-# ISA RC42 Social Psychology — Digital Portal
+# ISA RC42 Social Psychology - Digital Portal
 
 A [Quarto](https://quarto.org/)-based website for **Research Committee 42 (Social Psychology)** of the **International Sociological Association (ISA)**.
 

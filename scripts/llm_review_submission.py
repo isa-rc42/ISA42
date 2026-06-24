@@ -1,5 +1,5 @@
 """
-LLM Review Submission Script — PLACEHOLDER
+LLM Review Submission Script - PLACEHOLDER
 
 Purpose:
     Send a submission (from a GitHub Issue) to an LLM for editorial draft
@@ -111,7 +111,7 @@ def prepare_llm_prompt(issue_data: dict) -> str:
 
 Review the following submission and prepare a clean, publication-ready draft.
 Follow academic, professional English standards.
-Do not fabricate information — only use what is provided.
+Do not fabricate information - only use what is provided.
 Flag any missing or unclear information.
 
 Submission:

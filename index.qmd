@@ -1,5 +1,5 @@
 ---
-pagetitle: "ISA RC42 Social Psychology — Home"
+pagetitle: "ISA RC42 Social Psychology - Home"
 toc: false
 page-layout: custom
 ---

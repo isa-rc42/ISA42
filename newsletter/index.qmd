@@ -21,7 +21,7 @@ title-block-style: none
       <div class="newsletter-year-issues">
         <div class="newsletter-issue">
           <div class="newsletter-issue-meta">
-            <span class="newsletter-issue-title">RC42 Newsletter — June 2025</span>
+            <span class="newsletter-issue-title">RC42 Newsletter - June 2025</span>
             <span class="newsletter-issue-date">June 2025</span>
           </div>
           <a href="https://www.isa-sociology.org/uploads/imgen/2238-rc42newsletter-june-2025.pdf"
@@ -37,7 +37,7 @@ title-block-style: none
       <div class="newsletter-year-issues">
         <div class="newsletter-issue">
           <div class="newsletter-issue-meta">
-            <span class="newsletter-issue-title">RC42 Newsletter — November 2024</span>
+            <span class="newsletter-issue-title">RC42 Newsletter - November 2024</span>
             <span class="newsletter-issue-date">November 2024</span>
           </div>
           <a href="https://www.isa-sociology.org/uploads/imgen/2040-rc42newsletter-november-2024.pdf"
@@ -53,7 +53,7 @@ title-block-style: none
       <div class="newsletter-year-issues">
         <div class="newsletter-issue">
           <div class="newsletter-issue-meta">
-            <span class="newsletter-issue-title">RC42 Newsletter — May 2023</span>
+            <span class="newsletter-issue-title">RC42 Newsletter - May 2023</span>
             <span class="newsletter-issue-date">May 2023</span>
           </div>
           <a href="https://www.isa-sociology.org/uploads/imgen/1519-rc42newsletter-may-2023.pdf"

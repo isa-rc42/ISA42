@@ -25,8 +25,8 @@ This website serves as an extension of the [official ISA RC42 page](https://www.
 
 We invite all RC42 members to:
 
-1. **Submit contributions** — Share news, events, opportunities, or resources. [Submit →](#)
-3. **Provide feedback** — Help us improve this portal. [Contact us →](../../../contact/index.qmd)
+1. **Submit contributions** - Share news, events, opportunities, or resources. [Submit →](#)
+3. **Provide feedback** - Help us improve this portal. [Contact us →](../../../contact/index.qmd)
 
 ### What's Next?
 
@@ -43,4 +43,4 @@ All content on this portal is reviewed and approved by the RC42 board before pub
 
 We look forward to building this resource together with the RC42 community.
 
-— **The RC42 Board 2023–2027**
+- **The RC42 Board 2023–2027**
