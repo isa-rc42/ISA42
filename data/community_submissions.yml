@@ -12,7 +12,7 @@
   url: https://spsp.org/events/annual-convention/submissions
   language: English
   member_display_name: ''
-  date_published: '2026-06-23'
+  date_published: '2026-06-24'
   relevant_date: '2026-09-15'
   tags:
   - research
@@ -36,7 +36,7 @@
   url: https://journals.sagepub.com/page/spq/call-for-papers
   language: English
   member_display_name: ''
-  date_published: '2026-06-23'
+  date_published: '2026-06-24'
   relevant_date: '2026-12-15'
   tags:
   - research
@@ -57,7 +57,7 @@
   url: https://www.easp.eu/news/itm/call_for_papers_the_social_psych-2177.html
   language: English
   member_display_name: ''
-  date_published: '2026-06-23'
+  date_published: '2026-06-24'
   relevant_date: '2026-08-31'
   tags:
   - research
@@ -79,7 +79,7 @@
   url: https://www.easp.eu/news/itm/call_for_papers_in_journal_of_co-2252.html
   language: English
   member_display_name: ''
-  date_published: '2026-06-23'
+  date_published: '2026-06-24'
   relevant_date: '2026-11-30'
   tags:
   - research
@@ -99,7 +99,7 @@
   url: https://www.easp.eu/news/itm/combating_harmful_stereotyping_a-2274.html
   language: English
   member_display_name: ''
-  date_published: '2026-06-23'
+  date_published: '2026-06-24'
   relevant_date: '2027-05-01'
   tags:
   - research
@@ -120,7 +120,7 @@
   url: https://www.easp.eu/news/itm/call_for_papers_social_processes-2292.html
   language: English
   member_display_name: ''
-  date_published: '2026-06-23'
+  date_published: '2026-06-24'
   relevant_date: '2027-02-26'
   tags:
   - research
@@ -141,8 +141,30 @@
   url: https://www.frontiersin.org/research-topics/77538/cyberpsychology-and-social-dynamics-in-the-connected-world
   language: English
   member_display_name: ''
-  date_published: '2026-06-23'
+  date_published: '2026-06-24'
   relevant_date: '2026-09-14'
+  tags:
+  - research
+  - publication
+  - call
+  - global
+- id: sub-20260624-120743
+  title: Towards Reflexive and Context-Sensitive Research in Personality and Social
+    Psychology
+  description: Frontiers in Psychology is accepting manuscripts for a Research Topic
+    on reflexive and context-sensitive research in personality and social psychology.
+    The topic welcomes theoretical, empirical, methodological, and mixed-methods contributions
+    that address culture, power, positionality, generalisability, and the links between
+    individual dispositions and social processes.
+  type: call
+  category: methods
+  territory: Global
+  organization: Frontiers in Psychology
+  url: https://www.frontiersin.org/research-topics/79490/towards-reflexive-and-context-sensitive-research-in-personality-and-social-psychology
+  language: English
+  member_display_name: ''
+  date_published: '2026-06-24'
+  relevant_date: '2026-10-13'
   tags:
   - research
   - publication
