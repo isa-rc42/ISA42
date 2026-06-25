@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-25T02:51:52.554837",
+  "last_updated": "2026-06-25T19:51:33.757263",
   "total_rows_read": 64,
   "active_members_after_filter": 60,
   "excluded_isa_expired": 4,
@@ -39,5 +39,9 @@
   "total_institutions": 36,
   "missing_member_id": 0,
   "duplicate_member_ids": 0,
-  "unmatched_photos": 0
+  "unmatched_photos": 0,
+  "past_members_total_rows_read": 271,
+  "past_members_unique_ids": 259,
+  "past_members_excluded_because_active": 60,
+  "past_members_published": 199
 }
