@@ -85,61 +85,79 @@ def main():
         photo_map = {}
         unmatched_photos = 0
 
-    # Date parsing and strict filtering
-    df_members["rc_start_dt"] = df_members["RC Membership Start Date"].apply(parse_member_date)
-    df_members["rc_end_dt"] = df_members["RC Membership End Date"].apply(parse_member_date)
-    df_members["isa_expiration_dt"] = df_members["ISA Expiration Date"].apply(parse_member_date)
+    # 1. Download past members source
+    past_url = os.environ.get("PAST_MEMBERS_CSV_URL")
+    df_past_sheet = pd.DataFrame()
+    past_rows_read = 0
+    if past_url:
+        try:
+            print("Downloading past members list...")
+            df_past_sheet = pd.read_csv(past_url)
+            df_past_sheet = clean_column_names(df_past_sheet)
+            past_rows_read = len(df_past_sheet)
+            if 'Member ID' in df_past_sheet.columns:
+                df_past_sheet['source_type'] = 'historical'
+            else:
+                print("WARNING: 'Member ID' column not found in past members CSV.")
+                df_past_sheet = pd.DataFrame()
+        except Exception as e:
+            print(f"WARNING: Failed to download or process past members CSV: {e}")
+            df_past_sheet = pd.DataFrame()
 
+    # 2. Combine all membership rows
+    df_members['source_type'] = 'current'
+    dfs = [df_members]
+    if not df_past_sheet.empty:
+        dfs.append(df_past_sheet)
+
+    all_membership_rows = pd.concat(dfs, ignore_index=True)
+    if 'Member ID' in all_membership_rows.columns:
+        all_membership_rows['member_id'] = all_membership_rows['Member ID'].astype(str).str.strip()
+
+    all_membership_rows = all_membership_rows[
+        all_membership_rows['member_id'].notna()
+        & (all_membership_rows['member_id'] != "")
+        & (all_membership_rows['member_id'].str.lower() != "nan")
+    ].copy()
+
+    # 3 & 4. Date parsing
+    all_membership_rows["rc_start_dt"] = all_membership_rows["RC Membership Start Date"].apply(parse_member_date)
+    all_membership_rows["rc_end_dt"] = all_membership_rows["RC Membership End Date"].apply(parse_member_date)
+    if "ISA Expiration Date" in all_membership_rows.columns:
+        all_membership_rows["isa_expiration_dt"] = all_membership_rows["ISA Expiration Date"].apply(parse_member_date)
+    else:
+        all_membership_rows["isa_expiration_dt"] = pd.NaT
+
+    # 5. Calculate RC42 active mask
     today = pd.Timestamp.today().normalize()
 
-    rc_active = (
-        df_members["rc_start_dt"].notna()
-        & df_members["rc_end_dt"].notna()
-        & (df_members["rc_start_dt"] <= today)
-        & (df_members["rc_end_dt"] >= today)
+    rc_active_mask = (
+        all_membership_rows["rc_start_dt"].notna()
+        & all_membership_rows["rc_end_dt"].notna()
+        & (all_membership_rows["rc_start_dt"] <= today)
+        & (all_membership_rows["rc_end_dt"] >= today)
     )
 
-    member_type = df_members["Member Type"].fillna("").astype(str).str.upper().str.strip()
-
-    isa_active = (
-        df_members["isa_expiration_dt"].notna()
-        & (df_members["isa_expiration_dt"] >= today)
+    # 7. Keep best active candidate row per Member ID
+    active_candidates_df = all_membership_rows.loc[rc_active_mask].copy()
+    active_candidates_df = active_candidates_df.sort_values(
+        by=["rc_end_dt", "rc_start_dt"],
+        ascending=[False, False]
     )
+    active_members_df = active_candidates_df.drop_duplicates(
+        subset=["member_id"],
+        keep="first"
+    ).copy()
 
-    life_member = member_type.eq("LIFE")
+    # 8. Create active_member_ids
+    active_member_ids = set(active_members_df["member_id"].astype(str).str.strip())
 
-    active_mask = rc_active & (isa_active | life_member)
-    active_members_df = df_members.loc[active_mask].copy()
-    excluded_members_df = df_members.loc[~active_mask].copy()
-
-    # Diagnostics calculations
-    invalid_dates_mask = df_members["rc_start_dt"].isna() | df_members["rc_end_dt"].isna() | df_members["isa_expiration_dt"].isna()
-    excluded_invalid = int(invalid_dates_mask.sum())
-
-    rc_expired_mask = ~invalid_dates_mask & ~rc_active
-    excluded_rc = int(rc_expired_mask.sum())
-
-    active_members_after_rc = int(rc_active.sum())
-
-    isa_expired_mask = rc_active & ~isa_active & ~life_member
-    excluded_isa = int(isa_expired_mask.sum())
-    active_members_after_isa = len(active_members_df)
-
-    excluded_isa_list = []
-    for _, row in df_members.loc[isa_expired_mask].iterrows():
-        excluded_isa_list.append({
-            "member_id": str(row.get('member_id')),
-            "full_name": format_name(row.get('Member first name'), row.get('Member surname')),
-            "isa_expiration_date": str(row.get('ISA Expiration Date')),
-            "rc_membership_end_date": str(row.get('RC Membership End Date'))
-        })
-
+    # Build active directory list
+    processed_members = []
     members_with_photo = 0
     members_without_photo = 0
     institutions_set = set()
     countries_set = set()
-
-    processed_members = []
 
     for _, row in active_members_df.iterrows():
         m_id = str(row['member_id'])
@@ -148,7 +166,6 @@ def main():
         dept = str(row.get('Department', '')).strip() if pd.notna(row.get('Department')) else ''
         inst = str(row.get('Institutional Affiliation', '')).strip() if pd.notna(row.get('Institutional Affiliation')) else ''
         
-        # Build affiliation
         if dept and inst:
             affiliation_display = f"{dept}, {inst}"
         elif dept:
@@ -194,7 +211,7 @@ def main():
         }
         processed_members.append(member)
 
-    # Load overrides
+    # Load manual overrides
     overrides_file = "data/members_manual_overrides.yml"
     overrides = {}
     if os.path.exists(overrides_file):
@@ -217,204 +234,158 @@ def main():
             if "display_name" in o and o["display_name"]: member["full_name"] = o["display_name"]
             if "hide_email" in o and o["hide_email"] == True: member["email_private"] = ""
 
-    # Sort
+    # Sort active members
     processed_members.sort(key=lambda x: (x['surname'], x['first_name']))
 
-    # Strict check before output
-    expired_ids_that_must_not_publish = {"52540", "16506", "44628", "344629"}
-    published_ids = {str(member.get("id", "")).strip() for member in processed_members}
-
-    bad_ids = expired_ids_that_must_not_publish.intersection(published_ids)
-    if bad_ids:
-        raise RuntimeError(
-            f"Expired ISA members are still being published: {sorted(bad_ids)}"
-        )
-
-    # Write output
+    # Write active directory output
     os.makedirs('data', exist_ok=True)
     with open('data/members.json', 'w', encoding='utf-8') as f:
         json.dump(processed_members, f, ensure_ascii=False, indent=2)
 
-    # Past members processing
-    active_member_ids = {str(member["id"]).strip() for member in processed_members}
-    past_url = os.environ.get("PAST_MEMBERS_CSV_URL")
+    # 9. Past members processing
+    past_candidates_df = all_membership_rows.loc[
+        ~all_membership_rows["member_id"].isin(active_member_ids)
+    ].copy()
+
+    past_unique_ids = past_candidates_df['member_id'].nunique()
     past_members = []
-    past_rows_read = 0
-    past_unique_ids = 0
-    past_excluded_active = 0
     past_from_historical = 0
     past_from_expired = 0
 
-    dfs_to_concat = []
+    for m_id, group in past_candidates_df.groupby('member_id'):
+        min_start = group['rc_start_dt'].min()
+        max_end = group['rc_end_dt'].max()
 
-    # 1. Historical sheet
-    if past_url:
-        try:
-            print("Downloading past members list...")
-            df_past_sheet = pd.read_csv(past_url)
-            df_past_sheet = clean_column_names(df_past_sheet)
-            past_rows_read = len(df_past_sheet)
-            if 'Member ID' in df_past_sheet.columns:
-                df_past_sheet['member_id'] = df_past_sheet['Member ID'].astype(str).str.strip()
-                df_past_sheet['source_type'] = 'historical'
-                dfs_to_concat.append(df_past_sheet)
-            else:
-                print("WARNING: 'Member ID' column not found in past members CSV.")
-        except Exception as e:
-            print(f"WARNING: Failed to download or process past members CSV: {e}")
+        # Step 11: Publicar como past solo si last_rc_end_date < today
+        if pd.isna(max_end) or max_end >= today:
+            continue
 
-    # 2. Expired current sheet
-    df_expired_current = excluded_members_df.copy()
-    if not df_expired_current.empty and 'member_id' in df_expired_current.columns:
-        df_expired_current['source_type'] = 'expired_current'
-        dfs_to_concat.append(df_expired_current)
+        group_sorted = group.sort_values(by='rc_end_dt', ascending=True, na_position='first')
+        rows_reversed = list(group_sorted.iloc[::-1].iterrows())
 
-    if not dfs_to_concat:
-        print("WARNING: No past members data available. Creating empty past_members.json.")
-    else:
-        past_candidates_df = pd.concat(dfs_to_concat, ignore_index=True)
-        past_candidates_df = past_candidates_df[
-            past_candidates_df['member_id'].notna()
-            & (past_candidates_df['member_id'] != "")
-            & (past_candidates_df['member_id'].str.lower() != "nan")
-        ].copy()
+        def get_best_val(col_name):
+            for _, r in rows_reversed:
+                val = r.get(col_name)
+                if pd.notna(val):
+                    s = str(val).strip()
+                    if s and s.lower() not in {"nan", "none", "-"}:
+                        return s
+            return ""
 
-        past_unique_ids = past_candidates_df['member_id'].nunique()
+        first_name = get_best_val('Member first name')
+        surname = get_best_val('Member surname')
+        member_name = get_best_val('Member name')
 
-        if "RC Membership Start Date" in past_candidates_df.columns:
-            past_candidates_df["rc_start_dt"] = past_candidates_df["RC Membership Start Date"].apply(parse_member_date)
+        fname_formatted = first_name.title() if first_name else ""
+        sname_formatted = surname.title() if surname else ""
+
+        if fname_formatted and sname_formatted:
+            full_name = f"{fname_formatted} {sname_formatted}"
+        elif fname_formatted or sname_formatted:
+            full_name = fname_formatted or sname_formatted
         else:
-            past_candidates_df["rc_start_dt"] = pd.NaT
+            full_name = member_name.title() if member_name else ""
 
-        if "RC Membership End Date" in past_candidates_df.columns:
-            past_candidates_df["rc_end_dt"] = past_candidates_df["RC Membership End Date"].apply(parse_member_date)
+        country = get_best_val('Primary address country')
+        inst = get_best_val('Institutional Affiliation')
+        dept = get_best_val('Department')
+
+        if dept and inst:
+            affil_display = f"{dept}, {inst}"
+        elif dept:
+            affil_display = dept
+        elif inst:
+            affil_display = inst
         else:
-            past_candidates_df["rc_end_dt"] = pd.NaT
+            affil_display = ""
 
-        active_overlap = set(past_candidates_df['member_id']).intersection(active_member_ids)
-        past_excluded_active = len(active_overlap)
+        first_start_str = min_start.strftime("%Y-%m-%d") if pd.notna(min_start) else ""
+        last_end_str = max_end.strftime("%Y-%m-%d") if pd.notna(max_end) else ""
 
-        df_past_clean = past_candidates_df[~past_candidates_df['member_id'].isin(active_member_ids)].copy()
+        start_year = first_start_str[:4] if first_start_str else ""
+        end_year = last_end_str[:4] if last_end_str else ""
 
-        for m_id, group in df_past_clean.groupby('member_id'):
-            group_sorted = group.sort_values(by='rc_end_dt', ascending=True, na_position='first')
-            rows_reversed = list(group_sorted.iloc[::-1].iterrows())
-
-            def get_best_val(col_name):
-                for _, r in rows_reversed:
-                    val = r.get(col_name)
-                    if pd.notna(val):
-                        s = str(val).strip()
-                        if s and s.lower() not in {"nan", "none", "-"}:
-                            return s
-                return ""
-
-            first_name = get_best_val('Member first name')
-            surname = get_best_val('Member surname')
-            member_name = get_best_val('Member name')
-
-            fname_formatted = first_name.title() if first_name else ""
-            sname_formatted = surname.title() if surname else ""
-
-            if fname_formatted and sname_formatted:
-                full_name = f"{fname_formatted} {sname_formatted}"
-            elif fname_formatted or sname_formatted:
-                full_name = fname_formatted or sname_formatted
-            else:
-                full_name = member_name.title() if member_name else ""
-
-            country = get_best_val('Primary address country')
-            inst = get_best_val('Institutional Affiliation')
-            dept = get_best_val('Department')
-
-            if dept and inst:
-                affil_display = f"{dept}, {inst}"
-            elif dept:
-                affil_display = dept
-            elif inst:
-                affil_display = inst
-            else:
-                affil_display = ""
-
-            min_start = group['rc_start_dt'].min()
-            max_end = group['rc_end_dt'].max()
-
-            first_start_str = min_start.strftime("%Y-%m-%d") if pd.notna(min_start) else ""
-            last_end_str = max_end.strftime("%Y-%m-%d") if pd.notna(max_end) else ""
-
-            start_year = first_start_str[:4] if first_start_str else ""
-            end_year = last_end_str[:4] if last_end_str else ""
-
-            if start_year and end_year:
-                if start_year == end_year:
-                    mem_years = start_year
-                else:
-                    mem_years = f"{start_year}–{end_year}"
-            elif start_year:
+        if start_year and end_year:
+            if start_year == end_year:
                 mem_years = start_year
-            elif end_year:
-                mem_years = end_year
             else:
-                mem_years = ""
+                mem_years = f"{start_year}–{end_year}"
+        elif start_year:
+            mem_years = start_year
+        elif end_year:
+            mem_years = end_year
+        else:
+            mem_years = ""
 
-            sources = set(group['source_type'])
-            if 'historical' in sources:
-                past_from_historical += 1
-            if 'expired_current' in sources and 'historical' not in sources:
-                past_from_expired += 1
+        sources = set(group['source_type'])
+        if 'historical' in sources:
+            past_from_historical += 1
+        if 'current' in sources and 'historical' not in sources:
+            past_from_expired += 1
 
-            past_members.append({
-                "id": m_id,
-                "full_name": full_name,
-                "first_name": fname_formatted,
-                "surname": sname_formatted,
-                "country": country,
-                "institutional_affiliation": inst,
-                "department": dept,
-                "affiliation_display": affil_display,
-                "first_rc_start_date": first_start_str,
-                "last_rc_end_date": last_end_str,
-                "membership_years": mem_years
-            })
+        past_members.append({
+            "id": m_id,
+            "full_name": full_name,
+            "first_name": fname_formatted,
+            "surname": sname_formatted,
+            "country": country,
+            "institutional_affiliation": inst,
+            "department": dept,
+            "affiliation_display": affil_display,
+            "first_rc_start_date": first_start_str,
+            "last_rc_end_date": last_end_str,
+            "membership_years": mem_years
+        })
 
-        past_members.sort(key=lambda x: (x.get("full_name") or "").lower(), reverse=False)
-        past_members.sort(key=lambda x: x.get("last_rc_end_date") or "0000-00-00", reverse=True)
+    # Sort past members
+    past_members.sort(key=lambda x: (x.get("full_name") or "").lower(), reverse=False)
+    past_members.sort(key=lambda x: x.get("last_rc_end_date") or "0000-00-00", reverse=True)
+
+    # 12 & 13. Hard validations
+    bad_past_future = [
+        member for member in past_members
+        if member.get("last_rc_end_date") and member["last_rc_end_date"] >= today.strftime("%Y-%m-%d")
+    ]
+
+    if bad_past_future:
+        raise RuntimeError(
+            "Past members contains members with future/current RC end dates: "
+            + ", ".join([m.get("id", "") for m in bad_past_future])
+        )
 
     past_member_ids = {str(member.get("id", "")).strip() for member in past_members}
     overlap = active_member_ids.intersection(past_member_ids)
+
     if overlap:
         raise RuntimeError(
-            f"Active members are duplicated in past_members.json: {sorted(overlap)}"
+            f"Members duplicated in active and past outputs: {sorted(overlap)}"
         )
 
     with open('data/past_members.json', 'w', encoding='utf-8') as f:
         json.dump(past_members, f, ensure_ascii=False, indent=2)
 
-    # Write diagnostics
+    # 14. Write diagnostics
     diagnostics = {
         "last_updated": datetime.now().isoformat(),
+        "active_members_rule": "RC Membership Start Date <= today and RC Membership End Date >= today",
+        "isa_expiration_used_as_filter": False,
+        "past_members_rule": "last_rc_end_date < today and not active",
         "total_rows_read": total_rows,
-        "active_members_after_filter": active_members_after_isa,
-        "excluded_isa_expired": excluded_isa,
-        "excluded_rc_not_active": excluded_rc,
-        "excluded_missing_or_invalid_dates": excluded_invalid,
-        "expired_isa_members_excluded": excluded_isa_list,
-        "active_members_after_rc_filter": active_members_after_rc,
-        "active_members_after_isa_filter": active_members_after_isa,
+        "active_members_published": len(processed_members),
+        "past_members_total_rows_read": past_rows_read,
+        "past_members_unique_ids": past_unique_ids,
+        "past_members_from_historical_sheet": past_from_historical,
+        "past_members_from_expired_current_sheet": past_from_expired,
+        "past_members_published": len(past_members),
+        "active_past_overlap": len(overlap),
+        "past_members_with_future_rc_end_date": len(bad_past_future),
         "members_with_photo": members_with_photo,
         "members_without_photo": members_without_photo,
         "total_countries": len(countries_set),
         "total_institutions": len(institutions_set),
         "missing_member_id": missing_member_id,
         "duplicate_member_ids": duplicates,
-        "unmatched_photos": unmatched_photos,
-        "past_members_total_rows_read": past_rows_read,
-        "past_members_unique_ids": past_unique_ids,
-        "past_members_from_historical_sheet": past_from_historical,
-        "past_members_from_expired_current_sheet": past_from_expired,
-        "past_members_excluded_because_active": past_excluded_active,
-        "past_members_published": len(past_members),
-        "active_past_overlap": len(overlap)
+        "unmatched_photos": unmatched_photos
     }
     
     with open('data/members_diagnostics.json', 'w', encoding='utf-8') as f:
