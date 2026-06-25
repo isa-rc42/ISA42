@@ -49,63 +49,73 @@ title-block-style: none
 
 ::: {.section-inner}
 
-::: {.members-toolbar}
 ```{=html}
-<div class="toolbar-search">
-  <label for="member-search" class="visually-hidden">Search members</label>
-  <input type="text" id="member-search" placeholder="Search by name, institution, or country..." />
-</div>
-<div class="toolbar-filters">
-  <label for="country-filter" class="visually-hidden">Filter by country</label>
-  <select id="country-filter">
-    <option value="">All Countries</option>
-  </select>
-
-  <button id="clear-filters" class="btn-clear-filters">Clear filters</button>
-</div>
-```
-:::
-
-```{=html}
-<div class="members-results-info">
-  Showing <span id="results-count">--</span> of <span id="total-count">--</span> members
-</div>
-
-<div id="no-results" class="members-empty-state" style="display: none;">
-  No members match the current filters.
-</div>
-
-<div id="members-grid" class="members-grid">
-  <!-- JavaScript will inject member rows here -->
-</div>
-
 <style>
-.past-members-section {
-  margin-top: 5rem;
-  padding-top: 3rem;
-  border-top: 1px solid #DDE5E8;
+.members-accordion {
+  max-width: 1180px;
+  margin: 2.5rem auto 4rem;
 }
-.past-members-header {
-  margin-bottom: 1.75rem;
-}
-.past-members-header h2 {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #08152b;
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
-}
-.past-members-header p {
-  color: #64748b;
-  font-size: 0.98rem;
-  line-height: 1.5;
-  margin: 0;
-}
-.past-members-count {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #64748b;
+.members-accordion-panel {
+  border: 1px solid #DDE5E8;
+  border-radius: 14px;
+  background: #FFFFFF;
   margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+.members-accordion-trigger {
+  width: 100%;
+  border: 0;
+  background: #F8FAFC;
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+.members-accordion-trigger:hover {
+  background: #F4F7F8;
+}
+.members-accordion-kicker {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #009688;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.members-accordion-title {
+  display: block;
+  color: #17233A;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.members-accordion-description {
+  display: block;
+  color: #64748B;
+  font-size: 0.92rem;
+  margin-top: 0.2rem;
+}
+.members-accordion-count {
+  color: #009688;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.members-accordion-icon {
+  color: #17233A;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+.members-accordion-panel.is-open .members-accordion-icon {
+  transform: rotate(180deg);
+}
+.members-accordion-content {
+  padding: 1.75rem 1.5rem;
+  background: #FFFFFF;
 }
 .past-members-grid {
   columns: 4 220px;
@@ -134,6 +144,17 @@ title-block-style: none
     columns: 2 200px;
   }
 }
+@media (max-width: 700px) {
+  .members-accordion-trigger {
+    grid-template-columns: 1fr auto;
+  }
+  .members-accordion-count {
+    grid-column: 1 / -1;
+  }
+  .members-accordion-content {
+    padding: 1rem;
+  }
+}
 @media (max-width: 500px) {
   .past-members-grid {
     columns: 1;
@@ -141,22 +162,69 @@ title-block-style: none
 }
 </style>
 
-<section class="past-members-section" id="past-members-container" style="display: none;">
-  <div class="past-members-header">
-    <h2>Past RC42 Members</h2>
-    <p>A historical listing of scholars who have been affiliated with ISA RC42 Social Psychology.</p>
-  </div>
+<div class="members-accordion">
+  <section class="members-accordion-panel is-open" id="current-members-panel">
+    <button class="members-accordion-trigger" type="button" aria-expanded="true" aria-controls="current-members-content">
+      <span>
+        <span class="members-accordion-kicker">Active directory</span>
+        <span class="members-accordion-title">Current RC42 Members</span>
+        <span class="members-accordion-description">Browse current members affiliated with ISA RC42 Social Psychology.</span>
+      </span>
+      <span class="members-accordion-count" id="current-members-accordion-count">-- members</span>
+      <span class="members-accordion-icon" aria-hidden="true">⌄</span>
+    </button>
 
-  <div id="past-members-count" class="past-members-count"></div>
+    <div class="members-accordion-content" id="current-members-content">
+      <div class="members-toolbar">
+        <div class="toolbar-search">
+          <label for="member-search" class="visually-hidden">Search members</label>
+          <input type="text" id="member-search" placeholder="Search by name, institution, or country..." />
+        </div>
+        <div class="toolbar-filters">
+          <label for="country-filter" class="visually-hidden">Filter by country</label>
+          <select id="country-filter">
+            <option value="">All Countries</option>
+          </select>
 
-  <div id="past-members-list" class="past-members-grid"></div>
-</section>
+          <button id="clear-filters" class="btn-clear-filters">Clear filters</button>
+        </div>
+      </div>
+
+      <div class="members-results-info">
+        Showing <span id="results-count">--</span> of <span id="total-count">--</span> members
+      </div>
+
+      <div id="no-results" class="members-empty-state" style="display: none;">
+        No members match the current filters.
+      </div>
+
+      <div id="members-grid" class="members-grid">
+        <!-- JavaScript will inject member rows here -->
+      </div>
+
+      <div class="members-privacy-note">
+        <div class="privacy-actions"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="members-accordion-panel" id="past-members-panel">
+    <button class="members-accordion-trigger" type="button" aria-expanded="false" aria-controls="past-members-content">
+      <span>
+        <span class="members-accordion-kicker">Historical directory</span>
+        <span class="members-accordion-title">Past RC42 Members</span>
+        <span class="members-accordion-description">A historical listing of scholars who have been affiliated with ISA RC42 Social Psychology.</span>
+      </span>
+      <span class="members-accordion-count" id="past-members-accordion-count">-- past members</span>
+      <span class="members-accordion-icon" aria-hidden="true">⌄</span>
+    </button>
+
+    <div class="members-accordion-content" id="past-members-content" hidden>
+      <div id="past-members-list" class="past-members-grid"></div>
+    </div>
+  </section>
+</div>
 ```
-
-::: {.members-privacy-note}
-::: {.privacy-actions}
-:::
-:::
 
 :::
 

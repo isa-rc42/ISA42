@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(data => {
       membersData = data;
+      const currentAccordionCount = document.getElementById("current-members-accordion-count");
+      if (currentAccordionCount) {
+        currentAccordionCount.textContent = `${membersData.length} members`;
+      }
       if (membersData.length > 0) {
         initDirectory();
       } else {
@@ -239,12 +243,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load Past Members
   loadPastMembers();
 
+  initMembersAccordion();
+
   function loadPastMembers() {
-    const pastContainer = document.getElementById("past-members-container");
-    const pastCount = document.getElementById("past-members-count");
+    const pastAccordionCount = document.getElementById("past-members-accordion-count");
     const pastList = document.getElementById("past-members-list");
 
-    if (!pastContainer || !pastList) return;
+    if (!pastList) return;
 
     fetch("../data/past_members.json")
       .then((res) => {
@@ -252,11 +257,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return res.json();
       })
       .then((data) => {
-        if (!Array.isArray(data) || data.length === 0) return;
+        if (!Array.isArray(data)) return;
 
-        pastContainer.style.display = "block";
-        if (pastCount) {
-          pastCount.textContent = `Showing ${data.length} past members`;
+        if (pastAccordionCount) {
+          pastAccordionCount.textContent = `${data.length} past members`;
+        }
+
+        if (data.length === 0) {
+          pastList.innerHTML = "<p style='color: #64748B; font-size: 0.9rem; margin: 0;'>0 past members recorded.</p>";
+          return;
         }
 
         const fragment = document.createDocumentFragment();
@@ -299,6 +308,28 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => {
         console.warn("Notice: Past members listing could not be rendered:", err);
+        if (pastAccordionCount) {
+          pastAccordionCount.textContent = "0 past members";
+        }
       });
+  }
+
+  function initMembersAccordion() {
+    const triggers = document.querySelectorAll(".members-accordion-trigger");
+
+    triggers.forEach((trigger) => {
+      const contentId = trigger.getAttribute("aria-controls");
+      const content = document.getElementById(contentId);
+      const panel = trigger.closest(".members-accordion-panel");
+
+      if (!content || !panel) return;
+
+      trigger.addEventListener("click", () => {
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+        trigger.setAttribute("aria-expanded", String(!isExpanded));
+        panel.classList.toggle("is-open", !isExpanded);
+        content.hidden = isExpanded;
+      });
+    });
   }
 });
