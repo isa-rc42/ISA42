@@ -6,6 +6,7 @@ project:
     - "data/community_submissions.json"
     - "data/members.json"
     - "data/members_diagnostics.json"
+    - "data/past_members.json"
     - "images/"
     - "assets/"
     - "feeds/community-contributions.xml"

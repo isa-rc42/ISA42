@@ -235,4 +235,70 @@ document.addEventListener("DOMContentLoaded", () => {
     a.className = "member-link-item";
     return a;
   }
+
+  // Load Past Members
+  loadPastMembers();
+
+  function loadPastMembers() {
+    const pastContainer = document.getElementById("past-members-container");
+    const pastCount = document.getElementById("past-members-count");
+    const pastList = document.getElementById("past-members-list");
+
+    if (!pastContainer || !pastList) return;
+
+    fetch("../data/past_members.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Could not load past members");
+        return res.json();
+      })
+      .then((data) => {
+        if (!Array.isArray(data) || data.length === 0) return;
+
+        pastContainer.style.display = "block";
+        if (pastCount) {
+          pastCount.textContent = `Showing ${data.length} past members`;
+        }
+
+        const fragment = document.createDocumentFragment();
+        data.forEach((pm) => {
+          const item = document.createElement("div");
+          item.className = "past-member-item";
+
+          const name = document.createElement("div");
+          name.className = "past-member-name";
+          name.textContent = pm.full_name || "";
+          item.appendChild(name);
+
+          const metaParts = [];
+          if (pm.country && pm.country.trim()) {
+            metaParts.push(pm.country.trim());
+          }
+          if (pm.membership_years && pm.membership_years.trim()) {
+            metaParts.push(pm.membership_years.trim());
+          }
+
+          if (metaParts.length > 0) {
+            const meta = document.createElement("div");
+            meta.className = "past-member-meta";
+            meta.textContent = metaParts.join(" · ");
+            item.appendChild(meta);
+          }
+
+          if (pm.institutional_affiliation && pm.institutional_affiliation.trim()) {
+            const inst = document.createElement("div");
+            inst.className = "past-member-meta";
+            inst.style.fontSize = "0.78rem";
+            inst.textContent = pm.department ? `${pm.department}, ${pm.institutional_affiliation}` : pm.institutional_affiliation;
+            item.appendChild(inst);
+          }
+
+          fragment.appendChild(item);
+        });
+
+        pastList.appendChild(fragment);
+      })
+      .catch((err) => {
+        console.warn("Notice: Past members listing could not be rendered:", err);
+      });
+  }
 });

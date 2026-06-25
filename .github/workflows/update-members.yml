@@ -31,6 +31,7 @@ jobs:
         env:
           MEMBERS_CSV_URL: ${{ secrets.MEMBERS_CSV_URL || vars.MEMBERS_CSV_URL }}
           PHOTOS_CSV_URL: ${{ secrets.PHOTOS_CSV_URL || vars.PHOTOS_CSV_URL }}
+          PAST_MEMBERS_CSV_URL: ${{ secrets.PAST_MEMBERS_CSV_URL || vars.PAST_MEMBERS_CSV_URL }}
         run: |
           python scripts/update_members_from_sheets.py
           
@@ -39,6 +40,7 @@ jobs:
           mkdir -p docs/data
           cp data/members.json docs/data/members.json
           cp data/members_diagnostics.json docs/data/members_diagnostics.json
+          cp data/past_members.json docs/data/past_members.json
           
       - name: Commit and push if changed
         id: commit-changes
@@ -47,7 +49,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           git add data/
-          git add -f docs/data/members.json docs/data/members_diagnostics.json
+          git add -f docs/data/members.json docs/data/members_diagnostics.json docs/data/past_members.json
           
           if git diff --cached --quiet; then
             echo "No changes detected in members data."

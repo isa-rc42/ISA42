@@ -78,6 +78,79 @@ title-block-style: none
 <div id="members-grid" class="members-grid">
   <!-- JavaScript will inject member rows here -->
 </div>
+
+<style>
+.past-members-section {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid #DDE5E8;
+}
+.past-members-header {
+  margin-bottom: 1.75rem;
+}
+.past-members-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #08152b;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.past-members-header p {
+  color: #64748b;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.past-members-count {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+.past-members-grid {
+  columns: 4 220px;
+  column-gap: 2.25rem;
+}
+.past-member-item {
+  break-inside: avoid;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(221, 229, 232, 0.7);
+}
+.past-member-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #17233A;
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+}
+.past-member-meta {
+  font-size: 0.82rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .past-members-grid {
+    columns: 2 200px;
+  }
+}
+@media (max-width: 500px) {
+  .past-members-grid {
+    columns: 1;
+  }
+}
+</style>
+
+<section class="past-members-section" id="past-members-container" style="display: none;">
+  <div class="past-members-header">
+    <h2>Past RC42 Members</h2>
+    <p>A historical listing of scholars who have been affiliated with ISA RC42 Social Psychology.</p>
+  </div>
+
+  <div id="past-members-count" class="past-members-count"></div>
+
+  <div id="past-members-list" class="past-members-grid"></div>
+</section>
 ```
 
 ::: {.members-privacy-note}
