@@ -268,6 +268,17 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
+        data.sort((a, b) => {
+          const dateA = a.last_rc_end_date || "";
+          const dateB = b.last_rc_end_date || "";
+
+          if (dateA !== dateB) {
+            return dateB.localeCompare(dateA);
+          }
+
+          return (a.full_name || "").localeCompare(b.full_name || "");
+        });
+
         const fragment = document.createDocumentFragment();
         data.forEach((pm) => {
           const item = document.createElement("div");

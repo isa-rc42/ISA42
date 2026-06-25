@@ -47,12 +47,13 @@ title-block-style: none
 :::
 :::
 
-::: {.section-inner}
+::: {.section-inner style="max-width: 1280px;"}
 
 ```{=html}
 <style>
 .members-accordion {
-  max-width: 1180px;
+  width: min(1280px, calc(100% - 48px));
+  max-width: 1280px;
   margin: 2.5rem auto 4rem;
 }
 .members-accordion-panel {
