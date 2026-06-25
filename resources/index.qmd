@@ -5,12 +5,11 @@ toc: false
 page-layout: full
 title-block-style: none
 execute:
-  echo: false
-  warning: false
-  message: false
+  enabled: false
 ---
 
-```{css, echo=FALSE}
+```{=html}
+<style>
 /* FIX FOR QUARTO STICKY ISSUE */
 .resources-page,
 .resources-inner,
@@ -416,6 +415,7 @@ main.content {
   color: #00695c;
   text-decoration: underline !important;
 }
+</style>
 ```
 
 <section class="resources-page">

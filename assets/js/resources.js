@@ -29,8 +29,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   let searchQuery = "";
 
   // 1. Fetch Core Resources
+  const RESOURCES_DATA_URL = new URL("../data/resources.json", window.location.href).href;
+  const COMMUNITY_RESOURCES_DATA_URL = new URL("../data/community_resources.json", window.location.href).href;
+
   try {
-    const res = await fetch("../data/resources.json");
+    const res = await fetch(RESOURCES_DATA_URL);
     if (res.ok) {
       coreResources = await res.json();
     } else {
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 2. Fetch Community Resources (non-blocking failure)
   try {
-    const resComm = await fetch("../data/community_resources.json");
+    const resComm = await fetch(COMMUNITY_RESOURCES_DATA_URL);
     if (resComm.ok) {
       communityResources = await resComm.json();
     } else {
