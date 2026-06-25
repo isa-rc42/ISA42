@@ -111,11 +111,28 @@ main.content {
   min-width: 300px;
 }
 
+@media (min-width: 1101px) {
+  nav#TOC,
+  .toc-active,
+  .sidebar nav[role="doc-toc"],
+  .resources-toc-col,
+  .resources-toc {
+    position: sticky;
+    top: 6rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+  }
+  nav#TOC {
+    padding-top: 0.5rem;
+  }
+}
+
 /* Sidebar TOC */
 .resources-toc {
   position: sticky;
-  top: 96px;
-  max-height: calc(100vh - 120px);
+  top: 6rem;
+  max-height: calc(100vh - 7rem);
   overflow-y: auto;
   background: #f8fafc;
   border: 1px solid #dbe3ef;
