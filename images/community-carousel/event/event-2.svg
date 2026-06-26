@@ -1,41 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs>
-    <linearGradient id="g_bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#17233A" />
-      <stop offset="100%" stop-color="#1E3A5F" />
+  <defs><linearGradient id="gbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
     </linearGradient>
-    <linearGradient id="g_main" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2F5D7C" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#DDE5E8" stop-opacity="0.15" />
+    <linearGradient id="gm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5c768d" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0.2" />
     </linearGradient>
-    <linearGradient id="g_soft" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#DDE5E8" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#2F5D7C" stop-opacity="0.05" />
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="680" fill="url(#g_bg)" />
+    <linearGradient id="gs" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#5c768d" stop-opacity="0.05" />
+    </linearGradient></defs>
+  <rect width="1200" height="680" fill="url(#gbg)" />
   
-        <!-- Subtle gathering background rings -->
-        <circle cx="600" cy="340" r="320" fill="none" stroke="#DDE5E8" stroke-width="1.5" stroke-opacity="0.15" />
-        <circle cx="600" cy="340" r="220" fill="none" stroke="#2F5D7C" stroke-width="2" stroke-opacity="0.25" stroke-dasharray="24 12" />
-        <circle cx="600" cy="340" r="130" fill="url(#g_soft)" />
-        
-        <!-- Delicate sweeping bezier gathering arcs -->
-        <path d="M 150 150 C 300 280, 450 340, 600 340" fill="none" stroke="#DDE5E8" stroke-width="2.5" stroke-opacity="0.45" stroke-linecap="round" />
-        <path d="M 1050 180 C 880 280, 720 340, 600 340" fill="none" stroke="#DDE5E8" stroke-width="2.5" stroke-opacity="0.45" stroke-linecap="round" />
-        <path d="M 320 560 C 440 460, 520 380, 600 340" fill="none" stroke="#2F5D7C" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round" />
-        <path d="M 880 540 C 760 460, 680 380, 600 340" fill="none" stroke="#DDE5E8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round" />
-        
-        <!-- Scholars / Dialogue meeting orbs in multi-depth planes -->
-        <circle cx="600" cy="340" r="28" fill="#DDE5E8" />
-        <circle cx="600" cy="340" r="12" fill="#2F5D7C" />
-        
-        <circle cx="150" cy="150" r="22" fill="url(#g_main)" stroke="#DDE5E8" stroke-width="2" />
-        <circle cx="1050" cy="180" r="26" fill="#2F5D7C" fill-opacity="0.5" stroke="#DDE5E8" stroke-width="1.5" />
-        <circle cx="320" cy="560" r="18" fill="#F4F7F8" fill-opacity="0.85" />
-        <circle cx="880" cy="540" r="20" fill="#DDE5E8" fill-opacity="0.75" />
-        
-        <circle cx="440" cy="220" r="10" fill="#DDE5E8" fill-opacity="0.6" />
-        <circle cx="760" cy="240" r="12" fill="#2F5D7C" fill-opacity="0.8" />
+        <circle cx="600" cy="340" r="260" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-opacity="0.15" />
+        <circle cx="600" cy="340" r="160" fill="url(#gs)" />
+        <path d="M 180 180 C 320 280, 460 340, 600 340" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round" />
+        <path d="M 1020 180 C 880 280, 740 340, 600 340" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round" />
+        <path d="M 340 540 C 440 440, 520 380, 600 340" fill="none" stroke="#5c768d" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round" />
+        <circle cx="600" cy="340" r="24" fill="#e2e8f0" fill-opacity="0.9" />
+        <circle cx="600" cy="340" r="10" fill="#5c768d" />
+        <circle cx="180" cy="180" r="18" fill="url(#gm)" stroke="#e2e8f0" stroke-width="1.5" />
+        <circle cx="1020" cy="180" r="22" fill="#5c768d" fill-opacity="0.6" />
+        <circle cx="340" cy="540" r="16" fill="#e2e8f0" fill-opacity="0.75" />
         
 </svg>

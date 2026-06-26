@@ -1,41 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs>
-    <linearGradient id="g_bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#334155" />
-      <stop offset="100%" stop-color="#475569" />
+  <defs><linearGradient id="gbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2232" />
+      <stop offset="100%" stop-color="#313652" />
     </linearGradient>
-    <linearGradient id="g_main" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#64748B" stop-opacity="0.65" />
-      <stop offset="100%" stop-color="#E5EAF0" stop-opacity="0.15" />
+    <linearGradient id="gm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5f678c" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#dcdcde" stop-opacity="0.2" />
     </linearGradient>
-    <linearGradient id="g_soft" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#E5EAF0" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#64748B" stop-opacity="0.05" />
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="680" fill="url(#g_bg)" />
+    <linearGradient id="gs" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dcdcde" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#5f678c" stop-opacity="0.05" />
+    </linearGradient></defs>
+  <rect width="1200" height="680" fill="url(#gbg)" />
   
-        <!-- Soft background digital library reticle -->
-        <line x1="0" y1="220" x2="1200" y2="220" stroke="#E5EAF0" stroke-width="1" stroke-opacity="0.18" />
-        <line x1="0" y1="460" x2="1200" y2="460" stroke="#E5EAF0" stroke-width="1" stroke-opacity="0.18" />
-        <line x1="400" y1="0" x2="400" y2="680" stroke="#E5EAF0" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="10 10" />
-        <line x1="800" y1="0" x2="800" y2="680" stroke="#E5EAF0" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="10 10" />
-        
-        <!-- Minimalist overlapping translucent glass cards -->
-        <!-- Layer 1 (Background card) -->
-        <rect x="180" y="100" width="460" height="320" rx="24" fill="#334155" fill-opacity="0.6" stroke="#E5EAF0" stroke-width="1.5" stroke-opacity="0.3" />
-        
-        <!-- Layer 2 (Midground glass card) -->
-        <rect x="280" y="160" width="520" height="360" rx="24" fill="url(#g_main)" stroke="#E5EAF0" stroke-width="2" stroke-opacity="0.5" />
-        
-        <!-- Layer 3 (Foreground clean card) -->
-        <rect x="400" y="220" width="560" height="360" rx="24" fill="#475569" fill-opacity="0.85" stroke="#E5EAF0" stroke-width="2.5" stroke-opacity="0.7" />
-        
-        <!-- Clean editorial index markers on cards -->
-        <rect x="440" y="260" width="100" height="16" rx="8" fill="#E5EAF0" />
-        <rect x="440" y="300" width="320" height="12" rx="6" fill="#E5EAF0" fill-opacity="0.5" />
-        <rect x="440" y="330" width="240" height="12" rx="6" fill="#E5EAF0" fill-opacity="0.3" />
-        
-        <circle cx="880" cy="268" r="16" fill="#009688" fill-opacity="0.85" />
+        <line x1="0" y1="240" x2="1200" y2="240" stroke="#dcdcde" stroke-width="1" stroke-opacity="0.15" />
+        <rect x="220" y="120" width="500" height="340" rx="20" fill="#1f2232" fill-opacity="0.5" stroke="#dcdcde" stroke-width="1.5" stroke-opacity="0.25" />
+        <rect x="320" y="180" width="540" height="360" rx="20" fill="url(#gm)" stroke="#dcdcde" stroke-width="2" stroke-opacity="0.45" />
+        <rect x="420" y="240" width="560" height="360" rx="20" fill="#313652" fill-opacity="0.9" stroke="#dcdcde" stroke-width="2" stroke-opacity="0.6" />
+        <rect x="460" y="280" width="90" height="14" rx="7" fill="#dcdcde" />
+        <rect x="460" y="315" width="280" height="10" rx="5" fill="#dcdcde" fill-opacity="0.5" />
         
 </svg>
