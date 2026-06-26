@@ -1,27 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs><linearGradient id="grad_publication_5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2A1F3D" />
-      <stop offset="50%" stop-color="#4C1D95" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#2A1F3D" />
-    </linearGradient>
-    <radialGradient id="glow_publication_5" cx="40%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#EDE9FE" stop-opacity="0.85" />
-      <stop offset="45%" stop-color="#8B5CF6" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#2A1F3D" stop-opacity="0" />
-    </radialGradient></defs>
+  <defs><linearGradient id="g_pub_5" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#2A1F3D" />
+          <stop offset="60%" stop-color="#6D5A7A" stop-opacity="0.85" />
+          <stop offset="100%" stop-color="#4A5C78" />
+        </linearGradient></defs>
   
-        <rect width="1200" height="680" fill="url(#grad_publication_5)" />
+        <rect width="1200" height="680" fill="url(#g_pub_5)" />
         
-        <rect x="180" y="160" width="840" height="180" rx="16" transform="rotate(2 600 250)" fill="#2A1F3D" fill-opacity="0.85" stroke="#EDE9FE" stroke-width="1.5" stroke-opacity="0.5" />
-        <rect x="220" y="180" width="780" height="180" rx="16" transform="rotate(-1.5 610 270)" fill="url(#glow_publication_5)" stroke="#EDE9FE" stroke-width="2" stroke-opacity="0.7" />
-        <rect x="260" y="200" width="720" height="180" rx="16" fill="#4C1D95" fill-opacity="0.5" stroke="#EDE9FE" stroke-width="2.5" stroke-opacity="0.9" />
+        <!-- Diagonal editorial journal strata / smooth paper folds -->
+        <path d="M 120 400 L 320 180 L 1020 200 L 820 420 Z" fill="#2A1F3D" fill-opacity="0.9" stroke="#334155" stroke-width="2" />
+        <path d="M 220 390 L 400 190 L 1080 220 L 900 420 Z" fill="#6D5A7A" fill-opacity="0.75" stroke="#E5EAF0" stroke-width="2.5" />
+        <path d="M 300 380 L 460 200 L 1120 240 L 960 420 Z" fill="#4A5C78" fill-opacity="0.55" stroke="#D6C7A1" stroke-width="1.5" />
         
-        <rect x="320" y="240" width="280" height="14" rx="6" fill="#EDE9FE" />
-        <rect x="320" y="270" width="160" height="10" rx="5" fill="#BFA76A" />
-        <rect x="320" y="300" width="440" height="8" rx="4" fill="#EDE9FE" fill-opacity="0.7" />
-        <rect x="320" y="320" width="380" height="8" rx="4" fill="#EDE9FE" fill-opacity="0.5" />
+        <!-- Sharp editorial reading lines / paper baselines -->
+        <line x1="440" y1="240" x2="880" y2="265" stroke="#E5EAF0" stroke-width="14" stroke-linecap="round" />
+        <line x1="450" y1="275" x2="720" y2="290" stroke="#D6C7A1" stroke-width="10" stroke-linecap="round" />
+        <line x1="460" y1="305" x2="920" y2="330" stroke="#E5EAF0" stroke-width="8" stroke-linecap="round" stroke-opacity="0.7" />
+        <line x1="470" y1="330" x2="840" y2="350" stroke="#E5EAF0" stroke-width="8" stroke-linecap="round" stroke-opacity="0.45" />
         
-        <circle cx="860" cy="270" r="28" fill="#BFA76A" opacity="0.85" />
-        <circle cx="860" cy="270" r="12" fill="#EDE9FE" />
+        <!-- Editorial spine seal / focal seal stamp -->
+        <circle cx="380" cy="280" r="34" fill="#334155" fill-opacity="0.9" stroke="#E5EAF0" stroke-width="3" />
+        <circle cx="380" cy="280" r="14" fill="#D6C7A1" />
         
 </svg>
