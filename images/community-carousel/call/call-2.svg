@@ -1,24 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs><linearGradient id="gbg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b" />
-      <stop offset="100%" stop-color="#334155" />
+  <defs><linearGradient id="g_call_2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004d40" />
+      <stop offset="100%" stop-color="#18ffff" stop-opacity="0.4" />
     </linearGradient>
-    <linearGradient id="gm" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#5c768d" stop-opacity="0.75" />
-      <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0.2" />
-    </linearGradient>
-    <linearGradient id="gs" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#5c768d" stop-opacity="0.05" />
+    <linearGradient id="glow_call_2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18ffff" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0.25" />
     </linearGradient></defs>
-  <rect width="1200" height="680" fill="url(#gbg)" />
+  <rect width="1200" height="680" fill="url(#g_call_2)" />
   
-        <circle cx="600" cy="380" r="420" fill="url(#gm)" opacity="0.3" />
-        <path d="M 280 380 C 280 200, 920 200, 920 380" fill="none" stroke="#e2e8f0" stroke-width="2.5" stroke-opacity="0.6" stroke-linecap="round" />
-        <path d="M 180 420 C 180 140, 1020 140, 1020 420" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-opacity="0.35" stroke-dasharray="20 10" stroke-linecap="round" />
-        <rect x="480" y="180" width="240" height="380" rx="24" fill="#1e293b" fill-opacity="0.85" stroke="#e2e8f0" stroke-width="2.5" stroke-opacity="0.75" />
-        <rect x="510" y="210" width="180" height="350" rx="18" fill="url(#gs)" />
-        <circle cx="600" cy="310" r="20" fill="#e2e8f0" />
-        <circle cx="600" cy="310" r="8" fill="#5c768d" />
+        <circle cx="250" cy="340" r="480" fill="url(#glow_call_2)" opacity="0.35" />
+        
+        <!-- Radiating concentric opportunity waves -->
+        <circle cx="250" cy="340" r="120" fill="none" stroke="#ccfbf1" stroke-width="3" stroke-opacity="0.8" />
+        <circle cx="250" cy="340" r="240" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-opacity="0.6" stroke-dasharray="28 14" />
+        <circle cx="250" cy="340" r="380" fill="none" stroke="#18ffff" stroke-width="2" stroke-opacity="0.45" />
+        <circle cx="250" cy="340" r="540" fill="none" stroke="#ccfbf1" stroke-width="1.5" stroke-opacity="0.25" stroke-dasharray="32 16" />
+        
+        <!-- Elegant opening frame abstraction -->
+        <path d="M 180 180 L 420 180 L 520 340 L 420 500 L 180 500 Z" fill="url(#glow_call_2)" stroke="#ccfbf1" stroke-width="2" stroke-opacity="0.6" />
+        
+        <!-- Glowing focal origin spark -->
+        <circle cx="250" cy="340" r="26" fill="#ccfbf1" />
+        <circle cx="250" cy="340" r="12" fill="#18ffff" />
+        
+        <circle cx="720" cy="220" r="12" fill="#2dd4bf" fill-opacity="0.8" />
+        <circle cx="880" cy="380" r="16" fill="#ccfbf1" fill-opacity="0.9" />
         
 </svg>
