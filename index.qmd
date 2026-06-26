@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (typeVal.includes('opportunity') || typeVal.includes('job') || typeVal.includes('position')) { iconName = 'news'; accentClass = 'community-card-accent--news'; }
 
         html += `
-          <article class="home-community-card">
+          <article class="home-community-card" data-href="${url}" data-external="${item.url ? 'true' : 'false'}" tabindex="0" role="link">
             <div class="home-community-card-media">
               <img src="${imagePath}" alt="" aria-hidden="true">
             </div>
@@ -307,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       
       carousel.innerHTML = html;
+      initCardLinks();
       initCarousel();
     })
     .catch(err => {
@@ -319,6 +320,37 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       if (navContainer) navContainer.style.display = 'none';
     });
+
+  function initCardLinks() {
+    const cards = carousel.querySelectorAll(".home-community-card[data-href]");
+
+    cards.forEach(card => {
+      const openCardLink = () => {
+        const href = card.getAttribute("data-href");
+        const isExternal = card.getAttribute("data-external") === "true";
+
+        if (!href) return;
+
+        if (isExternal) {
+          window.open(href, "_blank", "noopener");
+        } else {
+          window.location.href = href;
+        }
+      };
+
+      card.addEventListener("click", event => {
+        if (event.target.closest("a, button")) return;
+        openCardLink();
+      });
+
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openCardLink();
+        }
+      });
+    });
+  }
 
   function initCarousel() {
     if (!prevBtn || !nextBtn) return;

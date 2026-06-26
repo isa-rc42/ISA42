@@ -4411,12 +4411,18 @@ body:has(.contact-hub) .content {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .home-community-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(15, 23, 42, 0.09);
   border-color: #cbd5e1;
+}
+
+.home-community-card:focus-visible {
+  outline: 3px solid rgba(0, 150, 136, 0.28);
+  outline-offset: 4px;
 }
 
 .home-community-card-media {
