@@ -1,28 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
   <defs><linearGradient id="grad_news_4" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#17233A" />
-      <stop offset="50%" stop-color="#009688" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="#17233A" />
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="50%" stop-color="#009688" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#1E293B" />
     </linearGradient>
     <radialGradient id="glow_news_4" cx="40%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#F4F7F8" stop-opacity="0.9" />
-      <stop offset="45%" stop-color="#22D3EE" stop-opacity="0.45" />
-      <stop offset="100%" stop-color="#17233A" stop-opacity="0" />
+      <stop offset="0%" stop-color="#E5EAF0" stop-opacity="0.85" />
+      <stop offset="45%" stop-color="#94A3B8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0" />
     </radialGradient></defs>
   
         <rect width="1200" height="680" fill="url(#grad_news_4)" />
         
-        <!-- Fluid overlapping horizontal sharing streams -->
         <path d="M 60 220 C 360 220 460 320 760 320 L 1140 320" fill="none" stroke="#009688" stroke-width="28" stroke-opacity="0.6" stroke-linecap="round" />
-        <path d="M 120 280 C 420 280 520 220 820 220 L 1100 220" fill="none" stroke="#22D3EE" stroke-width="20" stroke-opacity="0.8" stroke-linecap="round" />
-        <path d="M 180 340 C 480 340 580 280 880 280 L 1060 280" fill="none" stroke="#F4F7F8" stroke-width="14" stroke-opacity="0.85" stroke-linecap="round" />
+        <path d="M 120 280 C 420 280 520 220 820 220 L 1100 220" fill="none" stroke="#94A3B8" stroke-width="20" stroke-opacity="0.8" stroke-linecap="round" />
+        <path d="M 180 340 C 480 340 580 280 880 280 L 1060 280" fill="none" stroke="#E5EAF0" stroke-width="14" stroke-opacity="0.85" stroke-linecap="round" />
         
-        <!-- Transmission dialogue nodes bridging horizontal streams -->
-        <circle cx="460" cy="270" r="18" fill="#1E3A5F" />
-        <circle cx="520" cy="250" r="22" fill="#17233A" stroke="#F4F7F8" stroke-width="3.5" />
-        <circle cx="580" cy="310" r="16" fill="#22D3EE" />
+        <circle cx="460" cy="270" r="18" fill="#38BDF8" />
+        <circle cx="520" cy="250" r="22" fill="#1E293B" stroke="#E5EAF0" stroke-width="3.5" />
+        <circle cx="580" cy="310" r="16" fill="#94A3B8" />
         
-        <line x1="460" y1="270" x2="520" y2="250" stroke="#F4F7F8" stroke-width="2" stroke-dasharray="6 6" />
-        <line x1="520" y1="250" x2="580" y2="310" stroke="#F4F7F8" stroke-width="2" stroke-dasharray="6 6" />
+        <line x1="460" y1="270" x2="520" y2="250" stroke="#E5EAF0" stroke-width="2" stroke-dasharray="6 6" />
+        <line x1="520" y1="250" x2="580" y2="310" stroke="#E5EAF0" stroke-width="2" stroke-dasharray="6 6" />
         
 </svg>

@@ -1,28 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
   <defs><linearGradient id="grad_other_5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#334155" />
-      <stop offset="50%" stop-color="#009688" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="#334155" />
+      <stop offset="0%" stop-color="#17233A" />
+      <stop offset="50%" stop-color="#334155" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#17233A" />
     </linearGradient>
     <radialGradient id="glow_other_5" cx="40%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.9" />
-      <stop offset="45%" stop-color="#D6A24A" stop-opacity="0.45" />
-      <stop offset="100%" stop-color="#334155" stop-opacity="0" />
+      <stop offset="0%" stop-color="#E5EAF0" stop-opacity="0.85" />
+      <stop offset="45%" stop-color="#D6C7A1" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#17233A" stop-opacity="0" />
     </radialGradient></defs>
   
         <rect width="1200" height="680" fill="url(#grad_other_5)" />
         
-        <!-- Horizontal relational geometry -->
-        <ellipse cx="480" cy="280" rx="280" ry="120" fill="#009688" fill-opacity="0.4" />
-        <ellipse cx="720" cy="300" rx="260" ry="110" fill="#D6A24A" fill-opacity="0.3" stroke="#F8FAFC" stroke-width="2" />
+        <ellipse cx="480" cy="280" rx="280" ry="120" fill="#334155" fill-opacity="0.4" />
+        <ellipse cx="720" cy="300" rx="260" ry="110" fill="#D6C7A1" fill-opacity="0.3" stroke="#E5EAF0" stroke-width="2" />
         
-        <path d="M 180 260 Q 600 180 1020 320" fill="none" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
-        <path d="M 180 320 Q 600 400 1020 240" fill="none" stroke="#F8FAFC" stroke-width="2.5" stroke-opacity="0.75" stroke-dasharray="16 12" stroke-linecap="round" />
+        <path d="M 180 260 Q 600 180 1020 320" fill="none" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round" />
+        <path d="M 180 320 Q 600 400 1020 240" fill="none" stroke="#E5EAF0" stroke-width="2.5" stroke-opacity="0.75" stroke-dasharray="16 12" stroke-linecap="round" />
         
-        <circle cx="600" cy="290" r="28" fill="#334155" stroke="#64748B" stroke-width="3.5" />
-        <circle cx="600" cy="290" r="12" fill="#F8FAFC" />
+        <circle cx="600" cy="290" r="28" fill="#17233A" stroke="#38BDF8" stroke-width="3.5" />
+        <circle cx="600" cy="290" r="12" fill="#E5EAF0" />
         
-        <circle cx="280" cy="270" r="16" fill="#D6A24A" />
-        <circle cx="920" cy="280" r="18" fill="#64748B" />
+        <circle cx="280" cy="270" r="16" fill="#D6C7A1" />
+        <circle cx="920" cy="280" r="18" fill="#38BDF8" />
         
 </svg>

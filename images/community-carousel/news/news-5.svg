@@ -1,26 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
   <defs><linearGradient id="grad_news_5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#134e4a" />
-      <stop offset="50%" stop-color="#1E3A5F" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="#134e4a" />
+      <stop offset="0%" stop-color="#134E4A" />
+      <stop offset="50%" stop-color="#1E3A5F" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#134E4A" />
     </linearGradient>
     <radialGradient id="glow_news_5" cx="40%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#F4F7F8" stop-opacity="0.9" />
-      <stop offset="45%" stop-color="#F2B366" stop-opacity="0.45" />
-      <stop offset="100%" stop-color="#134e4a" stop-opacity="0" />
+      <stop offset="0%" stop-color="#F4F7F8" stop-opacity="0.85" />
+      <stop offset="45%" stop-color="#64748B" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#134E4A" stop-opacity="0" />
     </radialGradient></defs>
   
         <rect width="1200" height="680" fill="url(#grad_news_5)" />
         
-        <!-- Fluid overlapping horizontal sharing streams -->
         <path d="M 60 220 C 360 220 460 320 760 320 L 1140 320" fill="none" stroke="#1E3A5F" stroke-width="28" stroke-opacity="0.6" stroke-linecap="round" />
-        <path d="M 120 280 C 420 280 520 220 820 220 L 1100 220" fill="none" stroke="#F2B366" stroke-width="20" stroke-opacity="0.8" stroke-linecap="round" />
+        <path d="M 120 280 C 420 280 520 220 820 220 L 1100 220" fill="none" stroke="#64748B" stroke-width="20" stroke-opacity="0.8" stroke-linecap="round" />
         <path d="M 180 340 C 480 340 580 280 880 280 L 1060 280" fill="none" stroke="#F4F7F8" stroke-width="14" stroke-opacity="0.85" stroke-linecap="round" />
         
-        <!-- Transmission dialogue nodes bridging horizontal streams -->
-        <circle cx="460" cy="270" r="18" fill="#009688" />
-        <circle cx="520" cy="250" r="22" fill="#134e4a" stroke="#F4F7F8" stroke-width="3.5" />
-        <circle cx="580" cy="310" r="16" fill="#F2B366" />
+        <circle cx="460" cy="270" r="18" fill="#D6C7A1" />
+        <circle cx="520" cy="250" r="22" fill="#134E4A" stroke="#F4F7F8" stroke-width="3.5" />
+        <circle cx="580" cy="310" r="16" fill="#64748B" />
         
         <line x1="460" y1="270" x2="520" y2="250" stroke="#F4F7F8" stroke-width="2" stroke-dasharray="6 6" />
         <line x1="520" y1="250" x2="580" y2="310" stroke="#F4F7F8" stroke-width="2" stroke-dasharray="6 6" />
