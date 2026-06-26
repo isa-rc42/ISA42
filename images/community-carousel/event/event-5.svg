@@ -1,27 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs><linearGradient id="gbg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1f2232" />
-      <stop offset="100%" stop-color="#313652" />
+  <defs><linearGradient id="grad_event_5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#164e63" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.55" />
     </linearGradient>
-    <linearGradient id="gm" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#5f678c" stop-opacity="0.75" />
-      <stop offset="100%" stop-color="#dcdcde" stop-opacity="0.2" />
-    </linearGradient>
-    <linearGradient id="gs" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#dcdcde" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#5f678c" stop-opacity="0.05" />
-    </linearGradient></defs>
-  <rect width="1200" height="680" fill="url(#gbg)" />
+    <radialGradient id="glow_event_5" cx="35%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#E0F2FE" stop-opacity="0.85" />
+      <stop offset="45%" stop-color="#0891B2" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#164e63" stop-opacity="0" />
+    </radialGradient></defs>
   
-        <circle cx="600" cy="340" r="260" fill="none" stroke="#dcdcde" stroke-width="1.5" stroke-opacity="0.15" />
-        <circle cx="600" cy="340" r="160" fill="url(#gs)" />
-        <path d="M 180 180 C 320 280, 460 340, 600 340" fill="none" stroke="#dcdcde" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round" />
-        <path d="M 1020 180 C 880 280, 740 340, 600 340" fill="none" stroke="#dcdcde" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round" />
-        <path d="M 340 540 C 440 440, 520 380, 600 340" fill="none" stroke="#5f678c" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round" />
-        <circle cx="600" cy="340" r="24" fill="#dcdcde" fill-opacity="0.9" />
-        <circle cx="600" cy="340" r="10" fill="#5f678c" />
-        <circle cx="180" cy="180" r="18" fill="url(#gm)" stroke="#dcdcde" stroke-width="1.5" />
-        <circle cx="1020" cy="180" r="22" fill="#5f678c" fill-opacity="0.6" />
-        <circle cx="340" cy="540" r="16" fill="#dcdcde" fill-opacity="0.75" />
+        <rect width="1200" height="680" fill="url(#grad_event_5)" />
+        <circle cx="550" cy="340" r="460" fill="url(#glow_event_5)" opacity="0.45" />
+        
+        <!-- Relational gathering trajectories -->
+        <path d="M 150 200 Q 350 150 500 320 T 850 240" fill="none" stroke="#E0F2FE" stroke-width="3" stroke-opacity="0.8" />
+        <path d="M 200 500 Q 400 550 500 320 T 850 440" fill="none" stroke="#FDE68A" stroke-width="3" stroke-opacity="0.75" />
+        <path d="M 500 320 L 720 540" fill="none" stroke="#0891B2" stroke-width="2.5" stroke-opacity="0.7" stroke-dasharray="14 10" />
+        <path d="M 500 320 L 950 340" fill="none" stroke="#E0F2FE" stroke-width="2" stroke-opacity="0.5" />
+        
+        <!-- Intertwined collective presence nodes -->
+        <circle cx="500" cy="320" r="42" fill="#0891B2" opacity="0.4" />
+        <circle cx="500" cy="320" r="26" fill="#0891B2" />
+        <circle cx="500" cy="320" r="12" fill="#E0F2FE" />
+        
+        <circle cx="850" cy="240" r="30" fill="#F59E0B" />
+        <circle cx="850" cy="240" r="14" fill="#164e63" />
+        
+        <circle cx="850" cy="440" r="24" fill="#FDE68A" />
+        <circle cx="720" cy="540" r="20" fill="#38BDF8" opacity="0.9" />
+        <circle cx="950" cy="340" r="16" fill="#E0F2FE" opacity="0.8" />
+        <circle cx="150" cy="200" r="18" fill="#E0F2FE" opacity="0.7" />
+        <circle cx="200" cy="500" r="18" fill="#F59E0B" opacity="0.7" />
         
 </svg>
