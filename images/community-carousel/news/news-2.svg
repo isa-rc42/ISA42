@@ -1,34 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs><linearGradient id="grad_news_2" x1="0%" y1="0%" x2="100%" y2="100%">
+  <defs><linearGradient id="grad_news_2" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1E3A5F" />
-      <stop offset="100%" stop-color="#009688" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#009688" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#1E3A5F" />
     </linearGradient>
-    <linearGradient id="glow_news_2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#F2B366" stop-opacity="0.3" />
-    </linearGradient>
-    <radialGradient id="spot_news_2" cx="30%" cy="50%" r="60%">
+    <radialGradient id="glow_news_2" cx="40%" cy="45%" r="55%">
       <stop offset="0%" stop-color="#F4F7F8" stop-opacity="0.9" />
-      <stop offset="40%" stop-color="#F2B366" stop-opacity="0.5" />
+      <stop offset="45%" stop-color="#F2B366" stop-opacity="0.45" />
       <stop offset="100%" stop-color="#1E3A5F" stop-opacity="0" />
     </radialGradient></defs>
   
         <rect width="1200" height="680" fill="url(#grad_news_2)" />
         
-        <!-- Dynamic editorial information planes -->
-        <rect x="180" y="120" width="560" height="380" rx="20" transform="rotate(-4 460 310)" fill="#009688" fill-opacity="0.7" stroke="#F4F7F8" stroke-width="2" stroke-opacity="0.4" />
-        <rect x="240" y="160" width="580" height="400" rx="20" fill="url(#glow_news_2)" stroke="#F2B366" stroke-width="2.5" stroke-opacity="0.8" />
-        <rect x="320" y="200" width="600" height="420" rx="20" transform="rotate(3 620 410)" fill="#1E3A5F" fill-opacity="0.85" stroke="#F4F7F8" stroke-width="2" stroke-opacity="0.6" />
+        <!-- Fluid overlapping horizontal sharing streams -->
+        <path d="M 60 220 C 360 220 460 320 760 320 L 1140 320" fill="none" stroke="#009688" stroke-width="28" stroke-opacity="0.6" stroke-linecap="round" />
+        <path d="M 120 280 C 420 280 520 220 820 220 L 1100 220" fill="none" stroke="#F2B366" stroke-width="20" stroke-opacity="0.8" stroke-linecap="round" />
+        <path d="M 180 340 C 480 340 580 280 880 280 L 1060 280" fill="none" stroke="#F4F7F8" stroke-width="14" stroke-opacity="0.85" stroke-linecap="round" />
         
-        <!-- Bulletin reading lines and circulation flow -->
-        <rect x="380" y="260" width="180" height="24" rx="8" fill="#17233A" />
-        <rect x="580" y="268" width="280" height="12" rx="6" fill="#F4F7F8" fill-opacity="0.7" />
+        <!-- Transmission dialogue nodes bridging horizontal streams -->
+        <circle cx="460" cy="270" r="18" fill="#17233A" />
+        <circle cx="520" cy="250" r="22" fill="#1E3A5F" stroke="#F4F7F8" stroke-width="3.5" />
+        <circle cx="580" cy="310" r="16" fill="#F2B366" />
         
-        <rect x="380" y="320" width="480" height="12" rx="6" fill="#F2B366" fill-opacity="0.8" />
-        <rect x="380" y="350" width="420" height="12" rx="6" fill="#F4F7F8" fill-opacity="0.5" />
-        <rect x="380" y="380" width="450" height="12" rx="6" fill="#F4F7F8" fill-opacity="0.4" />
-        
-        <circle cx="980" cy="240" r="38" fill="url(#spot_news_2)" />
-        <circle cx="980" cy="240" r="16" fill="#17233A" />
+        <line x1="460" y1="270" x2="520" y2="250" stroke="#F4F7F8" stroke-width="2" stroke-dasharray="6 6" />
+        <line x1="520" y1="250" x2="580" y2="310" stroke="#F4F7F8" stroke-width="2" stroke-dasharray="6 6" />
         
 </svg>

@@ -1,31 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs><linearGradient id="grad_other_4" x1="0%" y1="0%" x2="100%" y2="100%">
+  <defs><linearGradient id="grad_other_4" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#264653" />
-      <stop offset="100%" stop-color="#334155" stop-opacity="0.55" />
+      <stop offset="50%" stop-color="#334155" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#264653" />
     </linearGradient>
-    <radialGradient id="glow_other_4" cx="35%" cy="50%" r="65%">
-      <stop offset="0%" stop-color="#E5EAF0" stop-opacity="0.85" />
-      <stop offset="45%" stop-color="#D6A24A" stop-opacity="0.4" />
+    <radialGradient id="glow_other_4" cx="40%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#E5EAF0" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#D6A24A" stop-opacity="0.45" />
       <stop offset="100%" stop-color="#264653" stop-opacity="0" />
     </radialGradient></defs>
   
         <rect width="1200" height="680" fill="url(#grad_other_4)" />
         
-        <!-- Organic relational overlapping forms -->
-        <circle cx="460" cy="340" r="240" fill="#334155" fill-opacity="0.35" />
-        <circle cx="620" cy="340" r="200" fill="#D6A24A" fill-opacity="0.25" stroke="#E5EAF0" stroke-width="2" />
+        <!-- Horizontal relational geometry -->
+        <ellipse cx="480" cy="280" rx="280" ry="120" fill="#334155" fill-opacity="0.4" />
+        <ellipse cx="720" cy="300" rx="260" ry="110" fill="#D6A24A" fill-opacity="0.3" stroke="#E5EAF0" stroke-width="2" />
         
-        <!-- Relational tension & connection bridge -->
-        <path d="M 300 200 Q 540 340 780 480" fill="none" stroke="#009688" stroke-width="4" stroke-linecap="round" />
-        <path d="M 300 480 Q 540 340 780 200" fill="none" stroke="#E5EAF0" stroke-width="3" stroke-opacity="0.7" stroke-dasharray="16 12" stroke-linecap="round" />
+        <path d="M 180 260 Q 600 180 1020 320" fill="none" stroke="#009688" stroke-width="3.5" stroke-linecap="round" />
+        <path d="M 180 320 Q 600 400 1020 240" fill="none" stroke="#E5EAF0" stroke-width="2.5" stroke-opacity="0.75" stroke-dasharray="16 12" stroke-linecap="round" />
         
-        <!-- Human presence focal intersection -->
-        <circle cx="540" cy="340" r="32" fill="#264653" stroke="#009688" stroke-width="4" />
-        <circle cx="540" cy="340" r="14" fill="#E5EAF0" />
+        <circle cx="600" cy="290" r="28" fill="#264653" stroke="#009688" stroke-width="3.5" />
+        <circle cx="600" cy="290" r="12" fill="#E5EAF0" />
         
-        <circle cx="300" cy="200" r="18" fill="#D6A24A" />
-        <circle cx="780" cy="480" r="22" fill="#009688" />
-        <circle cx="300" cy="480" r="16" fill="#E5EAF0" opacity="0.8" />
-        <circle cx="780" cy="200" r="20" fill="#334155" />
+        <circle cx="280" cy="270" r="16" fill="#D6A24A" />
+        <circle cx="920" cy="280" r="18" fill="#009688" />
         
 </svg>

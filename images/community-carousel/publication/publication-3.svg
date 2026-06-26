@@ -1,33 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-  <defs><linearGradient id="g_publication_3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4a3e4d" />
-      <stop offset="100%" stop-color="#6d597a" stop-opacity="0.4" />
+  <defs><linearGradient id="grad_publication_3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2E1065" />
+      <stop offset="50%" stop-color="#4C1D95" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#2E1065" />
     </linearGradient>
-    <linearGradient id="glow_publication_3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6d597a" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#b56576" stop-opacity="0.25" />
-    </linearGradient></defs>
-  <rect width="1200" height="680" fill="url(#g_publication_3)" />
+    <radialGradient id="glow_publication_3" cx="40%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#EDE9FE" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#8B5CF6" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#2E1065" stop-opacity="0" />
+    </radialGradient></defs>
   
-        <rect x="300" y="80" width="680" height="520" rx="22" transform="rotate(6 640 340)" fill="#4a3e4d" fill-opacity="0.6" stroke="#eaac8b" stroke-width="1.5" stroke-opacity="0.3" />
-        <rect x="270" y="70" width="680" height="520" rx="22" transform="rotate(-3 610 330)" fill="url(#glow_publication_3)" stroke="#eaac8b" stroke-width="2" stroke-opacity="0.5" />
-        <rect x="240" y="60" width="720" height="560" rx="22" fill="#6d597a" fill-opacity="0.35" stroke="#eaac8b" stroke-width="3" stroke-opacity="0.85" />
+        <rect width="1200" height="680" fill="url(#grad_publication_3)" />
         
-        <!-- Refined spine binding shadow -->
-        <line x1="380" y1="60" x2="380" y2="620" stroke="#eaac8b" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="12 12" />
-        <rect x="240" y="60" width="140" height="560" rx="22" fill="#eaac8b" fill-opacity="0.08" />
+        <!-- Tilted horizontal academic strata leaves within visible belt -->
+        <rect x="180" y="160" width="840" height="180" rx="16" transform="rotate(2 600 250)" fill="#2E1065" fill-opacity="0.8" stroke="#EDE9FE" stroke-width="1.5" stroke-opacity="0.5" />
+        <rect x="220" y="180" width="780" height="180" rx="16" transform="rotate(-1.5 610 270)" fill="url(#glow_publication_3)" stroke="#EDE9FE" stroke-width="2" stroke-opacity="0.7" />
+        <rect x="260" y="200" width="720" height="180" rx="16" fill="#4C1D95" fill-opacity="0.5" stroke="#EDE9FE" stroke-width="2.5" stroke-opacity="0.9" />
         
-        <!-- Editorial reading typography lines -->
-        <rect x="440" y="140" width="340" height="22" rx="8" fill="#eaac8b" />
-        <rect x="440" y="185" width="200" height="14" rx="6" fill="#b56576" />
+        <!-- Editorial reading baselines -->
+        <rect x="320" y="240" width="280" height="14" rx="6" fill="#EDE9FE" />
+        <rect x="320" y="270" width="160" height="10" rx="5" fill="#F43F5E" />
+        <rect x="320" y="300" width="440" height="8" rx="4" fill="#EDE9FE" fill-opacity="0.7" />
+        <rect x="320" y="320" width="380" height="8" rx="4" fill="#EDE9FE" fill-opacity="0.5" />
         
-        <rect x="440" y="260" width="440" height="10" rx="5" fill="#eaac8b" fill-opacity="0.7" />
-        <rect x="440" y="290" width="460" height="10" rx="5" fill="#eaac8b" fill-opacity="0.6" />
-        <rect x="440" y="320" width="380" height="10" rx="5" fill="#eaac8b" fill-opacity="0.5" />
-        
-        <rect x="440" y="400" width="430" height="10" rx="5" fill="#eaac8b" fill-opacity="0.4" />
-        <rect x="440" y="430" width="450" height="10" rx="5" fill="#eaac8b" fill-opacity="0.35" />
-        
-        <path d="M 820 60 L 880 60 L 880 200 L 850 175 L 820 200 Z" fill="#b56576" stroke="#eaac8b" stroke-width="1.5" />
+        <circle cx="860" cy="270" r="28" fill="#F43F5E" opacity="0.85" />
+        <circle cx="860" cy="270" r="12" fill="#EDE9FE" />
         
 </svg>
