@@ -225,10 +225,41 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
+      function normalizeType(type) {
+        const value = (type || "").toString().toLowerCase().trim();
+
+        if (value.includes("call") || value.includes("opportunity") || value.includes("job") || value.includes("position")) return "call";
+        if (value.includes("event")) return "event";
+        if (value.includes("resource") || value.includes("data")) return "resource";
+        if (value.includes("publication") || value.includes("article") || value.includes("book")) return "publication";
+        if (value.includes("community")) return "community-experience";
+        if (value.includes("news")) return "news";
+        return "other";
+      }
+
+      function getStableVariantNumber(item) {
+        const base = (item.submission_id || item.title || item.url || "").toString();
+        let hash = 0;
+
+        for (let i = 0; i < base.length; i++) {
+          hash = ((hash << 5) - hash) + base.charCodeAt(i);
+          hash |= 0;
+        }
+
+        return Math.abs(hash % 5) + 1;
+      }
+
+      function getContributionImage(item) {
+        const typeKey = normalizeType(item.type);
+        const variant = getStableVariantNumber(item);
+        return `images/community-carousel/${typeKey}/${typeKey}-${variant}.svg`;
+      }
+
       let html = '';
       latestItems.forEach(item => {
         const url = item.url ? item.url : 'news/index.html';
         const target = item.url ? 'target="_blank" rel="noopener"' : '';
+        const imagePath = getContributionImage(item);
         
         const typeStr = formatLabel(item.type);
         const catStr = formatLabel(item.category);
@@ -247,6 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         html += `
           <article class="home-community-card">
+            <div class="home-community-card-media">
+              <img src="${imagePath}" alt="" aria-hidden="true">
+            </div>
             <div class="home-community-card-top">
               <div style="display:flex; align-items:center; gap:0.6rem;">
                 <div class="home-community-card-icon">

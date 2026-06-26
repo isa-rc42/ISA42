@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17233A" />
+      <stop offset="100%" stop-color="#1E3A5F" />
+    </linearGradient>
+    <linearGradient id="g_main" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2F5D7C" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#DDE5E8" stop-opacity="0.15" />
+    </linearGradient>
+    <linearGradient id="g_soft" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DDE5E8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#2F5D7C" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="680" fill="url(#g_bg)" />
+  
+        <!-- Soft background academic paper leaf -->
+        <rect x="280" y="80" width="700" height="540" rx="24" transform="rotate(5 630 350)" fill="#17233A" fill-opacity="0.55" stroke="#DDE5E8" stroke-width="1.5" stroke-opacity="0.3" />
+        
+        <!-- Midground tilted leaf -->
+        <rect x="260" y="70" width="700" height="540" rx="24" transform="rotate(-2.5 610 340)" fill="url(#g_main)" stroke="#DDE5E8" stroke-width="2" stroke-opacity="0.5" />
+        
+        <!-- Primary foreground journal leaf -->
+        <rect x="240" y="60" width="720" height="560" rx="24" fill="#1E3A5F" fill-opacity="0.9" stroke="#DDE5E8" stroke-width="3" stroke-opacity="0.85" />
+        
+        <!-- Refined spine fold line -->
+        <line x1="380" y1="60" x2="380" y2="620" stroke="#DDE5E8" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="12 12" />
+        <rect x="240" y="60" width="140" height="560" rx="24" fill="#DDE5E8" fill-opacity="0.05" />
+        
+        <!-- Sophisticated editorial typography baselines -->
+        <rect x="440" y="140" width="340" height="22" rx="8" fill="#DDE5E8" />
+        <rect x="440" y="185" width="200" height="14" rx="6" fill="#2F5D7C" />
+        
+        <rect x="440" y="260" width="440" height="10" rx="5" fill="#DDE5E8" fill-opacity="0.6" />
+        <rect x="440" y="290" width="460" height="10" rx="5" fill="#DDE5E8" fill-opacity="0.5" />
+        <rect x="440" y="320" width="380" height="10" rx="5" fill="#DDE5E8" fill-opacity="0.4" />
+        
+        <rect x="440" y="400" width="430" height="10" rx="5" fill="#DDE5E8" fill-opacity="0.35" />
+        <rect x="440" y="430" width="450" height="10" rx="5" fill="#DDE5E8" fill-opacity="0.3" />
+        
+        <!-- Refined editorial bookmark ribbon -->
+        <path d="M 820 60 L 880 60 L 880 200 L 850 175 L 820 200 Z" fill="#F4F7F8" fill-opacity="0.9" />
+        
+</svg>

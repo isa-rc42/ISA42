@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17233A" />
+      <stop offset="50%" stop-color="#00796B" />
+      <stop offset="100%" stop-color="#17233A" />
+    </linearGradient>
+    <linearGradient id="grad_main" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#009688" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#CCFBF1" stop-opacity="0.3" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="680" fill="url(#grad_bg)" />
+  
+        <!-- Sweeping organic human trajectories -->
+        <path d="M -100 180 C 200 -80, 500 580, 800 120 C 1000 -120, 1150 280, 1300 80" fill="none" stroke="#CCFBF1" stroke-width="6" stroke-opacity="0.65" stroke-linecap="round" />
+        <path d="M -100 480 C 250 680, 450 80, 750 380 C 950 580, 1100 120, 1300 420" fill="none" stroke="#009688" stroke-width="8" stroke-opacity="0.55" stroke-linecap="round" />
+        <path d="M 100 750 C 400 300, 700 450, 1100 -50" fill="none" stroke="#CCFBF1" stroke-width="3" stroke-opacity="0.35" stroke-dasharray="14 14" />
+        
+        <!-- Dialogue meeting hubs (warm intersections) -->
+        <circle cx="315" cy="205" r="18" fill="#CCFBF1" />
+        <circle cx="315" cy="205" r="8" fill="#009688" />
+        
+        <circle cx="685" cy="315" r="24" fill="#009688" stroke="#CCFBF1" stroke-width="4" />
+        <circle cx="940" cy="235" r="14" fill="#CCFBF1" fill-opacity="0.85" />
+        <circle cx="520" cy="510" r="16" fill="#F4F7F8" fill-opacity="0.8" />
+        
+        <!-- Surrounding community resonance rings -->
+        <circle cx="685" cy="315" r="50" fill="none" stroke="#CCFBF1" stroke-width="1.5" stroke-opacity="0.4" />
+        <circle cx="315" cy="205" r="40" fill="none" stroke="#009688" stroke-width="1.5" stroke-opacity="0.3" />
+        
+</svg>

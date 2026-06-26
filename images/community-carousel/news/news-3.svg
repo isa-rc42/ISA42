@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17233A" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+    <linearGradient id="g_main" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6B9080" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#B7D7C2" stop-opacity="0.15" />
+    </linearGradient>
+    <linearGradient id="g_soft" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B7D7C2" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#6B9080" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="680" fill="url(#g_bg)" />
+  
+        <!-- Flowing editorial baseline tracks -->
+        <path d="M 0 200 C 400 150, 800 250, 1200 180" fill="none" stroke="#B7D7C2" stroke-width="2" stroke-opacity="0.25" stroke-dasharray="16 8" />
+        <path d="M 0 340 C 350 380, 750 300, 1200 340" fill="none" stroke="#B7D7C2" stroke-width="1.5" stroke-opacity="0.2" />
+        <path d="M 0 480 C 450 420, 850 520, 1200 460" fill="none" stroke="#B7D7C2" stroke-width="3" stroke-opacity="0.15" />
+        
+        <!-- Graceful sweeping wave ribbons (editorial flow) -->
+        <path d="M -100 120 C 300 20, 700 260, 1300 100 L 1300 240 C 700 400, 300 160, -100 260 Z" fill="url(#g_main)" />
+        <path d="M -100 300 C 400 200, 800 420, 1300 280 L 1300 400 C 800 540, 400 320, -100 440 Z" fill="url(#g_soft)" />
+        <path d="M -100 460 C 350 380, 850 580, 1300 440 L 1300 540 C 850 680, 350 480, -100 580 Z" fill="#6B9080" fill-opacity="0.25" />
+        
+        <!-- Abstract reading indicators floating in stream -->
+        <circle cx="320" cy="180" r="6" fill="#B7D7C2" fill-opacity="0.8" />
+        <circle cx="740" cy="340" r="8" fill="#EAF7F5" fill-opacity="0.9" />
+        <circle cx="520" cy="480" r="5" fill="#B7D7C2" fill-opacity="0.7" />
+        <line x1="340" y1="180" x2="440" y2="180" stroke="#B7D7C2" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6" />
+        <line x1="760" y1="340" x2="900" y2="340" stroke="#EAF7F5" stroke-width="3" stroke-linecap="round" stroke-opacity="0.7" />
+        
+</svg>
