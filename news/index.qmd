@@ -12,9 +12,16 @@ toc: false
 ```{=html}
 <style>
 /* Estilos locales encapsulados para News & Community Hub */
+header.quarto-title-block,
+.quarto-title-block,
+.news-action-bar {
+  margin-bottom: 0.5rem !important;
+  padding-bottom: 0 !important;
+}
+
 .news-hub-layout {
   width: min(1180px, calc(100vw - 3rem));
-  margin: 1.75rem auto 0;
+  margin: 0.5rem auto 0 !important;
   display: grid;
   grid-template-columns: minmax(640px, 760px) minmax(280px, 320px);
   gap: 1.5rem;
