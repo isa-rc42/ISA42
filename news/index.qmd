@@ -5,23 +5,47 @@ toc: false
 
 ::: {.community-page}
 
-::: {.news-action-bar}
-[Submit a contribution &rarr;](../contact/index.qmd#community-contributions){.news-header-action}
-:::
-
 ```{=html}
 <style>
 /* Estilos locales encapsulados para News & Community Hub */
 header.quarto-title-block,
-.quarto-title-block,
-.news-action-bar {
-  margin-bottom: 0.5rem !important;
+.quarto-title-block {
+  margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  min-height: 0 !important;
+}
+
+.quarto-title-block h1.title,
+h1.title {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.news-main-action-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: -0.45rem 0 0.45rem 0;
+  padding: 0;
+}
+
+.news-submit-button,
+.news-header-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.38rem 0.72rem !important;
+  min-height: 0 !important;
+  border-radius: 999px;
+  font-size: 0.78rem !important;
+  line-height: 1.1 !important;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .news-hub-layout {
   width: min(1180px, calc(100vw - 3rem));
-  margin: 0.5rem auto 0 !important;
+  margin: -1.25rem auto 0 !important;
   display: grid;
   grid-template-columns: minmax(640px, 760px) minmax(280px, 320px);
   gap: 1.5rem;
@@ -150,9 +174,10 @@ header.quarto-title-block,
 @media (max-width: 980px) {
   .news-hub-layout {
     width: min(100%, calc(100vw - 1.5rem));
+    margin-top: 0.5rem !important;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    transform: none;
+    transform: none !important;
   }
 
   .news-hub-aside {
@@ -168,6 +193,16 @@ header.quarto-title-block,
 
 <div class="news-hub-layout">
   <main class="news-hub-main">
+    <div class="news-main-action-row">
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1"
+        target="_blank"
+        rel="noopener"
+        class="news-header-action news-submit-button"
+      >
+        Submit a contribution &rarr;
+      </a>
+    </div>
     <div class="community-filter-bar">
       <span class="filter-label">Filter by:</span>
       
