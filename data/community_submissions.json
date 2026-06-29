@@ -10,7 +10,7 @@
     "url": "https://spsp.org/events/annual-convention/submissions",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-20",
     "relevant_date": "2026-09-15",
     "tags": [
       "research",
@@ -20,7 +20,8 @@
       "conference",
       "network",
       "global"
-    ]
+    ],
+    "submitted_at": "2026-06-20"
   },
   {
     "id": "sub-20260620-215028",
@@ -33,14 +34,15 @@
     "url": "https://journals.sagepub.com/page/spq/call-for-papers",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-20",
     "relevant_date": "2026-12-15",
     "tags": [
       "research",
       "publication",
       "call",
       "early career"
-    ]
+    ],
+    "submitted_at": "2026-06-20"
   },
   {
     "id": "sub-20260620-233219",
@@ -53,14 +55,15 @@
     "url": "https://www.easp.eu/news/itm/call_for_papers_the_social_psych-2177.html",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-20",
     "relevant_date": "2026-08-31",
     "tags": [
       "research",
       "call",
       "conference",
       "global"
-    ]
+    ],
+    "submitted_at": "2026-06-20"
   },
   {
     "id": "sub-20260620-233430",
@@ -73,13 +76,14 @@
     "url": "https://www.easp.eu/news/itm/call_for_papers_in_journal_of_co-2252.html",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-20",
     "relevant_date": "2026-11-30",
     "tags": [
       "research",
       "call",
       "global"
-    ]
+    ],
+    "submitted_at": "2026-06-20"
   },
   {
     "id": "sub-20260620-233622",
@@ -92,14 +96,15 @@
     "url": "https://www.easp.eu/news/itm/combating_harmful_stereotyping_a-2274.html",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-20",
     "relevant_date": "2027-05-01",
     "tags": [
       "research",
       "call",
       "conference",
       "global"
-    ]
+    ],
+    "submitted_at": "2026-06-20"
   },
   {
     "id": "sub-20260620-233810",
@@ -112,7 +117,7 @@
     "url": "https://www.easp.eu/news/itm/call_for_papers_social_processes-2292.html",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-20",
     "relevant_date": "2027-02-26",
     "tags": [
       "research",
@@ -120,7 +125,8 @@
       "call",
       "global",
       "open access"
-    ]
+    ],
+    "submitted_at": "2026-06-20"
   },
   {
     "id": "sub-20260623-144007",
@@ -133,14 +139,15 @@
     "url": "https://www.frontiersin.org/research-topics/77538/cyberpsychology-and-social-dynamics-in-the-connected-world",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-23",
     "relevant_date": "2026-09-14",
     "tags": [
       "research",
       "publication",
       "call",
       "global"
-    ]
+    ],
+    "submitted_at": "2026-06-23"
   },
   {
     "id": "sub-20260624-120743",
@@ -153,14 +160,15 @@
     "url": "https://www.frontiersin.org/research-topics/79490/towards-reflexive-and-context-sensitive-research-in-personality-and-social-psychology",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-24",
     "relevant_date": "2026-10-13",
     "tags": [
       "research",
       "publication",
       "call",
       "global"
-    ]
+    ],
+    "submitted_at": "2026-06-24"
   },
   {
     "id": "sub-20260625-121523",
@@ -173,10 +181,11 @@
     "url": "https://open.umn.edu/opentextbooks/textbooks/principles-of-social-psychology",
     "language": "English",
     "member_display_name": "",
-    "date_published": "2026-06-27",
+    "date_published": "2026-06-25",
     "relevant_date": "",
     "tags": [
       "teaching"
-    ]
+    ],
+    "submitted_at": "2026-06-25"
   }
 ]

@@ -180,17 +180,22 @@ document.addEventListener('DOMContentLoaded', () => {
     return isNaN(parsed.getTime()) ? null : parsed;
   }
 
-  function getContributionCreatedDate(item) {
+  function getContributionDate(item) {
     return (
-      parseSubmissionIdDate(item.submission_id) ||
-      parseSubmissionIdDate(item.id) ||
-      parseDate(item.created_at) ||
       parseDate(item.submitted_at) ||
       parseDate(item.date_submitted) ||
+      parseDate(item.created_at) ||
       parseDate(item.form_timestamp) ||
       parseDate(item.timestamp) ||
+      parseSubmissionIdDate(item.submission_id) ||
+      parseSubmissionIdDate(item.id) ||
+      parseDate(item.date_published) ||
       null
     );
+  }
+
+  function getContributionCreatedDate(item) {
+    return getContributionDate(item);
   }
 
   fetch("data/community_submissions.json")
@@ -203,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .map((item, index) => ({ ...item, __originalIndex: index }))
         .filter(item => item.title && isPublished(item))
         .sort((a, b) => {
-          const da = getContributionCreatedDate(a);
-          const db = getContributionCreatedDate(b);
+          const da = getContributionDate(a);
+          const db = getContributionDate(b);
 
           if (da && db) return db - da;
           if (db && !da) return 1;
@@ -255,6 +260,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return `images/community-carousel/${typeKey}/${typeKey}-${variant}.svg`;
       }
 
+      function formatDisplayDate(date) {
+        if (!date) return "";
+        const d = date instanceof Date ? date : new Date(date + (typeof date === "string" && !date.includes("T") ? "T00:00:00" : ""));
+        if (Number.isNaN(d.getTime())) return (date || "").toString();
+        return d.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric"
+        });
+      }
+
       let html = '';
       latestItems.forEach(item => {
         const url = item.url ? item.url : 'news/index.html';
@@ -288,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <span class="home-community-card-kicker">${metaStr}</span>
               </div>
-              <span class="home-community-card-date">${item.date_published || ''}</span>
+              <span class="home-community-card-date">${formatDisplayDate(getContributionDate(item))}</span>
             </div>
           
             <div class="home-community-card-body">

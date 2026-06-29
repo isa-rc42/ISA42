@@ -151,6 +151,16 @@ def parse_flexible_date(value, row_number=None, field_name="date", required=Fals
     )
     return ""
 
+def extract_submission_date(row, sub_id):
+    ts = row.get("timestamp", "") or row.get("submitted_at", "")
+    parsed_ts = parse_flexible_date(ts, required=False)
+    if parsed_ts:
+        return parsed_ts
+    match = re.search(r"(\d{4})(\d{2})(\d{2})", str(sub_id))
+    if match:
+        return f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
+    return ""
+
 def parse_tags(tags_str):
     if not tags_str:
         return []
@@ -327,13 +337,17 @@ def main():
         else:
             record["member_display_name"] = ""
             
-        # 11. Date Published
-        record["date_published"] = parse_flexible_date(
+        # 11. Date Published & Submitted At
+        sub_date = extract_submission_date(row, sub_id)
+        record["submitted_at"] = sub_date if sub_date else today_santiago_iso()
+        
+        parsed_pub = parse_flexible_date(
             row.get("date_published", ""),
             row_number=i,
             field_name="date_published",
-            required=True,
+            required=False,
         )
+        record["date_published"] = parsed_pub if parsed_pub else record["submitted_at"]
         
         # 11b. Relevant Date
         record["relevant_date"] = parse_flexible_date(

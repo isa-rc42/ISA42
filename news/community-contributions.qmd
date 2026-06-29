@@ -128,23 +128,28 @@ document.addEventListener("DOMContentLoaded", async function() {
     return isNaN(parsed.getTime()) ? null : parsed;
   }
 
-  function getContributionCreatedDate(item) {
+  function getContributionDate(item) {
     return (
-      parseSubmissionIdDate(item.submission_id) ||
-      parseSubmissionIdDate(item.id) ||
-      parseDate(item.created_at) ||
       parseDate(item.submitted_at) ||
       parseDate(item.date_submitted) ||
+      parseDate(item.created_at) ||
       parseDate(item.form_timestamp) ||
       parseDate(item.timestamp) ||
+      parseSubmissionIdDate(item.submission_id) ||
+      parseSubmissionIdDate(item.id) ||
+      parseDate(item.date_published) ||
       null
     );
   }
 
+  function getContributionCreatedDate(item) {
+    return getContributionDate(item);
+  }
+
   function sortByContributionOrderDesc(data) {
     return [...data].sort((a, b) => {
-      const da = getContributionCreatedDate(a);
-      const db = getContributionCreatedDate(b);
+      const da = getContributionDate(a);
+      const db = getContributionDate(b);
 
       if (da && db) return db - da;
       if (db && !da) return 1;
@@ -190,8 +195,8 @@ document.addEventListener("DOMContentLoaded", async function() {
         if (da && !db) return -1;
         if (!da && db) return 1;
 
-        const pa = parseDate(a.date_published);
-        const pb = parseDate(b.date_published);
+        const pa = getContributionDate(a);
+        const pb = getContributionDate(b);
         if (pa && pb) return pb - pa;
         return 0;
       });
@@ -283,6 +288,17 @@ document.addEventListener("DOMContentLoaded", async function() {
     return "Relevant date";
   }
 
+  function formatDisplayDate(date) {
+    if (!date) return "";
+    const d = date instanceof Date ? date : new Date(date + (typeof date === "string" && !date.includes("T") ? "T00:00:00" : ""));
+    if (Number.isNaN(d.getTime())) return escapeHtml(date.toString());
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+
   function formatDate(dateString) {
     if (!dateString) return "";
     const date = new Date(dateString + "T00:00:00");
@@ -329,7 +345,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       const desc = escapeHtml(item.description);
       const type = escapeHtml(item.type);
       const cat = escapeHtml(item.category);
-      const date = escapeHtml(item.date_published);
+      const contributedDate = getContributionDate(item);
       const relevantDate = escapeHtml(item.relevant_date || "");
       const url = escapeHtml(item.url || '');
       const org = escapeHtml(item.organization || item.territory || '');
@@ -351,7 +367,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       if (lang) metaHtml += `<span>${lang}</span>`;
       
       let datesHtml = '';
-      if (date) datesHtml += `<span>Posted: ${formatDate(date)}</span>`;
+      if (contributedDate) datesHtml += `<span>Submitted: ${formatDisplayDate(contributedDate)}</span>`;
       const deadlineRaw = getDeadline(item);
       const deadlineVal = escapeHtml(deadlineRaw);
       if (deadlineVal) {
