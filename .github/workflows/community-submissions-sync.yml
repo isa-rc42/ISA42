@@ -2,7 +2,8 @@ name: Community Submissions Sync
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 12 * * *'
+      timezone: 'America/Santiago'
   workflow_dispatch:
 
 permissions:

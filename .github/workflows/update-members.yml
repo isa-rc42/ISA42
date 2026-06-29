@@ -2,7 +2,8 @@ name: Update Members from Google Sheets
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Run daily at midnight UTC
+    - cron: '0 12 * * *' # Run daily at 12:00 PM Chile time
+      timezone: 'America/Santiago'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
