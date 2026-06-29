@@ -230,42 +230,6 @@ document.addEventListener("DOMContentLoaded", async function() {
   const languageFilter = document.getElementById('languageFilter');
   let allData = [];
 
-  try {
-    const response = await fetch("../data/community_submissions.json");
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    allData = await response.json();
-    
-    // Add original index for stable fallback sorting
-    allData = allData.map((item, index) => ({
-      ...item,
-      __originalIndex: index
-    }));
-    
-    // Initial sort logic applies on load
-    
-    if (allData.length === 0) {
-      container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
-      return;
-    }
-    
-    populateFilters(allData);
-    
-    typeFilter.addEventListener('change', () => renderCards(allData));
-    categoryFilter.addEventListener('change', () => renderCards(allData));
-    languageFilter.addEventListener('change', () => renderCards(allData));
-    
-    const sortMode = document.getElementById('sort-mode');
-    if (sortMode) {
-      sortMode.addEventListener('change', () => renderCards(allData));
-    }
-
-    renderCards(allData);
-  } catch (error) {
-    console.error("Failed to load community submissions:", error);
-    container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
-  }
-
-  
   const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   function makeLocalDateParts(year, month, day, hour = 0, minute = 0, second = 0) {
@@ -288,42 +252,25 @@ document.addEventListener("DOMContentLoaded", async function() {
 
   function parseSheetTimestamp(value) {
     if (!value) return null;
+
     const str = value.toString().trim();
     const match = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+
     if (!match) return null;
 
-    const month = match[1];
-    const day = match[2];
-    const year = match[3];
-    const hour = match[4] || 0;
-    const minute = match[5] || 0;
-    const second = match[6] || 0;
-
-    return makeLocalDateParts(year, month, day, hour, minute, second);
-  }
-
-  function parseSubmissionIdDate(value) {
-    if (!value) return null;
-    const str = value.toString();
-    const match = str.match(/(\d{8})[-_]?(\d{6})?/);
-    if (!match) return null;
-
-    const datePart = match[1];
-    const timePart = match[2] || "000000";
-
-    const year = datePart.slice(0, 4);
-    const month = datePart.slice(4, 6);
-    const day = datePart.slice(6, 8);
-
-    const hour = timePart.slice(0, 2);
-    const minute = timePart.slice(2, 4);
-    const second = timePart.slice(4, 6);
-
-    return makeLocalDateParts(year, month, day, hour, minute, second);
+    return makeLocalDateParts(
+      match[3],
+      match[1],
+      match[2],
+      match[4] || 0,
+      match[5] || 0,
+      match[6] || 0
+    );
   }
 
   function parseIsoDateSafely(value) {
     if (!value) return null;
+
     const str = value.toString().trim();
 
     const dateOnly = str.match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -346,15 +293,28 @@ document.addEventListener("DOMContentLoaded", async function() {
     return null;
   }
 
-  function parseDate(value) {
+  function parseSubmissionIdDate(value) {
     if (!value) return null;
-    const parsed = parseSheetTimestamp(value) || parseIsoDateSafely(value);
-    if (parsed && parsed.date) return parsed.date;
-    const date = new Date(value);
-    return isNaN(date.getTime()) ? null : date;
+
+    const str = value.toString();
+    const match = str.match(/(\d{8})[-_]?(\d{6})?/);
+
+    if (!match) return null;
+
+    const datePart = match[1];
+    const timePart = match[2] || "000000";
+
+    return makeLocalDateParts(
+      datePart.slice(0, 4),
+      datePart.slice(4, 6),
+      datePart.slice(6, 8),
+      timePart.slice(0, 2),
+      timePart.slice(2, 4),
+      timePart.slice(4, 6)
+    );
   }
 
-  function getContributionSubmittedDate(item) {
+  function getSubmittedDate(item) {
     return (
       parseSheetTimestamp(item.timestamp) ||
       parseSheetTimestamp(item.form_timestamp) ||
@@ -371,18 +331,26 @@ document.addEventListener("DOMContentLoaded", async function() {
     );
   }
 
-  function getContributionDate(item) {
-    return getContributionSubmittedDate(item);
+  function formatSubmittedDate(parsed) {
+    if (!parsed || !parsed.year || !parsed.month || !parsed.day) return "";
+    const monthLabel = MONTH_LABELS[parsed.month - 1] || "";
+    return `${monthLabel} ${parsed.day}, ${parsed.year}`;
   }
 
-  function getContributionCreatedDate(item) {
-    return getContributionSubmittedDate(item);
+  function isPublished(item) {
+    const status = (item.status || item.review_status || item.publication_status || "").toString().toLowerCase();
+    const publish = (item.publish_on_site || item.publish || "").toString().toLowerCase();
+
+    if (publish && ["no", "false", "0"].includes(publish)) return false;
+    if (!status) return true;
+
+    return ["approved", "published", "publish", "accepted"].includes(status);
   }
 
-  function sortByContributionOrderDesc(data) {
-    return [...data].sort((a, b) => {
-      const da = getContributionSubmittedDate(a);
-      const db = getContributionSubmittedDate(b);
+  function sortBySubmittedDateDesc(items) {
+    return [...items].sort((a, b) => {
+      const da = getSubmittedDate(a);
+      const db = getSubmittedDate(b);
 
       const ta = da && da.date ? da.date.getTime() : null;
       const tb = db && db.date ? db.date.getTime() : null;
@@ -397,10 +365,25 @@ document.addEventListener("DOMContentLoaded", async function() {
     });
   }
 
+  function getDeadline(item) {
+    return (
+      item.deadline ||
+      item.date_deadline ||
+      item.submission_deadline ||
+      item.closing_date ||
+      item.due_date ||
+      item.date_due ||
+      item.relevant_date ||
+      ""
+    );
+  }
+
   function isDeadlinePassed(item) {
     const deadlineValue = getDeadline(item);
-    const deadlineDate = parseDate(deadlineValue);
-    if (!deadlineDate) return false;
+    if (!deadlineValue) return false;
+    const parsed = parseSheetTimestamp(deadlineValue) || parseIsoDateSafely(deadlineValue);
+    let deadlineDate = parsed && parsed.date ? parsed.date : new Date(deadlineValue);
+    if (isNaN(deadlineDate.getTime())) return false;
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -424,15 +407,19 @@ document.addEventListener("DOMContentLoaded", async function() {
         if (!aExpired && bExpired) return -1;
         if (aExpired && !bExpired) return 1;
 
-        const da = parseDate(getDeadline(a));
-        const db = parseDate(getDeadline(b));
+        const daRaw = getDeadline(a);
+        const dbRaw = getDeadline(b);
+        const daParsed = parseSheetTimestamp(daRaw) || parseIsoDateSafely(daRaw);
+        const dbParsed = parseSheetTimestamp(dbRaw) || parseIsoDateSafely(dbRaw);
+        const da = daParsed && daParsed.date ? daParsed.date.getTime() : (daRaw ? new Date(daRaw).getTime() : null);
+        const db = dbParsed && dbParsed.date ? dbParsed.date.getTime() : (dbRaw ? new Date(dbRaw).getTime() : null);
 
-        if (da && db) return da - db;
-        if (da && !db) return -1;
-        if (!da && db) return 1;
+        if (da && db && !isNaN(da) && !isNaN(db)) return da - db;
+        if (da && !isNaN(da) && (!db || isNaN(db))) return -1;
+        if ((!da || isNaN(da)) && db && !isNaN(db)) return 1;
 
-        const pa = getContributionSubmittedDate(a);
-        const pb = getContributionSubmittedDate(b);
+        const pa = getSubmittedDate(a);
+        const pb = getSubmittedDate(b);
         const ta = pa && pa.date ? pa.date.getTime() : null;
         const tb = pb && pb.date ? pb.date.getTime() : null;
         if (ta && tb) return tb - ta;
@@ -441,7 +428,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       return sorted;
     }
 
-    return sortByContributionOrderDesc(sorted);
+    return sortBySubmittedDateDesc(sorted);
   }
 
   function populateFilters(data) {
@@ -526,29 +513,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     return "Relevant date";
   }
 
-  function formatSubmittedDate(parsed) {
-    if (!parsed || !parsed.year || !parsed.month || !parsed.day) return "";
-    const monthLabel = MONTH_LABELS[parsed.month - 1] || "";
-    return `${monthLabel} ${parsed.day}, ${parsed.year}`;
-  }
-
-  function formatDisplayDate(dateObjOrStr) {
-    if (!dateObjOrStr) return "";
-    if (dateObjOrStr.year && dateObjOrStr.month && dateObjOrStr.day) {
-      return formatSubmittedDate(dateObjOrStr);
-    }
-    const parsed = parseSheetTimestamp(dateObjOrStr) || parseIsoDateSafely(dateObjOrStr);
-    if (parsed) return formatSubmittedDate(parsed);
-    return escapeHtml(dateObjOrStr.toString());
-  }
-
-  function formatDate(dateString) {
-    if (!dateString) return "";
-    const parsed = parseSheetTimestamp(dateString) || parseIsoDateSafely(dateString);
-    if (parsed) return formatSubmittedDate(parsed);
-    return escapeHtml(dateString.toString());
-  }
-
   function escapeHtml(unsafe) {
     return (unsafe || "").toString()
          .replace(/&/g, "&amp;")
@@ -582,10 +546,6 @@ document.addEventListener("DOMContentLoaded", async function() {
       const isFirst = index === 0 ? 'open' : '';
       const title = escapeHtml(item.title);
       const desc = escapeHtml(item.description);
-      const type = escapeHtml(item.type);
-      const cat = escapeHtml(item.category);
-      const contributedDate = getContributionDate(item);
-      const relevantDate = escapeHtml(item.relevant_date || "");
       const url = escapeHtml(item.url || '');
       const org = escapeHtml(item.organization || item.territory || '');
       const lang = escapeHtml(item.language || '');
@@ -605,13 +565,19 @@ document.addEventListener("DOMContentLoaded", async function() {
       if (org) metaHtml += `<span>${org}</span>`;
       if (lang) metaHtml += `<span>${lang}</span>`;
       
+      const submittedDate = getSubmittedDate(item);
+      const submittedLabel = formatSubmittedDate(submittedDate);
       let datesHtml = '';
-      if (contributedDate) datesHtml += `<span>Submitted: ${formatDisplayDate(contributedDate)}</span>`;
+      if (submittedLabel) {
+        datesHtml += `<div class="community-card-date">Submitted: ${submittedLabel}</div>`;
+      }
+      
       const deadlineRaw = getDeadline(item);
-      const deadlineVal = escapeHtml(deadlineRaw);
-      if (deadlineVal) {
+      if (deadlineRaw) {
         const label = getRelevantDateLabel(item.type);
-        datesHtml += `<span>${label}: ${formatDate(deadlineVal)}${expired ? ' <span class="contribution-status contribution-status-closed">Closed</span>' : ''}</span>`;
+        const parsedDl = parseSheetTimestamp(deadlineRaw) || parseIsoDateSafely(deadlineRaw);
+        const formattedDl = parsedDl ? formatSubmittedDate(parsedDl) : escapeHtml(deadlineRaw.toString());
+        datesHtml += `<div class="community-card-date">${label}: ${formattedDl}${expired ? ' <span class="contribution-status contribution-status-closed">Closed</span>' : ''}</div>`;
       }
       
       let combinedMeta = '';
@@ -647,6 +613,40 @@ document.addEventListener("DOMContentLoaded", async function() {
     });
     html += '</div>';
     container.innerHTML = html;
+  }
+
+  try {
+    const response = await fetch("../data/community_submissions.json");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const rawData = await response.json();
+    
+    allData = rawData
+      .filter(item => item && item.title && isPublished(item))
+      .map((item, index) => ({
+        ...item,
+        __originalIndex: index
+      }));
+    
+    if (allData.length === 0) {
+      container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
+      return;
+    }
+    
+    populateFilters(allData);
+    
+    typeFilter.addEventListener('change', () => renderCards(allData));
+    categoryFilter.addEventListener('change', () => renderCards(allData));
+    languageFilter.addEventListener('change', () => renderCards(allData));
+    
+    const sortMode = document.getElementById('sort-mode');
+    if (sortMode) {
+      sortMode.addEventListener('change', () => renderCards(allData));
+    }
+
+    renderCards(allData);
+  } catch (error) {
+    console.error("Failed to load community submissions:", error);
+    container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';
   }
 });
 </script>
