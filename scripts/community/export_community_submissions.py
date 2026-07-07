@@ -196,7 +196,7 @@ def generate_rss(export_data):
     xml_parts.append('<rss version="2.0">')
     xml_parts.append('  <channel>')
     xml_parts.append('    <title>RC42 Community Contributions</title>')
-    xml_parts.append('    <link>https://karavena.github.io/ISA42/news/community-contributions.html</link>')
+    xml_parts.append('    <link>https://isa-rc42.github.io/ISA42/news/community-contributions.html</link>')
     xml_parts.append('    <description>Latest community contributions reviewed and published by ISA RC42 Social Psychology.</description>')
     
     for dt, item in top_items:
@@ -208,7 +208,7 @@ def generate_rss(export_data):
         
         url = item.get("url", "").strip()
         if not url:
-            url = "https://karavena.github.io/ISA42/news/community-contributions.html"
+            url = "https://isa-rc42.github.io/ISA42/news/community-contributions.html"
         link = html.escape(url)
         
         # Build description

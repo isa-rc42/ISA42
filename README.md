@@ -1,1 +1,1 @@
-https://karavena.github.io/ISA42/
+https://isa-rc42.github.io/ISA42/
