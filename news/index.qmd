@@ -188,7 +188,6 @@ h1.title {
   .news-side-highlight-card {
     max-width: 100%;
   }
-}
 </style>
 
 <div class="news-hub-layout">
@@ -203,6 +202,7 @@ h1.title {
         Submit a contribution &rarr;
       </a>
     </div>
+
     <div class="community-filter-bar">
       <span class="filter-label">Filter by:</span>
       
@@ -238,6 +238,8 @@ h1.title {
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
+
+    {{< include ../includes/newsletter/newsletter-block.html >}}
   </main>
 
   <aside class="news-hub-aside" aria-label="News highlights">

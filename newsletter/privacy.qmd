@@ -1,0 +1,12 @@
+---
+title: "Community Updates Privacy Notice"
+toc: false
+---
+
+ISA RC42 Social Psychology uses your email address only to send notifications when new Community Contributions are published.
+
+Your email address and subscription status are stored in a private Google Sheet accessible only to authorized ISA RC42 administrators. We also keep a minimal record of subscription confirmation and, when applicable, unsubscription so that we do not continue sending messages after you opt out.
+
+You can unsubscribe at any time using the **Unsubscribe** link included in every Community Updates email. To request deletion or ask a question about this subscription data, contact ISA RC42 through the contact information published on this website.
+
+Subscription data is not published in the ISA RC42 GitHub repository or displayed publicly on the website.
