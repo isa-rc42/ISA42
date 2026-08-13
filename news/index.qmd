@@ -238,8 +238,6 @@ h1.title {
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-
-    {{< include ../includes/newsletter/newsletter-block.html >}}
   </main>
 
   <aside class="news-hub-aside" aria-label="News highlights">
@@ -258,6 +256,8 @@ h1.title {
     </a>
   </aside>
 </div>
+
+{{< include ../includes/newsletter/newsletter-block.html >}}
 
 <script>
 document.addEventListener("DOMContentLoaded", async function() {
