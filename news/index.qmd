@@ -257,8 +257,6 @@ h1.title {
   </aside>
 </div>
 
-{{< include ../includes/newsletter/newsletter-block.html >}}
-
 <script>
 document.addEventListener("DOMContentLoaded", async function() {
   const container = document.getElementById('latest-contributions-container');
