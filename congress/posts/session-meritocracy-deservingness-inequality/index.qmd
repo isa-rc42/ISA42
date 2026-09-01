@@ -1,0 +1,28 @@
+---
+title: "Meritocracy, Deservingness, and Inequality"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Juan Carlos Castillo"
+  - "Tomás Urzúa Moreno"
+categories: [Meritocracy, Inequality, Deservingness]
+---
+
+The session examines how meritocracy has become one of the most powerful ways of making sense of social inequalities. It investigates how concepts of merit and deservingness develop across various social contexts, focusing on how individuals determine who warrants resources, recognition, or opportunities. The session particularly emphasizes connections between personal beliefs and institutional structures in areas including education, labor markets, welfare systems, migration policy, and digital platforms. Research exploring the effects of meritocratic beliefs, the creation of deservingness boundaries, and efforts to challenge or sustain these moral frameworks is welcomed. The session accepts empirical, theoretical, comparative, historical, qualitative, quantitative, and mixed-methods submissions.
+
+**Organizer(s)/Chair(s):**
+
+- Juan Carlos Castillo, Department of Sociology, Universidad de Chile, Chile
+- Tomás Urzúa Moreno, Department of Sociology, Universidad de Chile, Chile
+
+**Host committee(s):** RC42 Social Psychology
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session27543.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Group Processes](/congress/posts/session-group-processes/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Political Socialization of Younger Generations: Participation, Beliefs, Attitudes and Knowledge →](/congress/posts/session-political-socialization-younger-generations/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

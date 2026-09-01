@@ -1,0 +1,26 @@
+---
+title: "Social Networks and Political Life: Attitudes, Behavior, and Cleavages"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Alejandro Plaza Reveco"
+categories: [Social Networks, Political Behavior]
+---
+
+The session examines how interpersonal networks shape political attitudes and behavior, moving beyond individual preference explanations. It focuses on network structure seriously as an explanatory object, investigating mechanisms like homophily, transitivity, and closure. Topics include far-right voting, polarization, social trust, and political cleavages. The session welcomes empirical, theoretical, and methodological work using various designs, particularly those measuring social ties directly or offering comparative perspectives beyond Western contexts. It bridges network analysis with sociological traditions including Simmel's cross-cutting ties, Coleman's social capital, and Allport's intergroup contact theory.
+
+**Organizer(s)/Chair(s):**
+
+- Alejandro Plaza Reveco
+
+**Host committee(s):** RC42 Social Psychology; RC45 Micro-Macro Modelling
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session27849.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Sensitive Research: Positionality and Reflexivity In Fragile and Violence-Affected Contexts](/congress/posts/session-sensitive-research-positionality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[The Social Psychology of Inequality: Perceptions, Emotions, and Justifications In Turbulent Times →](/congress/posts/session-social-psychology-of-inequality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

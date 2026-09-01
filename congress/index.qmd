@@ -1,0 +1,29 @@
+---
+title: "ISA Congress"
+subtitle: "RC42 sessions at the ISA World Congress of Sociology"
+listing:
+  contents: posts
+  type: grid
+  sort:
+    - "date desc"
+    - "title asc"
+  categories: false
+  feed: true
+  fields: [title, description, author, categories]
+page-layout: full
+title-block-banner: true
+---
+
+RC42 organizes and co-sponsors sessions at the [XXI ISA World Congress of Sociology](https://www.isa-sociology.org/en/conferences/world-congress/gwangju-2027), taking place July 4–10, 2027 in Gwangju, South Korea. Browse our sessions below, or see the [full program listing](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Symposium924.html).
+
+```{=html}
+<style>
+/* Card tints drawn from the WCS27 poster palette, cycled across the grid */
+#listing-listing .list.grid > div:nth-child(6n+1) .quarto-grid-item { background-color: #fdf0f1; border-color: #f9d6d8; }
+#listing-listing .list.grid > div:nth-child(6n+2) .quarto-grid-item { background-color: #f7faf7; border-color: #eaf2ea; }
+#listing-listing .list.grid > div:nth-child(6n+3) .quarto-grid-item { background-color: #f4ecf2; border-color: #e1cbdc; }
+#listing-listing .list.grid > div:nth-child(6n+4) .quarto-grid-item { background-color: #f8eef3; border-color: #edd0df; }
+#listing-listing .list.grid > div:nth-child(6n+5) .quarto-grid-item { background-color: #f4f6f3; border-color: #e1e7de; }
+#listing-listing .list.grid > div:nth-child(6n+6) .quarto-grid-item { background-color: #fbeef2; border-color: #f6d0db; }
+</style>
+```

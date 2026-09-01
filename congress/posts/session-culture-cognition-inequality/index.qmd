@@ -1,0 +1,32 @@
+---
+title: "Culture, Cognition and Inequality"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Francisco Olivos"
+  - "Peng Wang"
+categories: [Culture, Cognition, Inequality]
+---
+
+The session examines connections between cultural frameworks, cognitive processes, and social inequality. It seeks research on how cultural knowledge — broadly understood as beliefs, values, attitudes, identities, schemas, and repertoires — influences the ways individuals understand and respond to social hierarchies and social change.
+
+Topic areas include cultural schemas and inequality perception, navigation of hierarchies through cultural knowledge, reproduction of inequalities, social class and status beliefs, family and education's role in cultural acquisition, status attainment, cross-national perspectives, subjective well-being, and methodological innovations including computational approaches.
+
+**Organizer(s)/Chair(s):**
+
+- Francisco Olivos, Lingnan University, Hong Kong
+- Peng Wang, Peking University, China
+
+**Host committee(s):** RC42 Social Psychology
+
+**Language(s):** English
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session26666.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Crisis, Subjectivity, and Civic Agency In the Global South: Social Emotions, Meaning-Making, and Democratic Imaginaries](/congress/posts/session-crisis-subjectivity-civic-agency/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Digital Health Technologies As Sites of Subjectivation: Algorithmic Care, Self-Governance, and the Making of New Health Subjects →](/congress/posts/session-digital-health-technologies/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

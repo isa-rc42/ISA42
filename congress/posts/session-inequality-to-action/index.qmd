@@ -1,0 +1,30 @@
+---
+title: "From Inequality to Action: How Justice and Deservingness Beliefs Shape Political Behavior"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "René Canales Sellés"
+  - "Andreas Laffert Tamayo"
+categories: [Inequality, Political Behavior, Justice]
+---
+
+This session explores how individuals' perceptions of fairness influence their political engagement. It bridges political sociology and social psychology by examining the relationship between inequality beliefs and political behavior, including justice perceptions, merit evaluations, and legitimacy judgments. Topics of interest span voting patterns, protest participation, redistribution support, and political trust across diverse methodologies — surveys, experiments, comparative designs, and qualitative approaches. The organizers particularly encourage submissions from comparative and Global South contexts.
+
+**Organizer(s)/Chair(s):**
+
+- René Canales Sellés, Bremen International Graduate School of Social Sciences (BIGSSS), University of Bremen, Germany
+- Andreas Laffert Tamayo, Cluster of Excellence "The Politics of Inequality", University of Konstanz, Germany
+
+**Host committee(s):** RC42 Social Psychology
+
+**Language(s):** English and Spanish
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session26855.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Engaging Polarising Societal Issues In the Classroom](/congress/posts/session-polarising-issues-classroom/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Group Processes →](/congress/posts/session-group-processes/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

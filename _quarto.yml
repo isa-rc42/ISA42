@@ -64,10 +64,10 @@ website:
             href: events/index.qmd
           - text: "Opportunities"
             href: opportunities/index.qmd
-          - text: "ISA World Congress 2027"
-            href: activities/world-congress-2027.qmd
           - text: "Newsletter"
             href: newsletter/index.qmd
+      - text: "ISA Congress"
+        href: congress/index.qmd
       - text: "Resources"
         href: resources/index.qmd
         menu:

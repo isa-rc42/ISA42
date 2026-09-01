@@ -426,6 +426,23 @@ a {
 }
 
 // =============================================================================
+// Session Pager (Congress post prev/next navigation)
+// =============================================================================
+.session-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $rc42-grey-light;
+
+  .session-pager-next {
+    margin-left: auto;
+  }
+}
+
+// =============================================================================
 // Typography / Kickers
 // =============================================================================
 .section-kicker {

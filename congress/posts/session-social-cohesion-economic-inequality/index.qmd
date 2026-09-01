@@ -1,0 +1,32 @@
+---
+title: "Comparative Study of Social Cohesion and Economic Inequality"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Julio Iturra"
+  - "Gonzalo Franetovic"
+categories: [Inequality, Social Cohesion, Comparative Research]
+---
+
+This session examines how economic inequality and beliefs about inequality connect to social cohesion in contemporary societies. The organizers invite submissions exploring two interrelated perspectives: macro-micro dynamics (how country-level economic conditions shape attitudes supporting social cohesion) and micro-micro interactions (how individual beliefs about distributive arrangements influence trust and solidarity).
+
+Papers may address the relationship between inequality beliefs and cohesion across groups and institutions; social and institutional mechanisms linking distributive conditions to cohesion; and how social networks mediate inequality's effects on attitudes and behavior.
+
+The session welcomes comparative research (cross-national or case-based), single-country studies with broader implications, and quantitative, qualitative, or mixed-method approaches. Submissions from political sociology, social stratification, welfare research, network sociology, and related disciplines are encouraged, with particular interest in understudied regions.
+
+**Organizer(s)/Chair(s):**
+
+- Julio Iturra, University of Bremen, Germany
+- Gonzalo Franetovic, Universitat Autònoma de Barcelona, Spain
+
+**Host committee(s):** RC42 Social Psychology
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session27597.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Comparative Critical Studies on Universal Basic Income and Basic Income](/congress/posts/session-universal-basic-income/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Crisis, Subjectivity, and Civic Agency In the Global South: Social Emotions, Meaning-Making, and Democratic Imaginaries →](/congress/posts/session-crisis-subjectivity-civic-agency/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

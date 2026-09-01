@@ -1,0 +1,25 @@
+---
+title: "Bounded Solidarities: The Interconnections of Home, Migrations and Digitization"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Sepetla Molapo"
+categories: [Migration, Digitization, Solidarity]
+---
+
+The session explores the interconnections of home, migrations, and digitization to examine contemporary forms of solidarity. It examines how migration and digitization have transformed the meaning of home as a space for questioning solidarity, conceptualizing home broadly — both within and beyond state frameworks — and inviting reflections on solidarity in relation to contemporary migration and digitization experiences.
+
+**Organizer(s)/Chair(s):**
+
+- Sepetla Molapo, University of Pretoria & University of South Africa, South Africa
+
+**Host committee(s):** RC42 Social Psychology
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session25865.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[Comparative Critical Studies on Universal Basic Income and Basic Income →](/congress/posts/session-universal-basic-income/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

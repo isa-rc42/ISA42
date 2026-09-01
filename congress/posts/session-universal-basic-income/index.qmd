@@ -1,0 +1,32 @@
+---
+title: "Comparative Critical Studies on Universal Basic Income and Basic Income"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Tania Garcia-Ramos"
+categories: [Basic Income, Social Policy, Comparative Research]
+---
+
+This session explores the benefits and challenges of Universal Basic Income (UBI) and Basic Income (BI) programs implemented in different countries and regions. Research approaches may include quantitative, qualitative, or mixed methodologies examining completed initiatives, pilot studies, comparative work, policy assessments, and theoretical investigations.
+
+Key focus areas encompass poverty alleviation, financial security, psychological wellness, autonomy, employment effects, community strengthening, and broader psychosocial impacts. The session also addresses implementation obstacles such as financial viability, program conditions, administration, political viability, and public acceptance.
+
+The organizers particularly encourage submissions offering comparative, cross-disciplinary, and worldwide viewpoints. Studies investigating how technological advancement, employment shifts, wealth disparity, and social safety nets influence these programs receive special attention. The session welcomes empirical research, literature reviews, individual studies, policy examinations, and theoretical contributions.
+
+**Organizer(s)/Chair(s):**
+
+- Tania Garcia-Ramos, Universidad de Puerto Rico, Rio Piedras campus, Puerto Rico
+
+**Host committee(s):** RC19 Poverty, Social Welfare and Social Policy; RC42 Social Psychology
+
+**Language(s):** English and Spanish
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session27074.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Bounded Solidarities: The Interconnections of Home, Migrations and Digitization](/congress/posts/session-bounded-solidarities/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Comparative Study of Social Cohesion and Economic Inequality →](/congress/posts/session-social-cohesion-economic-inequality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

@@ -1,0 +1,26 @@
+---
+title: "Digital Health Technologies As Sites of Subjectivation: Algorithmic Care, Self-Governance, and the Making of New Health Subjects"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Robert Aust"
+categories: [Health, Technology, Digitization]
+---
+
+The session explores how digitalized healthcare transforms illness, care, and patient identity. It examines eHealth technologies — including AI-driven tools, gamified platforms, wearables, and algorithmic assistants — as mechanisms that shape how health subjects are constructed and negotiated. The session addresses tensions between heightened self-monitoring and increased objectification, considering how patients, clinicians, and algorithmic systems interact within these technological frameworks. Contributions may explore subject positioning, the role of non-human actors in care relationships, professional identity shifts, and user responses ranging from adoption to resistance across diverse health contexts.
+
+**Organizer(s)/Chair(s):**
+
+- Robert Aust, Macromedia University of Applied Sciences, Campus Leipzig, Germany
+
+**Host committee(s):** RC15 Sociology of Health; RC23 Sociology of Science and Technology; RC26 Sociotechnics and Sociological Practice; RC42 Social Psychology; RC46 Clinical Sociology; RC49 Mental Health and Illness
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session27881.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Culture, Cognition and Inequality](/congress/posts/session-culture-cognition-inequality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Emotions Beyond Borders: Identity, Social Media and Affective Experiences In Digital Society →](/congress/posts/session-emotions-beyond-borders/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

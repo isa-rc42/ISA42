@@ -1,0 +1,26 @@
+---
+title: "Sensitive Research: Positionality and Reflexivity In Fragile and Violence-Affected Contexts"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Sandra Rios Oyola"
+categories: [Research Methods, Reflexivity]
+---
+
+This panel explores how researchers' positionality and reflexivity function within fieldwork conducted in violence-affected environments. The session examines qualitative re-approaches that address human rights violations and examines how researcher positioning influences research design, methodology, and interpretation. The discussion integrates intersectional frameworks with emotion-based analysis to advance understanding of situated knowledge and epistemological reflexivity as methodological concerns.
+
+**Organizer(s)/Chair(s):**
+
+- Sandra Rios Oyola, University of Louvain, Belgium
+
+**Host committee(s):** RC42 Social Psychology; TG02 Conflict Transformations and Peacebuilding
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session27854.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Political Socialization of Younger Generations: Participation, Beliefs, Attitudes and Knowledge](/congress/posts/session-political-socialization-younger-generations/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Social Networks and Political Life: Attitudes, Behavior, and Cleavages →](/congress/posts/session-social-networks-political-life/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

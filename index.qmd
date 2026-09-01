@@ -25,6 +25,38 @@ A global research committee connecting scholars interested in identities, intera
 :::
 
 <!-- ================================================================ -->
+<!-- Highlights -->
+<!-- ================================================================ -->
+
+::: {.home-section .section-grey .home-highlights}
+::: {.section-inner}
+
+::: {.section-kicker}
+Highlights
+:::
+<h2>XXI ISA World Congress of Sociology 2027</h2>
+
+::: {.columns}
+::: {.column width="45%"}
+![ISA World Congress of Sociology 2027 Poster](https://www.isa-sociology.org/sites/default/files/2026-07/WCS27_poster%20jpeg.jpg)
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+**July 4–10, 2027 · Gwangju, South Korea**
+
+**Global Sociology in Turbulent Times**
+
+The XXI ISA World Congress of Sociology will take place in Gwangju, South Korea, from July 4 to 10, 2027, under the theme "Global Sociology in Turbulent Times." The congress visual identity draws on Hangul and the cultural heritage of Gwangju, emphasizing inclusivity, connection, dialogue, diversity, and the coming together of global sociological voices.
+
+[RC 42 sessions →](congress/){.btn-rc42-secondary .btn-sm}
+:::
+:::
+
+:::
+:::
+
+<!-- ================================================================ -->
 <!-- What RC42 Does (Editorial Split Layout) -->
 <!-- ================================================================ -->
 

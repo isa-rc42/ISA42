@@ -1,0 +1,28 @@
+---
+title: "Crisis, Subjectivity, and Civic Agency In the Global South: Social Emotions, Meaning-Making, and Democratic Imaginaries"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Fateme Alamdar"
+  - "Seyed Nima Orazani"
+categories: [Global South, Emotions, Civic Agency]
+---
+
+This panel examines how people in the Global South experience political rupture emotionally and cognitively. The session integrates social psychology and sociology to investigate emotional responses — including hope, anger, fear, and solidarity — during periods of political instability. It explores how individuals interpret these experiences through meaning-making processes and how such interpretations influence civic participation, political cynicism, or collective action. The panel welcomes theoretical and empirical contributions from diverse regions, addressing how communities navigate uncertain futures amid prolonged crises.
+
+**Organizer(s)/Chair(s):**
+
+- Fateme Alamdar, Independent researcher, Iran; Coordinator, Social Psychology Group, Iranian Sociological Association
+- Seyed Nima Orazani, Carleton University, Canada
+
+**Host committee(s):** RC42 Social Psychology
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session25144.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Comparative Study of Social Cohesion and Economic Inequality](/congress/posts/session-social-cohesion-economic-inequality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Culture, Cognition and Inequality →](/congress/posts/session-culture-cognition-inequality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

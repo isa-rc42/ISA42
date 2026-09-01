@@ -314,7 +314,7 @@ main.content,
 
     <section class="rc42-activities-v1__featured" id="world-congress-2027">
       <div class="rc42-activities-v1__featured-media">
-        <img src="https://www.isa-sociology.org/uploads/imgen/2568-wcs27-poster.jpg" alt="ISA World Congress of Sociology 2027 Poster">
+        <img src="https://www.isa-sociology.org/sites/default/files/2026-07/WCS27_poster%20jpeg.jpg" alt="ISA World Congress of Sociology 2027 Poster">
       </div>
 
       <div class="rc42-activities-v1__featured-content">

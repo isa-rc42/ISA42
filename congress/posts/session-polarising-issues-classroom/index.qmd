@@ -1,0 +1,28 @@
+---
+title: "Engaging Polarising Societal Issues In the Classroom"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Charles Puttergill"
+  - "Cawo Abdi"
+categories: [Education, Polarization]
+---
+
+The session focuses on pedagogical approaches for addressing contentious topics in diverse classroom settings. It examines safe spaces amongst an often increasingly diverse cohort of students in which contentious issues can be debated. Key themes include social contestation, exclusionary practices, nationalism, immigration discourse, and xenophobia. The session seeks papers exploring how educators can interrogate structural power dynamics and inequality while advancing inclusiveness and social justice.
+
+**Organizer(s)/Chair(s):**
+
+- Charles Puttergill, University of Pretoria, South Africa
+- Cawo Abdi, University of Minnesota, USA
+
+**Host committee(s):** RC42 Social Psychology; RC46 Clinical Sociology
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session26806.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Emotions Beyond Borders: Identity, Social Media and Affective Experiences In Digital Society](/congress/posts/session-emotions-beyond-borders/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[From Inequality to Action: How Justice and Deservingness Beliefs Shape Political Behavior →](/congress/posts/session-inequality-to-action/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

@@ -1,0 +1,28 @@
+---
+title: "Political Socialization of Younger Generations: Participation, Beliefs, Attitudes and Knowledge"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Daniel Miranda"
+  - "Janina Suppers"
+categories: [Political Socialization, Youth]
+---
+
+The session examines how recent global transformations — including crises related to globalization, misinformation, and political polarization — shape younger generations' civic development. It invites scholarly contributions addressing: (1) the different agents of socialization and their role in acquiring knowledge, attitudes, beliefs, or behaviors relevant to the exercise of citizenship throughout life; (2) the social transformations and their impact on political socialization processes; and (3) the challenges that social shifts and generational differences put on current knowledge about political socialization processes.
+
+**Organizer(s)/Chair(s):**
+
+- Daniel Miranda, Department of Psychology, Faculty of Social Sciences, Universidad de Chile, Chile
+- Janina Suppers, University of Waikato, New Zealand
+
+**Host committee(s):** RC42 Social Psychology; RC34 Sociology of Youth
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session25648.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Meritocracy, Deservingness, and Inequality](/congress/posts/session-meritocracy-deservingness-inequality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Sensitive Research: Positionality and Reflexivity In Fragile and Violence-Affected Contexts →](/congress/posts/session-sensitive-research-positionality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

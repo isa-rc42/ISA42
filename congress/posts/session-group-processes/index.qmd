@@ -1,0 +1,26 @@
+---
+title: "Group Processes"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Lisa Walker"
+categories: [Group Processes, Social Interaction]
+---
+
+This session examines the underlying mechanisms that govern human behavior, influence, and organization within small groups. The research bridges individual psychology and macro-social structures, exploring how status hierarchies, power dynamics, and solidarity develop through interaction. Topics include group consensus-formation, conflict navigation, resource distribution, and collective identity development — spanning both face-to-face teams and decentralized digital networks.
+
+**Organizer(s)/Chair(s):**
+
+- Lisa Walker, University of North Carolina at Charlotte, USA
+
+**Host committee(s):** RC42 Social Psychology
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session27844.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← From Inequality to Action: How Justice and Deservingness Beliefs Shape Political Behavior](/congress/posts/session-inequality-to-action/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Meritocracy, Deservingness, and Inequality →](/congress/posts/session-meritocracy-deservingness-inequality/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::

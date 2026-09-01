@@ -1,0 +1,27 @@
+---
+title: "The Social Psychology of Inequality: Perceptions, Emotions, and Justifications In Turbulent Times"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Hye Won Kwon"
+categories: [Inequality, Emotions, Meritocracy]
+---
+
+This session examines how psychological mechanisms shape individuals' interpretations of inequality across various nations during times of rapid social change. The organizers note a paradox: despite rising income inequality and declining intergenerational mobility — both of which suggest a diminishing role of individual merit — recent studies have documented a paradoxical rise in meritocratic beliefs around the world.
+
+The session welcomes research addressing topics such as how perceptions and emotions reinforce or reduce inequalities; inequality reproduction through daily interactions; psychological justifications for disparities; development of unequal psychological resources; and how emerging technologies like AI influence responses to social disparities.
+
+**Organizer(s)/Chair(s):**
+
+- Hye Won Kwon, Ewha Womans University, South Korea
+
+**Host committee(s):** RC42 Social Psychology
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session26606.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Social Networks and Political Life: Attitudes, Behavior, and Cleavages](/congress/posts/session-social-networks-political-life/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+:::

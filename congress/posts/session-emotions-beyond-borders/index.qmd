@@ -1,0 +1,26 @@
+---
+title: "Emotions Beyond Borders: Identity, Social Media and Affective Experiences In Digital Society"
+subtitle: "RC42 session · XXI ISA World Congress of Sociology, Gwangju 2027"
+date: 2027-07-04
+author:
+  - "Jingting Zhang"
+categories: [Emotions, Social Media, Identity]
+---
+
+The session examines how social media platforms and AI-driven digital infrastructures shape emotional experiences and identity construction. It investigates the tension between algorithmic emotional convergence and cultural differentiation, considering how algorithms deliver personalized content that may influence emotional expression and identity formation. The panel addresses how global digital systems are redefining emotional expressions like solidarity and moral outrage, often intensifying political polarization. Organizers welcome empirical research, theoretical frameworks, and methodological innovations exploring how users interpret and reconfigure digital spaces.
+
+**Organizer(s)/Chair(s):**
+
+- Jingting Zhang, Shanghai International Studies University, China
+
+**Host committee(s):** RC42 Social Psychology; RC58 Society and Emotions
+
+
+[View this session on the ISA World Congress program](https://isaconf.confex.com/isaconf/wc2027/webprogrampreliminary/Session25913.html){target="_blank"}
+
+---
+
+::: {.session-pager}
+[← Digital Health Technologies As Sites of Subjectivation: Algorithmic Care, Self-Governance, and the Making of New Health Subjects](/congress/posts/session-digital-health-technologies/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-prev}
+[Engaging Polarising Societal Issues In the Classroom →](/congress/posts/session-polarising-issues-classroom/index.qmd){.btn-rc42-secondary .btn-sm .session-pager-next}
+:::
