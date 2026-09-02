@@ -1,0 +1,95 @@
+---
+title: "Members"
+subtitle: "Maintaining the membership roster, date calculations, and directory profiles"
+---
+
+The `Active Members RC42 Social Psychology` spreadsheet contains the official membership records for RC42. The website uses this single spreadsheet to generate both the active Members Directory and the Past Members archive.
+
+## Where the information is stored
+
+Member records are located in Google Drive:
+
+```
+Google Drive
+└── Core Spreadsheets
+    └── Active Members RC42 Social Psychology
+```
+
+## How active and past member status is determined
+
+Administrators do not need to move rows manually between active and past lists. The publishing system calculates member status automatically by comparing `RC Membership End Date` with the current date:
+
+* If the end date is today or in the future, the scholar is listed in Active Members.
+* If the end date is in the past, the scholar is listed in Past Members.
+
+::: {.callout-warning}
+## Date format requirement
+
+All membership dates must be entered in `DD-MM-YYYY` format (Day-Month-Year, such as `15-08-2027`). Formats such as `YYYY-MM-DD` or `MM/DD/YYYY` will prevent the system from parsing the date correctly.
+:::
+
+## Member information fields
+
+| Column header | Purpose | Requirement |
+|:---|:---|:---|
+| `Member ID` | Unique ISA identification number | Mandatory. Every member must have a distinct ID. |
+| `Member first name` | Scholar's given name | Mandatory. |
+| `Member surname` | Scholar's family name | Mandatory. |
+| `Institutional Affiliation` | University, institute, or organization | Recommended. |
+| `Department` | Academic department or faculty | Optional. |
+| `Primary address country` | Country of affiliation | Recommended for directory filtering. |
+| `RC Membership Start Date` | Start date of membership | Mandatory (`DD-MM-YYYY`). |
+| `RC Membership End Date` | Expiration date of membership | Mandatory (`DD-MM-YYYY`). Determines active versus past status. |
+
+## Routine member management
+
+### Adding a new member
+
+1. Open `Active Members RC42 Social Psychology` in Google Drive.
+2. Add a new row at the bottom of the spreadsheet.
+3. Enter the `Member ID`, `Member first name`, and `Member surname`.
+4. Enter the `Institutional Affiliation` and `Primary address country`.
+5. Enter the `RC Membership Start Date` and `RC Membership End Date` in `DD-MM-YYYY` format.
+6. Changes save automatically in Google Sheets.
+
+### Renewing an existing member
+
+1. Open `Active Members RC42 Social Psychology` and search for the member using `Ctrl + F` (or `Cmd + F`).
+2. Locate the `RC Membership End Date` column.
+3. Update the date to the new expiration date (for example, `30-06-2028`).
+
+### Deactivating a member
+
+1. Locate the member's row in the spreadsheet.
+2. Set their `RC Membership End Date` to a date in the past (for example, `01-01-2023`).
+3. The system will automatically move the profile to the Past Members archive upon the next update.
+
+## Adding profile links
+
+Member email addresses are protected and not displayed publicly on the directory. If a member wishes to link an academic website, ORCID profile, or LinkedIn page:
+
+1. Open `data/members_manual_overrides.yml` in the GitHub repository.
+2. Add a configuration block using the member's `Member ID`:
+   ```yaml
+   "12345":
+     display_name: "Dr. Jane Doe"
+     website: "https://janedoe.org"
+     orcid: "0000-0002-1825-0097"
+     linkedin: "https://linkedin.com/in/janedoe"
+     hide_email: true
+   ```
+3. If you do not edit repository files, provide the links and Member ID to a technical administrator.
+
+## Checking the published directory
+
+To verify that changes appear online:
+
+1. Visit `https://isa-rc42.org/members/`.
+2. Search for the scholar's name or filter by country to confirm their listing and dates.
+3. If necessary, refresh your browser cache using `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac).
+
+## Common problems
+
+* **Incorrect date format:** Ensure that all dates use `DD-MM-YYYY`.
+* **Missing Member ID:** Every record requires a unique `Member ID` to distinguish members with identical names.
+* **Accidentally deleting past members:** Do not delete expired member rows. Keeping their historical end date allows them to remain acknowledged in the past members archive.

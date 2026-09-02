@@ -1,0 +1,120 @@
+---
+title: "How the website works"
+subtitle: "How information moves from Google Sheets to the published website"
+---
+
+The ISA RC42 website is organized so that routine content administration occurs in Google Sheets, while an automated publishing system compiles and updates the public website.
+
+```
+Google Drive (Forms and Sheets)
+  │
+  │ (Automatic daily update at 12:00 UTC or manual trigger)
+  ▼
+GitHub Actions (Automation)
+  │
+  │ (Compiles web pages and updates data files in ~90 seconds)
+  ▼
+isa-rc42.org (Published website)
+```
+
+## Key terms
+
+* **GitHub:** The online service where the website files are stored. Routine administrators do not need to edit repository files directly.
+* **Repository:** The online folder on GitHub containing the website files, configuration, and scripts.
+* **GitHub Actions:** Automated processes configured to read Google Sheets, update data files, and publish the website.
+* **Workflow:** An individual automated process in GitHub Actions (for example, the workflow that updates members).
+* **Quarto:** The publishing system that compiles text, data, and layout templates into web pages.
+* **Render:** The process of converting source text and data into finished HTML pages.
+* **Deployment:** Publishing the generated HTML pages to make them visible online at `https://isa-rc42.org`.
+
+## How information moves through the site
+
+### Community contributions
+
+When a colleague submits news, a call for papers, or an event through the website:
+
+1. The contributor fills out the public submission form on the website.
+2. The form appends a new row to the `ISA RC42 Community Submissions` spreadsheet.
+3. An RC42 editor opens the `Editorial Review` tab, reviews the text, and sets `review_status` to `approved` and `publish_on_site` to `yes`.
+4. GitHub Actions runs automatically (daily at 12:00 UTC or upon manual trigger), reads the approved rows, removes private contact details, and updates the data files.
+5. Quarto compiles the updated pages and publishes the contribution at `https://isa-rc42.org/news/community-contributions.html`.
+
+```{mermaid}
+sequenceDiagram
+    autonumber
+    actor Contributor as Contributor
+    participant Form as Google Form
+    participant Sheet as Submissions Sheet (Editorial Review)
+    actor Editor as RC42 Editor
+    participant Actions as GitHub Actions
+    participant Site as isa-rc42.org
+
+    Contributor->>Form: Submits contribution form
+    Form->>Sheet: Appends new row
+    Editor->>Sheet: Sets review_status='approved' and publish_on_site='yes'
+    Actions->>Sheet: Reads approved rows (Daily 12:00 UTC or manual run)
+    Actions->>Actions: Strips private fields and updates data files
+    Actions->>Site: Rebuilds and deploys updated website
+```
+
+### Members directory
+
+When updating member records:
+
+1. The membership administrator opens `Active Members RC42 Social Psychology` in Google Drive and updates member details and dates in `DD-MM-YYYY` format.
+2. GitHub Actions reads the spreadsheet and compares each member's expiration date (`RC Membership End Date`) against the current date:
+   * End date is today or in the future: listed in Active Members.
+   * End date is in the past: moved automatically to the Past Members archive.
+3. The published Members Directory refreshes automatically upon the next update.
+
+```{mermaid}
+sequenceDiagram
+    autonumber
+    actor Admin as Membership Administrator
+    participant Sheet as Active Members Sheet
+    participant Actions as GitHub Actions
+    participant Site as Members Directory
+
+    Admin->>Sheet: Enters member details and dates (DD-MM-YYYY)
+    Actions->>Sheet: Reads sheet data
+    Actions->>Actions: Classifies active versus past members by end date
+    Actions->>Site: Rebuilds and publishes directory
+```
+
+### Academic resources
+
+When adding journals, handbooks, syllabi, or research datasets:
+
+1. An editor opens `rc42_resources_workflow` in Google Drive, enters the resource title, web address, category, and sets `Verification status` to `Verified official source`.
+2. GitHub Actions reads the verified rows and merges them with any approved community-submitted resources.
+3. The Resources page is rebuilt and published.
+
+### Community Updates email notifications
+
+When newly approved contributions are published on the website:
+
+1. GitHub Actions publishes the contribution on the website and updates the public RSS feed (`feeds/community-contributions.xml`).
+2. Google Apps Script checks the RSS feed on a regular schedule for new items.
+3. An automated email notification is sent to all subscribers marked as `active` in the Newsletter Database.
+4. The publication identifier is recorded in the `Sent Publications` tab to prevent duplicate messages.
+
+## Automated and manual tasks
+
+| Action | Environment | Type | What the administrator does |
+|:---|:---|:---:|:---|
+| Receive community submissions | Google Form | Automatic | None. Submissions appear in the spreadsheet automatically. |
+| Approve a submission | Google Sheet (`Editorial Review`) | Manual | Set `review_status` to `approved` and `publish_on_site` to `yes`. |
+| Publish approved submissions | GitHub Actions | Automatic | Runs daily at 12:00 UTC or when triggered manually. |
+| Add or renew a member | Google Sheet (`Active Members`) | Manual | Enter or update `RC Membership End Date` using `DD-MM-YYYY`. |
+| Move expired members to archive | GitHub Actions | Automatic | Evaluated automatically based on the expiration date. |
+| Add an academic resource | Google Sheet (`rc42_resources_workflow`) | Manual | Enter resource details and set `Verification status` to a verified value. |
+| Record new newsletter subscriptions | Website subscription form | Automatic | Subscriptions appear in the Newsletter Database with `pending` status. |
+| Process an unsubscription request | Google Sheet (`Newsletter Database`) | Manual | Change subscriber status to `unsubscribed`. |
+| Edit website layout, menus, or static pages | GitHub repository (`.qmd`, `_quarto.yml`, `.scss`) | Manual | Edit source files in the repository (requires technical assistance). |
+| Rebuild and publish website | GitHub Actions | Automatic | Runs whenever data files or repository source documents change. |
+
+## Scope of Google Sheets administration
+
+Google Sheets handles dynamic content, including membership records, community contributions, curated resources, and newsletter subscriber lists.
+
+Google Sheets does not control website navigation menus, page layouts, brand colors, typography, or static institutional pages such as About RC42, Statutes, Board Members, or Congress pages. Static text and structural configuration are stored in repository files and maintained by technical administrators.

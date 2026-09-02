@@ -1,0 +1,50 @@
+---
+title: "GitHub Actions and automation"
+subtitle: "Automated workflows and scheduled publishing processes"
+---
+
+GitHub Actions are automated background tasks configured to run on GitHub's servers. Administrators do not need to write or modify workflow files for routine operations.
+
+## Workflows summary
+
+GitHub refers to each automated process as a workflow:
+
+| Workflow name | Trigger | Purpose |
+|:---|:---|:---|
+| `Community Submissions Sync` | Daily at 12:00 UTC or manual trigger | Reads approved submissions, removes private contact details, updates data files, and generates the RSS feed. |
+| `Update Members from Google Sheets` | Daily at 12:00 UTC or manual trigger | Evaluates membership expiration dates against current dates and updates active and past member listings. |
+| `Update Resources from Google Sheets` | Daily at 12:00 UTC or manual trigger | Filters verified academic resources and merges approved community-submitted items. |
+| `Publish to GitHub Pages` | On every change to the `main` branch | Renders Quarto source documents into HTML pages and publishes them to `https://isa-rc42.org`. |
+| `Render Check` | On pull requests | Verifies that proposed page edits compile cleanly without errors before merging into `main`. |
+
+## Scheduled timing and time zones
+
+Scheduled synchronization tasks run daily at 12:00 UTC (Coordinated Universal Time). In local time zones, this corresponds to:
+
+* 08:00 (Standard Time) / 09:00 (Daylight Saving Time) in Santiago and New York
+* 14:00 (2:00 PM) in Central Europe (UTC+2 in summer)
+* 21:00 (9:00 PM) in Tokyo (UTC+9)
+
+## GitHub Secrets and credentials
+
+A GitHub Secret is an encrypted credential stored securely in the repository settings. Secrets allow automated workflows to communicate with Google Cloud APIs without exposing credentials in public files.
+
+Routine administrators do not need to modify secrets. They are maintained during executive handovers or credential rotations:
+
+| Secret name | Purpose | Description |
+|:---|:---|:---|
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | Google Cloud service account key | Grants read-only access to administrative Google Sheets. |
+| `GOOGLE_SHEET_ID` | Community submissions sheet identifier | Specifies the spreadsheet ID for community proposals. |
+| `MEMBERS_CSV_URL` | Active members published feed URL | Address used to fetch member records. |
+| `RESOURCES_CSV_URL` | Resources published feed URL | Address used to fetch academic resource entries. |
+
+## The automated update sequence
+
+When a synchronization workflow runs, it follows this sequence:
+
+1. The workflow triggers on schedule or upon manual request.
+2. A Python processing script fetches and validates data from Google Sheets, removing private fields.
+3. Updated data files (`.json`, `.yml`, and `.xml`) are committed to the repository.
+4. The `Publish to GitHub Pages` workflow starts automatically.
+5. Quarto compiles the website source files.
+6. The updated site is deployed live at `https://isa-rc42.org` within approximately 90 seconds.

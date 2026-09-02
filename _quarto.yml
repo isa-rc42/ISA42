@@ -24,6 +24,47 @@ website:
     location: navbar
     type: overlay
 
+  sidebar:
+    - id: admin
+      title: "Website administration"
+      style: docked
+      collapse-level: 2
+      contents:
+        - section: "Getting started"
+          contents:
+            - text: "Welcome"
+              href: admin/index.qmd
+            - text: "How the website works"
+              href: admin/getting-started/architecture.qmd
+        - section: "Google administration"
+          contents:
+            - text: "Google account and databases"
+              href: admin/google/databases.qmd
+            - text: "Email and Community Updates"
+              href: admin/google/email.qmd
+            - text: "Community contributions"
+              href: admin/google/contributions.qmd
+            - text: "Members"
+              href: admin/google/members.qmd
+            - text: "Resources"
+              href: admin/google/resources.qmd
+        - section: "Operations"
+          contents:
+            - text: "Run and verify updates"
+              href: admin/operations/updates.qmd
+        - section: "Technical"
+          contents:
+            - text: "GitHub Actions and automation"
+              href: admin/technical/automation.qmd
+            - text: "Repository and website editing"
+              href: admin/technical/repository.qmd
+        - section: "Help and reference"
+          contents:
+            - text: "Troubleshooting"
+              href: admin/troubleshooting.qmd
+            - text: "Security and technical reference"
+              href: admin/reference.qmd
+
   navbar:
     background: "rgba(15, 23, 42, 0.98)"
     foreground: "#ffffff"

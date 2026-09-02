@@ -1,0 +1,64 @@
+---
+title: "Website administration guide"
+subtitle: "Administrative manual for the ISA RC42 website"
+---
+
+This guide explains the routine tasks required to maintain the ISA RC42 website. Most content administration is carried out through Google Forms and Google Sheets. GitHub is used mainly for automatic website updates and occasional technical maintenance.
+
+Administrators do not need a programming background to maintain the site. Routine updates to member listings, academic resources, community contributions, and newsletter subscriptions are managed in Google Drive and published automatically.
+
+## Routine responsibilities
+
+Routine administration for the RC42 website includes:
+
+* Reviewing community contributions submitted through the website form (news, calls for papers, events, and publications).
+* Updating member records and expiration dates in the active members spreadsheet.
+* Adding verified publications, syllabi, datasets, and research tools to the resources directory.
+* Reviewing subscriber records and processing unsubscription requests for Community Updates.
+* Triggering manual website updates when changes need to appear online immediately.
+* Verifying that automatic updates run without errors and contacting technical support if an issue occurs.
+
+## Systems used
+
+The website infrastructure is organized into three primary systems:
+
+| System | Primary function | Administrative use |
+|:---|:---|:---|
+| Google Drive and Google Sheets | Stores submitted forms, membership records, resource lists, and newsletter subscriber data. | Main working environment for routine content management. |
+| GitHub and GitHub Actions | Stores website source files and runs automatic processes that publish updates to the web. | Used occasionally to run manual updates or verify workflow status. |
+| isa-rc42.org | Public static website hosted on GitHub Pages. | Public site consulted by members, researchers, and visitors. |
+
+## Administrative tasks by technical level
+
+Administrative tasks fall into three distinct levels:
+
+| Level | Tasks involved | Tools used | Technical requirement |
+|:---|:---|:---|:---|
+| Everyday administration | Review contributions, update member dates, add resources, manage newsletter subscribers. | Google Drive, Google Sheets, Google Forms | None. Standard spreadsheet editing. |
+| Occasional administration | Trigger an immediate site update or check workflow run status. | GitHub Actions interface | Basic. Browser navigation. |
+| Technical maintenance | Edit page layouts, update navigation menus, modify CSS styles, or change Python and Apps Script code. | Quarto, Git, SCSS, Google Apps Script | Advanced. Requires a technical administrator. |
+
+## Starting as a new administrator
+
+Incoming board members and administrators should complete the following onboarding checklist:
+
+* Confirm access to the RC42 institutional email (`isa-rc42@isa-sociology.org`).
+* Confirm access to the Google account used for website administration.
+* Locate the four administrative spreadsheets in Google Drive.
+* Confirm collaborator access to the `isa-rc42/ISA42` GitHub repository.
+* Open GitHub Actions and identify the content update workflows.
+* Review the documentation sections on website architecture and routine Google administration.
+
+## Guide index
+
+* **[How the website works](getting-started/architecture.qmd):** Data flow from Google Sheets to the published website.
+* **[Google account and databases](google/databases.qmd):** Overview of administrative spreadsheets in Google Drive.
+* **[Email and Community Updates](google/email.qmd):** Institutional email, newsletter subscribers, and automated notifications.
+* **[Community contributions](google/contributions.qmd):** Reviewing, editing, and publishing submissions from the community.
+* **[Members](google/members.qmd):** Updating the active members directory and managing membership expiration dates.
+* **[Resources](google/resources.qmd):** Adding verified journals, handbooks, syllabi, and datasets.
+* **[Run and verify updates](operations/updates.qmd):** Triggering manual updates and checking GitHub Actions status.
+* **[GitHub Actions and automation](technical/automation.qmd):** Scheduled workflows, triggers, and secret credentials.
+* **[Repository and website editing](technical/repository.qmd):** Folder structure, static page editing, and automatically generated files.
+* **[Troubleshooting](troubleshooting.qmd):** Diagnostic checklist and solutions for common operational issues.
+* **[Security and technical reference](reference.qmd):** Data privacy, handover protocol, DNS details, and glossary.

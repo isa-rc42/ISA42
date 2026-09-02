@@ -1,0 +1,13 @@
+sidebar: admin
+page-navigation: true
+toc: true
+toc-depth: 3
+toc-location: right
+toc-title: "On this page"
+search: false
+robots: "noindex, nofollow"
+bread-crumbs: true
+css:
+  - admin.css
+include-after-body:
+  - admin-toc.html

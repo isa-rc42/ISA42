@@ -1,0 +1,90 @@
+---
+title: "Security and technical reference"
+subtitle: "Privacy guidelines, executive handover protocol, domain details, repository lookup, and plain-language glossary"
+---
+
+This section provides reference information on data protection, board handover procedures, server settings, and repository paths.
+
+## Security and privacy guidelines
+
+### Protecting personal information
+
+* **Newsletter subscribers:** Subscriber data in `ISA RC42 Newsletter Database` is strictly private. Never export, commit to GitHub, or publicly share email addresses from this database.
+* **Member contact details:** Member email addresses are kept private and are not displayed on the public directory. The public directory displays names, institutional affiliations, countries, and optional public links (such as ORCID, LinkedIn, or personal academic websites).
+* **Automatic data stripping:** Synchronization scripts automatically remove private columns (`submitter_email`, reviewer notes, internal comments) before writing public data files.
+
+### Executive handover protocol
+
+* **Password management:** Use an encrypted password manager to transfer login credentials for the institutional Google account during executive transitions.
+* **Secure transmission:** Never transmit passwords, two-factor authentication recovery codes, or API credentials over unencrypted messaging channels or regular email.
+* **Access audits:** Review and update permissions on Google Drive and collaborator access in GitHub when board positions change.
+
+## Domain and DNS reference
+
+* **Official domain:** `https://isa-rc42.org`
+* **GitHub Pages address:** `https://isa-rc42.github.io/ISA42/`
+* **Hosting platform:** GitHub Pages (deployed automatically upon repository changes).
+* **HTTPS certificate:** Managed by GitHub Pages through Let's Encrypt with automated renewal.
+* **Apex DNS records:** Point to GitHub's global servers (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`).
+
+## Technical summary and repository lookup
+
+| Item | Identifier or path | Description |
+|:---|:---|:---|
+| Organization | `isa-rc42` | GitHub organization account |
+| Repository | `isa-rc42/ISA42` | Primary website repository |
+| Main configuration | `_quarto.yml` | Master website settings and navigation menus |
+| Global styling | `styles.scss` | Design tokens and brand typography |
+| Administration styling | `admin/admin.css` | Stylesheet loaded for `/admin/` documentation pages |
+| Community script | `scripts/community/export_community_submissions.py` | Google Sheets to JSON and RSS processing script |
+| Members script | `scripts/update_members_from_sheets.py` | Google Sheets to members directory script |
+| Resources script | `scripts/update_resources_from_sheets.py` | Google Sheets to resources directory script |
+| Public RSS feed | `feeds/community-contributions.xml` | RSS 2.0 feed for published community contributions |
+| Manual overrides | `data/members_manual_overrides.yml` | Member profile links (ORCID, personal website, LinkedIn) |
+
+## Plain-language glossary
+
+**Apps Script**  
+Google's cloud automation platform used to handle Community Updates subscriptions, verification emails, and publication alerts.
+
+**Deployment**  
+The publication of generated HTML web pages to make them accessible online at `https://isa-rc42.org`.
+
+**DNS (Domain Name System)**  
+The internet routing system that directs traffic from the domain `isa-rc42.org` to GitHub's hosting servers.
+
+**Generated file**  
+A file (such as `data/members.json`) created automatically by a script. Routine administrators do not edit generated files manually.
+
+**GitHub**  
+The online service where website source files, stylesheets, and automated publishing workflows are stored.
+
+**GitHub Actions**  
+Automated background tasks configured to read Google Sheets, compile data files, and publish the website.
+
+**Google Apps Script**  
+The automation system within Google Workspace used to manage email confirmations and notification dispatches for Community Updates.
+
+**HTTPS**  
+The encrypted protocol that ensures secure communication between website visitors and the server.
+
+**Quarto**  
+The publishing system that compiles Markdown documents, templates, and data files into the final static website.
+
+**Render**  
+The compilation process that converts raw Markdown text and structured data into HTML pages.
+
+**Repository**  
+The online folder in GitHub containing the files and version history for the website.
+
+**RSS feed**  
+A structured XML file (`feeds/community-contributions.xml`) listing published community contributions. Used by external readers and the Community Updates automation.
+
+**Subscriber**  
+An individual who completed the website subscription form and confirmed their email address to receive Community Updates.
+
+**Trigger**  
+A scheduled timer or event that starts an automated process in GitHub Actions or Google Apps Script.
+
+**Workflow**  
+An automated task definition configured within GitHub Actions (such as the workflow that updates member records).

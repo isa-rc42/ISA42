@@ -1,0 +1,80 @@
+---
+title: "Resources"
+subtitle: "Curating academic publications, teaching syllabi, datasets, and research tools"
+---
+
+The `rc42_resources_workflow` spreadsheet contains curated academic materials displayed on the [Resources page](https://isa-rc42.org/resources/). It allows RC42 to maintain a directory of sociological social psychology literature, teaching materials, and open research data.
+
+## Where the information is stored
+
+Resources are managed in Google Drive:
+
+```
+Google Drive
+└── Core Spreadsheets
+    └── rc42_resources_workflow
+```
+
+## Publication requirements
+
+Adding a row to the spreadsheet does not publish it automatically. To ensure that incomplete or broken entries are not displayed on the website, an entry must meet two requirements:
+
+1. It must contain a working web address in the `URL` column.
+2. The value in `Verification status` must begin with the word `Verified` (for example, `Verified official source` or `Verified academic source`).
+
+## Example of a published resource entry
+
+A complete resource record includes:
+
+* **Title:** *Handbook of the Social Psychology of Inequality*
+* **URL:** `https://link.springer.com/book/10.1007/978-94-017-9002-4`
+* **Category:** `Publications`
+* **Verification status:** `Verified official source`
+* **Priority rank:** `1` (lower numbers appear higher on the page)
+* **Tags:** `inequality; status; stratification; handbook`
+* **Author / Institution:** `Jane McLeod, Edward Lawler, Michael Schwalbe (Eds.)`
+* **Description:** `An overview of sociological social psychology approaches to social inequality and stratification.`
+
+## Resource fields reference
+
+| Column header | Purpose | Accepted values |
+|:---|:---|:---|
+| `Title` | Title of the resource | Mandatory. Enter full descriptive title. |
+| `URL` | Web address | Mandatory. Must be an active URL (such as `https://...`). |
+| `Verification status` | Editorial approval switch | Mandatory. Must start with `Verified` (e.g. `Verified official source`). |
+| `Category` | Main thematic section on the website | `Publications`, `Teaching Resources`, or `Datasets & Tools`. |
+| `Priority rank` | Display order rank | Enter `1` for featured resources, `2` for secondary, or `0` for default alphabetical ordering. |
+| `Tags` | Topic keywords | Semicolon- or comma-separated terms (e.g. `emotions; identity; surveys`). |
+| `Author / Institution` | Authors or publishing institution | Recommended for academic citation. |
+| `Description` | Summary of the resource | Recommended 1–3 sentence overview. |
+
+## Community-submitted resources
+
+When an administrator approves a community contribution categorized as a resource in `ISA RC42 Community Submissions`, the synchronization process automatically includes it in the Community Resources section of the Resources page. You do not need to re-enter it into `rc42_resources_workflow`.
+
+## Adding a resource
+
+To add an academic resource:
+
+1. Open `rc42_resources_workflow` in Google Drive.
+2. Add a new row at the bottom of the spreadsheet.
+3. Enter the `Title` and paste the active `URL`.
+4. Set `Category` to `Publications`, `Teaching Resources`, or `Datasets & Tools`.
+5. Set `Verification status` to `Verified official source`.
+6. Set `Priority rank` (for example, `1` for top placement or `0` for default).
+7. Enter relevant `Tags`, `Author / Institution`, and a brief `Description`.
+8. Changes save automatically in Google Sheets.
+9. Wait for the daily update or trigger an immediate update manually.
+
+## Checking the published resource
+
+To verify that the resource is published:
+
+1. Visit `https://isa-rc42.org/resources/`.
+2. Locate the corresponding category and confirm that the title, description, and link appear as expected.
+3. If necessary, refresh your browser cache using `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac).
+
+## Common problems
+
+* **Unverified status:** If `Verification status` is empty or set to `Pending`, the synchronization script skips the row.
+* **Invalid URL:** Rows containing placeholder links (such as `#`) or missing URLs are excluded from publication.

@@ -1,0 +1,85 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tocEl = document.querySelector('#quarto-margin-sidebar nav[role="doc-toc"], #TOC');
+  if (!tocEl) return;
+
+  const tocLinks = Array.from(tocEl.querySelectorAll('a[data-scroll-target], a[href^="#"]'));
+  if (tocLinks.length === 0) return;
+
+  const getTargetElement = (link) => {
+    const target = link.getAttribute("data-scroll-target") || link.getAttribute("href");
+    if (!target) return null;
+    const id = target.startsWith("#") ? target.slice(1) : target;
+    return document.getElementById(id) || document.querySelector(`[data-anchor-id="${id}"]`);
+  };
+
+  const sections = tocLinks
+    .map((link) => ({ link, element: getTargetElement(link) }))
+    .filter((item) => item.element !== null);
+
+  if (sections.length === 0) return;
+
+  function setActive(activeLink) {
+    tocLinks.forEach((l) => l.classList.remove("active"));
+    if (activeLink) {
+      activeLink.classList.add("active");
+      const tocContainer = document.getElementById("quarto-margin-sidebar") || tocEl;
+      if (tocContainer && tocContainer.scrollHeight > tocContainer.clientHeight) {
+        const linkRect = activeLink.getBoundingClientRect();
+        const containerRect = tocContainer.getBoundingClientRect();
+        if (linkRect.top < containerRect.top + 30 || linkRect.bottom > containerRect.bottom - 30) {
+          activeLink.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }
+      }
+    }
+  }
+
+  let isManualClick = false;
+
+  tocLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      isManualClick = true;
+      setActive(link);
+      setTimeout(() => {
+        isManualClick = false;
+      }, 800);
+    });
+  });
+
+  const onScroll = () => {
+    if (isManualClick) return;
+
+    // Bottom of page detection
+    if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 60) {
+      setActive(sections[sections.length - 1].link);
+      return;
+    }
+
+    // Top of page detection
+    if (window.pageYOffset < 80) {
+      setActive(sections[0].link);
+      return;
+    }
+
+    // Reading line is ~150px from top of viewport (clearing fixed navbar)
+    const readingLine = 150;
+    let current = sections[0];
+
+    for (let i = 0; i < sections.length; i++) {
+      const rect = sections[i].element.getBoundingClientRect();
+      if (rect.top <= readingLine) {
+        current = sections[i];
+      } else {
+        break;
+      }
+    }
+
+    if (current) {
+      setActive(current.link);
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  setTimeout(onScroll, 100);
+});
+</script>

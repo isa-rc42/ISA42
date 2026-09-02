@@ -1,0 +1,58 @@
+---
+title: "Troubleshooting"
+subtitle: "Diagnostic procedures and solutions for common administrative issues"
+---
+
+When an update does not appear on the website as expected, follow this diagnostic guide to identify and resolve the issue.
+
+## Diagnostic checklist
+
+Before requesting technical assistance, review these five steps in order:
+
+```
+Step 1: Check the Google Sheet
+        Verify that data was entered into the correct spreadsheet and tab.
+        ↓
+Step 2: Check required fields
+        Verify that mandatory columns (names, URLs, dates, verification values) are completed.
+        ↓
+Step 3: Check GitHub Actions status
+        Verify whether the update workflow ran and whether it completed with a green check mark or red X.
+        ↓
+Step 4: Check browser cache
+        Perform a hard refresh (Ctrl + F5 on Windows or Cmd + Shift + R on Mac) to bypass cached pages.
+        ↓
+Step 5: Escalate to technical support
+        If the issue remains unresolved, contact a technical administrator.
+```
+
+## Troubleshooting reference
+
+| Problem | Likely cause | What to check | Next step |
+|:---|:---|:---|:---|
+| A community contribution does not appear online | The submission was approved, but the publication setting remains disabled, or the update workflow has not run. | `Editorial Review` tab in `ISA RC42 Community Submissions`. | Ensure `review_status` is `approved` and `publish_on_site` is `yes`. Then [run a manual update](operations/updates.qmd). |
+| A member does not appear in the directory | The membership end date is in the past or formatted incorrectly. | `RC Membership End Date` in `Active Members RC42 Social Psychology`. | Ensure the date uses `DD-MM-YYYY` format and the expiration date is today or in the future. [Run an update](operations/updates.qmd). |
+| An expired member continues to appear as active | The end date in the spreadsheet is set to a future date. | `RC Membership End Date` in `Active Members RC42 Social Psychology`. | Set the expiration date to a date in the past (e.g. `01-01-2023`). The system moves the member to past members on the next run. |
+| An academic resource does not appear on the Resources page | Verification status is unverified or the web address is invalid. | `Verification status` and `URL` in `rc42_resources_workflow`. | Ensure `Verification status` begins with `Verified` (e.g. `Verified official source`) and the `URL` is active. |
+| A subscriber did not receive the confirmation email | The email address was misspelled or the message was routed to Spam. | `Subscribers` tab in `ISA RC42 Newsletter Database`. | Check address spelling, verify that status is `pending`, and ask the recipient to check Spam or Junk folders. |
+| An active subscriber is not receiving Community Updates | Subscriber status is not confirmed or the contribution update has not completed. | `Subscribers` tab in `ISA RC42 Newsletter Database`. | Verify that status is `active` (requires clicking the confirmation link) and check that the contribution is live on the website. |
+| GitHub Actions displays a red X | A mandatory column header was renamed, a cell was empty, or a date could not be read. | Click the failed workflow run in GitHub Actions to inspect the error log. | Correct the cell or restore the original column header in Google Sheets, then re-run the workflow. |
+| The website shows outdated content after an update | The browser is displaying a cached version of the page. | Browser local cache. | Perform a hard refresh using `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac). |
+
+## When to contact a technical administrator
+
+Contact a technical administrator if any of the following occur:
+
+* A GitHub Actions workflow repeatedly fails with a red X after verifying all spreadsheet entries and column headers.
+* The website `https://isa-rc42.org` displays a server error or fails to load.
+* The browser displays an SSL/TLS security warning (*"Your connection is not private"*).
+* GitHub Pages reports a custom domain or DNS misconfiguration.
+* Changes are required to navigation menus, global styling, or page layouts.
+* Google API credentials or GitHub Secrets need updating following an executive handover.
+
+## Guidelines to prevent system errors
+
+1. **Do not rename column headers in Google Sheets:** Synchronization scripts identify fields by exact header names (such as `Member ID`, `review_status`, and `Verification status`).
+2. **Maintain the required date format:** Always enter dates in `DD-MM-YYYY` for members and `YYYY-MM-DD` for community contribution deadlines.
+3. **Do not remove the Google Service Account:** The service account email requires Viewer access to read spreadsheet data.
+4. **Do not edit generated data files directly in GitHub:** Files in `data/` are overwritten automatically on every synchronization.

@@ -1,0 +1,152 @@
+---
+title: "Email and Community Updates"
+subtitle: "Institutional email, Community Updates subscribers, automated notifications, and privacy"
+---
+
+RC42 uses email communication for three distinct purposes:
+
+| If someone wants to... | System to use | Details |
+|:---|:---|:---|
+| Contact RC42 | Institutional email | Write directly to `isa-rc42@isa-sociology.org`. |
+| Submit news, events, calls or resources | Community Contributions form | Complete the public submission form on the website. |
+| Receive publication notifications | Community Updates | Subscribe through the website subscription form. |
+
+## Institutional email
+
+The institutional address `isa-rc42@isa-sociology.org` is the official public contact address for RC42. It is used for general correspondence with members, researchers, partner institutions, and website visitors.
+
+### Routine administration
+
+* **Access:** Board members access the inbox through the designated webmail interface or authorized Google Workspace account.
+* **Responsibilities:** The Secretary and President typically manage incoming messages, answering administrative questions and redirecting specialized inquiries.
+* **Handover:** During an executive board transition, login credentials and recovery verification details must be transferred securely to incoming officers.
+
+## Community Updates subscription system
+
+Community Updates is the notification service that sends email alerts to subscribers when new announcements, calls for papers, events, or publications are published on the website.
+
+```
+Website subscription form
+  │
+  ▼
+Newsletter Database (status: pending)
+  │
+  ▼
+Confirmation email sent to subscriber
+  │
+  ▼
+Subscriber clicks verification link (status: active)
+  │
+  ▼
+Automated email alerts sent for newly published contributions
+```
+
+1. **Website subscription:** A visitor enters their name, affiliation, and email address into the subscription form on the website.
+2. **Pending record:** The subscription application records the entry in the `Subscribers` tab of the `ISA RC42 Newsletter Database` with a status of `pending`.
+3. **Confirmation email:** The system sends an automated email containing a verification link.
+4. **Activation:** When the recipient clicks the verification link, their status changes to `active`.
+5. **Publication notifications:** When a new community contribution is approved and published on the website, active subscribers receive an email summary.
+6. **Unsubscription:** Subscribers can click the unsubscribe link in any email to update their status to `unsubscribed`.
+
+### Subscription status values
+
+| Status | Meaning |
+|:---|:---|
+| `pending` | The subscription request was received, but the confirmation link has not been clicked. |
+| `active` | The email address is confirmed and will receive future Community Updates. |
+| `unsubscribed` | The person has opted out and will no longer receive Community Updates. |
+
+## Automated email messages
+
+The Community Updates system sends the following automated messages:
+
+| Message | Sent when | Recipient |
+|:---|:---|:---|
+| Subscription confirmation | Immediately upon submitting the website subscription form. | Prospective subscriber |
+| Welcome confirmation notice | Immediately after clicking the confirmation link. | Confirmed subscriber |
+| Community contribution notification | After an approved community contribution is published on the website. | All active subscribers |
+| Unsubscription confirmation | Immediately upon clicking the unsubscribe link. | Unsubscribed user |
+
+## Google Apps Script
+
+Google Apps Script runs the automatic email tasks used by Community Updates. Routine administrators do not need to edit or maintain the script code.
+
+The script operates on automated cloud triggers to process new subscription requests, send verification links, and check the website RSS feed (`feeds/community-contributions.xml`) for newly published contributions.
+
+### Reviewing script execution status
+
+If an administrator needs to check whether automated email processes are running normally:
+
+1. Open `https://script.google.com` while signed into the administrative Google account.
+2. Open the `RC42 Community Updates` project.
+3. Select `Executions` in the left navigation menu.
+4. Review the status column:
+   * `Completed`: The process completed successfully.
+   * `Failed`: An execution error occurred; contact the technical administrator.
+
+## Inside the Newsletter Database
+
+The `ISA RC42 Newsletter Database` in Google Drive contains three primary tabs:
+
+* **`Subscribers`:** Contains subscriber records (`Timestamp`, `Full Name`, `Affiliation`, `Email Address`, and `Status`).
+* **`Sent Publications`:** Maintains a log of publication identifiers that have already been sent by email. This record prevents duplicate notifications from being dispatched for the same publication.
+* **`Deliveries`:** Logs execution timestamps and delivery batch counts for diagnostic verification.
+
+## Routine subscriber management
+
+### Reviewing subscribers
+
+1. Open Google Drive and navigate to `Core Spreadsheets`.
+2. Open `ISA RC42 Newsletter Database`.
+3. Select the `Subscribers` tab.
+4. Use `Ctrl + F` (or `Cmd + F`) to locate an entry by email address.
+5. Review the `Status` column (`pending`, `active`, or `unsubscribed`).
+
+### Processing a manual unsubscription request
+
+If a member sends an unsubscription request to the institutional email:
+
+1. Open `ISA RC42 Newsletter Database` and select the `Subscribers` tab.
+2. Search for the member's email address.
+3. Change the value in `Status` from `active` to `unsubscribed`.
+4. Keep the row in the sheet so that the system retains the opt-out preference.
+5. Send a brief reply confirming that the address has been unsubscribed.
+
+## Troubleshooting email issues
+
+### Confirmation email did not arrive
+
+1. Open the `Subscribers` tab in the Newsletter Database and verify that the email address is spelled correctly.
+2. Confirm that the subscriber status is `pending`.
+3. Ask the recipient to inspect their Spam, Junk, or Promotions folder.
+4. If the address was mistyped, ask the person to resubmit the subscription form on the website.
+5. If the issue continues, check the Apps Script execution log or contact the technical administrator.
+
+### Community Update did not arrive
+
+1. Confirm that the subscriber status is `active` in the `Subscribers` tab.
+2. Confirm that the community contribution is published and visible on `https://isa-rc42.org/news/community-contributions.html`.
+3. Check the `Sent Publications` tab to verify whether the publication identifier was recorded.
+4. Ask the recipient to check their Spam or Promotions folder.
+5. If multiple subscribers report non-delivery, contact the technical administrator to inspect Apps Script execution logs and quota limits.
+
+## Privacy and data protection
+
+::: {.callout-important}
+## Handling subscriber data
+
+* The Newsletter Database contains names, institutional affiliations, and email addresses. Access must remain restricted to individuals responsible for RC42 administration.
+* Subscriber information must not be uploaded to GitHub, referenced in public issue trackers, or included in public documentation.
+* Subscriber addresses may only be used for official ISA RC42 announcements and Community Updates.
+* Unsubscription and data deletion requests must be processed promptly.
+:::
+
+## Executive board handover checklist
+
+During an executive transition, the outgoing and incoming boards should complete the following steps:
+
+* Confirm access to the institutional email address (`isa-rc42@isa-sociology.org`).
+* Confirm access to the Google account that hosts the Newsletter Database and Apps Script project.
+* Verify that the incoming communications officer has Editor permissions on `ISA RC42 Newsletter Database`.
+* Update recovery telephone numbers and secondary recovery emails in the Google account security settings.
+* Revoke administrative permissions for outgoing officers who no longer require access.

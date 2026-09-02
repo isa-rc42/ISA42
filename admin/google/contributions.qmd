@@ -1,0 +1,71 @@
+---
+title: "Community contributions"
+subtitle: "Reviewing, editing, and publishing community submissions"
+---
+
+The `ISA RC42 Community Submissions` spreadsheet serves as the editorial inbox for announcements submitted by members and colleagues through the website contact form. Submissions remain private until an administrator reviews and approves them for publication.
+
+## Where the information is stored
+
+Submissions are managed in Google Drive:
+
+```
+Google Drive
+└── Core Spreadsheets
+    └── ISA RC42 Community Submissions
+        └── Tab: Editorial Review
+```
+
+## Review and publish a submission
+
+To review and publish a contribution:
+
+1. Open Google Drive and open `ISA RC42 Community Submissions`.
+2. Select the `Editorial Review` tab.
+3. Locate the row containing the submission you want to review.
+4. Review the submitted text. Optionally enter a revised headline in `edited_title` or a concise summary in `edited_description`.
+5. Set `review_status` to `approved`.
+6. Set `publish_on_site` to `yes`.
+7. Set `display_member_name_authorized` to `yes` if the contributor authorized displaying their name, or `no` to publish anonymously.
+8. Wait for the daily automatic update at 12:00 UTC or trigger an immediate update manually.
+
+::: {.callout-note}
+## Publication condition
+
+An item is published only when both conditions are met: `review_status` is set to `approved` and `publish_on_site` is set to `yes`. If either field is not set, the item remains unpublished.
+:::
+
+## Editorial fields reference
+
+| Field | Purpose | Accepted values |
+|:---|:---|:---|
+| `review_status` | Editorial decision for the submission | `pending`, `approved`, or `rejected` |
+| `publish_on_site` | Controls publication to the website | `yes` or `no` |
+| `edited_title` | Revised title displayed on the website | Text (leaves original `submission_title` intact) |
+| `edited_description` | Revised summary displayed on the website | Text (leaves original `short_description` intact) |
+| `display_member_name_authorized` | Controls display of contributor name | `yes` or `no` |
+| `relevant_date` | Event date or deadline | Date in `YYYY-MM-DD` format (e.g. `2026-11-15`) |
+| `suggested_tags` | Subject keywords for search and filtering | Comma-separated terms (e.g. `conference, call, identity`) |
+
+## What happens after approval
+
+When the synchronization process runs:
+
+1. The script reads approved rows from the `Editorial Review` tab.
+2. Private fields (`submitter_email`, editorial notes, internal comments) are stripped automatically so that personal contact data is never exposed.
+3. The script generates public data files and updates the website RSS feed (`feeds/community-contributions.xml`).
+4. Quarto compiles and deploys the updated [Community Contributions page](https://isa-rc42.org/news/community-contributions.html).
+
+## Checking the published contribution
+
+To verify that the contribution is online:
+
+1. Open `https://isa-rc42.org/news/community-contributions.html` in your web browser.
+2. Confirm that the title, description, relevant dates, and links appear correctly.
+3. If the page does not reflect recent changes, refresh your browser cache using `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac).
+
+## Common problems
+
+* **Contribution does not appear online:** Check that `review_status` is set to `approved` and `publish_on_site` is set to `yes`. If either value is missing, the submission is skipped.
+* **Renamed column headers:** Never change existing column names in the spreadsheet. The automation script relies on exact header names to identify fields.
+* **Invalid date format:** Enter dates in `relevant_date` using `YYYY-MM-DD` (for example, `2026-10-30`).
