@@ -1,95 +1,235 @@
 ---
 title: "Members"
-subtitle: "Maintaining the membership roster, date calculations, and directory profiles"
+subtitle: "Maintaining the membership roster, membership dates, and directory profiles"
 ---
 
-The `Active Members RC42 Social Psychology` spreadsheet contains the official membership records for RC42. The website uses this single spreadsheet to generate both the active Members Directory and the Past Members archive.
+The `Active Members RC42 Social Psychology` spreadsheet contains the membership records used by the RC42 website. Its structure follows the membership template provided by the International Sociological Association (ISA) to Research Committee officers.
+
+For routine updates, administrators do not need to rebuild the membership database manually. When ISA provides a new active-members list, the updated records can be copied into the RC42 spreadsheet while preserving the existing column structure. The website then uses the membership dates and other fields to update the public Members Directory automatically.
 
 ## Where the information is stored
 
 Member records are located in Google Drive:
 
-```
+```text
 Google Drive
 └── Core Spreadsheets
     └── Active Members RC42 Social Psychology
+        ├── Members List
+        ├── All
+        └── photo
 ```
+
+The workbook contains three tabs. For routine membership administration, work primarily with `Members List`. The `All` and `photo` tabs should be kept as part of the workbook and should not be modified unless a specific administrative procedure requires it.
+
+## Updating the membership list from ISA
+
+ISA periodically provides Research Committee officers with an updated membership file. The structure of that file corresponds to the structure used in the RC42 membership spreadsheet.
+
+This means that the usual way to update the website membership roster is to copy the latest records supplied by ISA into the `Members List` tab.
+
+To update the membership list:
+
+1. Open the most recent active-members file provided by ISA.
+2. Open `Active Members RC42 Social Psychology` in Google Drive.
+3. Select the `Members List` tab.
+4. Compare the column headers in the ISA file with the headers in the RC42 spreadsheet.
+5. Copy the updated membership records from the ISA file.
+6. Paste the records into `Members List`, below the existing header row.
+7. Keep the existing column names unchanged.
+8. Check that `RC Membership Start Date` and `RC Membership End Date` use the expected `DD-MM-YYYY` format.
+9. Google Sheets saves the changes automatically.
+
+The website will process the revised membership list during the next scheduled membership update. If the changes need to appear sooner, the update can also be run manually from GitHub Actions.
+
+::: {.callout-warning}
+## Keep the original column structure
+
+Do not rename, remove, or rearrange the existing column headers when updating the membership list. The website automation uses these field names to identify member information.
+
+When copying a new list supplied by ISA, replace or update the membership records rather than replacing the spreadsheet structure itself.
+:::
 
 ## How active and past member status is determined
 
-Administrators do not need to move rows manually between active and past lists. The publishing system calculates member status automatically by comparing `RC Membership End Date` with the current date:
+Administrators do not need to move members manually between the active and past directories.
 
-* If the end date is today or in the future, the scholar is listed in Active Members.
-* If the end date is in the past, the scholar is listed in Past Members.
+The website determines each member's status by comparing `RC Membership End Date` with the current date:
+
+- If the end date is today or in the future, the member appears in the Active Members Directory.
+- If the end date has passed, the member appears in the Past Members archive.
+
+For example:
+
+```text
+RC Membership End Date: 31-12-2028
+Current date: 02-09-2026
+Result: Active Member
+```
+
+```text
+RC Membership End Date: 31-12-2025
+Current date: 02-09-2026
+Result: Past Member
+```
+
+Expired members should therefore remain in the spreadsheet. Their membership end date allows the website to retain them automatically in the Past Members archive.
 
 ::: {.callout-warning}
-## Date format requirement
+## Date format
 
-All membership dates must be entered in `DD-MM-YYYY` format (Day-Month-Year, such as `15-08-2027`). Formats such as `YYYY-MM-DD` or `MM/DD/YYYY` will prevent the system from parsing the date correctly.
+Membership dates must use `DD-MM-YYYY` format.
+
+For example:
+
+`15-08-2027`
+
+Do not use formats such as `YYYY-MM-DD` or `MM/DD/YYYY`, as they may prevent the automated process from reading the date correctly.
 :::
 
 ## Member information fields
 
+The website uses information from the ISA membership template. The following fields are especially relevant for the public directory and membership-status calculation.
+
 | Column header | Purpose | Requirement |
 |:---|:---|:---|
-| `Member ID` | Unique ISA identification number | Mandatory. Every member must have a distinct ID. |
-| `Member first name` | Scholar's given name | Mandatory. |
-| `Member surname` | Scholar's family name | Mandatory. |
-| `Institutional Affiliation` | University, institute, or organization | Recommended. |
-| `Department` | Academic department or faculty | Optional. |
-| `Primary address country` | Country of affiliation | Recommended for directory filtering. |
-| `RC Membership Start Date` | Start date of membership | Mandatory (`DD-MM-YYYY`). |
-| `RC Membership End Date` | Expiration date of membership | Mandatory (`DD-MM-YYYY`). Determines active versus past status. |
+| `User ID` | Identifier included in the ISA membership file | Keep the value supplied by ISA. |
+| `Member ID` | Unique ISA identification number for the member | Required. Do not assign a new ID manually if one has already been provided by ISA. |
+| `Member name` | Full name as recorded in the ISA file | Keep the value supplied by ISA unless a correction is required. |
+| `Member first name` | Member's given name | Required. |
+| `Member surname` | Member's family name | Required. |
+| `Institutional Affiliation` | University, institute, or organization | Recommended for the directory. |
+| `Department` | Academic department, faculty, or unit | Optional. |
+| `Primary address country` | Country recorded for the member | Used for country information and directory filtering where applicable. |
+| `RC Membership Start Date` | Beginning of the current RC membership period | Required. Use `DD-MM-YYYY`. |
+| `RC Membership End Date` | Expiration date of the current RC membership period | Required. Use `DD-MM-YYYY`. This determines active or past status. |
+
+Other columns supplied by ISA may remain in the spreadsheet even when they are not displayed publicly. Do not delete columns simply because they are not visible on the website.
 
 ## Routine member management
 
+The official file supplied by ISA should normally be treated as the main source for membership updates. Manual changes are mainly useful for corrections, renewals, or individual cases that need to be reflected before the next complete ISA list is received.
+
 ### Adding a new member
 
-1. Open `Active Members RC42 Social Psychology` in Google Drive.
-2. Add a new row at the bottom of the spreadsheet.
-3. Enter the `Member ID`, `Member first name`, and `Member surname`.
-4. Enter the `Institutional Affiliation` and `Primary address country`.
-5. Enter the `RC Membership Start Date` and `RC Membership End Date` in `DD-MM-YYYY` format.
-6. Changes save automatically in Google Sheets.
+If a member must be added before the next updated ISA file is received:
+
+1. Open `Active Members RC42 Social Psychology`.
+2. Select `Members List`.
+3. Add a new row at the bottom of the membership records.
+4. Enter the identifiers and member information exactly as provided by ISA.
+5. Enter `RC Membership Start Date` and `RC Membership End Date` using `DD-MM-YYYY`.
+6. Check that the new row follows the same structure as the surrounding records.
+7. Google Sheets saves the changes automatically.
+
+If the member has not yet been assigned the relevant ISA identifiers, confirm the information with the appropriate RC42 or ISA administrator before creating a permanent record.
 
 ### Renewing an existing member
 
-1. Open `Active Members RC42 Social Psychology` and search for the member using `Ctrl + F` (or `Cmd + F`).
-2. Locate the `RC Membership End Date` column.
-3. Update the date to the new expiration date (for example, `30-06-2028`).
+When ISA confirms a renewed membership:
 
-### Deactivating a member
+1. Open `Active Members RC42 Social Psychology`.
+2. Select `Members List`.
+3. Find the member using their name or `Member ID`.
+4. Locate `RC Membership End Date`.
+5. Replace the previous expiration date with the new date supplied by ISA.
+6. Update `RC Membership Start Date` as well if the new ISA file contains a revised membership period.
+7. Leave the `Member ID` unchanged.
 
-1. Locate the member's row in the spreadsheet.
-2. Set their `RC Membership End Date` to a date in the past (for example, `01-01-2023`).
-3. The system will automatically move the profile to the Past Members archive upon the next update.
+The website will continue listing the person as an active member as long as the end date has not passed.
+
+### When a membership expires
+
+No manual transfer is required.
+
+When `RC Membership End Date` passes, the website automatically classifies that person as a past member during the next update.
+
+Do not delete the row simply because the membership has expired. Keeping the record allows the member to remain acknowledged in the Past Members archive.
 
 ## Adding profile links
 
-Member email addresses are protected and not displayed publicly on the directory. If a member wishes to link an academic website, ORCID profile, or LinkedIn page:
+Email addresses contained in administrative membership records are not displayed publicly in the Members Directory.
 
-1. Open `data/members_manual_overrides.yml` in the GitHub repository.
-2. Add a configuration block using the member's `Member ID`:
-   ```yaml
-   "12345":
-     display_name: "Dr. Jane Doe"
-     website: "https://janedoe.org"
-     orcid: "0000-0002-1825-0097"
-     linkedin: "https://linkedin.com/in/janedoe"
-     hide_email: true
-   ```
-3. If you do not edit repository files, provide the links and Member ID to a technical administrator.
+Optional public profile links, such as a personal academic website, ORCID profile, or LinkedIn page, are managed separately from the ISA membership spreadsheet.
+
+These links are stored in:
+
+```text
+data/members_manual_overrides.yml
+```
+
+For example:
+
+```yaml
+"12345":
+  display_name: "Dr. Jane Doe"
+  website: "https://janedoe.org"
+  orcid: "0000-0002-1825-0097"
+  linkedin: "https://linkedin.com/in/janedoe"
+  hide_email: true
+```
+
+The number at the beginning of the block must correspond to the member's `Member ID`.
+
+Administrators who do not edit repository files should send the member's `Member ID` and the requested links to the person responsible for technical website maintenance.
+
+## What happens after the spreadsheet is updated
+
+Changes made in Google Sheets are not entered manually into the public directory.
+
+During the membership synchronization process, the website:
+
+1. reads the current records from `Members List`;
+2. checks each member's membership end date;
+3. determines whether the member is active or past;
+4. prepares the data used by the website;
+5. updates the Active Members and Past Members directories;
+6. publishes the resulting changes through the normal website deployment process.
+
+The regular update runs automatically according to the site's scheduled workflow. An administrator can also run the membership update manually when a change needs to appear before the next scheduled run.
 
 ## Checking the published directory
 
-To verify that changes appear online:
+After the update has completed:
 
-1. Visit `https://isa-rc42.org/members/`.
-2. Search for the scholar's name or filter by country to confirm their listing and dates.
-3. If necessary, refresh your browser cache using `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac).
+1. Open [https://isa-rc42.org/members/](https://isa-rc42.org/members/).
+2. Search for the member's name.
+3. Confirm that the name, affiliation, country, and other public information appear correctly.
+4. Confirm that the member appears in the appropriate active or past directory.
+5. If the page appears unchanged after the automated process has completed, refresh the browser using `Ctrl + F5` on Windows or `Cmd + Shift + R` on macOS.
+
+If the record still does not appear correctly, check the membership dates and required fields before reviewing GitHub Actions.
 
 ## Common problems
 
-* **Incorrect date format:** Ensure that all dates use `DD-MM-YYYY`.
-* **Missing Member ID:** Every record requires a unique `Member ID` to distinguish members with identical names.
-* **Accidentally deleting past members:** Do not delete expired member rows. Keeping their historical end date allows them to remain acknowledged in the past members archive.
+### A member does not appear in the active directory
+
+Check `RC Membership End Date`. If the date has already passed, the website will classify the person as a past member.
+
+Also confirm that the required member identifiers and name fields are present.
+
+### A renewed member still appears as a past member
+
+Check that the new `RC Membership End Date` was entered in `Members List` and that it uses `DD-MM-YYYY`.
+
+After correcting the date, wait for the next automatic update or run the membership update manually.
+
+### The new ISA list does not update correctly
+
+Check that the records were copied into `Members List` without changing the existing column names.
+
+Do not replace the RC42 spreadsheet with a newly created spreadsheet or rename the columns from the ISA file.
+
+### A member appears twice
+
+Search the spreadsheet for the member's `Member ID`. Each member should have one current record unless the source file supplied by ISA explicitly contains otherwise.
+
+Check the source file before deleting any record.
+
+### An expired member is missing from the past archive
+
+Do not delete expired members from `Members List`. The website needs the historical record and the membership end date to classify them as past members.
+
+### Profile links are missing
+
+Website, ORCID, and LinkedIn links are not managed through the main ISA membership spreadsheet. Check `data/members_manual_overrides.yml` or contact the technical administrator.

@@ -29,18 +29,8 @@ To run an update:
 5. Verify that `Branch: main` is selected.
 6. Click the green `Run workflow` button.
 
-```
-GitHub: Actions > Community Submissions Sync
-Filter workflow runs
-                                            [ Run workflow ▾]
-                                          ┌─────────────────┐
-                                          │ Use workflow    │
-                                          │ from: Branch:   │
-                                          │ [ main ▾ ]      │
-                                          │                 │
-                                          │ [ Run workflow] │
-                                          └─────────────────┘
-```
+![GitHub Actions: Community Submissions Sync](actions_github.png)
+
 
 ## Understanding workflow status indicators
 

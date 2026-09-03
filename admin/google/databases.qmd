@@ -3,7 +3,7 @@ title: "Google account and databases"
 subtitle: "Administrative spreadsheets in Google Drive and subscriber data handling"
 ---
 
-The official RC42 Google account (`isa-rc42@isa-sociology.org` or authorized board account) contains the forms and spreadsheets that provide dynamic data for the website. Routine content administration is conducted through four Google Sheets.
+The official RC42 Google account contains the forms and spreadsheets that provide dynamic data for the website. Routine content administration is conducted through four Google Sheets.
 
 ```
 RC42 Google Drive
@@ -26,46 +26,3 @@ RC42 Google Drive
 | `ISA RC42 Community Submissions` | Editorial inbox for news, calls for papers, events, and publications submitted through the website. | To review, edit, or approve community submissions. | [Community contributions](contributions.qmd) |
 | `Active Members RC42 Social Psychology` | Official membership database used to build the Members Directory. | To add a new member, update renewal dates, or modify affiliation details. | [Members](members.qmd) |
 | `rc42_resources_workflow` | Catalog of academic journals, handbooks, syllabi, datasets, and research tools. | To add an academic resource, update links, or adjust categories. | [Resources](resources.qmd) |
-
-## Newsletter database and privacy
-
-::: {.callout-important}
-## Private subscriber database
-
-Unlike the other three administrative spreadsheets, the `ISA RC42 Newsletter Database` is never published online and is never synchronized to the GitHub repository. It contains personal contact information and remains restricted to authorized RC42 administrators in Google Drive. Never upload, export, or commit subscriber data to GitHub.
-:::
-
-When visitors complete the subscription form on the website, their details are saved to the `Subscribers` tab of the Newsletter Database.
-
-### Spreadsheet columns
-
-| Column | Content | Notes |
-|:---|:---|:---|
-| `Timestamp` | Date and time of the subscription request | Recorded automatically by the subscription application. |
-| `Full Name` | Subscriber's name | Recorded automatically. |
-| `Affiliation` | University, department, or organization | Optional field. |
-| `Email Address` | Contact email address | Recorded automatically. |
-| `Consent` | Explicit confirmation to receive updates | Required for compliance with data protection standards. |
-| `Status` | `pending`, `active`, or `unsubscribed` | Indicates whether the email has been confirmed. |
-
-## Processing an unsubscription or data deletion request
-
-If a subscriber requests to be removed from the mailing list or asks for their personal information to be erased:
-
-1. Open Google Drive using the RC42 administrative account.
-2. Open `Core Spreadsheets` and select `ISA RC42 Newsletter Database`.
-3. Select the `Subscribers` tab and search for the subscriber's email address using `Ctrl + F` (or `Cmd + F`).
-4. Update or remove the record:
-   * To unsubscribe: Change the value in `Status` from `active` to `unsubscribed`.
-   * To erase permanently: Right-click the row number on the left and select `Delete row`.
-5. Send a brief confirmation to the subscriber indicating that their request has been processed.
-
-## Data protection practices
-
-::: {.callout-warning}
-## Spreadsheet security rules
-
-* Do not copy subscriber email addresses into GitHub issues, pull requests, or repository files.
-* Maintain the sharing permissions on the Newsletter Database as restricted to authorized board members.
-* Do not remove the Google Service Account (`isa-rc42-sync@...`) from the sharing list on the other three spreadsheets. The automated sync scripts require Viewer permissions to read updates.
-:::

@@ -33,11 +33,11 @@ isa-rc42.org (Published website)
 
 When a colleague submits news, a call for papers, or an event through the website:
 
-1. The contributor fills out the public submission form on the website.
+1. The contributor fills out the  submission google forms public on the website.
 2. The form appends a new row to the `ISA RC42 Community Submissions` spreadsheet.
 3. An RC42 editor opens the `Editorial Review` tab, reviews the text, and sets `review_status` to `approved` and `publish_on_site` to `yes`.
 4. GitHub Actions runs automatically (daily at 12:00 UTC or upon manual trigger), reads the approved rows, removes private contact details, and updates the data files.
-5. Quarto compiles the updated pages and publishes the contribution at `https://isa-rc42.org/news/community-contributions.html`.
+5. Quarto compiles the updated pages and publishes the contribution at `https://isa-rc42.org/news/`.
 
 ```{mermaid}
 sequenceDiagram

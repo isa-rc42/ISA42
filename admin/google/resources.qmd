@@ -1,80 +1,282 @@
 ---
 title: "Resources"
-subtitle: "Curating academic publications, teaching syllabi, datasets, and research tools"
+subtitle: "Curating academic publications, teaching materials, datasets, and research tools"
 ---
 
-The `rc42_resources_workflow` spreadsheet contains curated academic materials displayed on the [Resources page](https://isa-rc42.org/resources/). It allows RC42 to maintain a directory of sociological social psychology literature, teaching materials, and open research data.
+The `rc42_resources_workflow` spreadsheet contains academic resources curated directly by RC42 and displayed on the [Resources page](https://isa-rc42.org/resources/). It is used to maintain publications, teaching materials, datasets, research tools, and other resources relevant to sociological social psychology.
+
+Resources submitted by members and colleagues through the Community Contributions form follow a separate editorial process. Once approved as resources, those contributions are also displayed on the Resources page, but they do not need to be copied into `rc42_resources_workflow`.
 
 ## Where the information is stored
 
-Resources are managed in Google Drive:
+Resources curated directly by RC42 are managed in Google Drive:
 
-```
+```text
 Google Drive
 └── Core Spreadsheets
     └── rc42_resources_workflow
+        └── 1_sheet
 ```
+
+The `1_sheet` tab contains the resource records used by the website.
+
+For routine administration, new resources can be added directly to this table while preserving the existing column names and structure.
+
+## Two ways resources reach the website
+
+Resources can appear on the RC42 website through two different administrative routes.
+
+### Resources curated directly by RC42
+
+Resources selected and maintained directly by RC42 are entered in:
+
+```text
+rc42_resources_workflow
+```
+
+These records include publications, teaching resources, datasets, research tools, blogs, and other academic materials selected for inclusion on the website.
+
+### Resources submitted by the community
+
+Members and colleagues can also submit a resource through the Community Contributions form.
+
+These submissions are managed in:
+
+```text
+ISA RC42 Community Submissions
+└── Editorial Review
+```
+
+If a Community Contribution is approved for publication and identified as a resource, the website automatically includes it in the **Community Resources** section of the Resources page.
+
+The contribution remains administratively separate from the resources maintained in `rc42_resources_workflow`.
+
+```text
+Resource curated directly by RC42
+        ↓
+rc42_resources_workflow
+        ↓
+Resources page
+
+
+Resource submitted by the community
+        ↓
+ISA RC42 Community Submissions
+        ↓
+Editorial review and approval
+        ↓
+Community Resources
+        ↓
+Resources page
+```
+
+::: {.callout-note}
+## Do not enter community resources twice
+
+An approved Community Contribution categorized as a resource does not need to be added manually to `rc42_resources_workflow`.
+
+The website already includes it through the Community Contributions process. Adding the same resource to both systems may create a duplicate entry.
+:::
 
 ## Publication requirements
 
-Adding a row to the spreadsheet does not publish it automatically. To ensure that incomplete or broken entries are not displayed on the website, an entry must meet two requirements:
+Adding a row to `rc42_resources_workflow` does not necessarily make it public.
 
-1. It must contain a working web address in the `URL` column.
-2. The value in `Verification status` must begin with the word `Verified` (for example, `Verified official source` or `Verified academic source`).
+For a resource to be included during the website update, it must satisfy the publication requirements used by the synchronization process.
 
-## Example of a published resource entry
+At minimum:
 
-A complete resource record includes:
+1. The `URL` field must contain a valid web address.
+2. `Verification status` must contain an accepted verified status. Current verified records use values beginning with `Verified`, such as `Verified official source` or `Verified academic source`.
 
-* **Title:** *Handbook of the Social Psychology of Inequality*
-* **URL:** `https://link.springer.com/book/10.1007/978-94-017-9002-4`
-* **Category:** `Publications`
-* **Verification status:** `Verified official source`
-* **Priority rank:** `1` (lower numbers appear higher on the page)
-* **Tags:** `inequality; status; stratification; handbook`
-* **Author / Institution:** `Jane McLeod, Edward Lawler, Michael Schwalbe (Eds.)`
-* **Description:** `An overview of sociological social psychology approaches to social inequality and stratification.`
+Entries that do not meet the publication conditions are excluded from the public resource collection until they are corrected or verified.
+
+## Example of a resource record
+
+A typical record may contain:
+
+```text
+Title:
+Handbook of the Social Psychology of Inequality
+
+Category:
+Publications
+
+Author / Institution:
+Jane McLeod, Edward Lawler, Michael Schwalbe (Eds.)
+
+Resource type:
+Handbook
+
+Description:
+An overview of sociological social psychology approaches
+to social inequality and stratification.
+
+URL:
+https://link.springer.com/book/10.1007/978-94-017-9002-4
+
+Tags:
+inequality; status; stratification; handbook
+
+Verification status:
+Verified official source
+
+Priority rank:
+1
+
+Source type:
+External
+```
+
+The exact values should reflect the resource being added. Existing records in the spreadsheet can be used as a reference for formatting and classification.
 
 ## Resource fields reference
 
-| Column header | Purpose | Accepted values |
+The spreadsheet currently contains the following administrative fields.
+
+| Column header | Purpose | Guidance |
 |:---|:---|:---|
-| `Title` | Title of the resource | Mandatory. Enter full descriptive title. |
-| `URL` | Web address | Mandatory. Must be an active URL (such as `https://...`). |
-| `Verification status` | Editorial approval switch | Mandatory. Must start with `Verified` (e.g. `Verified official source`). |
-| `Category` | Main thematic section on the website | `Publications`, `Teaching Resources`, or `Datasets & Tools`. |
-| `Priority rank` | Display order rank | Enter `1` for featured resources, `2` for secondary, or `0` for default alphabetical ordering. |
-| `Tags` | Topic keywords | Semicolon- or comma-separated terms (e.g. `emotions; identity; surveys`). |
-| `Author / Institution` | Authors or publishing institution | Recommended for academic citation. |
-| `Description` | Summary of the resource | Recommended 1–3 sentence overview. |
+| `ID` | Unique identifier for the resource | Preserve the existing RC42 identifier structure and do not duplicate an ID. |
+| `Category` | General type of content | Use the existing categories in the spreadsheet. Current examples include `Publications`, `Teaching Resources`, `Datasets & Tools`, and `Blog / Posts`. |
+| `Title` | Public title of the resource | Required. Use the full title of the publication, dataset, course, or resource. |
+| `Author / Institution` | Author, editor, organization, or institution responsible for the resource | Recommended. Use the official attribution where possible. |
+| `Resource type` | More specific description of the material | Examples may include journal, handbook, book, syllabus, dataset, package, or blog post. Follow existing entries when possible. |
+| `Description` | Short explanation of the resource | Write a concise description that helps visitors understand what the resource contains. |
+| `Relevance for RC42` | Internal assessment of relevance to RC42 | Follow the classifications already used in the spreadsheet. |
+| `Suggested placement` | Intended location or section on the website | Use the existing website placement categories. |
+| `URL` | Web address of the resource | Required for publication. Use a complete working `https://` URL. |
+| `Tags` | Subject keywords | Use concise terms separated consistently with existing records. |
+| `Access type` | Indicates how the resource can be accessed | Examples in the database include open access, subscription, institutional access, or other access conditions. |
+| `Language` | Language of the resource | Use the language or languages in which the resource is available. |
+| `Region scope` | Geographic scope or relevance | Examples include `International`, `Global`, specific regions, or countries. |
+| `Verification status` | Records the editorial verification of the source | Published resources should use an accepted status beginning with `Verified`. |
+| `Notes` | Internal administrative comments | Use for editorial or contextual information when needed. |
+| `Priority rank` | Controls prioritization or placement | Follow the ranking convention already used in the spreadsheet. |
+| `Source type` | Identifies the relationship between RC42 and the source | Existing records include values such as `External`, `RC42-linked`, and `ISA-linked`. |
 
-## Community-submitted resources
+::: {.callout-warning}
+## Keep the existing column names
 
-When an administrator approves a community contribution categorized as a resource in `ISA RC42 Community Submissions`, the synchronization process automatically includes it in the Community Resources section of the Resources page. You do not need to re-enter it into `rc42_resources_workflow`.
+Do not rename, remove, or rearrange spreadsheet columns without checking the website automation first.
 
-## Adding a resource
+The synchronization process relies on the existing field names to identify and process resource information.
+:::
 
-To add an academic resource:
+## Adding a resource curated by RC42
+
+To add a resource directly to the RC42 collection:
 
 1. Open `rc42_resources_workflow` in Google Drive.
-2. Add a new row at the bottom of the spreadsheet.
-3. Enter the `Title` and paste the active `URL`.
-4. Set `Category` to `Publications`, `Teaching Resources`, or `Datasets & Tools`.
-5. Set `Verification status` to `Verified official source`.
-6. Set `Priority rank` (for example, `1` for top placement or `0` for default).
-7. Enter relevant `Tags`, `Author / Institution`, and a brief `Description`.
-8. Changes save automatically in Google Sheets.
-9. Wait for the daily update or trigger an immediate update manually.
+2. Select the `1_sheet` tab.
+3. Add a new row at the bottom of the existing resource records.
+4. Assign an `ID` that follows the existing identifier structure and is not already in use.
+5. Enter the `Title`.
+6. Enter the `Author / Institution` when available.
+7. Select an appropriate `Category` using the classifications already present in the spreadsheet.
+8. Enter the `Resource type`.
+9. Write a concise `Description`.
+10. Paste the complete working web address in `URL`.
+11. Add relevant `Tags`.
+12. Complete `Access type`, `Language`, and `Region scope` when applicable.
+13. Set `Verification status` only after the resource has been checked.
+14. Set `Priority rank` according to the existing ranking convention.
+15. Complete `Source type` to indicate whether the resource is external, RC42-linked, ISA-linked, or another existing classification.
+16. Google Sheets saves the changes automatically.
+
+The resource will be processed during the next scheduled resource update. If the change needs to appear sooner, the corresponding GitHub Action can also be run manually.
+
+## Editing an existing resource
+
+To correct or update a resource curated directly by RC42:
+
+1. Open `rc42_resources_workflow`.
+2. Find the resource using its `ID`, title, or URL.
+3. Edit the relevant fields.
+4. Keep the existing `ID` unchanged.
+5. Confirm that the `URL` remains valid.
+6. Review `Verification status` if the destination or source has changed.
+7. Wait for the next scheduled update or run the resource update manually.
+
+Do not create a second row when the intention is only to correct an existing record.
+
+## Managing a community-submitted resource
+
+Community Resources should be edited through the Community Contributions system rather than through `rc42_resources_workflow`.
+
+If a community-submitted resource needs to be corrected, approved, unpublished, or otherwise changed:
+
+1. Open `ISA RC42 Community Submissions`.
+2. Select the `Editorial Review` tab.
+3. Find the original contribution.
+4. Make the necessary editorial change.
+5. Confirm the publication settings.
+6. Wait for the next Community Contributions synchronization or run it manually.
+
+The updated contribution will continue to appear through the **Community Resources** section of the Resources page.
+
+## What happens after the spreadsheet is updated
+
+Resources maintained in `rc42_resources_workflow` are processed automatically by the website synchronization system.
+
+During the resource update, the system:
+
+1. reads the records from the Google Sheet;
+2. checks the fields required for publication;
+3. excludes entries that do not meet the publication conditions;
+4. prepares the resource data used by the website;
+5. organizes the accepted resources for display;
+6. publishes the resulting changes through the normal website deployment process.
+
+No manual editing of the public Resources page is required after updating the spreadsheet.
+
+Community-submitted resources follow their own Community Contributions synchronization process and are added to the Resources page separately.
 
 ## Checking the published resource
 
-To verify that the resource is published:
+After the corresponding update has completed:
 
-1. Visit `https://isa-rc42.org/resources/`.
-2. Locate the corresponding category and confirm that the title, description, and link appear as expected.
-3. If necessary, refresh your browser cache using `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac).
+1. Open [https://isa-rc42.org/resources/](https://isa-rc42.org/resources/).
+2. Locate the relevant section.
+3. Confirm that the resource title, description, attribution, and link appear correctly.
+4. Open the resource link to confirm that it reaches the intended destination.
+5. If the page still shows an older version after the automated update has completed, refresh the browser using `Ctrl + F5` on Windows or `Cmd + Shift + R` on macOS.
+
+If the resource does not appear, check the spreadsheet fields before reviewing GitHub Actions.
 
 ## Common problems
 
-* **Unverified status:** If `Verification status` is empty or set to `Pending`, the synchronization script skips the row.
-* **Invalid URL:** Rows containing placeholder links (such as `#`) or missing URLs are excluded from publication.
+### A resource does not appear on the website
+
+Check that the row contains a valid `URL` and an accepted `Verification status`.
+
+If either field does not meet the publication requirements, the resource may be excluded from the synchronization.
+
+### The resource URL does not work
+
+Open the URL directly from the spreadsheet.
+
+Replace broken, incomplete, or placeholder links with the correct destination and allow the next synchronization to update the website.
+
+### A community resource appears twice
+
+Check whether the same resource was entered both in `ISA RC42 Community Submissions` and `rc42_resources_workflow`.
+
+An approved Community Resource does not need to be added to the curated resources spreadsheet.
+
+### A resource is in the wrong section
+
+Check `Category` and `Suggested placement` against similar records already present in the spreadsheet.
+
+Use the existing taxonomy rather than creating a new category for a single resource unless there is an agreed change to the website structure.
+
+### A resource has an incorrect priority
+
+Check `Priority rank` and compare it with other records in the same section.
+
+Use the existing ranking convention so that resources maintain a consistent order.
+
+### The information changed but the website did not
+
+First confirm that Google Sheets saved the change. Then check whether the scheduled Resources update has already run.
+
+If necessary, use **Run and verify updates** in this administration guide to run the corresponding GitHub Action manually and check its result.

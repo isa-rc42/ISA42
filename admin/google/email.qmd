@@ -1,152 +1,136 @@
 ---
 title: "Email and Community Updates"
-subtitle: "Institutional email, Community Updates subscribers, automated notifications, and privacy"
+subtitle: "Essential administration of RC42 email, Google services, and subscriber notifications"
 ---
 
-RC42 uses email communication for three distinct purposes:
+RC42 uses two email addresses for different purposes:
 
-| If someone wants to... | System to use | Details |
-|:---|:---|:---|
-| Contact RC42 | Institutional email | Write directly to `isa-rc42@isa-sociology.org`. |
-| Submit news, events, calls or resources | Community Contributions form | Complete the public submission form on the website. |
-| Receive publication notifications | Community Updates | Subscribe through the website subscription form. |
+| Address | Main purpose |
+|:---|:---|
+| `isa-rc42@isa-sociology.org` | Official public contact address for RC42. |
+| `isarc42.community@gmail.com` | Google administration account and sender of automated Community Updates. |
 
-## Institutional email
+## RC42 Google administration account
 
-The institutional address `isa-rc42@isa-sociology.org` is the official public contact address for RC42. It is used for general correspondence with members, researchers, partner institutions, and website visitors.
+The main Google account used for website administration is:
 
-### Routine administration
-
-* **Access:** Board members access the inbox through the designated webmail interface or authorized Google Workspace account.
-* **Responsibilities:** The Secretary and President typically manage incoming messages, answering administrative questions and redirecting specialized inquiries.
-* **Handover:** During an executive board transition, login credentials and recovery verification details must be transferred securely to incoming officers.
-
-## Community Updates subscription system
-
-Community Updates is the notification service that sends email alerts to subscribers when new announcements, calls for papers, events, or publications are published on the website.
-
-```
-Website subscription form
-  │
-  ▼
-Newsletter Database (status: pending)
-  │
-  ▼
-Confirmation email sent to subscriber
-  │
-  ▼
-Subscriber clicks verification link (status: active)
-  │
-  ▼
-Automated email alerts sent for newly published contributions
+```text
+isarc42.community@gmail.com
 ```
 
-1. **Website subscription:** A visitor enters their name, affiliation, and email address into the subscription form on the website.
-2. **Pending record:** The subscription application records the entry in the `Subscribers` tab of the `ISA RC42 Newsletter Database` with a status of `pending`.
-3. **Confirmation email:** The system sends an automated email containing a verification link.
-4. **Activation:** When the recipient clicks the verification link, their status changes to `active`.
-5. **Publication notifications:** When a new community contribution is approved and published on the website, active subscribers receive an email summary.
-6. **Unsubscription:** Subscribers can click the unsubscribe link in any email to update their status to `unsubscribed`.
+This account is used to access the Google services connected to the website, including:
 
-### Subscription status values
+- Google Drive;
+- Google Sheets;
+- Google Forms;
+- `ISA RC42 Newsletter Database`;
+- `ISA RC42 Community Submissions`;
+- the `RC42 Community Updates` Apps Script project.
+
+It is also the address used to send automated subscription confirmations and Community Updates.
+
+::: {.callout-important}
+## Keep this account available
+
+Do not delete or replace `isarc42.community@gmail.com` without first transferring the Google files, Forms, Apps Script project, and automated processes connected to it.
+:::
+
+## Community Updates
+
+Visitors can subscribe through the website to receive notifications when new Community Contributions are published.
+
+The process is:
+
+```text
+Website subscription
+        ↓
+ISA RC42 Newsletter Database
+status: pending
+        ↓
+Confirmation email
+from isarc42.community@gmail.com
+        ↓
+Subscriber confirms
+status: active
+        ↓
+New Community Contribution is published
+        ↓
+Community Update email
+```
+
+The main subscription statuses are:
 
 | Status | Meaning |
 |:---|:---|
-| `pending` | The subscription request was received, but the confirmation link has not been clicked. |
-| `active` | The email address is confirmed and will receive future Community Updates. |
-| `unsubscribed` | The person has opted out and will no longer receive Community Updates. |
+| `pending` | Subscription received but not yet confirmed. |
+| `active` | Confirmed subscriber who can receive Community Updates. |
+| `unsubscribed` | Subscriber has opted out. |
 
-## Automated email messages
+## Newsletter Database
 
-The Community Updates system sends the following automated messages:
+The `ISA RC42 Newsletter Database` contains the subscriber information used by Community Updates.
 
-| Message | Sent when | Recipient |
-|:---|:---|:---|
-| Subscription confirmation | Immediately upon submitting the website subscription form. | Prospective subscriber |
-| Welcome confirmation notice | Immediately after clicking the confirmation link. | Confirmed subscriber |
-| Community contribution notification | After an approved community contribution is published on the website. | All active subscribers |
-| Unsubscription confirmation | Immediately upon clicking the unsubscribe link. | Unsubscribed user |
+The main tabs are:
 
-## Google Apps Script
+- `Subscribers` — subscriber names, affiliations, email addresses, and status.
+- `Sent Publications` — records which publications have already generated an email.
+- `Deliveries` — delivery and execution records used for checking the system.
 
-Google Apps Script runs the automatic email tasks used by Community Updates. Routine administrators do not need to edit or maintain the script code.
+To review a subscriber:
 
-The script operates on automated cloud triggers to process new subscription requests, send verification links, and check the website RSS feed (`feeds/community-contributions.xml`) for newly published contributions.
+1. Sign in to `isarc42.community@gmail.com`.
+2. Open `ISA RC42 Newsletter Database` in Google Drive.
+3. Select `Subscribers`.
+4. Search for the email address.
+5. Check the `Status` field.
 
-### Reviewing script execution status
+If someone asks to unsubscribe manually, change their status to `unsubscribed` and keep the row in the spreadsheet.
 
-If an administrator needs to check whether automated email processes are running normally:
+## Checking the email automation
 
-1. Open `https://script.google.com` while signed into the administrative Google account.
-2. Open the `RC42 Community Updates` project.
-3. Select `Executions` in the left navigation menu.
-4. Review the status column:
-   * `Completed`: The process completed successfully.
-   * `Failed`: An execution error occurred; contact the technical administrator.
+Google Apps Script runs the Community Updates automation.
 
-## Inside the Newsletter Database
+Routine administrators do not need to edit the script.
 
-The `ISA RC42 Newsletter Database` in Google Drive contains three primary tabs:
+If emails are not being sent:
 
-* **`Subscribers`:** Contains subscriber records (`Timestamp`, `Full Name`, `Affiliation`, `Email Address`, and `Status`).
-* **`Sent Publications`:** Maintains a log of publication identifiers that have already been sent by email. This record prevents duplicate notifications from being dispatched for the same publication.
-* **`Deliveries`:** Logs execution timestamps and delivery batch counts for diagnostic verification.
+1. Sign in to `isarc42.community@gmail.com`.
+2. Open [Google Apps Script](https://script.google.com).
+3. Open the `RC42 Community Updates` project.
+4. Select `Executions`.
+5. Check whether the latest execution is `Completed` or `Failed`.
 
-## Routine subscriber management
+If executions fail repeatedly, contact the technical administrator.
 
-### Reviewing subscribers
+## Cloudflare
 
-1. Open Google Drive and navigate to `Core Spreadsheets`.
-2. Open `ISA RC42 Newsletter Database`.
-3. Select the `Subscribers` tab.
-4. Use `Ctrl + F` (or `Cmd + F`) to locate an entry by email address.
-5. Review the `Status` column (`pending`, `active`, or `unsubscribed`).
+Cloudflare supports the `isa-rc42.org` domain and website infrastructure. Routine administrators normally do not need to change its configuration.
 
-### Processing a manual unsubscription request
+Cloudflare is separate from the Google account, Newsletter Database, and Community Updates email system.
 
-If a member sends an unsubscription request to the institutional email:
+## Privacy
 
-1. Open `ISA RC42 Newsletter Database` and select the `Subscribers` tab.
-2. Search for the member's email address.
-3. Change the value in `Status` from `active` to `unsubscribed`.
-4. Keep the row in the sheet so that the system retains the opt-out preference.
-5. Send a brief reply confirming that the address has been unsubscribed.
+The Newsletter Database contains personal information, including names and email addresses.
 
-## Troubleshooting email issues
+Do not:
 
-### Confirmation email did not arrive
+- upload subscriber information to GitHub;
+- include subscriber data in public documentation or screenshots;
+- use subscriber addresses for purposes unrelated to RC42 communications.
 
-1. Open the `Subscribers` tab in the Newsletter Database and verify that the email address is spelled correctly.
-2. Confirm that the subscriber status is `pending`.
-3. Ask the recipient to inspect their Spam, Junk, or Promotions folder.
-4. If the address was mistyped, ask the person to resubmit the subscription form on the website.
-5. If the issue continues, check the Apps Script execution log or contact the technical administrator.
+Access should be limited to people responsible for RC42 administration.
 
-### Community Update did not arrive
+## Executive board handover
 
-1. Confirm that the subscriber status is `active` in the `Subscribers` tab.
-2. Confirm that the community contribution is published and visible on `https://isa-rc42.org/news/community-contributions.html`.
-3. Check the `Sent Publications` tab to verify whether the publication identifier was recorded.
-4. Ask the recipient to check their Spam or Promotions folder.
-5. If multiple subscribers report non-delivery, contact the technical administrator to inspect Apps Script execution logs and quota limits.
+When the RC42 board changes, confirm that the incoming administrators have access to:
 
-## Privacy and data protection
+- `isa-rc42@isa-sociology.org`;
+- `isarc42.community@gmail.com`;
+- the RC42 Google Drive files;
+- `ISA RC42 Newsletter Database`;
+- `ISA RC42 Community Submissions`;
+- the `RC42 Community Updates` Apps Script project.
 
-::: {.callout-important}
-## Handling subscriber data
+Recovery information should be transferred securely, and access for outgoing administrators should be removed when no longer needed.
 
-* The Newsletter Database contains names, institutional affiliations, and email addresses. Access must remain restricted to individuals responsible for RC42 administration.
-* Subscriber information must not be uploaded to GitHub, referenced in public issue trackers, or included in public documentation.
-* Subscriber addresses may only be used for official ISA RC42 announcements and Community Updates.
-* Unsubscription and data deletion requests must be processed promptly.
-:::
-
-## Executive board handover checklist
-
-During an executive transition, the outgoing and incoming boards should complete the following steps:
-
-* Confirm access to the institutional email address (`isa-rc42@isa-sociology.org`).
-* Confirm access to the Google account that hosts the Newsletter Database and Apps Script project.
-* Verify that the incoming communications officer has Editor permissions on `ISA RC42 Newsletter Database`.
-* Update recovery telephone numbers and secondary recovery emails in the Google account security settings.
-* Revoke administrative permissions for outgoing officers who no longer require access.
+Passwords, recovery codes, API tokens, and other credentials must not be stored in this guide.

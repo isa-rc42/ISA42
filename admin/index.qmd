@@ -42,7 +42,7 @@ Administrative tasks fall into three distinct levels:
 
 Incoming board members and administrators should complete the following onboarding checklist:
 
-* Confirm access to the RC42 institutional email (`isa-rc42@isa-sociology.org`).
+* Confirm access to the RC42 institutional email.
 * Confirm access to the Google account used for website administration.
 * Locate the four administrative spreadsheets in Google Drive.
 * Confirm collaborator access to the `isa-rc42/ISA42` GitHub repository.

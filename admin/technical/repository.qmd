@@ -29,7 +29,7 @@ ISA42 (Repository root)
 
 ## Editing static institutional pages
 
-Unlike directory pages (which update from Google Sheets), static institutional pages—such as About RC42, Statutes, or Board Member listings—are edited directly in Quarto source files (`.qmd`):
+Unlike directory pages (which update from Google Sheets), static institutional pages-such as About RC42, Statutes, or Board Member listings-are edited directly in Quarto source files (`.qmd`):
 
 1. Edit the relevant `.qmd` file in the repository.
 2. Commit the changes to the `main` branch.

@@ -5,6 +5,10 @@ subtitle: "Reviewing, editing, and publishing community submissions"
 
 The `ISA RC42 Community Submissions` spreadsheet serves as the editorial inbox for announcements submitted by members and colleagues through the website contact form. Submissions remain private until an administrator reviews and approves them for publication.
 
+Contributions are first submitted through the Submit a Community Contribution to [ISA RC42 Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1). Each form submission is automatically recorded in the ISA RC42 Community Submissions spreadsheet, where administrators can review the information before deciding whether it should be published on the website.
+
+Submissions remain private until an administrator reviews and approves them for publication.
+
 ## Where the information is stored
 
 Submissions are managed in Google Drive:
@@ -17,6 +21,7 @@ Google Drive
 ```
 
 ## Review and publish a submission
+
 
 To review and publish a contribution:
 
@@ -49,18 +54,20 @@ An item is published only when both conditions are met: `review_status` is set t
 
 ## What happens after approval
 
+Once a contribution has been approved (`review_status = approved`) and marked for publication (`publish_on_site = yes`), no additional publishing step is required. Approved contributions are published automatically when the scheduled **Community Submissions Sync** workflow runs each day at **12:00 UTC**. After the workflow completes successfully, the website is rebuilt and the contribution appears on the [Community Contributions page](https://isa-rc42.org/news/). Administrators can also run the workflow manually if the contribution needs to be published before the next scheduled update.
+
 When the synchronization process runs:
 
 1. The script reads approved rows from the `Editorial Review` tab.
 2. Private fields (`submitter_email`, editorial notes, internal comments) are stripped automatically so that personal contact data is never exposed.
 3. The script generates public data files and updates the website RSS feed (`feeds/community-contributions.xml`).
-4. Quarto compiles and deploys the updated [Community Contributions page](https://isa-rc42.org/news/community-contributions.html).
+4. Quarto compiles and deploys the updated [Community Contributions page](https://isa-rc42.org/news/).
 
 ## Checking the published contribution
 
 To verify that the contribution is online:
 
-1. Open `https://isa-rc42.org/news/community-contributions.html` in your web browser.
+1. Open `https://isa-rc42.org/news/` in your web browser.
 2. Confirm that the title, description, relevant dates, and links appear correctly.
 3. If the page does not reflect recent changes, refresh your browser cache using `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac).
 
