@@ -23,10 +23,10 @@ Source: Open Textbook Library / University of Minnesota</description>
 Source: Frontiers in Psychology</description>
       <guid isPermaLink="false">sub-20260624-120743</guid>
       <pubDate>Wed, 24 Jun 2026 09:00:00 +0000</pubDate>
-      <category>publication</category>
-      <category>call</category>
-      <category>global</category>
       <category>methods</category>
+      <category>call</category>
+      <category>publication</category>
+      <category>global</category>
       <category>research</category>
     </item>
     <item>
@@ -37,9 +37,9 @@ Source: Frontiers in Psychology</description>
 Source: Frontiers in Psychology</description>
       <guid isPermaLink="false">sub-20260623-144007</guid>
       <pubDate>Tue, 23 Jun 2026 09:00:00 +0000</pubDate>
-      <category>publication</category>
       <category>digital_society</category>
       <category>call</category>
+      <category>publication</category>
       <category>global</category>
       <category>research</category>
     </item>
@@ -52,12 +52,12 @@ Source: Society for Personality and Social Psychology</description>
       <guid isPermaLink="false">sub-20260620-023627</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
       <category>conference</category>
+      <category>early career</category>
       <category>call</category>
+      <category>network</category>
+      <category>student opportunity</category>
       <category>social_psychology</category>
       <category>global</category>
-      <category>student opportunity</category>
-      <category>early career</category>
-      <category>network</category>
       <category>research</category>
     </item>
     <item>
@@ -68,10 +68,10 @@ Source: Society for Personality and Social Psychology</description>
 Source: Social Psychology Quarterly / American Sociological Association</description>
       <guid isPermaLink="false">sub-20260620-215028</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>publication</category>
-      <category>call</category>
-      <category>social_psychology</category>
       <category>early career</category>
+      <category>call</category>
+      <category>publication</category>
+      <category>social_psychology</category>
       <category>research</category>
     </item>
     <item>
@@ -84,8 +84,8 @@ Source: Social Psychology / European Association of Social Psychology</descripti
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
       <category>conference</category>
       <category>call</category>
-      <category>social_psychology</category>
       <category>global</category>
+      <category>social_psychology</category>
       <category>research</category>
     </item>
     <item>
@@ -96,10 +96,10 @@ Source: Social Psychology / European Association of Social Psychology</descripti
 Source: Journal of Community and Applied Social Psychology / European Association of Social Psychology</description>
       <guid isPermaLink="false">sub-20260620-233430</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>global</category>
       <category>call</category>
-      <category>research</category>
       <category>inequality</category>
+      <category>global</category>
+      <category>research</category>
     </item>
     <item>
       <title>Conference Call: Combating Harmful Stereotyping</title>
@@ -109,11 +109,11 @@ Source: Journal of Community and Applied Social Psychology / European Associatio
 Source: European Association of Social Psychology / Université Grenoble Alpes</description>
       <guid isPermaLink="false">sub-20260620-233622</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>event</category>
       <category>conference</category>
       <category>call</category>
-      <category>social_psychology</category>
+      <category>event</category>
       <category>global</category>
+      <category>social_psychology</category>
       <category>research</category>
     </item>
     <item>
@@ -124,11 +124,11 @@ Source: European Association of Social Psychology / Université Grenoble Alpes</
 Source: Social Influence / Taylor &amp; Francis / European Association of Social Psychology</description>
       <guid isPermaLink="false">sub-20260620-233810</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>publication</category>
-      <category>call</category>
-      <category>social_psychology</category>
-      <category>global</category>
       <category>open access</category>
+      <category>call</category>
+      <category>publication</category>
+      <category>global</category>
+      <category>social_psychology</category>
       <category>research</category>
     </item>
   </channel>
