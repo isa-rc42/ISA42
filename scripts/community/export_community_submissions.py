@@ -172,6 +172,12 @@ def generate_rss(export_data):
     
     valid_items = []
     for item in export_data:
+        # Exclude resources from the community news RSS feed
+        s_type = str(item.get("type", "")).strip().lower()
+        s_cat = str(item.get("category", "")).strip().lower()
+        if "resource" in s_type or "resource" in s_cat:
+            continue
+
         date_str = item.get("date_published")
         if not date_str:
             print(f"WARNING: Skipping item {item.get('id')} in RSS due to missing date_published.")

@@ -135,8 +135,20 @@ RC42 fosters international research, debate, and collaboration in sociological s
 <section class="home-updates-section">
   <div class="home-updates-shell">
     <header class="home-updates-header">
-      <span class="home-updates-kicker">Community</span>
-      <h2>Latest Community Contributions</h2>
+      <div class="home-updates-header-text">
+        <span class="home-updates-kicker">Community</span>
+        <h2>Latest Community Contributions</h2>
+      </div>
+      <div class="home-updates-header-action">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1"
+          target="_blank"
+          rel="noopener"
+          class="news-header-action news-submit-button"
+        >
+          Submit a contribution &rarr;
+        </a>
+      </div>
     </header>
 
     <div class="updates-carousel-wrapper">
@@ -173,6 +185,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const status = (item.status || item.review_status || item.publication_status || "").toString().toLowerCase();
     if (!status) return true;
     return ["approved", "published", "publish", "accepted"].includes(status);
+  }
+
+  function isResource(item) {
+    if (!item) return false;
+    const type = (item.type || item.submission_type || "").toString().toLowerCase().trim();
+    const cat = (item.category || item.thematic_category || "").toString().toLowerCase().trim();
+    const placement = (item.suggested_placement || "").toString().toLowerCase().trim();
+
+    if (type.includes("resource") || type.includes("data")) return true;
+    if (cat.includes("resource")) return true;
+    if (placement.includes("resource")) return true;
+
+    const rawTags = item.tags || [];
+    const tagList = Array.isArray(rawTags)
+      ? rawTags.map(t => (t || "").toString().toLowerCase().trim())
+      : (rawTags || "").toString().toLowerCase().split(/[;,]/).map(t => t.trim());
+    
+    if (tagList.includes("resource") || tagList.includes("resources")) return true;
+
+    return false;
   }
 
   function formatLabel(value) {
@@ -306,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       const latestItems = data
         .map((item, index) => ({ ...item, __originalIndex: index }))
-        .filter(item => item.title && isPublished(item))
+        .filter(item => item.title && isPublished(item) && !isResource(item))
         .sort((a, b) => {
           const da = getContributionSubmittedDate(a);
           const db = getContributionSubmittedDate(b);
@@ -326,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
         carousel.innerHTML = `
           <div class="updates-fallback" style="width: 100%;">
             <p>No community contributions are available yet.</p>
-            <a href="contact/index.html#community-contributions" class="btn-rc42-primary btn-sm" style="text-decoration:none;">Submit a contribution &rarr;</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1" target="_blank" rel="noopener" class="news-header-action news-submit-button" style="text-decoration:none;">Submit a contribution &rarr;</a>
           </div>
         `;
         if (navContainer) navContainer.style.display = 'none';
@@ -439,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
       carousel.innerHTML = `
         <div class="updates-fallback" style="width: 100%;">
           <p>Unable to load contributions at this time.</p>
-          <a href="contact/index.html#community-contributions" class="btn-rc42-primary btn-sm" style="text-decoration:none;">Submit a contribution &rarr;</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1" target="_blank" rel="noopener" class="news-header-action news-submit-button" style="text-decoration:none;">Submit a contribution &rarr;</a>
         </div>
       `;
       if (navContainer) navContainer.style.display = 'none';
