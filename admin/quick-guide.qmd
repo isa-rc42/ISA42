@@ -1,0 +1,207 @@
+---
+title: "Quick guide"
+subtitle: "The essential steps for administering the RC42 website"
+---
+
+Most routine updates for the ISA RC42 website happen in Google Sheets. You do not need to write code, edit website files, or understand web development to keep the site current. This page contains only the tasks most administrators actually need to perform.
+
+## Start here
+
+Every routine update follows three simple steps:
+
+```text
+1. Update the correct Google Sheet
+        ↓
+2. Wait for the automatic website update
+        ↓
+3. Check the public website
+```
+
+Only use GitHub Actions when you need a change online immediately or when you are checking why an update did not appear.
+
+## Which system do I use?
+
+Use this lookup table to find where each task takes place:
+
+| I want to... | Open |
+|:---|:---|
+| Review a submitted announcement | `ISA RC42 Community Submissions` |
+| Update members | `Active Members RC42 Social Psychology` |
+| Add a curated resource | `rc42_resources_workflow` |
+| Check subscribers | `ISA RC42 Newsletter Database` |
+| Publish something immediately | GitHub Actions |
+| Check the result | `isa-rc42.org` |
+
+Two email accounts support the organization:
+
+* `isa-rc42@isa-sociology.org` is the official public contact address for the committee.
+* `isarc42.community@gmail.com` is the Google administration account used for Drive, spreadsheets, and Community Updates.
+
+## Common tasks
+
+The four most frequent administrative tasks are outlined below.
+
+### Publish a community contribution
+
+**Open:** `ISA RC42 Community Submissions` → `Editorial Review`
+
+**Do this:**
+
+1. Read the submitted announcement.
+2. Make any editorial corrections in `edited_title` or `edited_description` if needed.
+3. Set `review_status` to `approved`.
+4. Set `publish_on_site` to `yes`.
+5. Set `display_member_name_authorized` to `yes` to display the contributor's name, or `no` to publish anonymously.
+
+**Then:** The contribution will be published automatically during the next website update.
+
+Need it online now? See [Publish immediately](#publish-immediately) below.
+
+**More detail:** [Community contributions](google/contributions.qmd)
+
+### Update members
+
+**Open:** `Active Members RC42 Social Psychology` → `Members List`
+
+**Do this:**
+
+1. Copy or update the membership information supplied by ISA below the existing header row.
+2. Keep the existing column headers intact.
+3. Check that `RC Membership Start Date` and `RC Membership End Date` use `DD-MM-YYYY`.
+
+**Then:** The website automatically decides whether each person appears under Active Members or Past Members based on their expiration date.
+
+Do not manually move expired members between lists or delete them from the spreadsheet.
+
+Need it online now? See [Publish immediately](#publish-immediately) below.
+
+**More detail:** [Members](google/members.qmd)
+
+### Add a resource
+
+**Open:** `rc42_resources_workflow` → `1_sheet`
+
+**Do this:**
+
+1. Add or edit the resource row while keeping the existing column headers.
+2. Check that the `URL` works and starts with `https://`.
+3. Set an appropriate verified value in `Verification status` (such as `Verified official source`).
+
+**Then:** The resource will appear on the Resources page after the next website update.
+
+Resources submitted through Community Contributions are handled automatically and should not be entered here again.
+
+Need it online now? See [Publish immediately](#publish-immediately) below.
+
+**More detail:** [Resources](google/resources.qmd)
+
+### Check subscribers
+
+**Open:** `ISA RC42 Newsletter Database` → `Subscribers`
+
+Subscriber records display three statuses:
+
+* `pending` — waiting for email confirmation;
+* `active` — confirmed subscriber receiving Community Updates;
+* `unsubscribed` — opted out from future messages.
+
+To process a manual unsubscription request, change the status to `unsubscribed`. Do not delete the row.
+
+**Then:** Community Updates notifications are sent automatically from `isarc42.community@gmail.com` whenever new contributions are published.
+
+**More detail:** [Email and Community Updates](google/email.qmd)
+
+## What happens after I save?
+
+```text
+You update Google Sheets
+        ↓
+the website checks the new information
+        ↓
+the website rebuilds automatically
+        ↓
+the change appears at isa-rc42.org
+```
+
+**For normal updates, you can stop after editing the spreadsheet. No additional publishing step is required.**
+
+The website checks for changes and updates automatically every day at **12:00 UTC** (08:00–09:00 in Santiago / New York, 14:00 in Central Europe).
+
+## Publish immediately
+
+GitHub Actions is the control panel used to run the website update manually when you need a change to appear online right away.
+
+1. Open the RC42 GitHub repository at `https://github.com/isa-rc42/ISA42`.
+2. Select **Actions** in the top navigation bar.
+3. In the left sidebar, choose the update corresponding to what you changed:
+
+| You changed... | Run |
+|:---|:---|
+| Community Contributions | `Community Submissions Sync` |
+| Members | `Update Members from Google Sheets` |
+| Resources | `Update Resources from Google Sheets` |
+
+4. Select **Run workflow** on the right (ensure `Branch: main` is selected) and click the green **Run workflow** button.
+5. Wait for the green check mark, then check the website.
+
+**More detail:** [Run and verify updates](operations/updates.qmd)
+
+## How do I know it worked?
+
+Check these three items:
+
+* The GitHub Action has a green check mark.
+* The change appears on `isa-rc42.org`.
+* The link, name, or text looks correct.
+
+If you still see the old version, perform a hard refresh (`Ctrl + F5` on Windows or `Cmd + Shift + R` on Mac) to clear your browser cache.
+
+## You do not need to do these manually
+
+The website handles these routine operations automatically:
+
+* Rebuilding the website;
+* Moving members between Active and Past;
+* Publishing approved contributions individually;
+* Copying Community Resources into the curated resources sheet;
+* Sending Community Updates emails manually.
+
+## What should I not change?
+
+::: {.callout-warning}
+## Leave these to technical administration
+Do not change:
+
+* GitHub workflow files;
+* Python or Apps Script code;
+* GitHub Secrets;
+* Cloudflare or DNS settings;
+* generated data files;
+* the main Quarto configuration.
+
+If one of these needs to change, contact the technical administrator.
+:::
+
+## If something does not appear
+
+Check these in order:
+
+1. Did you edit the correct spreadsheet and tab?
+2. Are all required fields complete?
+3. Did the automatic update already run?
+4. If you ran it manually, does GitHub Actions show a green check mark?
+5. Did you refresh the public page?
+
+Still not working? Open the [Troubleshooting](troubleshooting.qmd) guide.
+
+## Where do I go for more help?
+
+| Task | Full guide |
+|:---|:---|
+| Community Contributions | [Community contributions](google/contributions.qmd) |
+| Members | [Members](google/members.qmd) |
+| Resources | [Resources](google/resources.qmd) |
+| Email and subscribers | [Email and Community Updates](google/email.qmd) |
+| Manual updates | [Run and verify updates](operations/updates.qmd) |
+| Problems | [Troubleshooting](troubleshooting.qmd) |
+| Technical administration | [GitHub Actions and automation](technical/automation.qmd) |

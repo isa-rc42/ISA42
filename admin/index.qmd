@@ -51,6 +51,7 @@ Incoming board members and administrators should complete the following onboardi
 
 ## Guide index
 
+* **[Quick guide](quick-guide.qmd):** The essential steps for administering the RC42 website.
 * **[How the website works](getting-started/architecture.qmd):** Data flow from Google Sheets to the published website.
 * **[Google account and databases](google/databases.qmd):** Overview of administrative spreadsheets in Google Drive.
 * **[Email and Community Updates](google/email.qmd):** Institutional email, newsletter subscribers, and automated notifications.

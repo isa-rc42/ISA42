@@ -34,6 +34,8 @@ website:
           contents:
             - text: "Welcome"
               href: admin/index.qmd
+            - text: "Quick guide"
+              href: admin/quick-guide.qmd
             - text: "How the website works"
               href: admin/getting-started/architecture.qmd
         - section: "Google administration"
