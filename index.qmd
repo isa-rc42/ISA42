@@ -146,7 +146,7 @@ RC42 fosters international research, debate, and collaboration in sociological s
           rel="noopener"
           class="news-header-action news-submit-button"
         >
-          Submit a contribution &rarr;
+          <span class="submit-btn-text">Submit a contribution</span> <span class="submit-btn-arrow">&rarr;</span>
         </a>
       </div>
     </header>
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
         carousel.innerHTML = `
           <div class="updates-fallback" style="width: 100%;">
             <p>No community contributions are available yet.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1" target="_blank" rel="noopener" class="news-header-action news-submit-button" style="text-decoration:none;">Submit a contribution &rarr;</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1" target="_blank" rel="noopener" class="news-header-action news-submit-button" style="text-decoration:none;"><span class="submit-btn-text">Submit a contribution</span> <span class="submit-btn-arrow">&rarr;</span></a>
           </div>
         `;
         if (navContainer) navContainer.style.display = 'none';
@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
       carousel.innerHTML = `
         <div class="updates-fallback" style="width: 100%;">
           <p>Unable to load contributions at this time.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1" target="_blank" rel="noopener" class="news-header-action news-submit-button" style="text-decoration:none;">Submit a contribution &rarr;</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjuQ7PX9qcXLSunPtl84DkhFYhLU_v1LbkepsVkvw7SAdNmA/viewform?pli=1&pli=1" target="_blank" rel="noopener" class="news-header-action news-submit-button" style="text-decoration:none;"><span class="submit-btn-text">Submit a contribution</span> <span class="submit-btn-arrow">&rarr;</span></a>
         </div>
       `;
       if (navContainer) navContainer.style.display = 'none';
