@@ -25,10 +25,10 @@ Use this lookup table to find where each task takes place:
 
 | I want to... | Open |
 |:---|:---|
-| Review a submitted announcement | `ISA RC42 Community Submissions` |
-| Update members | `Active Members RC42 Social Psychology` |
-| Add a curated resource | `rc42_resources_workflow` |
-| Check subscribers | `ISA RC42 Newsletter Database` |
+| Review a submitted announcement | [ISA RC42 Community Submissions ↗](https://docs.google.com/spreadsheets/d/1-ANTt9jNhU_ZMRMDFdLWNu4gJ5vvxRCA1YQxAy7ypiM/edit#gid=1330339865){target="_blank" rel="noopener noreferrer"} |
+| Update members | [Active Members RC42 Social Psychology ↗](https://docs.google.com/spreadsheets/d/1DZer1dOPiIpdj_R8WNNQQqgJC9K33bdrEOJBxfLkwms/edit#gid=2032449693){target="_blank" rel="noopener noreferrer"} |
+| Add a curated resource | [rc42_resources_workflow ↗](https://docs.google.com/spreadsheets/d/1uBOIBtkSRBzSLe-pVMwINYC-U3U_8zsQPey56ktdEdI/edit#gid=0){target="_blank" rel="noopener noreferrer"} |
+| Check subscribers | [ISA RC42 Newsletter Database ↗](https://docs.google.com/spreadsheets/d/1KFJHONWK4k0zUubQYlPv5Oop7XKA_prUI2yXOg0bwQo/edit#gid=1339988577){target="_blank" rel="noopener noreferrer"} |
 | Publish something immediately | GitHub Actions |
 | Check the result | `isa-rc42.org` |
 
@@ -43,7 +43,7 @@ The four most frequent administrative tasks are outlined below.
 
 ### Publish a community contribution
 
-**Open:** `ISA RC42 Community Submissions` → `Editorial Review`
+**Open:** [ISA RC42 Community Submissions](https://docs.google.com/spreadsheets/d/1-ANTt9jNhU_ZMRMDFdLWNu4gJ5vvxRCA1YQxAy7ypiM/edit#gid=1330339865){target="_blank" rel="noopener noreferrer"} → `Editorial Review`
 
 **Do this:**
 
@@ -61,7 +61,7 @@ Need it online now? See [Publish immediately](#publish-immediately) below.
 
 ### Update members
 
-**Open:** `Active Members RC42 Social Psychology` → `Members List`
+**Open:** [Active Members RC42 Social Psychology](https://docs.google.com/spreadsheets/d/1DZer1dOPiIpdj_R8WNNQQqgJC9K33bdrEOJBxfLkwms/edit#gid=2032449693){target="_blank" rel="noopener noreferrer"} → `Members List`
 
 **Do this:**
 
@@ -79,7 +79,7 @@ Need it online now? See [Publish immediately](#publish-immediately) below.
 
 ### Add a resource
 
-**Open:** `rc42_resources_workflow` → `1_sheet`
+**Open:** [rc42_resources_workflow](https://docs.google.com/spreadsheets/d/1uBOIBtkSRBzSLe-pVMwINYC-U3U_8zsQPey56ktdEdI/edit#gid=0){target="_blank" rel="noopener noreferrer"} → `1_sheet`
 
 **Do this:**
 
@@ -97,7 +97,7 @@ Need it online now? See [Publish immediately](#publish-immediately) below.
 
 ### Check subscribers
 
-**Open:** `ISA RC42 Newsletter Database` → `Subscribers`
+**Open:** [ISA RC42 Newsletter Database](https://docs.google.com/spreadsheets/d/1KFJHONWK4k0zUubQYlPv5Oop7XKA_prUI2yXOg0bwQo/edit#gid=1339988577){target="_blank" rel="noopener noreferrer"} → `Subscribers`
 
 Subscriber records display three statuses:
 

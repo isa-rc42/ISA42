@@ -68,6 +68,33 @@ main.content li {
   color: #334155;
 }
 
+/* Administrative content links (tables, paragraphs, lists) */
+#quarto-document-content p a,
+#quarto-document-content table a,
+#quarto-document-content li a {
+  color: #1e3a8a;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+  text-decoration-color: rgba(30, 58, 138, 0.35);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+#quarto-document-content p a:hover,
+#quarto-document-content table a:hover,
+#quarto-document-content li a:hover {
+  color: #0d9488;
+  text-decoration-color: #0d9488;
+}
+
+#quarto-document-content p a:focus-visible,
+#quarto-document-content table a:focus-visible,
+#quarto-document-content li a:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* --- Left Sidebar Interactive Styles --- */
 .sidebar-title {
   font-size: 0.95rem !important;
