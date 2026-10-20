@@ -21,11 +21,11 @@ PRIVATE_FIELDS = [
     "editorial_notes", "rejection_reason", "reviewing_member", "publishing_member",
     "editor_responsible", "privacy_checked", "ready_for_export", "duplicate_flag",
     "timestamp", "review_status", "publish_on_site", "url_checked",
-    "attachment_files", "attachment_public"
+    "upload_file", "attachment_public"
 ]
 
 # Column holding the Google Form file-upload links, and the editorial gate for publishing them
-ATTACHMENT_FIELD = os.environ.get("COMMUNITY_ATTACHMENT_COLUMN", "attachment_files")
+ATTACHMENT_FIELD = os.environ.get("COMMUNITY_ATTACHMENT_COLUMN", "upload_file")
 ATTACHMENT_PUBLIC_FIELD = "attachment_public"
 DRIVE_API = "https://www.googleapis.com/drive/v3/files"
 
@@ -349,6 +349,12 @@ def main():
         sys.exit(1)
         
     print(f"Total rows read from '{tab_name}': {len(rows)}")
+
+    if rows and ATTACHMENT_FIELD not in rows[0]:
+        print(
+            f"WARNING: Column '{ATTACHMENT_FIELD}' not found in '{tab_name}', so no attachments will be exported. "
+            f"Available columns: {list(rows[0].keys())}"
+        )
     
     export_data = []
     seen_ids = set()
