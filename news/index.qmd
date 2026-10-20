@@ -643,7 +643,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       if (metaHtml) combinedMeta += `<div class="contribution-meta">${metaHtml}</div>`;
       
       html += `
-        <details class="contribution-item${expiredClass}" ${isFirst}>
+        <details class="contribution-item${expiredClass}" id="${escapeHtml(item.id || '')}" ${isFirst}>
           <summary class="contribution-summary">
             <div class="contribution-icon">
               <img src="${imgSrc}" alt="${imgAlt}">
@@ -672,6 +672,16 @@ document.addEventListener("DOMContentLoaded", async function() {
     });
     html += '</div>';
     container.innerHTML = html;
+  }
+
+  // Open and scroll to the contribution named in the URL hash (e.g. links from the home page)
+  function openLinkedContribution() {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target || !target.classList.contains('contribution-item')) return;
+    target.open = true;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   try {
@@ -703,6 +713,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 
     renderCards(allData);
+    openLinkedContribution();
   } catch (error) {
     console.error("Failed to load community submissions:", error);
     container.innerHTML = '<p class="text-muted">No community contributions are available yet.</p>';

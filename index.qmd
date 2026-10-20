@@ -413,8 +413,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let html = '';
       latestItems.forEach(item => {
-        const url = item.url ? item.url : 'news/index.html';
-        const target = item.url ? 'target="_blank" rel="noopener"' : '';
+        // Posts with attachments open in the news section, where both the link and the files are available
+        const hasAttachments = Array.isArray(item.attachments) && item.attachments.length > 0;
+        const isExternal = Boolean(item.url) && !hasAttachments;
+        const url = isExternal ? item.url : (item.id ? `news/index.html#${encodeURIComponent(item.id)}` : 'news/index.html');
+        const target = isExternal ? 'target="_blank" rel="noopener"' : '';
         const imagePath = getContributionImage(item);
         
         const typeStr = formatLabel(item.type);
@@ -433,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (typeVal.includes('opportunity') || typeVal.includes('job') || typeVal.includes('position')) { iconName = 'news'; accentClass = 'community-card-accent--news'; }
 
         html += `
-          <article class="home-community-card" data-href="${url}" data-external="${item.url ? 'true' : 'false'}" tabindex="0" role="link">
+          <article class="home-community-card" data-href="${url}" data-external="${isExternal ? 'true' : 'false'}" tabindex="0" role="link">
             <div class="home-community-card-media">
               <img src="${imagePath}" alt="" aria-hidden="true">
             </div>
