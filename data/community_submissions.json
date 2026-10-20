@@ -21,7 +21,8 @@
       "conference",
       "network",
       "global"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260620-215028",
@@ -42,7 +43,8 @@
       "publication",
       "call",
       "early career"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260620-233219",
@@ -63,7 +65,8 @@
       "call",
       "conference",
       "global"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260620-233430",
@@ -83,7 +86,8 @@
       "research",
       "call",
       "global"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260620-233622",
@@ -104,7 +108,8 @@
       "call",
       "conference",
       "global"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260620-233810",
@@ -126,7 +131,8 @@
       "call",
       "global",
       "open access"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260623-144007",
@@ -147,7 +153,8 @@
       "publication",
       "call",
       "global"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260624-120743",
@@ -168,7 +175,8 @@
       "publication",
       "call",
       "global"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20260625-121523",
@@ -186,7 +194,8 @@
     "relevant_date": "",
     "tags": [
       "teaching"
-    ]
+    ],
+    "attachments": []
   },
   {
     "id": "sub-20261020-084253",
@@ -202,6 +211,24 @@
     "submitted_at": "2026-10-20",
     "date_published": "2026-10-20",
     "relevant_date": "",
-    "tags": []
+    "tags": [],
+    "attachments": []
+  },
+  {
+    "id": "sub-20261020-120959",
+    "title": "Probando adjuntos",
+    "description": "asdasd",
+    "type": "news",
+    "category": "other",
+    "territory": "",
+    "organization": "",
+    "url": "",
+    "language": "",
+    "member_display_name": "",
+    "submitted_at": "2026-10-20",
+    "date_published": "2026-10-20",
+    "relevant_date": "",
+    "tags": [],
+    "attachments": []
   }
 ]

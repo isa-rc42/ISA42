@@ -23,6 +23,7 @@
   - conference
   - network
   - global
+  attachments: []
 - id: sub-20260620-215028
   title: 'Call for Papers: Special Issue on Social Status'
   description: Social Psychology Quarterly invites submissions for a special issue
@@ -45,6 +46,7 @@
   - publication
   - call
   - early career
+  attachments: []
 - id: sub-20260620-233219
   title: 'Call for Papers: The Social Psychology of Third Parties in Intergroup Conflicts'
   description: The journal Social Psychology invites submissions for a special issue
@@ -67,6 +69,7 @@
   - call
   - conference
   - global
+  attachments: []
 - id: sub-20260620-233430
   title: 'Call for Papers: Anti-LGBTQ+ Policies Worldwide'
   description: The Journal of Community and Applied Social Psychology invites submissions
@@ -89,6 +92,7 @@
   - research
   - call
   - global
+  attachments: []
 - id: sub-20260620-233622
   title: 'Conference Call: Combating Harmful Stereotyping'
   description: 'The conference “Combating harmful stereotyping: a cross-disciplinary
@@ -111,6 +115,7 @@
   - call
   - conference
   - global
+  attachments: []
 - id: sub-20260620-233810
   title: 'Call for Papers: Social Processes from a Cultural Perspective'
   description: Social Influence invites submissions for the article collection “Social
@@ -134,6 +139,7 @@
   - call
   - global
   - open access
+  attachments: []
 - id: sub-20260623-144007
   title: Cyberpsychology and Social Dynamics in the Connected World
   description: Frontiers in Psychology is accepting manuscripts for a Research Topic
@@ -155,6 +161,7 @@
   - publication
   - call
   - global
+  attachments: []
 - id: sub-20260624-120743
   title: Towards Reflexive and Context-Sensitive Research in Personality and Social
     Psychology
@@ -178,6 +185,7 @@
   - publication
   - call
   - global
+  attachments: []
 - id: sub-20260625-121523
   title: Principles of Social Psychology Open Textbook
   description: Principles of Social Psychology is an open educational resource for
@@ -195,6 +203,7 @@
   relevant_date: ''
   tags:
   - teaching
+  attachments: []
 - id: sub-20261020-084253
   title: October 2026 RC42 Newsletter
   description: The October 2026 issue of the ISA RC42 Social Psychology newsletter
@@ -211,3 +220,19 @@
   date_published: '2026-10-20'
   relevant_date: ''
   tags: []
+  attachments: []
+- id: sub-20261020-120959
+  title: Probando adjuntos
+  description: asdasd
+  type: news
+  category: other
+  territory: ''
+  organization: ''
+  url: ''
+  language: ''
+  member_display_name: ''
+  submitted_at: '2026-10-20'
+  date_published: '2026-10-20'
+  relevant_date: ''
+  tags: []
+  attachments: []
