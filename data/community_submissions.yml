@@ -221,21 +221,3 @@
   relevant_date: ''
   tags: []
   attachments: []
-- id: sub-20261020-120959
-  title: Probando adjuntos
-  description: asdasd
-  type: news
-  category: other
-  territory: ''
-  organization: ''
-  url: ''
-  language: ''
-  member_display_name: ''
-  submitted_at: '2026-10-20'
-  date_published: '2026-10-20'
-  relevant_date: ''
-  tags: []
-  attachments:
-  - name: ISA RC 42 newsletter OCT 2026 ENGL (1) - ISA RC42 Community.pdf
-    mime_type: application/pdf
-    url: https://drive.google.com/file/d/1NV63stzMhy_emSYy1FxLoS1NrFZiq8y4/view
