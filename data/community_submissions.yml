@@ -235,4 +235,7 @@
   date_published: '2026-10-20'
   relevant_date: ''
   tags: []
-  attachments: []
+  attachments:
+  - name: ISA RC 42 newsletter OCT 2026 ENGL (1) - ISA RC42 Community.pdf
+    mime_type: application/pdf
+    url: https://drive.google.com/file/d/1NV63stzMhy_emSYy1FxLoS1NrFZiq8y4/view
