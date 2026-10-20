@@ -17,6 +17,22 @@ title-block-style: none
   <div class="newsletter-year-list">
 
     <div class="newsletter-year-row">
+      <div class="newsletter-year-label">2026</div>
+      <div class="newsletter-year-issues">
+        <div class="newsletter-issue">
+          <div class="newsletter-issue-meta">
+            <span class="newsletter-issue-title">RC42 Newsletter - October 2026</span>
+            <span class="newsletter-issue-date">October 2026</span>
+          </div>
+          <a href="https://drive.google.com/file/d/1NV63stzMhy_emSYy1FxLoS1NrFZiq8y4/view"
+             target="_blank" rel="noopener noreferrer" class="newsletter-read-link">
+            Read newsletter
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="newsletter-year-row">
       <div class="newsletter-year-label">2025</div>
       <div class="newsletter-year-issues">
         <div class="newsletter-issue">
