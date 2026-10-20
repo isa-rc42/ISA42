@@ -8,6 +8,7 @@ from datetime import datetime, date, timedelta
 from zoneinfo import ZoneInfo
 import gspread
 from google.oauth2.service_account import Credentials
+from google.auth.transport.requests import AuthorizedSession
 
 SANTIAGO_TZ = ZoneInfo("America/Santiago")
 
@@ -19,11 +20,17 @@ PRIVATE_FIELDS = [
     "submitter_email", "Email Address", "submitter_name", "editorial_comments",
     "editorial_notes", "rejection_reason", "reviewing_member", "publishing_member",
     "editor_responsible", "privacy_checked", "ready_for_export", "duplicate_flag",
-    "timestamp", "review_status", "publish_on_site", "url_checked"
+    "timestamp", "review_status", "publish_on_site", "url_checked",
+    "attachment_files", "attachment_public"
 ]
 
+# Column holding the Google Form file-upload links, and the editorial gate for publishing them
+ATTACHMENT_FIELD = os.environ.get("COMMUNITY_ATTACHMENT_COLUMN", "attachment_files")
+ATTACHMENT_PUBLIC_FIELD = "attachment_public"
+DRIVE_API = "https://www.googleapis.com/drive/v3/files"
+
 REQUIRED_YAML_FIELDS = [
-    "id", "title", "description", "type", "category", "language", "date_published"
+    "id", "title", "description", "type", "category", "date_published"
 ]
 
 def load_credentials():
@@ -34,7 +41,10 @@ def load_credentials():
         
     try:
         creds_dict = json.loads(service_account_json)
-        scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+        scopes = [
+            'https://www.googleapis.com/auth/spreadsheets.readonly',
+            'https://www.googleapis.com/auth/drive.readonly',
+        ]
         creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
         return creds
     except Exception as e:
@@ -129,7 +139,9 @@ def parse_flexible_date(value, row_number=None, field_name="date", required=Fals
         "%d %B %Y",
         "%d %b %Y",
         "%m/%d/%Y",
-        "%Y/%m/%d"
+        "%Y/%m/%d",
+        "%m/%d/%Y %H:%M:%S",
+        "%Y-%m-%d %H:%M:%S"
     ]
 
     for fmt in formats:
@@ -160,6 +172,61 @@ def extract_submission_date(row, sub_id):
     if match:
         return f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
     return ""
+
+def extract_drive_ids(value):
+    """Extract Drive file IDs from Google Form upload links (comma-separated if several)."""
+    ids = []
+    for part in str(value or "").split(","):
+        part = part.strip()
+        match = re.search(r"[?&]id=([\w-]+)", part) or re.search(r"/d/([\w-]+)", part)
+        if match and match.group(1) not in ids:
+            ids.append(match.group(1))
+    return ids
+
+def get_public_drive_file(session, file_id, row_number):
+    """
+    Return public metadata for a Drive file shared as 'anyone with the link'.
+    Sharing is never changed here: files that are not public are skipped with a warning.
+    """
+    try:
+        meta = session.get(
+            f"{DRIVE_API}/{file_id}",
+            params={"fields": "id,name,mimeType,permissions(type,role)", "supportsAllDrives": "true"},
+        )
+        if meta.status_code != 200:
+            print(f"WARNING (Row {row_number}): Cannot read Drive file {file_id} (HTTP {meta.status_code}). Skipping attachment.")
+            return None
+        info = meta.json()
+
+        permissions = info.get("permissions")
+        if permissions is not None and not any(p.get("type") == "anyone" for p in permissions):
+            print(f"WARNING (Row {row_number}): Drive file {file_id} is not shared as 'anyone with the link'. Skipping attachment.")
+            return None
+
+        return {
+            "name": info.get("name", ""),
+            "mime_type": info.get("mimeType", ""),
+            "url": f"https://drive.google.com/file/d/{file_id}/view",
+        }
+    except Exception as e:
+        print(f"WARNING (Row {row_number}): Drive request failed for file {file_id}: {e}. Skipping attachment.")
+        return None
+
+def build_attachments(session, row, row_number):
+    file_ids = extract_drive_ids(row.get(ATTACHMENT_FIELD, ""))
+    if not file_ids:
+        return []
+
+    if str(row.get(ATTACHMENT_PUBLIC_FIELD, "")).strip().lower() != "yes":
+        print(f"Row {row_number}: {len(file_ids)} attachment(s) not published because {ATTACHMENT_PUBLIC_FIELD} is not yes.")
+        return []
+
+    attachments = []
+    for file_id in file_ids:
+        attachment = get_public_drive_file(session, file_id, row_number)
+        if attachment:
+            attachments.append(attachment)
+    return attachments
 
 def parse_tags(tags_str):
     if not tags_str:
@@ -271,6 +338,7 @@ def main():
     print("Connecting to Google Sheets...")
     creds = load_credentials()
     client = gspread.authorize(creds)
+    drive_session = AuthorizedSession(creds)
     
     try:
         sheet = client.open_by_key(sheet_id).worksheet(tab_name)
@@ -365,6 +433,9 @@ def main():
         
         # 12. Tags
         record["tags"] = parse_tags(str(row.get("suggested_tags", "")))
+
+        # 13. Attachments (Google Form uploads, only when editorially approved)
+        record["attachments"] = build_attachments(drive_session, row, i)
         
         # Validate Required
         for req in REQUIRED_YAML_FIELDS:

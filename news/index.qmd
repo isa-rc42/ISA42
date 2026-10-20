@@ -605,6 +605,10 @@ document.addEventListener("DOMContentLoaded", async function() {
       const lang = escapeHtml(item.language || '');
       
       const tags = (item.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join('');
+      const attachmentsHtml = (item.attachments || [])
+        .filter(a => a && a.url)
+        .map(a => `<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener" class="contribution-link">${escapeHtml(a.name || 'Attached file')} &darr;</a>`)
+        .join('');
       const cardTitle = url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
       
       const kickerParts = [];
@@ -661,6 +665,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           <div class="contribution-details">
             <p class="contribution-desc">${desc}</p>
             ${url ? `<a href="${url}" target="_blank" rel="noopener" class="contribution-link">Open contribution &rarr;</a>` : ''}
+            ${attachmentsHtml}
           </div>
         </details>
       `;

@@ -3,7 +3,12 @@ title: "Website administration guide"
 subtitle: "Administrative manual for the ISA RC42 website"
 ---
 
-This guide explains the routine tasks required to maintain the ISA RC42 website. Most content administration is carried out through Google Forms and Google Sheets. GitHub is used mainly for automatic website updates and occasional technical maintenance.
+This guide explains the routine tasks required to maintain the ISA RC42 website. Key aspects:
+
+- the website is a static site built with Quarto and hosted on GitHub Pages, the repo is [https://github.com/isa-rc42/ISA42](https://github.com/isa-rc42/ISA42) on GitHub.
+- there is a semi-automated workflow that updates the website when changes are made to the administrative spreadsheets in Google Drive, which are accessible from the drive of the oficial RC42 email account: isa-rc42@isa-sociology.org. The spreadsheets were originally generated in another account (isarc42.community@gmail.com), which is the one linked to the github actions that generate automatic updates (the credentials of this second account were added as github secrets in order to enable automated updates).
+ 
+Most content administration is carried out through Google Forms and Google Sheets. GitHub is used mainly for automatic website updates and occasional technical maintenance.
 
 Administrators do not need a programming background to maintain the site. Routine updates to member listings, academic resources, community contributions, and newsletter subscriptions are managed in Google Drive and published automatically.
 
