@@ -23,11 +23,11 @@ Source: Juan Carlos Castillo</description>
 Source: Frontiers in Psychology</description>
       <guid isPermaLink="false">sub-20260624-120743</guid>
       <pubDate>Wed, 24 Jun 2026 09:00:00 +0000</pubDate>
-      <category>methods</category>
       <category>call</category>
       <category>global</category>
       <category>publication</category>
       <category>research</category>
+      <category>methods</category>
     </item>
     <item>
       <title>Cyberpsychology and Social Dynamics in the Connected World</title>
@@ -51,14 +51,14 @@ Source: Frontiers in Psychology</description>
 Source: Society for Personality and Social Psychology</description>
       <guid isPermaLink="false">sub-20260620-023627</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>conference</category>
-      <category>early career</category>
       <category>student opportunity</category>
       <category>social_psychology</category>
+      <category>early career</category>
       <category>call</category>
+      <category>conference</category>
       <category>global</category>
-      <category>network</category>
       <category>research</category>
+      <category>network</category>
     </item>
     <item>
       <title>Call for Papers: Special Issue on Social Status</title>
@@ -68,8 +68,8 @@ Source: Society for Personality and Social Psychology</description>
 Source: Social Psychology Quarterly / American Sociological Association</description>
       <guid isPermaLink="false">sub-20260620-215028</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>early career</category>
       <category>social_psychology</category>
+      <category>early career</category>
       <category>call</category>
       <category>publication</category>
       <category>research</category>
@@ -82,9 +82,9 @@ Source: Social Psychology Quarterly / American Sociological Association</descrip
 Source: Social Psychology / European Association of Social Psychology</description>
       <guid isPermaLink="false">sub-20260620-233219</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>conference</category>
       <category>social_psychology</category>
       <category>call</category>
+      <category>conference</category>
       <category>global</category>
       <category>research</category>
     </item>
@@ -96,10 +96,10 @@ Source: Social Psychology / European Association of Social Psychology</descripti
 Source: Journal of Community and Applied Social Psychology / European Association of Social Psychology</description>
       <guid isPermaLink="false">sub-20260620-233430</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>global</category>
-      <category>research</category>
-      <category>inequality</category>
       <category>call</category>
+      <category>global</category>
+      <category>inequality</category>
+      <category>research</category>
     </item>
     <item>
       <title>Conference Call: Combating Harmful Stereotyping</title>
@@ -109,10 +109,10 @@ Source: Journal of Community and Applied Social Psychology / European Associatio
 Source: European Association of Social Psychology / Université Grenoble Alpes</description>
       <guid isPermaLink="false">sub-20260620-233622</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>conference</category>
       <category>event</category>
       <category>social_psychology</category>
       <category>call</category>
+      <category>conference</category>
       <category>global</category>
       <category>research</category>
     </item>
@@ -124,12 +124,12 @@ Source: European Association of Social Psychology / Université Grenoble Alpes</
 Source: Social Influence / Taylor &amp; Francis / European Association of Social Psychology</description>
       <guid isPermaLink="false">sub-20260620-233810</guid>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
-      <category>open access</category>
       <category>social_psychology</category>
       <category>call</category>
       <category>global</category>
       <category>publication</category>
       <category>research</category>
+      <category>open access</category>
     </item>
   </channel>
 </rss>
