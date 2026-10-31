@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-30T19:52:41.260137",
+  "last_updated": "2026-10-31T19:09:33.601836",
   "active_members_rule": "RC Membership Start Date <= today and RC Membership End Date >= today",
   "isa_expiration_used_as_filter": false,
   "past_members_rule": "last_rc_end_date < today and not active",
